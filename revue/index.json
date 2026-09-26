@@ -1,0 +1,9270 @@
+[
+{
+"n": 1,
+"id": "01qpYSe",
+"name": "upward facing dog",
+"fr": "Chien tête en haut (yoga)",
+"ok": true
+},
+{
+"n": 2,
+"id": "03lzqwk",
+"name": "assisted hanging knee raise",
+"fr": "Relevé de genoux suspendu assisté",
+"ok": true
+},
+{
+"n": 3,
+"id": "05Cf2v8",
+"name": "impossible dips",
+"fr": "Dips impossibles",
+"ok": true
+},
+{
+"n": 4,
+"id": "0CXGHya",
+"name": "cable cross-over variation",
+"fr": "Poulie vis-à-vis",
+"ok": true
+},
+{
+"n": 5,
+"id": "0IgNjSM",
+"name": "dumbbell standing reverse curl",
+"fr": "Curl inversé debout haltères",
+"ok": true
+},
+{
+"n": 6,
+"id": "0JtKWum",
+"name": "dumbbell burpee",
+"fr": "Burpee haltères",
+"ok": true
+},
+{
+"n": 7,
+"id": "0L2KwtI",
+"name": "roller hip lat stretch",
+"fr": "Étirement hanche et dorsaux au rouleau",
+"ok": true
+},
+{
+"n": 8,
+"id": "0S75mYG",
+"name": "smith seated one leg calf raise",
+"fr": "Mollets assis sur une jambe Smith machine",
+"ok": true
+},
+{
+"n": 9,
+"id": "0V2YQjW",
+"name": "pull up (neutral grip)",
+"fr": "Traction prise neutre",
+"ok": true
+},
+{
+"n": 10,
+"id": "0Yz8WdV",
+"name": "bear crawl",
+"fr": "Marche de l'ours",
+"ok": true
+},
+{
+"n": 11,
+"id": "0br45wL",
+"name": "push-up inside leg kick",
+"fr": "Pompe avec coup de pied vers l'intérieur",
+"ok": true
+},
+{
+"n": 12,
+"id": "0dCyly0",
+"name": "barbell seated bradford rocky press",
+"fr": "Développé Bradford assis barre",
+"ok": true
+},
+{
+"n": 13,
+"id": "0jp9Rlz",
+"name": "one leg floor calf raise",
+"fr": "Mollets au sol sur une jambe",
+"ok": true
+},
+{
+"n": 14,
+"id": "0lQnxMZ",
+"name": "weighted sissy squat",
+"fr": "Sissy squat lesté",
+"ok": true
+},
+{
+"n": 15,
+"id": "0mB6wHO",
+"name": "runners stretch",
+"fr": "Étirement du coureur",
+"ok": true
+},
+{
+"n": 16,
+"id": "0rHfvy9",
+"name": "inverse leg curl (on pull-up cable machine)",
+"fr": "Leg curl inversé sur station à poulie",
+"ok": true
+},
+{
+"n": 17,
+"id": "0xDpB4L",
+"name": "resistance band seated hip abduction",
+"fr": "Abduction de hanche assis à l'élastique",
+"ok": true
+},
+{
+"n": 18,
+"id": "10Z2DXU",
+"name": "sled 45в° leg press",
+"fr": "Presse à cuisses 45°",
+"ok": true
+},
+{
+"n": 19,
+"id": "11wrviz",
+"name": "isometric wipers",
+"fr": "Essuie-glaces isométriques",
+"ok": true
+},
+{
+"n": 20,
+"id": "13TpY4H",
+"name": "raise single arm push-up",
+"fr": "Pompe à un bras avec bras levé",
+"ok": true
+},
+{
+"n": 21,
+"id": "13VW2VO",
+"name": "weighted stretch lunge",
+"fr": "Fente étirée lestée",
+"ok": true
+},
+{
+"n": 22,
+"id": "17bqEXD",
+"name": "seated calf stretch (male)",
+"fr": "Étirement des mollets assis",
+"ok": true
+},
+{
+"n": 23,
+"id": "17lJ1kr",
+"name": "lever lying leg curl",
+"fr": "Leg curl allongé",
+"ok": true
+},
+{
+"n": 24,
+"id": "196HJGw",
+"name": "hip raise (bent knee)",
+"fr": "Élévation de bassin genoux fléchis",
+"ok": true
+},
+{
+"n": 25,
+"id": "1DN3iz4",
+"name": "smith upright row",
+"fr": "Rowing menton Smith machine",
+"ok": true
+},
+{
+"n": 26,
+"id": "1GPHRyK",
+"name": "janda sit-up",
+"fr": "Sit-up Janda",
+"ok": true
+},
+{
+"n": 27,
+"id": "1IG6gVF",
+"name": "prone twist on stability ball",
+"fr": "Rotation sur le ventre sur swiss ball",
+"ok": true
+},
+{
+"n": 28,
+"id": "1LVFcEn",
+"name": "calf stretch with rope",
+"fr": "Étirement des mollets avec une corde",
+"ok": true
+},
+{
+"n": 29,
+"id": "1PK5Uo3",
+"name": "cable incline pushdown",
+"fr": "Extension triceps incliné à la poulie",
+"ok": true
+},
+{
+"n": 30,
+"id": "1PLE8e9",
+"name": "dumbbell incline twisted flyes",
+"fr": "Écarté incliné avec rotation haltères",
+"ok": true
+},
+{
+"n": 31,
+"id": "1TkiAFK",
+"name": "dumbbell one arm shoulder press v. 2",
+"fr": "Développé épaule unilatéral haltère, variante 2",
+"ok": true
+},
+{
+"n": 32,
+"id": "1V1gj1u",
+"name": "barbell seated close-grip concentration curl",
+"fr": "Curl concentré assis prise serrée barre",
+"ok": true
+},
+{
+"n": 33,
+"id": "1VpF8db",
+"name": "dumbbell bicep curl lunge with bowling motion",
+"fr": "Fente avec curl biceps haltères, mouvement de bowling",
+"ok": true
+},
+{
+"n": 34,
+"id": "1YB40kg",
+"name": "incline close-grip push-up",
+"fr": "Pompe inclinée prise serrée",
+"ok": true
+},
+{
+"n": 35,
+"id": "1ZFqTDN",
+"name": "air bike",
+"fr": "Air bike",
+"ok": true
+},
+{
+"n": 36,
+"id": "1bQkKZK",
+"name": "smith bent knee good morning",
+"fr": "Good morning genoux fléchis Smith machine",
+"ok": true
+},
+{
+"n": 37,
+"id": "1cTf2Ux",
+"name": "ez bar standing french press",
+"fr": "Extension triceps nuque debout barre EZ",
+"ok": true
+},
+{
+"n": 38,
+"id": "1g5bPpA",
+"name": "jack jump (male)",
+"fr": "Jumping jack",
+"ok": true
+},
+{
+"n": 39,
+"id": "1gFNTZV",
+"name": "barbell jump squat",
+"fr": "Squat sauté barre",
+"ok": true
+},
+{
+"n": 40,
+"id": "1jXLYEw",
+"name": "standing lateral stretch",
+"fr": "Étirement latéral debout",
+"ok": true
+},
+{
+"n": 41,
+"id": "1kB3Wmk",
+"name": "dumbbell single leg calf raise",
+"fr": "Mollets unilatéral haltère",
+"ok": true
+},
+{
+"n": 42,
+"id": "1qrWgZ2",
+"name": "dumbbell decline hammer press",
+"fr": "Développé décliné prise marteau haltères",
+"ok": true
+},
+{
+"n": 43,
+"id": "1xHyxys",
+"name": "cable high pulley overhead tricep extension",
+"fr": "Extension triceps nuque à la poulie haute",
+"ok": true
+},
+{
+"n": 44,
+"id": "225x2Vd",
+"name": "band kneeling twisting crunch",
+"fr": "Crunch avec rotation à genoux à l'élastique",
+"ok": true
+},
+{
+"n": 45,
+"id": "25GPyDY",
+"name": "barbell curl",
+"fr": "Curl barre",
+"ok": true
+},
+{
+"n": 46,
+"id": "27NNGFr",
+"name": "cable incline fly (on stability ball)",
+"fr": "Écarté incliné à la poulie sur swiss ball",
+"ok": true
+},
+{
+"n": 47,
+"id": "2Dk4xQV",
+"name": "rocking frog stretch",
+"fr": "Étirement de la grenouille en bascule",
+"ok": true
+},
+{
+"n": 48,
+"id": "2DxtqHL",
+"name": "barbell one arm side deadlift",
+"fr": "Soulevé de terre unilatéral de côté barre",
+"ok": true
+},
+{
+"n": 49,
+"id": "2IHEa2T",
+"name": "barbell floor calf raise",
+"fr": "Mollets au sol barre",
+"ok": true
+},
+{
+"n": 50,
+"id": "2IxROQ1",
+"name": "cable overhead triceps extension (rope attachment)",
+"fr": "Extension triceps nuque à la corde",
+"ok": true
+},
+{
+"n": 51,
+"id": "2JCuFTU",
+"name": "dumbbell kneeling bicep curl exercise ball",
+"fr": "Curl biceps à genoux haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 52,
+"id": "2KGnL6M",
+"name": "lever one arm shoulder press",
+"fr": "Développé épaule unilatéral machine",
+"ok": true
+},
+{
+"n": 53,
+"id": "2LQkNPW",
+"name": "exercise ball hip flexor stretch",
+"fr": "Étirement des fléchisseurs de hanche sur swiss ball",
+"ok": true
+},
+{
+"n": 54,
+"id": "2NImIAG",
+"name": "dumbbell bicep curl on exercise ball with leg raised",
+"fr": "Curl biceps haltères sur swiss ball jambe levée",
+"ok": true
+},
+{
+"n": 55,
+"id": "2NpxjC1",
+"name": "dumbbell hammer curl v. 2",
+"fr": "Curl marteau haltères, variante 2",
+"ok": true
+},
+{
+"n": 56,
+"id": "2ORFMoR",
+"name": "hack calf raise",
+"fr": "Mollets au hack squat",
+"ok": true
+},
+{
+"n": 57,
+"id": "2Pya1cP",
+"name": "cable decline press",
+"fr": "Développé décliné à la poulie",
+"ok": true
+},
+{
+"n": 58,
+"id": "2Qh2J1e",
+"name": "sled 45° leg press (side pov)",
+"fr": "Presse à cuisses 45°, vue de profil",
+"ok": true
+},
+{
+"n": 59,
+"id": "2Ryn564",
+"name": "assisted prone rectus femoris stretch",
+"fr": "Étirement du droit fémoral sur le ventre assisté",
+"ok": true
+},
+{
+"n": 60,
+"id": "2dImyQ8",
+"name": "dumbbell seated palms up wrist curl",
+"fr": "Curl poignets paumes vers le haut assis haltères",
+"ok": true
+},
+{
+"n": 61,
+"id": "2gPfomN",
+"name": "3/4 sit-up",
+"fr": "Sit-up 3/4",
+"ok": true
+},
+{
+"n": 62,
+"id": "2jl9K55",
+"name": "spine twist",
+"fr": "Torsion de la colonne",
+"ok": true
+},
+{
+"n": 63,
+"id": "2kattbR",
+"name": "ez barbell spider curl",
+"fr": "Spider curl barre EZ",
+"ok": true
+},
+{
+"n": 64,
+"id": "2kr2lWy",
+"name": "push-up (bosu ball)",
+"fr": "Pompe sur Bosu, variante",
+"ok": true
+},
+{
+"n": 65,
+"id": "2qTvJAZ",
+"name": "barbell standing back wrist curl",
+"fr": "Curl poignets dans le dos debout barre",
+"ok": true
+},
+{
+"n": 66,
+"id": "2sQGZ5b",
+"name": "dumbbell one arm standing hammer curl",
+"fr": "Curl marteau unilatéral debout haltère",
+"ok": true
+},
+{
+"n": 67,
+"id": "2zNKRUB",
+"name": "wrist circles",
+"fr": "Cercles de poignets",
+"ok": true
+},
+{
+"n": 68,
+"id": "33AzZeV",
+"name": "barbell front raise and pullover",
+"fr": "Élévation frontale et pull-over barre",
+"ok": true
+},
+{
+"n": 69,
+"id": "3T12T87",
+"name": "dumbbell standing bent over two arm triceps extension",
+"fr": "Extension triceps deux bras buste penché haltères",
+"ok": true
+},
+{
+"n": 70,
+"id": "3TZduzM",
+"name": "barbell incline bench press",
+"fr": "Développé incliné barre",
+"ok": true
+},
+{
+"n": 71,
+"id": "3XFdb1Z",
+"name": "cable squatting curl",
+"fr": "Curl accroupi à la poulie",
+"ok": true
+},
+{
+"n": 72,
+"id": "3ZflifB",
+"name": "cable pushdown",
+"fr": "Extension triceps à la poulie",
+"ok": true
+},
+{
+"n": 73,
+"id": "3d7wHyd",
+"name": "dumbbell bench seated press",
+"fr": "Développé assis sur banc haltères",
+"ok": true
+},
+{
+"n": 74,
+"id": "3eGE2JC",
+"name": "dumbbell front raise",
+"fr": "Élévations frontales haltères",
+"ok": true
+},
+{
+"n": 75,
+"id": "3omWx6P",
+"name": "band alternating biceps curl",
+"fr": "Curl biceps alterné à l'élastique",
+"ok": true
+},
+{
+"n": 76,
+"id": "3s4NnTh",
+"name": "dumbbell standing biceps curl",
+"fr": "Curl biceps debout haltères",
+"ok": true
+},
+{
+"n": 77,
+"id": "3tAXPQ6",
+"name": "dumbbell over bench revers wrist curl",
+"fr": "Curl poignets inversé sur banc haltères",
+"ok": true
+},
+{
+"n": 78,
+"id": "3uj0Ozg",
+"name": "dynamic chest stretch (male)",
+"fr": "Étirement dynamique des pectoraux",
+"ok": true
+},
+{
+"n": 79,
+"id": "3xK09Sk",
+"name": "bodyweight squatting row",
+"fr": "Rowing accroupi au poids du corps",
+"ok": true
+},
+{
+"n": 80,
+"id": "4CBIBOM",
+"name": "barbell seated close grip behind neck triceps extension",
+"fr": "Extension triceps nuque assis prise serrée barre",
+"ok": true
+},
+{
+"n": 81,
+"id": "4GqRrAk",
+"name": "superman push-up",
+"fr": "Pompe superman",
+"ok": true
+},
+{
+"n": 82,
+"id": "4IKbhHV",
+"name": "alternate lateral pulldown",
+"fr": "Tirage vertical alterné",
+"ok": true
+},
+{
+"n": 83,
+"id": "4Jc36XM",
+"name": "dumbbell over bench one arm reverse wrist curl",
+"fr": "Curl poignet inversé unilatéral sur banc haltère",
+"ok": true
+},
+{
+"n": 84,
+"id": "4Jt8QsQ",
+"name": "push-up on lower arms",
+"fr": "Pompe sur les avant-bras",
+"ok": true
+},
+{
+"n": 85,
+"id": "4KJEpzb",
+"name": "kettlebell bottoms up clean from the hang position",
+"fr": "Épaulé bottom up depuis la suspension kettlebell",
+"ok": true
+},
+{
+"n": 86,
+"id": "4LIG9xr",
+"name": "barbell reverse preacher curl",
+"fr": "Curl pupitre inversé barre",
+"ok": true
+},
+{
+"n": 87,
+"id": "4Leypho",
+"name": "barbell skier",
+"fr": "Skieur barre",
+"ok": true
+},
+{
+"n": 88,
+"id": "4LoWllp",
+"name": "band fixed back close grip pulldown",
+"fr": "Tirage vertical prise serrée élastique fixé derrière",
+"ok": true
+},
+{
+"n": 89,
+"id": "4Ml7QFO",
+"name": "hanging straight leg raise",
+"fr": "Relevé de jambes tendues suspendu",
+"ok": true
+},
+{
+"n": 90,
+"id": "4OaumBr",
+"name": "suspended row",
+"fr": "Rowing en suspension",
+"ok": true
+},
+{
+"n": 91,
+"id": "4U7iLb5",
+"name": "lever pullover",
+"fr": "Pull-over machine",
+"ok": true
+},
+{
+"n": 92,
+"id": "4c9BhzB",
+"name": "cable lateral pulldown with v-bar",
+"fr": "Tirage vertical prise serrée",
+"ok": true
+},
+{
+"n": 93,
+"id": "4cWjYEN",
+"name": "narrow push-up on exercise ball",
+"fr": "Pompe serrée sur swiss ball",
+"ok": true
+},
+{
+"n": 94,
+"id": "4dF3maG",
+"name": "dumbbell one arm hammer preacher curl",
+"fr": "Curl marteau pupitre unilatéral haltère",
+"ok": true
+},
+{
+"n": 95,
+"id": "4dUn2iv",
+"name": "barbell standing close grip curl",
+"fr": "Curl debout prise serrée barre",
+"ok": true
+},
+{
+"n": 96,
+"id": "4f8RXP8",
+"name": "cable standing row (v-bar)",
+"fr": "Rowing debout à la poulie, poignée en V",
+"ok": true
+},
+{
+"n": 97,
+"id": "4hATdoB",
+"name": "cable rope one arm hammer preacher curl",
+"fr": "Curl marteau pupitre unilatéral à la corde",
+"ok": true
+},
+{
+"n": 98,
+"id": "4ievMJ9",
+"name": "dumbbell seated bent over triceps extension",
+"fr": "Extension triceps assis buste penché haltères",
+"ok": true
+},
+{
+"n": 99,
+"id": "4x5Okof",
+"name": "resistance band seated chest press",
+"fr": "Développé pectoraux assis à l'élastique",
+"ok": true
+},
+{
+"n": 100,
+"id": "50BETrz",
+"name": "biceps narrow pull-ups",
+"fr": "Tractions biceps prise serrée",
+"ok": true
+},
+{
+"n": 101,
+"id": "53Ttlck",
+"name": "dumbbell lying rear lateral raise",
+"fr": "Oiseau allongé haltères",
+"ok": true
+},
+{
+"n": 102,
+"id": "5BZHW9s",
+"name": "squat to overhead reach with twist",
+"fr": "Squat avec bras tendus vers le haut et rotation",
+"ok": true
+},
+{
+"n": 103,
+"id": "5KLbZWx",
+"name": "kettlebell alternating press",
+"fr": "Développé alterné kettlebell",
+"ok": true
+},
+{
+"n": 104,
+"id": "5MRH8H2",
+"name": "ski step",
+"fr": "Pas de ski",
+"ok": true
+},
+{
+"n": 105,
+"id": "5VCj6iH",
+"name": "barbell hack squat",
+"fr": "Hack squat barre",
+"ok": true
+},
+{
+"n": 106,
+"id": "5VXmnV5",
+"name": "bodyweight incline side plank",
+"fr": "Gainage latéral incliné au poids du corps",
+"ok": true
+},
+{
+"n": 107,
+"id": "5WiFcYk",
+"name": "weighted lunge with swing",
+"fr": "Fente avec balancier lesté",
+"ok": true
+},
+{
+"n": 108,
+"id": "5bpPTHv",
+"name": "kettlebell pistol squat",
+"fr": "Pistol squat kettlebell",
+"ok": true
+},
+{
+"n": 109,
+"id": "5eLRITT",
+"name": "dumbbell stiff leg deadlift",
+"fr": "Soulevé de terre jambes tendues haltères",
+"ok": true
+},
+{
+"n": 110,
+"id": "5fKX7wi",
+"name": "dumbbell seated reverse grip one arm overhead tricep extension",
+"fr": "Extension triceps nuque unilatérale prise inversée assis haltère",
+"ok": true
+},
+{
+"n": 111,
+"id": "5uFK1xr",
+"name": "barbell seated overhead triceps extension",
+"fr": "Extension triceps nuque assis barre",
+"ok": true
+},
+{
+"n": 112,
+"id": "5v7KYld",
+"name": "smith incline bench press",
+"fr": "Développé incliné Smith machine",
+"ok": true
+},
+{
+"n": 113,
+"id": "5vfAI0I",
+"name": "dumbbell scott press",
+"fr": "Développé Scott haltères",
+"ok": true
+},
+{
+"n": 114,
+"id": "61GrD55",
+"name": "cable lying close-grip curl",
+"fr": "Curl allongé prise serrée à la poulie",
+"ok": true
+},
+{
+"n": 115,
+"id": "62Nw60O",
+"name": "barbell rear lunge v. 2",
+"fr": "Fente arrière barre, variante 2",
+"ok": true
+},
+{
+"n": 116,
+"id": "641mIfk",
+"name": "barbell incline reverse-grip press",
+"fr": "Développé incliné prise inversée barre",
+"ok": true
+},
+{
+"n": 117,
+"id": "67n3r98",
+"name": "lever shoulder press",
+"fr": "Développé épaules machine",
+"ok": true
+},
+{
+"n": 118,
+"id": "6CKUx7o",
+"name": "ez bar lying close grip triceps extension behind head",
+"fr": "Extension triceps derrière la tête allongé prise serrée barre EZ, variante",
+"ok": true
+},
+{
+"n": 119,
+"id": "6FMU51h",
+"name": "semi squat jump (male)",
+"fr": "Demi squat sauté",
+"ok": true
+},
+{
+"n": 120,
+"id": "6HiHHe0",
+"name": "barbell standing rocking leg calf raise",
+"fr": "Mollets debout avec bascule barre",
+"ok": true
+},
+{
+"n": 121,
+"id": "6HmFgmx",
+"name": "standing calf raise (on a staircase)",
+"fr": "Mollets debout sur une marche",
+"ok": true
+},
+{
+"n": 122,
+"id": "6MaEjVA",
+"name": "smith standing leg calf raise",
+"fr": "Mollets debout Smith machine",
+"ok": true
+},
+{
+"n": 123,
+"id": "6MfS53i",
+"name": "dumbbell lying single extension",
+"fr": "Extension triceps allongé un bras haltère",
+"ok": true
+},
+{
+"n": 124,
+"id": "6TG6x2w",
+"name": "ez barbell curl",
+"fr": "Curl barre EZ",
+"ok": true
+},
+{
+"n": 125,
+"id": "6YUfHPL",
+"name": "quads",
+"fr": "Quadriceps",
+"ok": true
+},
+{
+"n": 126,
+"id": "6ZCiYWQ",
+"name": "sit-up with arms on chest",
+"fr": "Sit-up bras croisés sur la poitrine",
+"ok": true
+},
+{
+"n": 127,
+"id": "6bOA1Oi",
+"name": "weighted side bend (on stability ball)",
+"fr": "Flexion latérale lestée sur swiss ball",
+"ok": true
+},
+{
+"n": 128,
+"id": "6cKQC5E",
+"name": "dumbbell one arm upright row",
+"fr": "Rowing menton unilatéral haltère",
+"ok": true
+},
+{
+"n": 129,
+"id": "6e2DcYX",
+"name": "dumbbell incline shoulder raise",
+"fr": "Élévation d'épaules inclinée haltères",
+"ok": true
+},
+{
+"n": 130,
+"id": "6em2Dxj",
+"name": "dumbbell alternate seated hammer curl",
+"fr": "Curl marteau alterné assis haltères",
+"ok": true
+},
+{
+"n": 131,
+"id": "6kSxYnw",
+"name": "barbell wrist curl v. 2",
+"fr": "Curl poignets barre, variante 2",
+"ok": true
+},
+{
+"n": 132,
+"id": "6pTkI99",
+"name": "dumbbell one arm snatch",
+"fr": "Arraché unilatéral haltère",
+"ok": true
+},
+{
+"n": 133,
+"id": "6sMAmNv",
+"name": "dumbbell reverse spider curl",
+"fr": "Spider curl inversé haltères",
+"ok": true
+},
+{
+"n": 134,
+"id": "6sYyrRX",
+"name": "bent knee lying twist (male)",
+"fr": "Rotation genoux fléchis allongé",
+"ok": true
+},
+{
+"n": 135,
+"id": "6t00BsF",
+"name": "cable one arm incline press on exercise ball",
+"fr": "Développé incliné unilatéral à la poulie sur swiss ball",
+"ok": true
+},
+{
+"n": 136,
+"id": "72BC5Za",
+"name": "archer pull up",
+"fr": "Traction archer",
+"ok": true
+},
+{
+"n": 137,
+"id": "75Bgtjy",
+"name": "potty squat",
+"fr": "Squat accroupi profond",
+"ok": true
+},
+{
+"n": 138,
+"id": "76vfTdU",
+"name": "dumbbell step up single leg balance with bicep curl",
+"fr": "Step-up en équilibre sur une jambe avec curl biceps haltères",
+"ok": true
+},
+{
+"n": 139,
+"id": "78VqWQK",
+"name": "smith incline reverse-grip press",
+"fr": "Développé incliné prise inversée Smith machine",
+"ok": true
+},
+{
+"n": 140,
+"id": "7B4F5nZ",
+"name": "lever calf press",
+"fr": "Mollets à la presse machine",
+"ok": true
+},
+{
+"n": 141,
+"id": "7Ba7bQ2",
+"name": "kettlebell two arm clean",
+"fr": "Épaulé deux bras kettlebells",
+"ok": true
+},
+{
+"n": 142,
+"id": "7D5bgLT",
+"name": "dumbbell seated preacher curl",
+"fr": "Curl pupitre assis haltères",
+"ok": true
+},
+{
+"n": 143,
+"id": "7E06s6d",
+"name": "chest tap push-up (male)",
+"fr": "Pompe avec toucher de poitrine",
+"ok": true
+},
+{
+"n": 144,
+"id": "7F1DVzn",
+"name": "lever front pulldown",
+"fr": "Tirage vertical devant machine",
+"ok": true
+},
+{
+"n": 145,
+"id": "7HcfMBP",
+"name": "assisted standing triceps extension (with towel)",
+"fr": "Extension triceps debout assistée avec serviette",
+"ok": true
+},
+{
+"n": 146,
+"id": "7Hg55JG",
+"name": "dumbbell clean",
+"fr": "Épaulé haltères",
+"ok": true
+},
+{
+"n": 147,
+"id": "7I6LNUG",
+"name": "lever seated row",
+"fr": "Rowing assis machine",
+"ok": true
+},
+{
+"n": 148,
+"id": "7M66AVi",
+"name": "barbell rollerout",
+"fr": "Roulette abdominale avec barre",
+"ok": true
+},
+{
+"n": 149,
+"id": "7OeHptV",
+"name": "assisted standing chin-up",
+"fr": "Traction supination assistée debout",
+"ok": true
+},
+{
+"n": 150,
+"id": "7RWNjiB",
+"name": "dumbbell lying pronation on floor",
+"fr": "Pronation allongé au sol haltère",
+"ok": true
+},
+{
+"n": 151,
+"id": "7WaDzyL",
+"name": "side hip abduction",
+"fr": "Abduction de hanche sur le côté",
+"ok": true
+},
+{
+"n": 152,
+"id": "7aVz15j",
+"name": "triceps dips floor",
+"fr": "Dips triceps au sol",
+"ok": true
+},
+{
+"n": 153,
+"id": "7aolH9D",
+"name": "medicine ball chest push multiple response",
+"fr": "Poussées poitrine médecine ball enchaînées",
+"ok": true
+},
+{
+"n": 154,
+"id": "7ePTw4B",
+"name": "exercise ball seated triceps stretch",
+"fr": "Étirement des triceps assis sur swiss ball",
+"ok": true
+},
+{
+"n": 155,
+"id": "7f2jsqP",
+"name": "dumbbell seated one arm rotate",
+"fr": "Rotation unilatérale assis haltère",
+"ok": true
+},
+{
+"n": 156,
+"id": "7gdLIXa",
+"name": "dumbbell lying hammer press",
+"fr": "Développé prise marteau allongé haltères",
+"ok": true
+},
+{
+"n": 157,
+"id": "7inpWch",
+"name": "dumbbell standing concentration curl",
+"fr": "Curl concentré debout haltère",
+"ok": true
+},
+{
+"n": 158,
+"id": "7jGOBF3",
+"name": "dumbbell close grip press",
+"fr": "Développé prise serrée haltères",
+"ok": true
+},
+{
+"n": 159,
+"id": "7saC5zz",
+"name": "cable decline fly",
+"fr": "Écarté décliné à la poulie",
+"ok": true
+},
+{
+"n": 160,
+"id": "7uFJuXp",
+"name": "weighted kneeling step with swing",
+"fr": "Pas à genoux avec balancier lesté",
+"ok": true
+},
+{
+"n": 161,
+"id": "7vG5o25",
+"name": "dumbbell incline row",
+"fr": "Rowing incliné haltères",
+"ok": true
+},
+{
+"n": 162,
+"id": "7w6i0vE",
+"name": "kettlebell alternating press on floor",
+"fr": "Développé au sol alterné kettlebell",
+"ok": true
+},
+{
+"n": 163,
+"id": "7xI5MXA",
+"name": "cable bench press",
+"fr": "Développé couché à la poulie",
+"ok": true
+},
+{
+"n": 164,
+"id": "7xeukSt",
+"name": "scapula dips",
+"fr": "Dips scapulaires",
+"ok": true
+},
+{
+"n": 165,
+"id": "7zdxRTl",
+"name": "smith leg press",
+"fr": "Presse à cuisses Smith machine",
+"ok": true
+},
+{
+"n": 166,
+"id": "82LxxkW",
+"name": "barbell wrist curl",
+"fr": "Curl poignets barre",
+"ok": true
+},
+{
+"n": 167,
+"id": "83HoW9X",
+"name": "barbell upright row v. 2",
+"fr": "Rowing menton barre, variante 2",
+"ok": true
+},
+{
+"n": 168,
+"id": "84RyJf8",
+"name": "dumbbell one arm shoulder press",
+"fr": "Développé épaule unilatéral haltère",
+"ok": true
+},
+{
+"n": 169,
+"id": "84sESNy",
+"name": "dumbbell seated one arm bicep curl on exercise ball with leg raised",
+"fr": "Curl biceps unilatéral assis haltère sur swiss ball jambe levée",
+"ok": true
+},
+{
+"n": 170,
+"id": "8ARQ9Hw",
+"name": "kettlebell sumo high pull",
+"fr": "Tirage haut sumo kettlebell",
+"ok": true
+},
+{
+"n": 171,
+"id": "8DiFDVA",
+"name": "dumbbell rear fly",
+"fr": "Oiseau haltères",
+"ok": true
+},
+{
+"n": 172,
+"id": "8K0w2yA",
+"name": "assisted hanging knee raise with throw down",
+"fr": "Relevé de genoux suspendu assisté avec poussée",
+"ok": true
+},
+{
+"n": 173,
+"id": "8K7m2SS",
+"name": "medicine ball close grip push up",
+"fr": "Pompe prise serrée sur médecine ball",
+"ok": true
+},
+{
+"n": 174,
+"id": "8coXSYU",
+"name": "roller seated shoulder flexor depresor retractor",
+"fr": "Mobilité des épaules assis au rouleau",
+"ok": true
+},
+{
+"n": 175,
+"id": "8d8qJQI",
+"name": "barbell reverse grip incline bench row",
+"fr": "Rowing sur banc incliné prise inversée barre",
+"ok": true
+},
+{
+"n": 176,
+"id": "8eqjhOl",
+"name": "dumbbell palms in incline bench press",
+"fr": "Développé incliné paumes face à face haltères, variante",
+"ok": true
+},
+{
+"n": 177,
+"id": "8fgqP5a",
+"name": "dumbbell standing one arm concentration curl",
+"fr": "Curl concentré unilatéral debout haltère",
+"ok": true
+},
+{
+"n": 178,
+"id": "8oYqOt9",
+"name": "cable seated curl",
+"fr": "Curl assis à la poulie",
+"ok": true
+},
+{
+"n": 179,
+"id": "8ozhUIZ",
+"name": "barbell standing calf raise",
+"fr": "Mollets debout barre",
+"ok": true
+},
+{
+"n": 180,
+"id": "8urJS9b",
+"name": "weighted hyperextension (on stability ball)",
+"fr": "Hyperextension lestée sur swiss ball",
+"ok": true
+},
+{
+"n": 181,
+"id": "8xUv4J7",
+"name": "cable seated crunch",
+"fr": "Crunch assis à la poulie",
+"ok": true
+},
+{
+"n": 182,
+"id": "903mzG8",
+"name": "smith shoulder press",
+"fr": "Développé épaules Smith machine",
+"ok": true
+},
+{
+"n": 183,
+"id": "945zpRg",
+"name": "barbell wide reverse grip bench press",
+"fr": "Développé couché prise large inversée barre",
+"ok": true
+},
+{
+"n": 184,
+"id": "99rWm7w",
+"name": "hamstring stretch",
+"fr": "Étirement des ischios",
+"ok": true
+},
+{
+"n": 185,
+"id": "9Ap7miY",
+"name": "decline crunch",
+"fr": "Crunch décliné",
+"ok": true
+},
+{
+"n": 186,
+"id": "9E25EOx",
+"name": "split squats",
+"fr": "Squats fendus",
+"ok": true
+},
+{
+"n": 187,
+"id": "9GXrTE6",
+"name": "smith one leg floor calf raise",
+"fr": "Mollets au sol sur une jambe Smith machine",
+"ok": true
+},
+{
+"n": 188,
+"id": "9IxJdtC",
+"name": "lying leg-hip raise",
+"fr": "Relevé de jambes et de bassin allongé",
+"ok": true
+},
+{
+"n": 189,
+"id": "9JprnPh",
+"name": "band single leg calf raise",
+"fr": "Mollets unilatéral à l'élastique",
+"ok": true
+},
+{
+"n": 190,
+"id": "9KU9TYF",
+"name": "lever horizontal one leg press",
+"fr": "Presse horizontale unilatérale machine",
+"ok": true
+},
+{
+"n": 191,
+"id": "9RT8oQW",
+"name": "bench dip on floor",
+"fr": "Dips sur banc au sol",
+"ok": true
+},
+{
+"n": 192,
+"id": "9Tkqa9O",
+"name": "kettlebell windmill",
+"fr": "Moulin à vent kettlebell",
+"ok": true
+},
+{
+"n": 193,
+"id": "9WTm7dq",
+"name": "chest dip",
+"fr": "Dips pectoraux",
+"ok": true
+},
+{
+"n": 194,
+"id": "9XjtHvS",
+"name": "dumbbell pullover",
+"fr": "Pull-over haltère",
+"ok": true
+},
+{
+"n": 195,
+"id": "9ZGZuOD",
+"name": "incline twisting sit-up",
+"fr": "Sit-up incliné avec rotation",
+"ok": true
+},
+{
+"n": 196,
+"id": "9c6T1YX",
+"name": "bridge - mountain climber (cross body)",
+"fr": "Pont et mountain climber croisé",
+"ok": true
+},
+{
+"n": 197,
+"id": "9gbyYKk",
+"name": "band seated hip internal rotation",
+"fr": "Rotation interne de hanche assis à l'élastique",
+"ok": true
+},
+{
+"n": 198,
+"id": "9n2149Z",
+"name": "sled lying squat",
+"fr": "Squat allongé à la machine",
+"ok": true
+},
+{
+"n": 199,
+"id": "9pQSkH8",
+"name": "dumbbell reverse grip incline bench two arm row",
+"fr": "Rowing deux bras prise inversée sur banc incliné haltères",
+"ok": true
+},
+{
+"n": 200,
+"id": "9pa4H5m",
+"name": "band horizontal pallof press",
+"fr": "Pallof press horizontal à l'élastique",
+"ok": true
+},
+{
+"n": 201,
+"id": "9sgNE2O",
+"name": "barbell decline pullover",
+"fr": "Pull-over décliné barre",
+"ok": true
+},
+{
+"n": 202,
+"id": "A2upspL",
+"name": "one leg donkey calf raise",
+"fr": "Mollets à l'âne sur une jambe",
+"ok": true
+},
+{
+"n": 203,
+"id": "A6wtbuL",
+"name": "dumbbell standing overhead press",
+"fr": "Développé épaules debout haltères",
+"ok": true
+},
+{
+"n": 204,
+"id": "A9qxk2F",
+"name": "archer push up",
+"fr": "Pompe archer",
+"ok": true
+},
+{
+"n": 205,
+"id": "ANbbry2",
+"name": "lower back curl",
+"fr": "Enroulement du bas du dos",
+"ok": true
+},
+{
+"n": 206,
+"id": "AQ0mC4Y",
+"name": "dumbbell full can lateral raise",
+"fr": "Élévation latérale pouces vers le haut haltères",
+"ok": true
+},
+{
+"n": 207,
+"id": "AQIhRjM",
+"name": "lying elbow to knee",
+"fr": "Coude au genou allongé",
+"ok": true
+},
+{
+"n": 208,
+"id": "AR0ig3o",
+"name": "flexion leg sit up (bent knee)",
+"fr": "Sit-up jambes fléchies",
+"ok": true
+},
+{
+"n": 209,
+"id": "AX1kB0o",
+"name": "twist hip lift",
+"fr": "Élévation de hanches avec rotation",
+"ok": true
+},
+{
+"n": 210,
+"id": "Af0EW2I",
+"name": "muscle-up (on vertical bar)",
+"fr": "Muscle up sur barre verticale",
+"ok": true
+},
+{
+"n": 211,
+"id": "Al3tP0D",
+"name": "medicine ball supine chest throw",
+"fr": "Lancer poitrine allongé médecine ball",
+"ok": true
+},
+{
+"n": 212,
+"id": "Am02iPd",
+"name": "dumbbell one arm fly on exercise ball",
+"fr": "Écarté unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 213,
+"id": "AxFoqAD",
+"name": "hack one leg calf raise",
+"fr": "Mollets unilatéral au hack squat",
+"ok": true
+},
+{
+"n": 214,
+"id": "B1EVP9F",
+"name": "incline push-up",
+"fr": "Pompe inclinée",
+"ok": true
+},
+{
+"n": 215,
+"id": "B3Rxp6L",
+"name": "dumbbell incline breeding",
+"fr": "Écarté incliné haltères, variante",
+"ok": true
+},
+{
+"n": 216,
+"id": "B5xca8s",
+"name": "hands clasped circular toe touch (male)",
+"fr": "Touchers d'orteils en cercle mains jointes",
+"ok": true
+},
+{
+"n": 217,
+"id": "B6dAO1t",
+"name": "smith seated wrist curl",
+"fr": "Curl poignets assis Smith machine",
+"ok": true
+},
+{
+"n": 218,
+"id": "BCGQ6J5",
+"name": "cable close grip curl",
+"fr": "Curl prise serrée à la poulie",
+"ok": true
+},
+{
+"n": 219,
+"id": "BCUR88E",
+"name": "dumbbell standing one arm extension",
+"fr": "Extension triceps unilatérale debout haltère",
+"ok": true
+},
+{
+"n": 220,
+"id": "BCs0G2F",
+"name": "barbell sitted alternate leg raise (female)",
+"fr": "Relevé de jambe alterné assis barre, version femme",
+"ok": true
+},
+{
+"n": 221,
+"id": "BIb1tGo",
+"name": "dumbbell standing one arm curl (over incline bench)",
+"fr": "Curl unilatéral debout appuyé sur banc incliné haltère",
+"ok": true
+},
+{
+"n": 222,
+"id": "BJ0Hz5L",
+"name": "dumbbell bent over row",
+"fr": "Rowing buste penché haltères",
+"ok": true
+},
+{
+"n": 223,
+"id": "BKa8dmT",
+"name": "dumbbell over bench neutral wrist curl",
+"fr": "Curl poignets prise neutre sur banc haltères",
+"ok": true
+},
+{
+"n": 224,
+"id": "BL3GHeY",
+"name": "straddle planche",
+"fr": "Planche jambes écartées",
+"ok": true
+},
+{
+"n": 225,
+"id": "BLCvwr2",
+"name": "dumbbell reverse wrist curl",
+"fr": "Curl poignets inversé haltères",
+"ok": true
+},
+{
+"n": 226,
+"id": "BMMolZ3",
+"name": "tuck crunch",
+"fr": "Crunch genoux groupés",
+"ok": true
+},
+{
+"n": 227,
+"id": "BRImeP8",
+"name": "lever seated dip",
+"fr": "Dips assis machine",
+"ok": true
+},
+{
+"n": 228,
+"id": "BReCuOn",
+"name": "bodyweight squatting row (with towel)",
+"fr": "Rowing accroupi au poids du corps avec serviette",
+"ok": true
+},
+{
+"n": 229,
+"id": "BU15nH4",
+"name": "dumbbell alternate biceps curl",
+"fr": "Curl biceps alterné haltères",
+"ok": true
+},
+{
+"n": 230,
+"id": "BWnJR72",
+"name": "lying (side) quads stretch",
+"fr": "Étirement des quadriceps couché sur le côté",
+"ok": true
+},
+{
+"n": 231,
+"id": "BaE7O6U",
+"name": "hanging oblique knee raise",
+"fr": "Relevé de genoux oblique suspendu",
+"ok": true
+},
+{
+"n": 232,
+"id": "BbfB8Gb",
+"name": "basic toe touch (male)",
+"fr": "Touchers d'orteils simples",
+"ok": true
+},
+{
+"n": 233,
+"id": "Bg5JKSH",
+"name": "dumbbell incline one arm press on exercise ball",
+"fr": "Développé incliné unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 234,
+"id": "BgljGjd",
+"name": "lever reverse t-bar row",
+"fr": "Rowing T-bar inversé machine",
+"ok": true
+},
+{
+"n": 235,
+"id": "BkxB8LW",
+"name": "kettlebell seated press",
+"fr": "Développé assis kettlebell",
+"ok": true
+},
+{
+"n": 236,
+"id": "BmrwWzo",
+"name": "dumbbell sumo pull through",
+"fr": "Pull through sumo haltère",
+"ok": true
+},
+{
+"n": 237,
+"id": "Bn6TXyO",
+"name": "sit-up v. 2",
+"fr": "Sit-up, variante 2",
+"ok": true
+},
+{
+"n": 238,
+"id": "Bpkf41o",
+"name": "dumbbell one arm chest fly on exercise ball",
+"fr": "Écarté pectoraux unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 239,
+"id": "BqgCRif",
+"name": "dumbbell cuban press v. 2",
+"fr": "Développé cubain haltères, variante 2",
+"ok": true
+},
+{
+"n": 240,
+"id": "BwSNDGt",
+"name": "dumbbell one arm reverse wrist curl",
+"fr": "Curl poignet inversé unilatéral haltère",
+"ok": true
+},
+{
+"n": 241,
+"id": "ByX0WxV",
+"name": "dumbbell incline hammer curl",
+"fr": "Curl marteau incliné haltères",
+"ok": true
+},
+{
+"n": 242,
+"id": "C0MA9bC",
+"name": "dumbbell one arm bent-over row",
+"fr": "Rowing unilatéral haltère",
+"ok": true
+},
+{
+"n": 243,
+"id": "C0eCeEt",
+"name": "twisted leg raise",
+"fr": "Relevé de jambes avec rotation",
+"ok": true
+},
+{
+"n": 244,
+"id": "C31LMnP",
+"name": "one leg squat",
+"fr": "Squat sur une jambe",
+"ok": true
+},
+{
+"n": 245,
+"id": "C5jncD2",
+"name": "standing single leg curl",
+"fr": "Leg curl debout sur une jambe",
+"ok": true
+},
+{
+"n": 246,
+"id": "C9LuR4A",
+"name": "lever donkey calf raise",
+"fr": "Mollets à l'âne machine",
+"ok": true
+},
+{
+"n": 247,
+"id": "CB8WET1",
+"name": "incline push up depth jump",
+"fr": "Pompe inclinée avec saut en contrebas",
+"ok": true
+},
+{
+"n": 248,
+"id": "CFN9P8G",
+"name": "ez bar french press on exercise ball",
+"fr": "Extension triceps nuque barre EZ sur swiss ball",
+"ok": true
+},
+{
+"n": 249,
+"id": "CHpahtl",
+"name": "lever seated hip abduction",
+"fr": "Abduction de hanche assis machine",
+"ok": true
+},
+{
+"n": 250,
+"id": "CI6baTY",
+"name": "bottoms-up",
+"fr": "Bottoms-up",
+"ok": true
+},
+{
+"n": 251,
+"id": "CJwa0vD",
+"name": "dumbbell standing bent over one arm triceps extension",
+"fr": "Extension triceps unilatérale buste penché haltère",
+"ok": true
+},
+{
+"n": 252,
+"id": "CMAxnsG",
+"name": "clock push-up",
+"fr": "Pompe horloge",
+"ok": true
+},
+{
+"n": 253,
+"id": "CQHoDm0",
+"name": "ez barbell decline triceps extension",
+"fr": "Extension triceps décliné barre EZ",
+"ok": true
+},
+{
+"n": 254,
+"id": "Ca76jUE",
+"name": "kettlebell alternating row",
+"fr": "Rowing alterné kettlebell",
+"ok": true
+},
+{
+"n": 255,
+"id": "CbFSYC1",
+"name": "rear pull-up",
+"fr": "Traction nuque",
+"ok": true
+},
+{
+"n": 256,
+"id": "CcWEoWV",
+"name": "short stride run",
+"fr": "Course à petites foulées",
+"ok": true
+},
+{
+"n": 257,
+"id": "CfKsRbG",
+"name": "dumbbell alternate biceps curl (with arm blaster)",
+"fr": "Curl biceps alterné haltères avec arm blaster",
+"ok": true
+},
+{
+"n": 258,
+"id": "CggQhII",
+"name": "lever military press",
+"fr": "Développé militaire machine",
+"ok": true
+},
+{
+"n": 259,
+"id": "CjETvlw",
+"name": "roller seated single leg shoulder flexor depresor retractor",
+"fr": "Mobilité des épaules assis sur une jambe au rouleau",
+"ok": true
+},
+{
+"n": 260,
+"id": "CmEr4pM",
+"name": "cable wide grip rear pulldown behind neck",
+"fr": "Tirage nuque prise large à la poulie",
+"ok": true
+},
+{
+"n": 261,
+"id": "CosupLu",
+"name": "front plank with twist",
+"fr": "Gainage avec rotation",
+"ok": true
+},
+{
+"n": 262,
+"id": "CqhoytW",
+"name": "smith hip raise",
+"fr": "Élévation de bassin Smith machine",
+"ok": true
+},
+{
+"n": 263,
+"id": "CuaWCmC",
+"name": "cable lateral pulldown (with rope attachment)",
+"fr": "Tirage vertical à la corde",
+"ok": true
+},
+{
+"n": 264,
+"id": "CvPn9WV",
+"name": "cable standing pulldown (with rope)",
+"fr": "Pull-over debout à la corde",
+"ok": true
+},
+{
+"n": 265,
+"id": "D1xYJAU",
+"name": "dumbbell over bench wrist curl",
+"fr": "Curl poignets sur banc haltères",
+"ok": true
+},
+{
+"n": 266,
+"id": "D5yqP2p",
+"name": "lever overhand triceps dip",
+"fr": "Dips triceps prise pronation machine",
+"ok": true
+},
+{
+"n": 267,
+"id": "D9qe7CM",
+"name": "pelvic tilt into bridge",
+"fr": "Bascule du bassin vers le pont",
+"ok": true
+},
+{
+"n": 268,
+"id": "DB0n8AG",
+"name": "kettlebell front squat",
+"fr": "Squat avant kettlebell",
+"ok": true
+},
+{
+"n": 269,
+"id": "DEEqoI2",
+"name": "posterior tibialis stretch",
+"fr": "Étirement du tibial postérieur",
+"ok": true
+},
+{
+"n": 270,
+"id": "DFGXwZr",
+"name": "world greatest stretch",
+"fr": "Le meilleur étirement du monde",
+"ok": true
+},
+{
+"n": 271,
+"id": "DIVyqrU",
+"name": "sphinx",
+"fr": "Sphinx",
+"ok": true
+},
+{
+"n": 272,
+"id": "DKBwJrL",
+"name": "band one arm twisting seated row",
+"fr": "Rowing assis unilatéral avec rotation à l'élastique",
+"ok": true
+},
+{
+"n": 273,
+"id": "DOoWcnA",
+"name": "lever chest press",
+"fr": "Développé pectoraux machine",
+"ok": true
+},
+{
+"n": 274,
+"id": "DQ0cqkT",
+"name": "three bench dip",
+"fr": "Dips entre trois bancs",
+"ok": true
+},
+{
+"n": 275,
+"id": "DT14T9T",
+"name": "cable straight arm pulldown (with rope)",
+"fr": "Pull-over bras tendus à la corde",
+"ok": true
+},
+{
+"n": 276,
+"id": "DU5Kkj2",
+"name": "dumbbell standing one arm reverse curl",
+"fr": "Curl inversé unilatéral debout haltère",
+"ok": true
+},
+{
+"n": 277,
+"id": "DU7I633",
+"name": "barbell reverse grip incline bench press",
+"fr": "Développé incliné prise inversée barre",
+"ok": true
+},
+{
+"n": 278,
+"id": "Db7eEgw",
+"name": "cable concentration extension (on knee)",
+"fr": "Extension concentrée à la poulie sur le genou",
+"ok": true
+},
+{
+"n": 279,
+"id": "DeDThfG",
+"name": "seated glute stretch",
+"fr": "Étirement des fessiers assis",
+"ok": true
+},
+{
+"n": 280,
+"id": "DgZQ11d",
+"name": "ez barbell decline close grip face press",
+"fr": "Barre au visage décliné prise serrée barre EZ",
+"ok": true
+},
+{
+"n": 281,
+"id": "DhMl549",
+"name": "barbell full squat (back pov)",
+"fr": "Squat complet barre, vue de dos",
+"ok": true
+},
+{
+"n": 282,
+"id": "DotAgEF",
+"name": "barbell reverse grip decline bench press",
+"fr": "Développé décliné prise inversée barre",
+"ok": true
+},
+{
+"n": 283,
+"id": "DpWMFP5",
+"name": "cable seated overhead curl",
+"fr": "Curl au-dessus de la tête assis à la poulie",
+"ok": true
+},
+{
+"n": 284,
+"id": "DptumMx",
+"name": "band close-grip pulldown",
+"fr": "Tirage vertical prise serrée à l'élastique",
+"ok": true
+},
+{
+"n": 285,
+"id": "Dsfz0Id",
+"name": "ez bar seated close grip concentration curl",
+"fr": "Curl concentré assis prise serrée barre EZ",
+"ok": true
+},
+{
+"n": 286,
+"id": "DsgkuIt",
+"name": "dumbbell lateral raise",
+"fr": "Élévations latérales haltères",
+"ok": true
+},
+{
+"n": 287,
+"id": "DwhEmmE",
+"name": "dumbbell decline bench press",
+"fr": "Développé décliné haltères",
+"ok": true
+},
+{
+"n": 288,
+"id": "E4PwJqI",
+"name": "self assisted inverse leg curl",
+"fr": "Leg curl inversé auto-assisté",
+"ok": true
+},
+{
+"n": 289,
+"id": "E4R8Hz1",
+"name": "band hip lift",
+"fr": "Élévation de hanches à l'élastique",
+"ok": true
+},
+{
+"n": 290,
+"id": "EAs3xL9",
+"name": "dumbbell reverse fly",
+"fr": "Oiseau haltères buste penché",
+"ok": true
+},
+{
+"n": 291,
+"id": "EIeI8Vf",
+"name": "barbell bench press",
+"fr": "Développé couché barre",
+"ok": true
+},
+{
+"n": 292,
+"id": "EIsE3u8",
+"name": "cable one arm bent over row",
+"fr": "Rowing unilatéral buste penché à la poulie",
+"ok": true
+},
+{
+"n": 293,
+"id": "EKXOMEh",
+"name": "dumbbell rear delt row_shoulder",
+"fr": "Rowing deltoïdes postérieurs haltères",
+"ok": true
+},
+{
+"n": 294,
+"id": "EMpUwRI",
+"name": "barbell lying extension",
+"fr": "Extension allongé barre",
+"ok": true
+},
+{
+"n": 295,
+"id": "ESOd5Pl",
+"name": "dumbbell incline fly",
+"fr": "Écarté incliné haltères",
+"ok": true
+},
+{
+"n": 296,
+"id": "ETZfAbZ",
+"name": "smith decline bench press",
+"fr": "Développé décliné Smith machine",
+"ok": true
+},
+{
+"n": 297,
+"id": "EZeDVzO",
+"name": "weighted decline sit-up",
+"fr": "Sit-up décliné lesté",
+"ok": true
+},
+{
+"n": 298,
+"id": "EcaV7aL",
+"name": "barbell lying close-grip press",
+"fr": "Développé allongé prise serrée barre",
+"ok": true
+},
+{
+"n": 299,
+"id": "Eg98Ft9",
+"name": "cable shrug",
+"fr": "Shrug à la poulie",
+"ok": true
+},
+{
+"n": 300,
+"id": "Eh2v5Iu",
+"name": "scissor jumps (male)",
+"fr": "Sauts en ciseaux",
+"ok": true
+},
+{
+"n": 301,
+"id": "EmlJR2y",
+"name": "dumbbell standing one arm curl over incline bench",
+"fr": "Curl unilatéral debout appuyé sur banc incliné haltère, variante",
+"ok": true
+},
+{
+"n": 302,
+"id": "ErqK3UL",
+"name": "posterior step to overhead reach",
+"fr": "Pas en arrière avec bras tendus vers le haut",
+"ok": true
+},
+{
+"n": 303,
+"id": "EyLrNC2",
+"name": "exercise ball alternating arm ups",
+"fr": "Levées de bras alternées sur swiss ball",
+"ok": true
+},
+{
+"n": 304,
+"id": "Ezpnw9d",
+"name": "band reverse wrist curl",
+"fr": "Curl poignets inversé à l'élastique",
+"ok": true
+},
+{
+"n": 305,
+"id": "F1KxjBa",
+"name": "dumbbell peacher hammer curl",
+"fr": "Curl marteau pupitre haltère",
+"ok": true
+},
+{
+"n": 306,
+"id": "F3xgbjF",
+"name": "dumbbell incline biceps curl",
+"fr": "Curl biceps incliné haltères",
+"ok": true
+},
+{
+"n": 307,
+"id": "F7vjXqT",
+"name": "incline push-up (on box)",
+"fr": "Pompe inclinée sur box",
+"ok": true
+},
+{
+"n": 308,
+"id": "FAoIFMw",
+"name": "one arm dip",
+"fr": "Dips à un bras",
+"ok": true
+},
+{
+"n": 309,
+"id": "FFRP97T",
+"name": "frog crunch",
+"fr": "Crunch grenouille",
+"ok": true
+},
+{
+"n": 310,
+"id": "FQXdXzY",
+"name": "dumbbells seated triceps extension",
+"fr": "Extension triceps assis haltères",
+"ok": true
+},
+{
+"n": 311,
+"id": "FS63wTN",
+"name": "dumbbell push press",
+"fr": "Push press haltères",
+"ok": true
+},
+{
+"n": 312,
+"id": "FSD6PGL",
+"name": "dumbbell pullover on exercise ball",
+"fr": "Pull-over haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 313,
+"id": "FVM1AUZ",
+"name": "lever t-bar reverse grip row",
+"fr": "Rowing T-bar prise inversée machine",
+"ok": true
+},
+{
+"n": 314,
+"id": "FVmZVhk",
+"name": "cable low fly",
+"fr": "Écarté bas à la poulie",
+"ok": true
+},
+{
+"n": 315,
+"id": "FWdVhcW",
+"name": "cable standing shoulder external rotation",
+"fr": "Rotation externe de l'épaule debout à la poulie",
+"ok": true
+},
+{
+"n": 316,
+"id": "FY3UdNT",
+"name": "exercise ball on the wall calf raise (tennis ball between ankles)",
+"fr": "Mollets avec swiss ball contre le mur, balle de tennis entre les chevilles",
+"ok": true
+},
+{
+"n": 317,
+"id": "Ff18ItA",
+"name": "weighted straight bar dip",
+"fr": "Dips sur barre droite lestés",
+"ok": true
+},
+{
+"n": 318,
+"id": "Fhdtwf3",
+"name": "lever one arm bent over row",
+"fr": "Rowing unilatéral buste penché machine",
+"ok": true
+},
+{
+"n": 319,
+"id": "FkBIE6a",
+"name": "dumbbell lying femoral",
+"fr": "Leg curl allongé haltère",
+"ok": true
+},
+{
+"n": 320,
+"id": "FxhcxUW",
+"name": "dumbbell seated one leg calf raise - hammer grip",
+"fr": "Mollets unilatéral assis haltère, prise marteau",
+"ok": true
+},
+{
+"n": 321,
+"id": "G08RZcQ",
+"name": "cable curl",
+"fr": "Curl à la poulie",
+"ok": true
+},
+{
+"n": 322,
+"id": "G61cXLk",
+"name": "cable kneeling rear delt row (with rope) (male)",
+"fr": "Face pull à genoux à la corde",
+"ok": true
+},
+{
+"n": 323,
+"id": "G70mEAJ",
+"name": "chin-ups (narrow parallel grip)",
+"fr": "Tractions prise serrée neutre",
+"ok": true
+},
+{
+"n": 324,
+"id": "G7PXMlT",
+"name": "band vertical pallof press",
+"fr": "Pallof press vertical à l'élastique",
+"ok": true
+},
+{
+"n": 325,
+"id": "G7xoEzr",
+"name": "barbell sitted alternate leg raise",
+"fr": "Relevé de jambe alterné assis barre",
+"ok": true
+},
+{
+"n": 326,
+"id": "G8dXpNG",
+"name": "ez bar reverse grip bent over row",
+"fr": "Rowing buste penché prise inversée barre EZ",
+"ok": true
+},
+{
+"n": 327,
+"id": "GKEH6jj",
+"name": "cable one arm incline press",
+"fr": "Développé incliné unilatéral à la poulie",
+"ok": true
+},
+{
+"n": 328,
+"id": "GNhAeJ0",
+"name": "dumbbell hammer curls (with arm blaster)",
+"fr": "Curl marteau haltères avec arm blaster",
+"ok": true
+},
+{
+"n": 329,
+"id": "GOJKFfO",
+"name": "exercise ball one legged diagonal kick hamstring curl",
+"fr": "Leg curl sur une jambe avec coup de pied en diagonale, swiss ball",
+"ok": true
+},
+{
+"n": 330,
+"id": "GSDioYu",
+"name": "upper back stretch",
+"fr": "Étirement du haut du dos",
+"ok": true
+},
+{
+"n": 331,
+"id": "GUT8I22",
+"name": "lever deadlift",
+"fr": "Soulevé de terre machine",
+"ok": true
+},
+{
+"n": 332,
+"id": "GWoKnIm",
+"name": "weighted cossack squats (male)",
+"fr": "Squat cosaque lesté",
+"ok": true
+},
+{
+"n": 333,
+"id": "GXoaSgn",
+"name": "barbell guillotine bench press",
+"fr": "Développé couché guillotine barre",
+"ok": true
+},
+{
+"n": 334,
+"id": "GaSzzuh",
+"name": "back lever",
+"fr": "Back lever",
+"ok": true
+},
+{
+"n": 335,
+"id": "Gchi5Tr",
+"name": "cable alternate triceps extension",
+"fr": "Extension triceps alternée à la poulie",
+"ok": true
+},
+{
+"n": 336,
+"id": "GdMa1ET",
+"name": "incline scapula push up",
+"fr": "Pompe scapulaire inclinée",
+"ok": true
+},
+{
+"n": 337,
+"id": "Gi2BXfK",
+"name": "dumbbell standing alternating tricep kickback",
+"fr": "Kickback triceps alterné debout haltères",
+"ok": true
+},
+{
+"n": 338,
+"id": "GibBPPg",
+"name": "glute bridge march",
+"fr": "Marche en pont fessier",
+"ok": true
+},
+{
+"n": 339,
+"id": "Gk1r408",
+"name": "weighted close grip chin-up on dip cage",
+"fr": "Traction supination prise serrée lestée sur station",
+"ok": true
+},
+{
+"n": 340,
+"id": "Gm2Uv1z",
+"name": "exercise ball supine triceps extension",
+"fr": "Extension triceps allongé sur le dos sur swiss ball",
+"ok": true
+},
+{
+"n": 341,
+"id": "Gn5FwYT",
+"name": "stability ball crunch (full range hands behind head)",
+"fr": "Crunch sur swiss ball amplitude complète mains derrière la tête",
+"ok": true
+},
+{
+"n": 342,
+"id": "Gnfo4FM",
+"name": "barbell high bar squat",
+"fr": "Squat barre haute",
+"ok": true
+},
+{
+"n": 343,
+"id": "Gpn4ADc",
+"name": "smith behind neck press",
+"fr": "Développé nuque Smith machine",
+"ok": true
+},
+{
+"n": 344,
+"id": "GrO65fd",
+"name": "barbell decline bench press",
+"fr": "Développé décliné barre",
+"ok": true
+},
+{
+"n": 345,
+"id": "Gu2rNJd",
+"name": "smith chair squat",
+"fr": "Squat chaise Smith machine",
+"ok": true
+},
+{
+"n": 346,
+"id": "Gw2HFvW",
+"name": "dumbbell incline one arm fly",
+"fr": "Écarté incliné unilatéral haltère",
+"ok": true
+},
+{
+"n": 347,
+"id": "GwYwElT",
+"name": "self assisted inverse leg curl",
+"fr": "Leg curl inversé auto-assisté",
+"ok": true
+},
+{
+"n": 348,
+"id": "GxDwDX0",
+"name": "assisted lying calves stretch",
+"fr": "Étirement des mollets allongé assisté",
+"ok": true
+},
+{
+"n": 349,
+"id": "Gxg9lDc",
+"name": "barbell rollerout from bench",
+"fr": "Roulette abdominale avec barre depuis un banc",
+"ok": true
+},
+{
+"n": 350,
+"id": "H1PESYI",
+"name": "stationary bike run",
+"fr": "Vélo d'appartement, rythme soutenu",
+"ok": true
+},
+{
+"n": 351,
+"id": "H1XAdpk",
+"name": "dumbbell biceps curl v sit on bosu ball",
+"fr": "Curl biceps en V assis sur Bosu haltères",
+"ok": true
+},
+{
+"n": 352,
+"id": "H6ETwO9",
+"name": "band v-up",
+"fr": "V-up à l'élastique",
+"ok": true
+},
+{
+"n": 353,
+"id": "H6ybluc",
+"name": "dumbbell single leg squat",
+"fr": "Squat sur une jambe haltère",
+"ok": true
+},
+{
+"n": 354,
+"id": "H9y3Dkr",
+"name": "cable two arm curl on incline bench",
+"fr": "Curl deux bras sur banc incliné à la poulie",
+"ok": true
+},
+{
+"n": 355,
+"id": "HBYyX94",
+"name": "barbell split squat v. 2",
+"fr": "Squat fendu barre, variante 2",
+"ok": true
+},
+{
+"n": 356,
+"id": "HDYiZcY",
+"name": "dumbbell cross body hammer curl v. 2",
+"fr": "Curl marteau croisé haltères, variante 2",
+"ok": true
+},
+{
+"n": 357,
+"id": "HEJ6DIX",
+"name": "cable kickback",
+"fr": "Kickback triceps à la poulie",
+"ok": true
+},
+{
+"n": 358,
+"id": "HIgYKAB",
+"name": "seated wide angle pose sequence",
+"fr": "Enchaînement de postures jambes écartées assis",
+"ok": true
+},
+{
+"n": 359,
+"id": "HJ63mSO",
+"name": "barbell lying close-grip triceps extension",
+"fr": "Extension triceps allongé prise serrée barre",
+"ok": true
+},
+{
+"n": 360,
+"id": "HMzLjXx",
+"name": "weighted pull-up",
+"fr": "Traction lestée",
+"ok": true
+},
+{
+"n": 361,
+"id": "HPlPoQA",
+"name": "cable hammer curl (with rope)",
+"fr": "Curl marteau à la corde",
+"ok": true
+},
+{
+"n": 362,
+"id": "HUEqZ1y",
+"name": "barbell side split squat v. 2",
+"fr": "Squat fendu latéral barre, variante 2",
+"ok": true
+},
+{
+"n": 363,
+"id": "HYe1ZqR",
+"name": "dumbbell incline fly on exercise ball",
+"fr": "Écarté incliné haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 364,
+"id": "Ha7SZ3y",
+"name": "kettlebell turkish get up (squat style)",
+"fr": "Turkish get up kettlebell, style squat",
+"ok": true
+},
+{
+"n": 365,
+"id": "HbSG1Pw",
+"name": "isometric chest squeeze",
+"fr": "Contraction isométrique des pectoraux",
+"ok": true
+},
+{
+"n": 366,
+"id": "HfqciZF",
+"name": "straddle maltese",
+"fr": "Maltaise jambes écartées",
+"ok": true
+},
+{
+"n": 367,
+"id": "Hgs6Nl1",
+"name": "seated leg raise",
+"fr": "Relevé de jambes assis",
+"ok": true
+},
+{
+"n": 368,
+"id": "Hj4FOCd",
+"name": "barbell decline wide-grip pullover",
+"fr": "Pull-over décliné prise large barre",
+"ok": true
+},
+{
+"n": 369,
+"id": "HjdqmZa",
+"name": "one arm chin-up",
+"fr": "Traction supination à un bras",
+"ok": true
+},
+{
+"n": 370,
+"id": "HsjbB1z",
+"name": "smith sprint lunge",
+"fr": "Fente sprint Smith machine",
+"ok": true
+},
+{
+"n": 371,
+"id": "HsvHqgf",
+"name": "dumbbell squat",
+"fr": "Squat haltères",
+"ok": true
+},
+{
+"n": 372,
+"id": "HtfCpfi",
+"name": "star jump (male)",
+"fr": "Saut en étoile",
+"ok": true
+},
+{
+"n": 373,
+"id": "Hx1WC8I",
+"name": "cable incline triceps extension",
+"fr": "Extension triceps sur banc incliné à la poulie",
+"ok": true
+},
+{
+"n": 374,
+"id": "Hy9D21L",
+"name": "45° side bend",
+"fr": "Flexion latérale à 45°",
+"ok": true
+},
+{
+"n": 375,
+"id": "I1OBLnn",
+"name": "weighted svend press",
+"fr": "Svend press avec disque",
+"ok": true
+},
+{
+"n": 376,
+"id": "I3tsCnC",
+"name": "hanging leg raise",
+"fr": "Relevé de jambes suspendu",
+"ok": true
+},
+{
+"n": 377,
+"id": "I4KkPdl",
+"name": "kettlebell double push press",
+"fr": "Push press deux kettlebells",
+"ok": true
+},
+{
+"n": 378,
+"id": "I4hDWkc",
+"name": "push-up",
+"fr": "Pompes",
+"ok": true
+},
+{
+"n": 379,
+"id": "I4tibZG",
+"name": "kettlebell alternating hang clean",
+"fr": "Épaulé alterné depuis la suspension kettlebell",
+"ok": true
+},
+{
+"n": 380,
+"id": "IENzBdA",
+"name": "barbell drag curl",
+"fr": "Drag curl barre",
+"ok": true
+},
+{
+"n": 381,
+"id": "IGjKj1v",
+"name": "lever narrow grip seated row",
+"fr": "Rowing assis prise serrée machine",
+"ok": true
+},
+{
+"n": 382,
+"id": "IGtBdNT",
+"name": "dumbbell seated hammer curl",
+"fr": "Curl marteau assis haltères",
+"ok": true
+},
+{
+"n": 383,
+"id": "IL0JUxR",
+"name": "gironda sternum chin",
+"fr": "Traction sternum Gironda",
+"ok": true
+},
+{
+"n": 384,
+"id": "IMRsOCn",
+"name": "squat jerk",
+"fr": "Squat jerk",
+"ok": true
+},
+{
+"n": 385,
+"id": "IZVHb27",
+"name": "walking lunge",
+"fr": "Fentes marchées",
+"ok": true
+},
+{
+"n": 386,
+"id": "Ia7tumC",
+"name": "dumbbell seated one leg calf raise",
+"fr": "Mollets unilatéral assis haltère",
+"ok": true
+},
+{
+"n": 387,
+"id": "IaGQCrC",
+"name": "suspended push-up",
+"fr": "Pompe en suspension",
+"ok": true
+},
+{
+"n": 388,
+"id": "Ie9UGty",
+"name": "lever seated calf press",
+"fr": "Mollets assis à la presse machine",
+"ok": true
+},
+{
+"n": 389,
+"id": "IeDEXTe",
+"name": "lever seated squat calf raise on leg press machine",
+"fr": "Mollets en squat assis à la presse à cuisses",
+"ok": true
+},
+{
+"n": 390,
+"id": "IeTIEqg",
+"name": "barbell front chest squat",
+"fr": "Squat avant barre sur la poitrine",
+"ok": true
+},
+{
+"n": 391,
+"id": "Ion0XWz",
+"name": "dumbbell lying on floor rear delt raise",
+"fr": "Élévation deltoïdes postérieurs allongé au sol haltères",
+"ok": true
+},
+{
+"n": 392,
+"id": "IpONWYv",
+"name": "dumbbell side bend",
+"fr": "Flexion latérale haltère",
+"ok": true
+},
+{
+"n": 393,
+"id": "Iptlv6x",
+"name": "dumbbell upright row (back pov)",
+"fr": "Rowing menton haltères, vue de dos",
+"ok": true
+},
+{
+"n": 394,
+"id": "IvV6C9M",
+"name": "dumbbell over bench one arm neutral wrist curl",
+"fr": "Curl poignet prise neutre unilatéral sur banc haltère",
+"ok": true
+},
+{
+"n": 395,
+"id": "IwX5NqK",
+"name": "cable reverse preacher curl",
+"fr": "Curl pupitre inversé à la poulie",
+"ok": true
+},
+{
+"n": 396,
+"id": "J60bN17",
+"name": "assisted triceps dip (kneeling)",
+"fr": "Dips triceps assistés à genoux",
+"ok": true
+},
+{
+"n": 397,
+"id": "J6Dx1Mu",
+"name": "barbell close-grip bench press",
+"fr": "Développé couché prise serrée",
+"ok": true
+},
+{
+"n": 398,
+"id": "J74XlNf",
+"name": "dumbbell alternating seated bicep curl on exercise ball",
+"fr": "Curl biceps alterné assis haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 399,
+"id": "J9zIWig",
+"name": "walking high knees lunge",
+"fr": "Fente marchée avec montée de genou",
+"ok": true
+},
+{
+"n": 400,
+"id": "JF8AkMX",
+"name": "standing archer",
+"fr": "Archer debout",
+"ok": true
+},
+{
+"n": 401,
+"id": "JGKowMS",
+"name": "smith narrow row",
+"fr": "Rowing prise serrée Smith machine",
+"ok": true
+},
+{
+"n": 402,
+"id": "JOZhu2h",
+"name": "cable standing twist row (v-bar)",
+"fr": "Rowing debout avec rotation à la poulie, poignée en V",
+"ok": true
+},
+{
+"n": 403,
+"id": "JWjujiY",
+"name": "dumbbell one arm prone curl",
+"fr": "Curl unilatéral sur le ventre haltère",
+"ok": true
+},
+{
+"n": 404,
+"id": "JZuApnB",
+"name": "weighted squat",
+"fr": "Squat lesté",
+"ok": true
+},
+{
+"n": 405,
+"id": "JbC2iaV",
+"name": "spine stretch",
+"fr": "Étirement de la colonne",
+"ok": true
+},
+{
+"n": 406,
+"id": "JhYSVwT",
+"name": "dumbbell seated bench extension",
+"fr": "Extension triceps assis sur banc haltère",
+"ok": true
+},
+{
+"n": 407,
+"id": "JmMVpR3",
+"name": "wide hand push up",
+"fr": "Pompe mains écartées",
+"ok": true
+},
+{
+"n": 408,
+"id": "JrOHAZc",
+"name": "barbell stiff leg good morning",
+"fr": "Good morning jambes tendues barre",
+"ok": true
+},
+{
+"n": 409,
+"id": "JsKq9so",
+"name": "barbell wide bench press",
+"fr": "Développé couché prise large barre",
+"ok": true
+},
+{
+"n": 410,
+"id": "JsOV1SU",
+"name": "weighted muscle up",
+"fr": "Muscle up lesté",
+"ok": true
+},
+{
+"n": 411,
+"id": "Jsgsc27",
+"name": "barbell one arm bent over row",
+"fr": "Rowing unilatéral buste penché barre",
+"ok": true
+},
+{
+"n": 412,
+"id": "JymLInS",
+"name": "dumbbell incline shrug",
+"fr": "Shrug incliné haltères",
+"ok": true
+},
+{
+"n": 413,
+"id": "JzQbv7J",
+"name": "dumbbell seated bent arm lateral raise",
+"fr": "Élévation latérale bras fléchis assis haltères",
+"ok": true
+},
+{
+"n": 414,
+"id": "K1vlode",
+"name": "weighted triceps dip on high parallel bars",
+"fr": "Dips triceps lestés aux barres parallèles hautes",
+"ok": true
+},
+{
+"n": 415,
+"id": "K3dIO25",
+"name": "dumbbell lying one arm press v. 2",
+"fr": "Développé unilatéral allongé haltère, variante 2",
+"ok": true
+},
+{
+"n": 416,
+"id": "K5xgdvI",
+"name": "reclining big toe pose with rope",
+"fr": "Posture du gros orteil allongé avec corde (yoga)",
+"ok": true
+},
+{
+"n": 417,
+"id": "K9VL0Jq",
+"name": "lunge with twist",
+"fr": "Fente avec rotation",
+"ok": true
+},
+{
+"n": 418,
+"id": "KCBKjma",
+"name": "band jack knife sit-up",
+"fr": "Sit-up jackknife à l'élastique",
+"ok": true
+},
+{
+"n": 419,
+"id": "KHGNa16",
+"name": "cable decline one arm press",
+"fr": "Développé décliné unilatéral à la poulie",
+"ok": true
+},
+{
+"n": 420,
+"id": "KHPZL0b",
+"name": "cable alternate shoulder press",
+"fr": "Développé épaules alterné à la poulie",
+"ok": true
+},
+{
+"n": 421,
+"id": "KI1DjNN",
+"name": "dumbbell over bench one arm wrist curl",
+"fr": "Curl poignet unilatéral sur banc haltère",
+"ok": true
+},
+{
+"n": 422,
+"id": "KOpzGBL",
+"name": "dumbbell waiter biceps curl",
+"fr": "Curl biceps serveur haltère",
+"ok": true
+},
+{
+"n": 423,
+"id": "KUaZst7",
+"name": "dumbbell lying supine curl",
+"fr": "Curl allongé sur le dos haltères",
+"ok": true
+},
+{
+"n": 424,
+"id": "KUaoUV8",
+"name": "band straight leg deadlift",
+"fr": "Soulevé de terre jambes tendues à l'élastique, variante",
+"ok": true
+},
+{
+"n": 425,
+"id": "KWdF2JI",
+"name": "cable kneeling triceps extension",
+"fr": "Extension triceps à genoux à la poulie",
+"ok": true
+},
+{
+"n": 426,
+"id": "KXyoEtA",
+"name": "dumbbell seated inner biceps curl",
+"fr": "Curl biceps intérieur assis haltères",
+"ok": true
+},
+{
+"n": 427,
+"id": "KZXAtKQ",
+"name": "push-up close-grip off dumbbell",
+"fr": "Pompe prise serrée sur haltère",
+"ok": true
+},
+{
+"n": 428,
+"id": "KZn52RC",
+"name": "flexion leg sit up (straight arm)",
+"fr": "Sit-up bras tendus",
+"ok": true
+},
+{
+"n": 429,
+"id": "Kal9cQQ",
+"name": "kettlebell advanced windmill",
+"fr": "Moulin à vent kettlebell, niveau avancé",
+"ok": true
+},
+{
+"n": 430,
+"id": "KgI0tqW",
+"name": "barbell sumo deadlift",
+"fr": "Soulevé de terre sumo barre",
+"ok": true
+},
+{
+"n": 431,
+"id": "KhHJ338",
+"name": "push-up to side plank",
+"fr": "Pompe vers gainage latéral",
+"ok": true
+},
+{
+"n": 432,
+"id": "Kpajagk",
+"name": "cable standing hip extension",
+"fr": "Extension de hanche debout à la poulie",
+"ok": true
+},
+{
+"n": 433,
+"id": "Krmb3cB",
+"name": "lever reverse hyperextension",
+"fr": "Hyperextension inversée machine",
+"ok": true
+},
+{
+"n": 434,
+"id": "KtRomty",
+"name": "standing wheel rollerout",
+"fr": "Roulette abdominale debout",
+"ok": true
+},
+{
+"n": 435,
+"id": "KwFGiEP",
+"name": "dumbbell lying one arm rear lateral raise",
+"fr": "Oiseau unilatéral allongé haltère",
+"ok": true
+},
+{
+"n": 436,
+"id": "Kxquu2E",
+"name": "barbell step-up",
+"fr": "Step-up barre",
+"ok": true
+},
+{
+"n": 437,
+"id": "KyLtiLT",
+"name": "ez barbell incline triceps extension",
+"fr": "Extension triceps incliné barre EZ",
+"ok": true
+},
+{
+"n": 438,
+"id": "Kyd9Rz5",
+"name": "barbell standing wide military press",
+"fr": "Développé militaire debout prise large barre",
+"ok": true
+},
+{
+"n": 439,
+"id": "Kzg30R7",
+"name": "band standing crunch",
+"fr": "Crunch debout à l'élastique",
+"ok": true
+},
+{
+"n": 440,
+"id": "L2V5Nan",
+"name": "dumbbell lying extension (across face)",
+"fr": "Extension triceps allongé devant le visage haltère",
+"ok": true
+},
+{
+"n": 441,
+"id": "L4ay0PW",
+"name": "kettlebell figure 8",
+"fr": "Huit kettlebell",
+"ok": true
+},
+{
+"n": 442,
+"id": "LCtQPn8",
+"name": "dumbbell incline inner biceps curl",
+"fr": "Curl biceps intérieur incliné haltères",
+"ok": true
+},
+{
+"n": 443,
+"id": "LEH9jxP",
+"name": "push-up (wall)",
+"fr": "Pompe contre le mur",
+"ok": true
+},
+{
+"n": 444,
+"id": "LEprlgG",
+"name": "cable lat pulldown full range of motion",
+"fr": "Tirage vertical à la poulie, amplitude complète",
+"ok": true
+},
+{
+"n": 445,
+"id": "LHWF7us",
+"name": "kettlebell hang clean",
+"fr": "Épaulé depuis la suspension kettlebell",
+"ok": true
+},
+{
+"n": 446,
+"id": "LIGZSTA",
+"name": "dumbbell one arm prone hammer curl",
+"fr": "Curl marteau unilatéral sur le ventre haltère",
+"ok": true
+},
+{
+"n": 447,
+"id": "LIlE5Tn",
+"name": "jump squat",
+"fr": "Squat sauté",
+"ok": true
+},
+{
+"n": 448,
+"id": "LL1UiTX",
+"name": "dumbbell incline one arm hammer press",
+"fr": "Développé incliné prise marteau unilatéral haltère",
+"ok": true
+},
+{
+"n": 449,
+"id": "LLNh6q5",
+"name": "dumbbell incline one arm fly on exercise ball",
+"fr": "Écarté incliné unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 450,
+"id": "LMGXZn8",
+"name": "barbell decline close grip to skull press",
+"fr": "Barre au front prise serrée décliné",
+"ok": true
+},
+{
+"n": 451,
+"id": "LNE3wfo",
+"name": "single leg platform slide",
+"fr": "Glissade sur une jambe",
+"ok": true
+},
+{
+"n": 452,
+"id": "LQFOrMn",
+"name": "chest dip on straight bar",
+"fr": "Dips pectoraux sur barre droite",
+"ok": true
+},
+{
+"n": 453,
+"id": "LSTChY9",
+"name": "barbell zercher squat",
+"fr": "Squat Zercher barre",
+"ok": true
+},
+{
+"n": 454,
+"id": "LWuA3aZ",
+"name": "barbell standing reverse grip curl",
+"fr": "Curl debout prise inversée barre",
+"ok": true
+},
+{
+"n": 455,
+"id": "LYJodFS",
+"name": "lean planche",
+"fr": "Planche penchée",
+"ok": true
+},
+{
+"n": 456,
+"id": "LeaZOIz",
+"name": "dumbbell standing alternate hammer curl and press",
+"fr": "Curl marteau et développé alterné debout haltères",
+"ok": true
+},
+{
+"n": 457,
+"id": "LkoAWAE",
+"name": "elbow dips",
+"fr": "Dips sur les coudes",
+"ok": true
+},
+{
+"n": 458,
+"id": "LmaFNZS",
+"name": "weighted donkey calf raise",
+"fr": "Mollets à l'âne lesté",
+"ok": true
+},
+{
+"n": 459,
+"id": "Ln9iTbU",
+"name": "barbell rear delt raise",
+"fr": "Élévation deltoïdes postérieurs barre",
+"ok": true
+},
+{
+"n": 460,
+"id": "LrV4s90",
+"name": "cable wrist curl",
+"fr": "Curl poignets à la poulie",
+"ok": true
+},
+{
+"n": 461,
+"id": "LsZkfU6",
+"name": "barbell reverse wrist curl",
+"fr": "Curl poignets inversé barre",
+"ok": true
+},
+{
+"n": 462,
+"id": "Lsqrgh4",
+"name": "smith reverse calf raises",
+"fr": "Relevés de pointes de pieds Smith machine",
+"ok": true
+},
+{
+"n": 463,
+"id": "Lt3iWnf",
+"name": "dumbbell fly on exercise ball",
+"fr": "Écarté haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 464,
+"id": "LuBEORI",
+"name": "lever bent-over row with v-bar",
+"fr": "Rowing buste penché machine poignée en V",
+"ok": true
+},
+{
+"n": 465,
+"id": "M2Pm3zj",
+"name": "dumbbell lying supination",
+"fr": "Supination allongé haltère",
+"ok": true
+},
+{
+"n": 466,
+"id": "M5Y7GPg",
+"name": "weighted standing curl",
+"fr": "Curl debout avec disque",
+"ok": true
+},
+{
+"n": 467,
+"id": "M72BExt",
+"name": "exercise ball one leg prone lower body rotation",
+"fr": "Rotation du bas du corps sur le ventre sur une jambe, swiss ball",
+"ok": true
+},
+{
+"n": 468,
+"id": "M74kdvm",
+"name": "kettlebell double snatch",
+"fr": "Arraché deux kettlebells",
+"ok": true
+},
+{
+"n": 469,
+"id": "MCUhf1F",
+"name": "crunch (on stability ball)",
+"fr": "Crunch sur swiss ball",
+"ok": true
+},
+{
+"n": 470,
+"id": "MCkqdKE",
+"name": "weighted muscle up (on bar)",
+"fr": "Muscle up lesté sur barre",
+"ok": true
+},
+{
+"n": 471,
+"id": "MKIelrR",
+"name": "cable one arm press on exercise ball",
+"fr": "Développé unilatéral à la poulie sur swiss ball",
+"ok": true
+},
+{
+"n": 472,
+"id": "MSfvriJ",
+"name": "skin the cat",
+"fr": "Skin the cat",
+"ok": true
+},
+{
+"n": 473,
+"id": "MU9HnE7",
+"name": "weighted bench dip",
+"fr": "Dips sur banc lestés",
+"ok": true
+},
+{
+"n": 474,
+"id": "MUic5zN",
+"name": "single arm push-up",
+"fr": "Pompe à un bras",
+"ok": true
+},
+{
+"n": 475,
+"id": "MY9P1WA",
+"name": "smith decline reverse-grip press",
+"fr": "Développé décliné prise inversée Smith machine",
+"ok": true
+},
+{
+"n": 476,
+"id": "MaMuGH6",
+"name": "lever assisted chin-up",
+"fr": "Traction supination assistée machine",
+"ok": true
+},
+{
+"n": 477,
+"id": "MgKwAAo",
+"name": "cable rope extension incline bench row",
+"fr": "Rowing sur banc incliné à la corde",
+"ok": true
+},
+{
+"n": 478,
+"id": "MrgP9L6",
+"name": "lever rotary calf",
+"fr": "Mollets rotatif machine",
+"ok": true
+},
+{
+"n": 479,
+"id": "MvQPqVW",
+"name": "cable judo flip",
+"fr": "Judo flip à la poulie",
+"ok": true
+},
+{
+"n": 480,
+"id": "Mxa7Cr8",
+"name": "inverted row on bench",
+"fr": "Rowing inversé sur banc",
+"ok": true
+},
+{
+"n": 481,
+"id": "Mz6lLcW",
+"name": "dumbbell lunge with bicep curl",
+"fr": "Fente avec curl biceps haltères",
+"ok": true
+},
+{
+"n": 482,
+"id": "MzNnwx9",
+"name": "smith back shrug",
+"fr": "Shrug dans le dos Smith machine",
+"ok": true
+},
+{
+"n": 483,
+"id": "NAgVB3t",
+"name": "wheel rollerout",
+"fr": "Roulette abdominale",
+"ok": true
+},
+{
+"n": 484,
+"id": "NAkmgdx",
+"name": "arms overhead full sit-up (male)",
+"fr": "Sit-up complet bras au-dessus de la tête",
+"ok": true
+},
+{
+"n": 485,
+"id": "NCmbLCw",
+"name": "push-up (wall) v. 2",
+"fr": "Pompe contre le mur, variante 2",
+"ok": true
+},
+{
+"n": 486,
+"id": "NJzBsGJ",
+"name": "dumbbell shrug",
+"fr": "Shrug haltères",
+"ok": true
+},
+{
+"n": 487,
+"id": "NKJ8o6x",
+"name": "pelvic tilt",
+"fr": "Bascule du bassin",
+"ok": true
+},
+{
+"n": 488,
+"id": "NL6YBwN",
+"name": "dumbbell decline one arm fly",
+"fr": "Écarté décliné unilatéral haltère",
+"ok": true
+},
+{
+"n": 489,
+"id": "NN8nSNT",
+"name": "cable rope high pulley overhead tricep extension",
+"fr": "Extension triceps nuque à la corde, poulie haute",
+"ok": true
+},
+{
+"n": 490,
+"id": "NNoHCEA",
+"name": "smith full squat",
+"fr": "Squat complet Smith machine",
+"ok": true
+},
+{
+"n": 491,
+"id": "NZ5Qqkz",
+"name": "reverse dip",
+"fr": "Dips inversés",
+"ok": true
+},
+{
+"n": 492,
+"id": "NbVPDMW",
+"name": "dumbbell biceps curl",
+"fr": "Curl biceps haltères",
+"ok": true
+},
+{
+"n": 493,
+"id": "NdIb5Z1",
+"name": "barbell standing wide-grip curl",
+"fr": "Curl debout prise large barre",
+"ok": true
+},
+{
+"n": 494,
+"id": "NfP83rA",
+"name": "dumbbell lying alternate extension",
+"fr": "Extension triceps allongé alternée haltères",
+"ok": true
+},
+{
+"n": 495,
+"id": "Nh3mvOO",
+"name": "dumbbell reverse grip row (female)",
+"fr": "Rowing prise inversée haltères, version femme",
+"ok": true
+},
+{
+"n": 496,
+"id": "NlfIbzq",
+"name": "dumbbell alternate preacher curl",
+"fr": "Curl pupitre alterné haltères",
+"ok": true
+},
+{
+"n": 497,
+"id": "Nu7jqFE",
+"name": "resistance band seated straight back row",
+"fr": "Rowing assis dos droit à l'élastique",
+"ok": true
+},
+{
+"n": 498,
+"id": "NvfE43H",
+"name": "cable concentration curl",
+"fr": "Curl concentré à la poulie",
+"ok": true
+},
+{
+"n": 499,
+"id": "O2K9Vb5",
+"name": "wide-grip chest dip on high parallel bars",
+"fr": "Dips pectoraux prise large aux barres parallèles hautes",
+"ok": true
+},
+{
+"n": 500,
+"id": "O4oIqQD",
+"name": "bodyweight standing one arm row (with towel)",
+"fr": "Rowing unilatéral debout au poids du corps avec serviette",
+"ok": true
+},
+{
+"n": 501,
+"id": "O8Aq69u",
+"name": "dumbbell reverse preacher curl",
+"fr": "Curl pupitre inversé haltères",
+"ok": true
+},
+{
+"n": 502,
+"id": "O8o7q4d",
+"name": "dumbbell press on exercise ball",
+"fr": "Développé haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 503,
+"id": "O95afRA",
+"name": "monster walk",
+"fr": "Marche du monstre",
+"ok": true
+},
+{
+"n": 504,
+"id": "OAguZoG",
+"name": "lever hammer grip preacher curl",
+"fr": "Curl pupitre prise marteau machine",
+"ok": true
+},
+{
+"n": 505,
+"id": "OIFMAp1",
+"name": "lever one arm lateral high row",
+"fr": "Rowing haut latéral unilatéral machine",
+"ok": true
+},
+{
+"n": 506,
+"id": "OM46QHm",
+"name": "cable pull through (with rope)",
+"fr": "Pull through à la corde",
+"ok": true
+},
+{
+"n": 507,
+"id": "OPqShYN",
+"name": "lever hip extension v. 2",
+"fr": "Extension de hanche machine, variante 2",
+"ok": true
+},
+{
+"n": 508,
+"id": "OQ1otBN",
+"name": "cable cross-over lateral pulldown",
+"fr": "Tirage vertical à la poulie vis-à-vis",
+"ok": true
+},
+{
+"n": 509,
+"id": "OTgkHwR",
+"name": "dumbbell decline triceps extension",
+"fr": "Extension triceps décliné haltères",
+"ok": true
+},
+{
+"n": 510,
+"id": "OUQ0ZyW",
+"name": "smith shrug",
+"fr": "Shrug Smith machine",
+"ok": true
+},
+{
+"n": 511,
+"id": "OVIKwsd",
+"name": "dumbbell incline triceps extension",
+"fr": "Extension triceps incliné haltères",
+"ok": true
+},
+{
+"n": 512,
+"id": "OVLmUuL",
+"name": "dumbbell incline palm-in press",
+"fr": "Développé incliné paumes face à face haltères",
+"ok": true
+},
+{
+"n": 513,
+"id": "OVTZ65k",
+"name": "ez-barbell standing wide grip biceps curl",
+"fr": "Curl biceps debout prise large barre EZ",
+"ok": true
+},
+{
+"n": 514,
+"id": "OYFhXVD",
+"name": "wide grip rear pull-up",
+"fr": "Traction nuque prise large",
+"ok": true
+},
+{
+"n": 515,
+"id": "OaE7CpD",
+"name": "kettlebell double windmill",
+"fr": "Moulin à vent deux kettlebells",
+"ok": true
+},
+{
+"n": 516,
+"id": "OeL23VY",
+"name": "dumbbell seated biceps curl to shoulder press",
+"fr": "Curl biceps et développé épaules assis haltères",
+"ok": true
+},
+{
+"n": 517,
+"id": "OmQ8w0p",
+"name": "cable palm rotational row",
+"fr": "Rowing avec rotation de la main à la poulie",
+"ok": true
+},
+{
+"n": 518,
+"id": "OrETs32",
+"name": "reverse hyper on flat bench",
+"fr": "Hyperextension inversée sur banc plat",
+"ok": true
+},
+{
+"n": 519,
+"id": "OxJk1fg",
+"name": "cable triceps pushdown (v-bar) (with arm blaster)",
+"fr": "Extension triceps à la poulie, poignée en V avec arm blaster",
+"ok": true
+},
+{
+"n": 520,
+"id": "OyoZ3Pu",
+"name": "leg pull in flat bench",
+"fr": "Genoux ramenés sur banc plat",
+"ok": true
+},
+{
+"n": 521,
+"id": "P14Dz9D",
+"name": "cable one arm incline fly on exercise ball",
+"fr": "Écarté incliné unilatéral à la poulie sur swiss ball",
+"ok": true
+},
+{
+"n": 522,
+"id": "P2lNrGL",
+"name": "cable preacher curl",
+"fr": "Curl pupitre à la poulie",
+"ok": true
+},
+{
+"n": 523,
+"id": "P2nRiUa",
+"name": "dumbbell standing zottman preacher curl",
+"fr": "Curl pupitre Zottman debout haltère",
+"ok": true
+},
+{
+"n": 524,
+"id": "P5p0j8B",
+"name": "cable standing cross-over high reverse fly",
+"fr": "Oiseau debout à la poulie vis-à-vis, poulies hautes",
+"ok": true
+},
+{
+"n": 525,
+"id": "P9GFBME",
+"name": "spider crawl push up",
+"fr": "Pompe en araignée",
+"ok": true
+},
+{
+"n": 526,
+"id": "P9ZRyLT",
+"name": "hyght dumbbell fly",
+"fr": "Écarté haltères, variante",
+"ok": true
+},
+{
+"n": 527,
+"id": "PAgTVaK",
+"name": "assisted chest dip (kneeling)",
+"fr": "Dips pectoraux assistés à genoux",
+"ok": true
+},
+{
+"n": 528,
+"id": "PDaMuyV",
+"name": "dumbbell one arm incline chest press",
+"fr": "Développé incliné unilatéral haltère, variante pectoraux",
+"ok": true
+},
+{
+"n": 529,
+"id": "PERjVm8",
+"name": "exercise ball back extension with arms extended",
+"fr": "Extension lombaire sur swiss ball bras tendus",
+"ok": true
+},
+{
+"n": 530,
+"id": "PG1kcIb",
+"name": "dumbbell incline hammer press",
+"fr": "Développé incliné prise marteau haltères",
+"ok": true
+},
+{
+"n": 531,
+"id": "PM1PZjg",
+"name": "lunge with jump",
+"fr": "Fente sautée",
+"ok": true
+},
+{
+"n": 532,
+"id": "PNtsX17",
+"name": "cable reverse-grip straight back seated high row",
+"fr": "Rowing haut assis dos droit prise inversée à la poulie",
+"ok": true
+},
+{
+"n": 533,
+"id": "PQ2AtC3",
+"name": "lever seated leg raise crunch",
+"fr": "Crunch relevé de jambes assis machine",
+"ok": true
+},
+{
+"n": 534,
+"id": "PQStVXH",
+"name": "cable upper row",
+"fr": "Rowing haut à la poulie",
+"ok": true
+},
+{
+"n": 535,
+"id": "PQcUlDi",
+"name": "cable supine reverse fly",
+"fr": "Oiseau allongé sur le dos à la poulie",
+"ok": true
+},
+{
+"n": 536,
+"id": "PSlvNMs",
+"name": "weighted drop push up",
+"fr": "Pompe en chute lestée",
+"ok": true
+},
+{
+"n": 537,
+"id": "PXTIwgu",
+"name": "arm slingers hanging straight legs",
+"fr": "Balancier suspendu jambes tendues",
+"ok": true
+},
+{
+"n": 538,
+"id": "PbzNu7c",
+"name": "dumbbell incline y-raise",
+"fr": "Élévation en Y inclinée haltères",
+"ok": true
+},
+{
+"n": 539,
+"id": "PcPe0P5",
+"name": "cable rope hammer preacher curl",
+"fr": "Curl marteau pupitre à la corde",
+"ok": true
+},
+{
+"n": 540,
+"id": "PdmaD0N",
+"name": "dumbbell standing triceps extension",
+"fr": "Extension triceps debout haltère",
+"ok": true
+},
+{
+"n": 541,
+"id": "Pjbc0Kt",
+"name": "resistance band hip thrusts on knees (female)",
+"fr": "Hip thrust à genoux à l'élastique",
+"ok": true
+},
+{
+"n": 542,
+"id": "PkCN2lv",
+"name": "front lever",
+"fr": "Front lever",
+"ok": true
+},
+{
+"n": 543,
+"id": "PnZJIrk",
+"name": "assisted wide-grip chest dip (kneeling)",
+"fr": "Dips pectoraux prise large assistés à genoux",
+"ok": true
+},
+{
+"n": 544,
+"id": "Pr9Rhf4",
+"name": "cable standing fly",
+"fr": "Écarté debout à la poulie",
+"ok": true
+},
+{
+"n": 545,
+"id": "PrQbjvB",
+"name": "push to run",
+"fr": "Pompe vers départ de course",
+"ok": true
+},
+{
+"n": 546,
+"id": "PsVS1QP",
+"name": "medicine ball catch and overhead throw",
+"fr": "Réception et lancer au-dessus de la tête médecine ball",
+"ok": true
+},
+{
+"n": 547,
+"id": "PskORrA",
+"name": "cable pushdown (straight arm) v. 2",
+"fr": "Pull-over bras tendus à la poulie, variante 2",
+"ok": true
+},
+{
+"n": 548,
+"id": "PzNxakt",
+"name": "calf push stretch with hands against wall",
+"fr": "Étirement des mollets en poussant contre un mur",
+"ok": true
+},
+{
+"n": 549,
+"id": "PzQanLE",
+"name": "cable shoulder press",
+"fr": "Développé épaules à la poulie",
+"ok": true
+},
+{
+"n": 550,
+"id": "Q2Eu1Ax",
+"name": "cable lying extension pullover (with rope attachment)",
+"fr": "Pull-over allongé à la corde",
+"ok": true
+},
+{
+"n": 551,
+"id": "Q497lAE",
+"name": "drop push up",
+"fr": "Pompe en chute",
+"ok": true
+},
+{
+"n": 552,
+"id": "Q4DSJPC",
+"name": "smith one arm row",
+"fr": "Rowing unilatéral Smith machine",
+"ok": true
+},
+{
+"n": 553,
+"id": "Q6bvyen",
+"name": "hanging straight twisting leg hip raise",
+"fr": "Relevé de bassin jambes tendues avec rotation suspendu",
+"ok": true
+},
+{
+"n": 554,
+"id": "QChZi3x",
+"name": "squat to overhead reach",
+"fr": "Squat avec bras tendus vers le haut",
+"ok": true
+},
+{
+"n": 555,
+"id": "QFmz6ch",
+"name": "seated lower back stretch",
+"fr": "Étirement du bas du dos assis",
+"ok": true
+},
+{
+"n": 556,
+"id": "QLL2gdc",
+"name": "decline sit-up",
+"fr": "Sit-up décliné",
+"ok": true
+},
+{
+"n": 557,
+"id": "QLRmNeT",
+"name": "dumbbell seated alternate hammer curl on exercise ball",
+"fr": "Curl marteau alterné assis haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 558,
+"id": "QOA0FD0",
+"name": "weighted hanging leg-hip raise",
+"fr": "Relevé de jambes et de bassin suspendu lesté",
+"ok": true
+},
+{
+"n": 559,
+"id": "QT5Q0nK",
+"name": "dumbbell seated alternate press",
+"fr": "Développé alterné assis haltères",
+"ok": true
+},
+{
+"n": 560,
+"id": "QTXKWPh",
+"name": "cable pulldown bicep curl",
+"fr": "Tirage vertical et curl biceps à la poulie",
+"ok": true
+},
+{
+"n": 561,
+"id": "QUDd8WS",
+"name": "oblique crunches floor",
+"fr": "Crunch oblique au sol",
+"ok": true
+},
+{
+"n": 562,
+"id": "QY39eBr",
+"name": "seated piriformis stretch",
+"fr": "Étirement du piriforme assis",
+"ok": true
+},
+{
+"n": 563,
+"id": "QYysSLV",
+"name": "landmine 180",
+"fr": "Landmine 180",
+"ok": true
+},
+{
+"n": 564,
+"id": "QZFv5ui",
+"name": "dumbbell one arm press on exercise ball",
+"fr": "Développé unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 565,
+"id": "Qa55kX1",
+"name": "sled hack squat",
+"fr": "Hack squat machine",
+"ok": true
+},
+{
+"n": 566,
+"id": "QfAKy1G",
+"name": "dumbbell cuban press",
+"fr": "Développé cubain haltères",
+"ok": true
+},
+{
+"n": 567,
+"id": "QjE2DcA",
+"name": "dumbbell step-up split squat",
+"fr": "Step-up et squat fendu haltères",
+"ok": true
+},
+{
+"n": 568,
+"id": "QoHIhPl",
+"name": "behind head chest stretch",
+"fr": "Étirement des pectoraux mains derrière la tête",
+"ok": true
+},
+{
+"n": 569,
+"id": "Qoujh3Q",
+"name": "wind sprints",
+"fr": "Sprints fractionnés",
+"ok": true
+},
+{
+"n": 570,
+"id": "QpXqiq8",
+"name": "suspended split squat",
+"fr": "Squat fendu en suspension",
+"ok": true
+},
+{
+"n": 571,
+"id": "Qqi7bko",
+"name": "wide grip pull-up",
+"fr": "Traction prise large",
+"ok": true
+},
+{
+"n": 572,
+"id": "QsSQWbf",
+"name": "band single leg reverse calf raise",
+"fr": "Relevé de pointe de pied unilatéral à l'élastique",
+"ok": true
+},
+{
+"n": 573,
+"id": "QyO6Uma",
+"name": "smith machine reverse decline close grip bench press",
+"fr": "Développé décliné prise serrée inversée Smith machine",
+"ok": true
+},
+{
+"n": 574,
+"id": "Qyk5J3p",
+"name": "dumbbell cross body hammer curl",
+"fr": "Curl marteau croisé haltères",
+"ok": true
+},
+{
+"n": 575,
+"id": "R1WYG5D",
+"name": "suspended reverse crunch",
+"fr": "Crunch inversé en suspension",
+"ok": true
+},
+{
+"n": 576,
+"id": "R5swFnc",
+"name": "cambered bar lying row",
+"fr": "Rowing allongé barre cambrée",
+"ok": true
+},
+{
+"n": 577,
+"id": "REGM1dE",
+"name": "dumbbell one arm decline chest press",
+"fr": "Développé décliné unilatéral haltère",
+"ok": true
+},
+{
+"n": 578,
+"id": "REXmfVC",
+"name": "sledge hammer",
+"fr": "Masse sur pneu",
+"ok": true
+},
+{
+"n": 579,
+"id": "RGLscZM",
+"name": "smith low bar squat",
+"fr": "Squat barre basse Smith machine",
+"ok": true
+},
+{
+"n": 580,
+"id": "RJa4tCo",
+"name": "battling ropes",
+"fr": "Battle ropes",
+"ok": true
+},
+{
+"n": 581,
+"id": "RJgzwny",
+"name": "mountain climber",
+"fr": "Mountain climber",
+"ok": true
+},
+{
+"n": 582,
+"id": "RKjH6Lt",
+"name": "side bridge v. 2",
+"fr": "Gainage latéral, variante 2",
+"ok": true
+},
+{
+"n": 583,
+"id": "RQNVT10",
+"name": "assisted lying gluteus and piriformis stretch",
+"fr": "Étirement fessiers et piriforme allongé assisté",
+"ok": true
+},
+{
+"n": 584,
+"id": "RRWFUcw",
+"name": "dumbbell lunge",
+"fr": "Fentes haltères",
+"ok": true
+},
+{
+"n": 585,
+"id": "RSOsp5d",
+"name": "dumbbell standing around world",
+"fr": "Tour du monde debout haltère",
+"ok": true
+},
+{
+"n": 586,
+"id": "RVwzP10",
+"name": "cable pulldown",
+"fr": "Tirage vertical à la poulie",
+"ok": true
+},
+{
+"n": 587,
+"id": "RYcV1kH",
+"name": "barbell squat jump step rear lunge",
+"fr": "Squat sauté et fente arrière barre",
+"ok": true
+},
+{
+"n": 588,
+"id": "RaflbWD",
+"name": "dumbbell incline curl v. 2",
+"fr": "Curl incliné haltères, variante 2",
+"ok": true
+},
+{
+"n": 589,
+"id": "RgJDRR1",
+"name": "barbell wide-grip upright row",
+"fr": "Rowing menton prise large barre",
+"ok": true
+},
+{
+"n": 590,
+"id": "RoV1Rfa",
+"name": "assisted seated pectoralis major stretch with stability ball",
+"fr": "Étirement du grand pectoral assis avec swiss ball",
+"ok": true
+},
+{
+"n": 591,
+"id": "RqOtqD7",
+"name": "cable reverse crunch",
+"fr": "Crunch inversé à la poulie",
+"ok": true
+},
+{
+"n": 592,
+"id": "Rr7S3yg",
+"name": "dumbbell front raise v. 2",
+"fr": "Élévation frontale haltères, variante 2",
+"ok": true
+},
+{
+"n": 593,
+"id": "RrLske5",
+"name": "bench dip (knees bent)",
+"fr": "Dips sur banc genoux pliés",
+"ok": true
+},
+{
+"n": 594,
+"id": "RtyAsy1",
+"name": "arms apart circular toe touch (male)",
+"fr": "Touchers d'orteils bras écartés en cercle",
+"ok": true
+},
+{
+"n": 595,
+"id": "RxayqAZ",
+"name": "dumbbell close-grip press",
+"fr": "Développé prise serrée haltères, variante",
+"ok": true
+},
+{
+"n": 596,
+"id": "S1JXDAG",
+"name": "band seated twist",
+"fr": "Rotation du buste assis à l'élastique",
+"ok": true
+},
+{
+"n": 597,
+"id": "S37C94C",
+"name": "kettlebell one arm jerk",
+"fr": "Jerk unilatéral kettlebell",
+"ok": true
+},
+{
+"n": 598,
+"id": "S4pwGlc",
+"name": "dumbbell plyo squat",
+"fr": "Squat pliométrique haltère",
+"ok": true
+},
+{
+"n": 599,
+"id": "S8mo30S",
+"name": "barbell standing front raise over head",
+"fr": "Élévation frontale au-dessus de la tête barre",
+"ok": true
+},
+{
+"n": 600,
+"id": "S93zLTG",
+"name": "resistance band seated shoulder press",
+"fr": "Développé épaules assis à l'élastique",
+"ok": true
+},
+{
+"n": 601,
+"id": "S9zHIvU",
+"name": "barbell rear delt row",
+"fr": "Rowing deltoïdes postérieurs barre",
+"ok": true
+},
+{
+"n": 602,
+"id": "SGY8Zui",
+"name": "barbell clean and press",
+"fr": "Épaulé développé barre",
+"ok": true
+},
+{
+"n": 603,
+"id": "SHUMp5H",
+"name": "dumbbell decline one arm hammer press",
+"fr": "Développé décliné prise marteau unilatéral haltère",
+"ok": true
+},
+{
+"n": 604,
+"id": "SJAA2IQ",
+"name": "barbell palms up wrist curl over a bench",
+"fr": "Curl poignets supination sur banc barre",
+"ok": true
+},
+{
+"n": 605,
+"id": "SJqRxOt",
+"name": "cable rope seated row",
+"fr": "Rowing assis à la corde",
+"ok": true
+},
+{
+"n": 606,
+"id": "SKXQAx3",
+"name": "roller reverse crunch",
+"fr": "Crunch inversé au rouleau",
+"ok": true
+},
+{
+"n": 607,
+"id": "SLKj2pX",
+"name": "cocoons",
+"fr": "Cocons",
+"ok": true
+},
+{
+"n": 608,
+"id": "SNFfUff",
+"name": "barbell lying lifting (on hip)",
+"fr": "Élévation de bassin allongé barre sur les hanches",
+"ok": true
+},
+{
+"n": 609,
+"id": "SP3hUez",
+"name": "swimmer kicks v. 2 (male)",
+"fr": "Battements de nageur, variante 2",
+"ok": true
+},
+{
+"n": 610,
+"id": "SSsBDwB",
+"name": "dumbbell rear lunge",
+"fr": "Fente arrière haltères",
+"ok": true
+},
+{
+"n": 611,
+"id": "SYJ4Bkt",
+"name": "barbell lying preacher curl",
+"fr": "Curl pupitre allongé barre",
+"ok": true
+},
+{
+"n": 612,
+"id": "SaDOwk7",
+"name": "backward jump",
+"fr": "Saut en arrière",
+"ok": true
+},
+{
+"n": 613,
+"id": "Ser9eQp",
+"name": "lever triceps extension",
+"fr": "Extension triceps machine",
+"ok": true
+},
+{
+"n": 614,
+"id": "SiWCcTN",
+"name": "power clean",
+"fr": "Power clean",
+"ok": true
+},
+{
+"n": 615,
+"id": "Sn8wxAI",
+"name": "crunch (on stability ball, arms straight)",
+"fr": "Crunch sur swiss ball bras tendus",
+"ok": true
+},
+{
+"n": 616,
+"id": "Snj1wSv",
+"name": "plyo push up",
+"fr": "Pompe pliométrique",
+"ok": true
+},
+{
+"n": 617,
+"id": "SpYC0Kp",
+"name": "dumbbell bench press",
+"fr": "Développé couché haltères",
+"ok": true
+},
+{
+"n": 618,
+"id": "SpsOSXk",
+"name": "cable rear pulldown",
+"fr": "Tirage vertical nuque à la poulie",
+"ok": true
+},
+{
+"n": 619,
+"id": "SxHteRW",
+"name": "dumbbell standing alternate raise",
+"fr": "Élévation alternée debout haltères",
+"ok": true
+},
+{
+"n": 620,
+"id": "SzX3uzM",
+"name": "barbell reverse grip bent over row",
+"fr": "Rowing buste penché prise inversée barre",
+"ok": true
+},
+{
+"n": 621,
+"id": "T0yTjgW",
+"name": "lever chest press",
+"fr": "Développé pectoraux machine",
+"ok": true
+},
+{
+"n": 622,
+"id": "T2fA5Ir",
+"name": "squat on bosu ball",
+"fr": "Squat sur Bosu",
+"ok": true
+},
+{
+"n": 623,
+"id": "T2mxWqc",
+"name": "chin-up",
+"fr": "Tractions supination",
+"ok": true
+},
+{
+"n": 624,
+"id": "T8UpLkb",
+"name": "mixed grip chin-up",
+"fr": "Traction prise mixte",
+"ok": true
+},
+{
+"n": 625,
+"id": "TDYiji6",
+"name": "jump squat v. 2",
+"fr": "Squat sauté, variante 2",
+"ok": true
+},
+{
+"n": 626,
+"id": "TFA88iB",
+"name": "band front raise",
+"fr": "Élévation frontale à l'élastique",
+"ok": true
+},
+{
+"n": 627,
+"id": "TFqbd8t",
+"name": "crunch floor",
+"fr": "Crunch au sol",
+"ok": true
+},
+{
+"n": 628,
+"id": "TUZLh71",
+"name": "band squat",
+"fr": "Squat à l'élastique",
+"ok": true
+},
+{
+"n": 629,
+"id": "TV87DNB",
+"name": "inchworm v. 2",
+"fr": "Chenille, variante 2",
+"ok": true
+},
+{
+"n": 630,
+"id": "TVdivgY",
+"name": "dumbbell incline alternate press",
+"fr": "Développé incliné alterné haltères",
+"ok": true
+},
+{
+"n": 631,
+"id": "TXtXc84",
+"name": "cable tuck reverse crunch",
+"fr": "Crunch inversé genoux groupés à la poulie",
+"ok": true
+},
+{
+"n": 632,
+"id": "ThKP69G",
+"name": "cable reverse grip triceps pushdown (sz-bar) (with arm blaster)",
+"fr": "Extension triceps prise inversée barre EZ à la poulie avec arm blaster",
+"ok": true
+},
+{
+"n": 633,
+"id": "TiaZTxx",
+"name": "dumbbell seated curl",
+"fr": "Curl assis haltères",
+"ok": true
+},
+{
+"n": 634,
+"id": "Tq6gbK6",
+"name": "cable straight back seated row",
+"fr": "Rowing assis dos droit à la poulie",
+"ok": true
+},
+{
+"n": 635,
+"id": "U3ffHlY",
+"name": "cable rope lying on floor tricep extension",
+"fr": "Extension triceps allongé au sol à la corde",
+"ok": true
+},
+{
+"n": 636,
+"id": "U5INZY6",
+"name": "cable one arm pulldown",
+"fr": "Tirage vertical unilatéral à la poulie",
+"ok": true
+},
+{
+"n": 637,
+"id": "U6G2gk9",
+"name": "body-up",
+"fr": "Body-up",
+"ok": true
+},
+{
+"n": 638,
+"id": "U7D9Fx3",
+"name": "dumbbell incline two arm extension",
+"fr": "Extension deux bras inclinée haltère",
+"ok": true
+},
+{
+"n": 639,
+"id": "UDlhcO8",
+"name": "barbell upright row",
+"fr": "Rowing menton barre",
+"ok": true
+},
+{
+"n": 640,
+"id": "UDm6cGl",
+"name": "kettlebell seesaw press",
+"fr": "Développé en bascule kettlebells",
+"ok": true
+},
+{
+"n": 641,
+"id": "UEjSrKI",
+"name": "cable seated twist",
+"fr": "Rotation du buste assis à la poulie",
+"ok": true
+},
+{
+"n": 642,
+"id": "UFGF6gk",
+"name": "cable rope crossover seated row",
+"fr": "Rowing assis croisé à la corde",
+"ok": true
+},
+{
+"n": 643,
+"id": "UGhRD1A",
+"name": "assisted lying leg raise with lateral throw down",
+"fr": "Relevé de jambes allongé assisté avec poussée latérale",
+"ok": true
+},
+{
+"n": 644,
+"id": "UHJlbu3",
+"name": "kettlebell swing",
+"fr": "Kettlebell swing",
+"ok": true
+},
+{
+"n": 645,
+"id": "UIbGx6H",
+"name": "dumbbell reverse bench press",
+"fr": "Développé couché prise inversée haltères",
+"ok": true
+},
+{
+"n": 646,
+"id": "UKWTJWR",
+"name": "cable standing up straight crossovers",
+"fr": "Poulie vis-à-vis debout buste droit",
+"ok": true
+},
+{
+"n": 647,
+"id": "UM8mgyG",
+"name": "kettlebell arnold press",
+"fr": "Développé Arnold kettlebell",
+"ok": true
+},
+{
+"n": 648,
+"id": "UNAB8ak",
+"name": "band one arm overhead biceps curl",
+"fr": "Curl biceps unilatéral au-dessus de la tête à l'élastique",
+"ok": true
+},
+{
+"n": 649,
+"id": "UQr48Oi",
+"name": "pull-in (on stability ball)",
+"fr": "Genoux ramenés sur swiss ball",
+"ok": true
+},
+{
+"n": 650,
+"id": "UVL20oz",
+"name": "otis up",
+"fr": "Otis up",
+"ok": true
+},
+{
+"n": 651,
+"id": "UVo2Qs2",
+"name": "flutter kicks",
+"fr": "Battements de jambes",
+"ok": true
+},
+{
+"n": 652,
+"id": "UXpKJoq",
+"name": "lever lying two-one leg curl",
+"fr": "Leg curl allongé deux jambes puis une machine",
+"ok": true
+},
+{
+"n": 653,
+"id": "UfePqpx",
+"name": "smith deadlift",
+"fr": "Soulevé de terre Smith machine",
+"ok": true
+},
+{
+"n": 654,
+"id": "UgDm3oy",
+"name": "kneeling jump squat",
+"fr": "Squat sauté depuis les genoux",
+"ok": true
+},
+{
+"n": 655,
+"id": "UilDHSs",
+"name": "dumbbell standing palms in press",
+"fr": "Développé debout paumes face à face haltères",
+"ok": true
+},
+{
+"n": 656,
+"id": "UmpPAAe",
+"name": "dumbbell standing kickback",
+"fr": "Kickback triceps debout haltère",
+"ok": true
+},
+{
+"n": 657,
+"id": "UpAlold",
+"name": "rear decline bridge",
+"fr": "Pont décliné arrière",
+"ok": true
+},
+{
+"n": 658,
+"id": "UpWmA5E",
+"name": "l-sit on floor",
+"fr": "L-sit au sol",
+"ok": true
+},
+{
+"n": 659,
+"id": "UtmIqcI",
+"name": "side wrist pull stretch",
+"fr": "Étirement latéral du poignet",
+"ok": true
+},
+{
+"n": 660,
+"id": "Uto7l43",
+"name": "chest and front of shoulder stretch",
+"fr": "Étirement des pectoraux et de l'avant de l'épaule",
+"ok": true
+},
+{
+"n": 661,
+"id": "UzkLrem",
+"name": "dumbbell rear lateral raise (support head)",
+"fr": "Oiseau haltères tête en appui",
+"ok": true
+},
+{
+"n": 662,
+"id": "V07qpXy",
+"name": "lever alternate leg press",
+"fr": "Presse à cuisses alternée machine",
+"ok": true
+},
+{
+"n": 663,
+"id": "V4ryaZa",
+"name": "ez barbell close-grip curl",
+"fr": "Curl prise serrée barre EZ",
+"ok": true
+},
+{
+"n": 664,
+"id": "VBAWRPG",
+"name": "weighted front plank",
+"fr": "Gainage lesté",
+"ok": true
+},
+{
+"n": 665,
+"id": "VEcJRo2",
+"name": "hanging leg hip raise",
+"fr": "Relevé de jambes et de bassin suspendu",
+"ok": true
+},
+{
+"n": 666,
+"id": "VLYXo8S",
+"name": "weighted round arm",
+"fr": "Cercles de bras avec disque",
+"ok": true
+},
+{
+"n": 667,
+"id": "VO2qeJg",
+"name": "side plank hip adduction",
+"fr": "Gainage latéral avec adduction de hanche",
+"ok": true
+},
+{
+"n": 668,
+"id": "VPPtusI",
+"name": "inverted row bent knees",
+"fr": "Rowing inversé genoux fléchis",
+"ok": true
+},
+{
+"n": 669,
+"id": "VQ3sNCn",
+"name": "dumbbell seated one arm kickback",
+"fr": "Kickback triceps unilatéral assis haltère",
+"ok": true
+},
+{
+"n": 670,
+"id": "VW88JNd",
+"name": "dumbbell seated one leg calf raise - palm up",
+"fr": "Mollets unilatéral assis haltère, paume vers le haut",
+"ok": true
+},
+{
+"n": 671,
+"id": "VX5YKR5",
+"name": "assisted lying leg raise with throw down",
+"fr": "Relevé de jambes allongé assisté avec poussée",
+"ok": true
+},
+{
+"n": 672,
+"id": "VYmYxK5",
+"name": "dumbbell one arm hammer press on exercise ball",
+"fr": "Développé prise marteau unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 673,
+"id": "VaP75jl",
+"name": "barbell rear lunge",
+"fr": "Fente arrière barre",
+"ok": true
+},
+{
+"n": 674,
+"id": "VdLZ3nB",
+"name": "dumbbell one arm reverse spider curl",
+"fr": "Spider curl inversé unilatéral haltère",
+"ok": true
+},
+{
+"n": 675,
+"id": "VedGSby",
+"name": "assisted prone hamstring",
+"fr": "Étirement des ischios sur le ventre assisté",
+"ok": true
+},
+{
+"n": 676,
+"id": "Vh0GsK4",
+"name": "cable incline bench press",
+"fr": "Développé incliné à la poulie",
+"ok": true
+},
+{
+"n": 677,
+"id": "VhX2JdE",
+"name": "cable standing back wrist curl",
+"fr": "Curl poignets dans le dos debout à la poulie",
+"ok": true
+},
+{
+"n": 678,
+"id": "VjYliFZ",
+"name": "cable reverse-grip pushdown",
+"fr": "Extension triceps prise inversée à la poulie",
+"ok": true
+},
+{
+"n": 679,
+"id": "VnfUNW7",
+"name": "close grip chin-up",
+"fr": "Traction supination prise serrée",
+"ok": true
+},
+{
+"n": 680,
+"id": "VtTbiP3",
+"name": "band pull through",
+"fr": "Pull through à l'élastique",
+"ok": true
+},
+{
+"n": 681,
+"id": "VuoerH0",
+"name": "triceps dip (bench leg)",
+"fr": "Dips triceps sur banc",
+"ok": true
+},
+{
+"n": 682,
+"id": "Vvwjz6N",
+"name": "glute-ham raise",
+"fr": "Glute ham raise",
+"ok": true
+},
+{
+"n": 683,
+"id": "W31mMjd",
+"name": "barbell side split squat",
+"fr": "Squat fendu latéral barre",
+"ok": true
+},
+{
+"n": 684,
+"id": "W6PxUkg",
+"name": "dumbbell kickback",
+"fr": "Kickback triceps haltère",
+"ok": true
+},
+{
+"n": 685,
+"id": "W8KAlkI",
+"name": "push-up medicine ball",
+"fr": "Pompe sur médecine ball",
+"ok": true
+},
+{
+"n": 686,
+"id": "W9pFVv1",
+"name": "barbell bench squat",
+"fr": "Squat sur banc barre",
+"ok": true
+},
+{
+"n": 687,
+"id": "WCAvOfC",
+"name": "side-to-side toe touch (male)",
+"fr": "Touchers d'orteils de gauche à droite",
+"ok": true
+},
+{
+"n": 688,
+"id": "WKMQzCD",
+"name": "kettlebell lunge pass through",
+"fr": "Fente avec passage sous la jambe kettlebell",
+"ok": true
+},
+{
+"n": 689,
+"id": "WL4EmxJ",
+"name": "side bridge hip abduction",
+"fr": "Gainage latéral avec abduction de hanche",
+"ok": true
+},
+{
+"n": 690,
+"id": "WLvTAv5",
+"name": "barbell prone incline curl",
+"fr": "Curl incliné sur le ventre barre",
+"ok": true
+},
+{
+"n": 691,
+"id": "WME869U",
+"name": "exercise ball back extension with knees off ground",
+"fr": "Extension lombaire sur swiss ball genoux décollés",
+"ok": true
+},
+{
+"n": 692,
+"id": "WU9BLIs",
+"name": "weighted russian twist (legs up)",
+"fr": "Rotations russes lestées jambes levées",
+"ok": true
+},
+{
+"n": 693,
+"id": "WVD66ff",
+"name": "exercise ball back extension with rotation",
+"fr": "Extension lombaire sur swiss ball avec rotation",
+"ok": true
+},
+{
+"n": 694,
+"id": "WW95auq",
+"name": "cable kneeling crunch",
+"fr": "Crunch à genoux à la poulie",
+"ok": true
+},
+{
+"n": 695,
+"id": "WWD6FzI",
+"name": "sled 45 degrees one leg press",
+"fr": "Presse à cuisses 45° sur une jambe",
+"ok": true
+},
+{
+"n": 696,
+"id": "WbNq5Xu",
+"name": "lever standing chest press",
+"fr": "Développé pectoraux debout machine",
+"ok": true
+},
+{
+"n": 697,
+"id": "WcHl7ru",
+"name": "smith close-grip bench press",
+"fr": "Développé couché prise serrée Smith machine",
+"ok": true
+},
+{
+"n": 698,
+"id": "WgJnBH5",
+"name": "dumbbell seated biceps curl (on stability ball)",
+"fr": "Curl biceps assis haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 699,
+"id": "Wgaz7pm",
+"name": "lever seated crunch",
+"fr": "Crunch assis machine",
+"ok": true
+},
+{
+"n": 700,
+"id": "Wgbn9qo",
+"name": "triceps dip (between benches)",
+"fr": "Dips triceps entre deux bancs",
+"ok": true
+},
+{
+"n": 701,
+"id": "WhuFnR7",
+"name": "lying leg raise flat bench",
+"fr": "Relevé de jambes allongé sur banc plat",
+"ok": true
+},
+{
+"n": 702,
+"id": "WrYPP2g",
+"name": "cable one arm straight back high row (kneeling)",
+"fr": "Rowing haut unilatéral dos droit à genoux à la poulie",
+"ok": true
+},
+{
+"n": 703,
+"id": "X3TCNEU",
+"name": "suspended abdominal fallout",
+"fr": "Roll-out abdominal en suspension",
+"ok": true
+},
+{
+"n": 704,
+"id": "X3cqyXz",
+"name": "lever bent over row",
+"fr": "Rowing buste penché machine",
+"ok": true
+},
+{
+"n": 705,
+"id": "X6C6i5Y",
+"name": "triceps dip",
+"fr": "Dips triceps",
+"ok": true
+},
+{
+"n": 706,
+"id": "X6ytgYZ",
+"name": "dumbbell side plank with rear fly",
+"fr": "Gainage latéral avec oiseau haltère",
+"ok": true
+},
+{
+"n": 707,
+"id": "X7jbxra",
+"name": "circles knee stretch",
+"fr": "Étirement des genoux en cercles",
+"ok": true
+},
+{
+"n": 708,
+"id": "XDOiFns",
+"name": "sled forward angled calf raise",
+"fr": "Mollets incliné vers l'avant à la machine",
+"ok": true
+},
+{
+"n": 709,
+"id": "XFc3vpY",
+"name": "resistance band seated biceps curl",
+"fr": "Curl biceps assis à l'élastique",
+"ok": true
+},
+{
+"n": 710,
+"id": "XIHEoCG",
+"name": "standing calves",
+"fr": "Mollets debout",
+"ok": true
+},
+{
+"n": 711,
+"id": "XPUDTt7",
+"name": "pike-to-cobra push-up",
+"fr": "Pompe du pike au cobra",
+"ok": true
+},
+{
+"n": 712,
+"id": "XSCHmiI",
+"name": "cycle cross trainer",
+"fr": "Vélo elliptique",
+"ok": true
+},
+{
+"n": 713,
+"id": "XU3ePuv",
+"name": "cable standing crunch (with rope attachment)",
+"fr": "Crunch debout à la corde",
+"ok": true
+},
+{
+"n": 714,
+"id": "XUUD0Fs",
+"name": "dumbbell lying rear delt row",
+"fr": "Rowing deltoïdes postérieurs allongé haltères",
+"ok": true
+},
+{
+"n": 715,
+"id": "XVDdcoj",
+"name": "russian twist",
+"fr": "Rotations russes",
+"ok": true
+},
+{
+"n": 716,
+"id": "XVzF3iZ",
+"name": "dumbbell lying supine biceps curl",
+"fr": "Curl biceps allongé sur le dos haltères",
+"ok": true
+},
+{
+"n": 717,
+"id": "XaaRnRn",
+"name": "incline reverse grip push-up",
+"fr": "Pompe inclinée prise inversée",
+"ok": true
+},
+{
+"n": 718,
+"id": "XalXcvM",
+"name": "dumbbell forward lunge triceps extension",
+"fr": "Fente avant avec extension triceps haltère",
+"ok": true
+},
+{
+"n": 719,
+"id": "XeMvLgE",
+"name": "roller body saw",
+"fr": "Scie au rouleau",
+"ok": true
+},
+{
+"n": 720,
+"id": "XgWyAiA",
+"name": "chest dip (on dip-pull-up cage)",
+"fr": "Dips pectoraux sur station de traction",
+"ok": true
+},
+{
+"n": 721,
+"id": "XhfS1DZ",
+"name": "peroneals stretch",
+"fr": "Étirement des muscles péroniers",
+"ok": true
+},
+{
+"n": 722,
+"id": "XlZ4lAC",
+"name": "barbell good morning",
+"fr": "Good morning barre",
+"ok": true
+},
+{
+"n": 723,
+"id": "XooAdhl",
+"name": "handstand",
+"fr": "Équilibre sur les mains",
+"ok": true
+},
+{
+"n": 724,
+"id": "XsCcxCC",
+"name": "lever seated good morning",
+"fr": "Good morning assis machine",
+"ok": true
+},
+{
+"n": 725,
+"id": "Xy4jlWA",
+"name": "dumbbell arnold press",
+"fr": "Développé Arnold haltères",
+"ok": true
+},
+{
+"n": 726,
+"id": "Y1MsI1l",
+"name": "resistance band leg extension",
+"fr": "Leg extension à l'élastique",
+"ok": true
+},
+{
+"n": 727,
+"id": "Y4BRNQF",
+"name": "push-up (on stability ball)",
+"fr": "Pompe sur swiss ball",
+"ok": true
+},
+{
+"n": 728,
+"id": "Y4QlY8z",
+"name": "smith toe raise",
+"fr": "Relevé de pointes de pieds Smith machine",
+"ok": true
+},
+{
+"n": 729,
+"id": "Y5X65IB",
+"name": "ez barbell reverse grip curl",
+"fr": "Curl prise inversée barre EZ",
+"ok": true
+},
+{
+"n": 730,
+"id": "Y7YcmIJ",
+"name": "barbell bench front squat",
+"fr": "Squat avant sur banc barre",
+"ok": true
+},
+{
+"n": 731,
+"id": "Y9hNPcN",
+"name": "seated side crunch (wall)",
+"fr": "Crunch latéral assis contre le mur",
+"ok": true
+},
+{
+"n": 732,
+"id": "YAk5dIw",
+"name": "reverse grip pull-up",
+"fr": "Traction prise inversée",
+"ok": true
+},
+{
+"n": 733,
+"id": "YIUAtYf",
+"name": "weighted russian twist v. 2",
+"fr": "Rotations russes lestées, variante 2",
+"ok": true
+},
+{
+"n": 734,
+"id": "YPoVrBi",
+"name": "cable seated shoulder internal rotation",
+"fr": "Rotation interne de l'épaule assis à la poulie",
+"ok": true
+},
+{
+"n": 735,
+"id": "YRaCa5Y",
+"name": "full maltese",
+"fr": "Maltaise complète",
+"ok": true
+},
+{
+"n": 736,
+"id": "YTur5nR",
+"name": "cable one arm curl",
+"fr": "Curl unilatéral à la poulie",
+"ok": true
+},
+{
+"n": 737,
+"id": "YUYAMEj",
+"name": "assisted prone lying quads stretch",
+"fr": "Étirement des quadriceps sur le ventre assisté",
+"ok": true
+},
+{
+"n": 738,
+"id": "YZ4961r",
+"name": "full planche",
+"fr": "Planche complète",
+"ok": true
+},
+{
+"n": 739,
+"id": "Ye5Qxb0",
+"name": "ez barbell spider curl",
+"fr": "Spider curl barre EZ",
+"ok": true
+},
+{
+"n": 740,
+"id": "Yg7MJAT",
+"name": "dumbbell one arm lateral raise with support",
+"fr": "Élévation latérale unilatérale haltère avec appui",
+"ok": true
+},
+{
+"n": 741,
+"id": "YqJw82s",
+"name": "barbell reverse close-grip bench press",
+"fr": "Développé couché prise serrée inversée barre",
+"ok": true
+},
+{
+"n": 742,
+"id": "Ys97II0",
+"name": "dumbbell seated front raise",
+"fr": "Élévation frontale assis haltères",
+"ok": true
+},
+{
+"n": 743,
+"id": "YtaCTYl",
+"name": "dumbbell one arm seated neutral wrist curl",
+"fr": "Curl poignet prise neutre unilatéral assis haltère",
+"ok": true
+},
+{
+"n": 744,
+"id": "YtgD7Xq",
+"name": "shoulder grip pull-up",
+"fr": "Traction prise largeur d'épaules",
+"ok": true
+},
+{
+"n": 745,
+"id": "YwnI4ja",
+"name": "cable standing inner curl",
+"fr": "Curl intérieur debout à la poulie",
+"ok": true
+},
+{
+"n": 746,
+"id": "Yza7XrQ",
+"name": "barbell alternate biceps curl",
+"fr": "Curl biceps alterné barre",
+"ok": true
+},
+{
+"n": 747,
+"id": "Z5YStHW",
+"name": "overhead triceps stretch",
+"fr": "Étirement des triceps au-dessus de la tête",
+"ok": true
+},
+{
+"n": 748,
+"id": "ZA8b5hc",
+"name": "kettlebell goblet squat",
+"fr": "Goblet squat kettlebell",
+"ok": true
+},
+{
+"n": 749,
+"id": "ZEkjZDi",
+"name": "kettlebell seated two arm military press",
+"fr": "Développé militaire deux bras assis kettlebells",
+"ok": true
+},
+{
+"n": 750,
+"id": "ZH68exZ",
+"name": "band fixed back underhand pulldown",
+"fr": "Tirage vertical supination élastique fixé derrière",
+"ok": true
+},
+{
+"n": 751,
+"id": "ZIViNh1",
+"name": "dumbbell reverse grip incline bench one arm row",
+"fr": "Rowing unilatéral prise inversée sur banc incliné haltère",
+"ok": true
+},
+{
+"n": 752,
+"id": "ZNgOYQU",
+"name": "vertical leg raise (on parallel bars)",
+"fr": "Relevé de jambes vertical aux barres parallèles",
+"ok": true
+},
+{
+"n": 753,
+"id": "ZOuKWir",
+"name": "kneeling push-up (male)",
+"fr": "Pompe sur les genoux",
+"ok": true
+},
+{
+"n": 754,
+"id": "ZSJNetl",
+"name": "cable high row (kneeling)",
+"fr": "Rowing haut à genoux à la poulie",
+"ok": true
+},
+{
+"n": 755,
+"id": "ZSY3MsL",
+"name": "self assisted inverse leg curl (on floor)",
+"fr": "Leg curl inversé auto-assisté au sol",
+"ok": true
+},
+{
+"n": 756,
+"id": "ZX9UZmj",
+"name": "smith bent over row",
+"fr": "Rowing buste penché Smith machine",
+"ok": true
+},
+{
+"n": 757,
+"id": "ZXnjcOQ",
+"name": "cable one arm reverse preacher curl",
+"fr": "Curl pupitre inversé unilatéral à la poulie",
+"ok": true
+},
+{
+"n": 758,
+"id": "ZZKbeMw",
+"name": "lever shrug",
+"fr": "Shrug machine",
+"ok": true
+},
+{
+"n": 759,
+"id": "ZZTGMKh",
+"name": "one arm against wall",
+"fr": "Étirement un bras contre le mur",
+"ok": true
+},
+{
+"n": 760,
+"id": "Ze7MoIb",
+"name": "dumbbell one arm reverse grip press",
+"fr": "Développé unilatéral prise inversée haltère",
+"ok": true
+},
+{
+"n": 761,
+"id": "ZfyAGhK",
+"name": "cable standing rear delt row (with rope)",
+"fr": "Face pull debout à la corde",
+"ok": true
+},
+{
+"n": 762,
+"id": "Zg3XY7P",
+"name": "lever seated leg curl",
+"fr": "Leg curl assis",
+"ok": true
+},
+{
+"n": 763,
+"id": "ZgsNQ6d",
+"name": "inchworm",
+"fr": "Chenille",
+"ok": true
+},
+{
+"n": 764,
+"id": "ZgwWBoC",
+"name": "cable thibaudeau kayak row",
+"fr": "Rowing kayak Thibaudeau à la poulie",
+"ok": true
+},
+{
+"n": 765,
+"id": "ZnJHhMk",
+"name": "lever seated crunch (chest pad)",
+"fr": "Crunch assis machine avec appui poitrine",
+"ok": true
+},
+{
+"n": 766,
+"id": "ZqNOWQ6",
+"name": "lever reverse grip vertical row",
+"fr": "Rowing vertical prise inversée machine",
+"ok": true
+},
+{
+"n": 767,
+"id": "ZsiqXYa",
+"name": "barbell jm bench press",
+"fr": "Développé JM barre",
+"ok": true
+},
+{
+"n": 768,
+"id": "ZuPXtCK",
+"name": "smith hack squat",
+"fr": "Hack squat Smith machine",
+"ok": true
+},
+{
+"n": 769,
+"id": "ZuXu4Eq",
+"name": "v-sit on floor",
+"fr": "V-sit au sol",
+"ok": true
+},
+{
+"n": 770,
+"id": "ZujAdR9",
+"name": "cable rope incline tricep extension",
+"fr": "Extension triceps incliné à la corde",
+"ok": true
+},
+{
+"n": 771,
+"id": "Zwiw7XR",
+"name": "dumbbell alternating bicep curl with leg raised on exercise ball",
+"fr": "Curl biceps alterné haltères sur swiss ball jambe levée",
+"ok": true
+},
+{
+"n": 772,
+"id": "a4F9Oyc",
+"name": "kettlebell double alternating hang clean",
+"fr": "Épaulé alterné depuis la suspension deux kettlebells",
+"ok": true
+},
+{
+"n": 773,
+"id": "a8VDgLw",
+"name": "stationary bike walk",
+"fr": "Vélo d'appartement, rythme léger",
+"ok": true
+},
+{
+"n": 774,
+"id": "aDoFKrE",
+"name": "medicine ball chest pass",
+"fr": "Passe poitrine médecine ball",
+"ok": true
+},
+{
+"n": 775,
+"id": "aHDy5O5",
+"name": "band y-raise",
+"fr": "Élévation en Y à l'élastique",
+"ok": true
+},
+{
+"n": 776,
+"id": "aTNKZiC",
+"name": "dumbbell incline one arm lateral raise",
+"fr": "Élévation latérale unilatérale inclinée haltère",
+"ok": true
+},
+{
+"n": 777,
+"id": "aVs3BR3",
+"name": "cable twist",
+"fr": "Rotation du buste à la poulie",
+"ok": true
+},
+{
+"n": 778,
+"id": "aWedzZX",
+"name": "glute bridge two legs on bench (male)",
+"fr": "Pont fessier pieds sur banc",
+"ok": true
+},
+{
+"n": 779,
+"id": "aXcUyKb",
+"name": "kettlebell one arm snatch",
+"fr": "Arraché unilatéral kettlebell",
+"ok": true
+},
+{
+"n": 780,
+"id": "aXtJhlg",
+"name": "dumbbell step-up",
+"fr": "Step-up haltères",
+"ok": true
+},
+{
+"n": 781,
+"id": "aaXr7ld",
+"name": "lever t bar row",
+"fr": "Rowing T-bar machine",
+"ok": true
+},
+{
+"n": 782,
+"id": "aaxA3cm",
+"name": "smith reverse grip bent over row",
+"fr": "Rowing buste penché prise inversée Smith machine",
+"ok": true
+},
+{
+"n": 783,
+"id": "ae9UoXQ",
+"name": "dumbbell incline curl",
+"fr": "Curl incliné haltères",
+"ok": true
+},
+{
+"n": 784,
+"id": "aee2Fcj",
+"name": "barbell biceps curl (with arm blaster)",
+"fr": "Curl biceps barre avec arm blaster",
+"ok": true
+},
+{
+"n": 785,
+"id": "ainizkb",
+"name": "dumbbell upright row",
+"fr": "Rowing menton haltères",
+"ok": true
+},
+{
+"n": 786,
+"id": "aqvSOQE",
+"name": "cable cross-over revers fly",
+"fr": "Oiseau à la poulie vis-à-vis",
+"ok": true
+},
+{
+"n": 787,
+"id": "arsYEd3",
+"name": "band one arm single leg split squat",
+"fr": "Squat fendu unilatéral à l'élastique",
+"ok": true
+},
+{
+"n": 788,
+"id": "arvaszz",
+"name": "modified push up to lower arms",
+"fr": "Pompe adaptée sur les avant-bras",
+"ok": true
+},
+{
+"n": 789,
+"id": "aumB2IV",
+"name": "assisted sit-up",
+"fr": "Sit-up assisté",
+"ok": true
+},
+{
+"n": 790,
+"id": "awG04cF",
+"name": "finger curls",
+"fr": "Curl des doigts",
+"ok": true
+},
+{
+"n": 791,
+"id": "ayAHcEm",
+"name": "smith incline shoulder raises",
+"fr": "Élévations d'épaules inclinées Smith machine",
+"ok": true
+},
+{
+"n": 792,
+"id": "b2Uoz54",
+"name": "barbell front raise",
+"fr": "Élévation frontale barre",
+"ok": true
+},
+{
+"n": 793,
+"id": "b4b6afT",
+"name": "weighted seated bicep curl (on stability ball)",
+"fr": "Curl biceps assis lesté sur swiss ball",
+"ok": true
+},
+{
+"n": 794,
+"id": "b63ZzGe",
+"name": "potty squat with support",
+"fr": "Squat accroupi profond avec appui",
+"ok": true
+},
+{
+"n": 795,
+"id": "b6hQYMb",
+"name": "lever preacher curl",
+"fr": "Curl pupitre machine",
+"ok": true
+},
+{
+"n": 796,
+"id": "b9kqlBy",
+"name": "kettlebell alternating renegade row",
+"fr": "Rowing renegade alterné kettlebell",
+"ok": true
+},
+{
+"n": 797,
+"id": "bBi35y3",
+"name": "dumbbell standing alternate overhead press",
+"fr": "Développé au-dessus de la tête alterné debout haltères",
+"ok": true
+},
+{
+"n": 798,
+"id": "bJYHBIN",
+"name": "bodyweight standing calf raise",
+"fr": "Mollets debout au poids du corps",
+"ok": true
+},
+{
+"n": 799,
+"id": "bKWbrTA",
+"name": "one arm towel row",
+"fr": "Rowing à un bras avec serviette",
+"ok": true
+},
+{
+"n": 800,
+"id": "bLyQokI",
+"name": "london bridge",
+"fr": "Pont de Londres",
+"ok": true
+},
+{
+"n": 801,
+"id": "bOOdeyc",
+"name": "lever seated calf raise",
+"fr": "Mollets assis machine",
+"ok": true
+},
+{
+"n": 802,
+"id": "bQHPBU3",
+"name": "dumbbell one arm pullover on exercise ball",
+"fr": "Pull-over unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 803,
+"id": "bQy2Eni",
+"name": "dumbbell one arm kickback",
+"fr": "Kickback triceps unilatéral haltère",
+"ok": true
+},
+{
+"n": 804,
+"id": "bRlbdjK",
+"name": "dumbbell decline shrug v. 2",
+"fr": "Shrug décliné haltères, variante 2",
+"ok": true
+},
+{
+"n": 805,
+"id": "bTpEUcm",
+"name": "barbell low bar squat",
+"fr": "Squat barre basse",
+"ok": true
+},
+{
+"n": 806,
+"id": "bWlZvXh",
+"name": "butterfly yoga pose",
+"fr": "Posture du papillon (yoga)",
+"ok": true
+},
+{
+"n": 807,
+"id": "bWxq4op",
+"name": "dumbbell one arm reverse preacher curl",
+"fr": "Curl pupitre inversé unilatéral haltère",
+"ok": true
+},
+{
+"n": 808,
+"id": "bZGHsAZ",
+"name": "inverted row",
+"fr": "Rowing inversé",
+"ok": true
+},
+{
+"n": 809,
+"id": "bZq4bwK",
+"name": "weighted tricep dips",
+"fr": "Dips triceps lestés",
+"ok": true
+},
+{
+"n": 810,
+"id": "bbLR7fB",
+"name": "band lying straight leg raise",
+"fr": "Relevé de jambe tendue allongé à l'élastique",
+"ok": true
+},
+{
+"n": 811,
+"id": "bd5b860",
+"name": "wrist rollerer",
+"fr": "Rouleau de poignets",
+"ok": true
+},
+{
+"n": 812,
+"id": "bdWcbaU",
+"name": "frankenstein squat",
+"fr": "Squat Frankenstein",
+"ok": true
+},
+{
+"n": 813,
+"id": "bfiHMpI",
+"name": "dumbbell incline press on exercise ball",
+"fr": "Développé incliné haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 814,
+"id": "bjqbauy",
+"name": "weighted standing hand squeeze",
+"fr": "Pression des mains debout avec disque",
+"ok": true
+},
+{
+"n": 815,
+"id": "blBXysN",
+"name": "kettlebell two arm military press",
+"fr": "Développé militaire deux bras kettlebells",
+"ok": true
+},
+{
+"n": 816,
+"id": "bmBf7LN",
+"name": "dumbbell lying external shoulder rotation",
+"fr": "Rotation externe de l'épaule allongé haltère",
+"ok": true
+},
+{
+"n": 817,
+"id": "bmwlYvD",
+"name": "gorilla chin",
+"fr": "Traction gorille",
+"ok": true
+},
+{
+"n": 818,
+"id": "bndCa3Q",
+"name": "barbell pin presses",
+"fr": "Développé sur butées barre",
+"ok": true
+},
+{
+"n": 819,
+"id": "bpJL2Qs",
+"name": "dumbbell pronate-grip triceps extension",
+"fr": "Extension triceps prise pronation haltères",
+"ok": true
+},
+{
+"n": 820,
+"id": "c16nYGA",
+"name": "band one arm twisting chest press",
+"fr": "Développé pectoraux unilatéral avec rotation à l'élastique",
+"ok": true
+},
+{
+"n": 821,
+"id": "c3Pfhti",
+"name": "roller side lat stretch",
+"fr": "Étirement latéral des dorsaux au rouleau",
+"ok": true
+},
+{
+"n": 822,
+"id": "c3QQLPi",
+"name": "cable rear drive",
+"fr": "Poussée arrière à la poulie",
+"ok": true
+},
+{
+"n": 823,
+"id": "c8f5cSY",
+"name": "side lying hip adduction (male)",
+"fr": "Adduction de hanche couché sur le côté",
+"ok": true
+},
+{
+"n": 824,
+"id": "c8oybX6",
+"name": "cable rope elevated seated row",
+"fr": "Rowing assis surélevé à la corde",
+"ok": true
+},
+{
+"n": 825,
+"id": "c9MnDRp",
+"name": "dumbbell raise",
+"fr": "Élévation haltères",
+"ok": true
+},
+{
+"n": 826,
+"id": "cA9FuWG",
+"name": "barbell bent arm pullover",
+"fr": "Pull-over bras fléchis barre",
+"ok": true
+},
+{
+"n": 827,
+"id": "cALKspW",
+"name": "cable upright row",
+"fr": "Rowing menton à la poulie",
+"ok": true
+},
+{
+"n": 828,
+"id": "cALkHHX",
+"name": "dumbbell iron cross",
+"fr": "Croix de fer haltères",
+"ok": true
+},
+{
+"n": 829,
+"id": "cAvTaSg",
+"name": "dumbbell kickbacks on exercise ball",
+"fr": "Kickback triceps haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 830,
+"id": "cJgSTmh",
+"name": "oblique crunch v. 2",
+"fr": "Crunch oblique, variante 2",
+"ok": true
+},
+{
+"n": 831,
+"id": "cQ19bBP",
+"name": "rocky pull-up pulldown",
+"fr": "Traction et tirage vertical enchaînés",
+"ok": true
+},
+{
+"n": 832,
+"id": "cWemPG8",
+"name": "dumbbell prone incline hammer curl",
+"fr": "Curl marteau incliné sur le ventre haltères",
+"ok": true
+},
+{
+"n": 833,
+"id": "cbuFJrn",
+"name": "lever gripless shrug v. 2",
+"fr": "Shrug sans les mains machine, variante 2",
+"ok": true
+},
+{
+"n": 834,
+"id": "chfnQnM",
+"name": "back pec stretch",
+"fr": "Étirement des pectoraux dans le dos",
+"ok": true
+},
+{
+"n": 835,
+"id": "cuKYxhu",
+"name": "standing pelvic tilt",
+"fr": "Bascule du bassin debout",
+"ok": true
+},
+{
+"n": 836,
+"id": "cwsAI4G",
+"name": "dumbbell decline shrug",
+"fr": "Shrug décliné haltères",
+"ok": true
+},
+{
+"n": 837,
+"id": "d1GgzTU",
+"name": "l-pull-up",
+"fr": "Traction en L",
+"ok": true
+},
+{
+"n": 838,
+"id": "d5bTEPV",
+"name": "band step-up",
+"fr": "Step-up à l'élastique",
+"ok": true
+},
+{
+"n": 839,
+"id": "d7z1Y7V",
+"name": "exercise ball hug",
+"fr": "Enlacer le swiss ball",
+"ok": true
+},
+{
+"n": 840,
+"id": "d960PgE",
+"name": "barbell seated good morning",
+"fr": "Good morning assis barre",
+"ok": true
+},
+{
+"n": 841,
+"id": "d9Xaxq6",
+"name": "cable russian twists (on stability ball)",
+"fr": "Rotations russes à la poulie sur swiss ball",
+"ok": true
+},
+{
+"n": 842,
+"id": "dB07vDu",
+"name": "cable one arm lateral bent-over",
+"fr": "Élévation latérale unilatérale buste penché à la poulie",
+"ok": true
+},
+{
+"n": 843,
+"id": "dCJnuVq",
+"name": "medicine ball chest push from 3 point stance",
+"fr": "Poussée poitrine médecine ball depuis trois appuis",
+"ok": true
+},
+{
+"n": 844,
+"id": "dCPESfR",
+"name": "barbell standing bradford press",
+"fr": "Développé Bradford debout barre",
+"ok": true
+},
+{
+"n": 845,
+"id": "dFSNDOA",
+"name": "barbell seated twist",
+"fr": "Rotation du buste assis barre",
+"ok": true
+},
+{
+"n": 846,
+"id": "dG5Smob",
+"name": "snatch pull",
+"fr": "Tirage d'arraché",
+"ok": true
+},
+{
+"n": 847,
+"id": "dG7tG5y",
+"name": "barbell shrug",
+"fr": "Shrug barre",
+"ok": true
+},
+{
+"n": 848,
+"id": "dK9394r",
+"name": "burpee",
+"fr": "Burpee",
+"ok": true
+},
+{
+"n": 849,
+"id": "dNFYIU1",
+"name": "lever shoulder press v. 3",
+"fr": "Développé épaules machine, variante 3",
+"ok": true
+},
+{
+"n": 850,
+"id": "dPmaUaU",
+"name": "dumbbell standing calf raise",
+"fr": "Mollets debout haltères",
+"ok": true
+},
+{
+"n": 851,
+"id": "dRTfGZT",
+"name": "lever lateral raise",
+"fr": "Élévation latérale machine",
+"ok": true
+},
+{
+"n": 852,
+"id": "dTg95eZ",
+"name": "knee touch crunch",
+"fr": "Crunch avec toucher de genoux",
+"ok": true
+},
+{
+"n": 853,
+"id": "dU605di",
+"name": "cable pushdown (with rope attachment)",
+"fr": "Extension triceps à la corde",
+"ok": true
+},
+{
+"n": 854,
+"id": "dXz8zjF",
+"name": "cable drag curl",
+"fr": "Drag curl à la poulie",
+"ok": true
+},
+{
+"n": 855,
+"id": "dZl9Q27",
+"name": "barbell standing overhead triceps extension",
+"fr": "Extension triceps nuque debout barre",
+"ok": true
+},
+{
+"n": 856,
+"id": "da4cXST",
+"name": "ez-bar close-grip bench press",
+"fr": "Développé couché prise serrée barre EZ",
+"ok": true
+},
+{
+"n": 857,
+"id": "daBmy1Y",
+"name": "dumbbell single leg deadlift with stepbox support",
+"fr": "Soulevé de terre sur une jambe haltère avec appui sur step",
+"ok": true
+},
+{
+"n": 858,
+"id": "dmgMp3n",
+"name": "barbell incline row",
+"fr": "Rowing incliné barre",
+"ok": true
+},
+{
+"n": 859,
+"id": "dzz6BiV",
+"name": "smith sumo squat",
+"fr": "Squat sumo Smith machine",
+"ok": true
+},
+{
+"n": 860,
+"id": "e1e76I2",
+"name": "jump rope",
+"fr": "Corde à sauter",
+"ok": true
+},
+{
+"n": 861,
+"id": "e25F58f",
+"name": "dumbbell one arm reverse fly (with support)",
+"fr": "Oiseau unilatéral haltère avec appui",
+"ok": true
+},
+{
+"n": 862,
+"id": "e4aFmFY",
+"name": "weighted front raise",
+"fr": "Élévation frontale avec disque",
+"ok": true
+},
+{
+"n": 863,
+"id": "e4ojVhP",
+"name": "dumbbell revers grip biceps curl",
+"fr": "Curl biceps prise inversée haltères",
+"ok": true
+},
+{
+"n": 864,
+"id": "eGDudUV",
+"name": "cable deadlift",
+"fr": "Soulevé de terre à la poulie",
+"ok": true
+},
+{
+"n": 865,
+"id": "eHBlPsa",
+"name": "cable one arm preacher curl",
+"fr": "Curl pupitre unilatéral à la poulie",
+"ok": true
+},
+{
+"n": 866,
+"id": "eOCOwIR",
+"name": "dumbbell lying elbow press",
+"fr": "Développé coudes allongé haltères",
+"ok": true
+},
+{
+"n": 867,
+"id": "eOG0r6v",
+"name": "cable reverse curl",
+"fr": "Curl inversé à la poulie",
+"ok": true
+},
+{
+"n": 868,
+"id": "eOrFCnx",
+"name": "dumbbell arnold press v. 2",
+"fr": "Développé Arnold haltères, variante 2",
+"ok": true
+},
+{
+"n": 869,
+"id": "eVxAzgz",
+"name": "incline leg hip raise (leg straight)",
+"fr": "Relevé de jambes et de bassin incliné jambes tendues",
+"ok": true
+},
+{
+"n": 870,
+"id": "eXFXCY0",
+"name": "lever seated crunch v. 2",
+"fr": "Crunch assis machine, variante 2",
+"ok": true
+},
+{
+"n": 871,
+"id": "eXMFHww",
+"name": "landmine lateral raise",
+"fr": "Élévation latérale landmine",
+"ok": true
+},
+{
+"n": 872,
+"id": "eYmsEPR",
+"name": "cable reverse wrist curl",
+"fr": "Curl poignets inversé à la poulie",
+"ok": true
+},
+{
+"n": 873,
+"id": "eYnzaCm",
+"name": "cable bar lateral pulldown",
+"fr": "Tirage vertical à la poulie",
+"ok": true
+},
+{
+"n": 874,
+"id": "eZyBC3j",
+"name": "barbell bent over row",
+"fr": "Rowing barre buste penché",
+"ok": true
+},
+{
+"n": 875,
+"id": "ealLwvX",
+"name": "high knee against wall",
+"fr": "Montées de genoux contre un mur",
+"ok": true
+},
+{
+"n": 876,
+"id": "ecl28tP",
+"name": "dumbbell contralateral forward lunge",
+"fr": "Fente avant controlatérale haltère",
+"ok": true
+},
+{
+"n": 877,
+"id": "ecpY0rH",
+"name": "reverse grip machine lat pulldown",
+"fr": "Tirage vertical prise inversée machine",
+"ok": true
+},
+{
+"n": 878,
+"id": "elhhVgj",
+"name": "barbell narrow stance squat",
+"fr": "Squat pieds serrés barre",
+"ok": true
+},
+{
+"n": 879,
+"id": "en550rk",
+"name": "dumbbell seated kickback",
+"fr": "Kickback triceps assis haltères",
+"ok": true
+},
+{
+"n": 880,
+"id": "enxnJcM",
+"name": "quarter sit-up",
+"fr": "Quart de sit-up",
+"ok": true
+},
+{
+"n": 881,
+"id": "epOSYUZ",
+"name": "modified hindu push-up (male)",
+"fr": "Pompe hindoue adaptée",
+"ok": true
+},
+{
+"n": 882,
+"id": "euI1BwR",
+"name": "barbell speed squat",
+"fr": "Squat vitesse barre",
+"ok": true
+},
+{
+"n": 883,
+"id": "euq4pwp",
+"name": "band standing twisting crunch",
+"fr": "Crunch debout avec rotation à l'élastique",
+"ok": true
+},
+{
+"n": 884,
+"id": "ezTvXcr",
+"name": "ring dips",
+"fr": "Dips aux anneaux",
+"ok": true
+},
+{
+"n": 885,
+"id": "f1jf47L",
+"name": "dumbbell seated shoulder press (parallel grip)",
+"fr": "Développé épaules assis prise neutre haltères",
+"ok": true
+},
+{
+"n": 886,
+"id": "f38OEuO",
+"name": "kneeling lat stretch",
+"fr": "Étirement des dorsaux à genoux",
+"ok": true
+},
+{
+"n": 887,
+"id": "f4xtKBj",
+"name": "assisted standing pull-up",
+"fr": "Traction assistée debout",
+"ok": true
+},
+{
+"n": 888,
+"id": "f7Y9eDZ",
+"name": "barbell thruster",
+"fr": "Thruster barre",
+"ok": true
+},
+{
+"n": 889,
+"id": "f7fnAIB",
+"name": "cable squat row (with rope attachment)",
+"fr": "Squat rowing à la corde",
+"ok": true
+},
+{
+"n": 890,
+"id": "f91FwXG",
+"name": "lever gripless shrug",
+"fr": "Shrug sans les mains machine",
+"ok": true
+},
+{
+"n": 891,
+"id": "f9lVSSI",
+"name": "astride jumps (male)",
+"fr": "Sauts écartés",
+"ok": true
+},
+{
+"n": 892,
+"id": "fI18Rbc",
+"name": "barbell upright row v. 3",
+"fr": "Rowing menton barre, variante 3",
+"ok": true
+},
+{
+"n": 893,
+"id": "fKZgDEO",
+"name": "single leg calf raise (on a dumbbell)",
+"fr": "Mollets sur une jambe sur un haltère",
+"ok": true
+},
+{
+"n": 894,
+"id": "fNGumX0",
+"name": "back and forth step",
+"fr": "Pas avant arrière",
+"ok": true
+},
+{
+"n": 895,
+"id": "fSrPP6B",
+"name": "triceps press",
+"fr": "Presse triceps",
+"ok": true
+},
+{
+"n": 896,
+"id": "fTlkJop",
+"name": "dumbbell side lying one hand raise",
+"fr": "Élévation unilatérale couché sur le côté haltère",
+"ok": true
+},
+{
+"n": 897,
+"id": "fUBheHs",
+"name": "cable seated row",
+"fr": "Tirage horizontal à la poulie",
+"ok": true
+},
+{
+"n": 898,
+"id": "fXfqg1E",
+"name": "weighted one hand pull up",
+"fr": "Traction lestée à une main",
+"ok": true
+},
+{
+"n": 899,
+"id": "fY68AyX",
+"name": "dumbbell hammer curl on exercise ball",
+"fr": "Curl marteau haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 900,
+"id": "fZFZ704",
+"name": "weighted russian twist",
+"fr": "Rotations russes lestées",
+"ok": true
+},
+{
+"n": 901,
+"id": "faHKVkK",
+"name": "barbell standing wide grip biceps curl",
+"fr": "Curl biceps debout prise large barre",
+"ok": true
+},
+{
+"n": 902,
+"id": "ffQsyBj",
+"name": "dumbbell one arm standing curl",
+"fr": "Curl unilatéral debout haltère",
+"ok": true
+},
+{
+"n": 903,
+"id": "fgc9Xdl",
+"name": "cable standing one leg calf raise",
+"fr": "Mollets unilatéral debout à la poulie",
+"ok": true
+},
+{
+"n": 904,
+"id": "fhZQPlV",
+"name": "cable twist (up-down)",
+"fr": "Rotation du buste à la poulie, de haut en bas",
+"ok": true
+},
+{
+"n": 905,
+"id": "fprd84i",
+"name": "ez barbell anti gravity press",
+"fr": "Développé anti-gravité barre EZ",
+"ok": true
+},
+{
+"n": 906,
+"id": "fy7Tgy4",
+"name": "dumbbell alternate hammer preacher curl",
+"fr": "Curl marteau pupitre alterné haltères",
+"ok": true
+},
+{
+"n": 907,
+"id": "g2oKspu",
+"name": "curl-up",
+"fr": "Curl-up",
+"ok": true
+},
+{
+"n": 908,
+"id": "g376LuL",
+"name": "sled lying calf press",
+"fr": "Mollets allongé à la presse",
+"ok": true
+},
+{
+"n": 909,
+"id": "g9AsZ8P",
+"name": "kettlebell one arm row",
+"fr": "Rowing unilatéral kettlebell",
+"ok": true
+},
+{
+"n": 910,
+"id": "gAwDzB3",
+"name": "cable triceps pushdown (v-bar)",
+"fr": "Extension triceps à la poulie, poignée en V",
+"ok": true
+},
+{
+"n": 911,
+"id": "gEyURal",
+"name": "barbell single leg deadlift",
+"fr": "Soulevé de terre sur une jambe barre",
+"ok": true
+},
+{
+"n": 912,
+"id": "gFyFj9z",
+"name": "dumbbell step-up lunge",
+"fr": "Step-up et fente haltères",
+"ok": true
+},
+{
+"n": 913,
+"id": "gGNQmVt",
+"name": "barbell single leg split squat",
+"fr": "Squat fendu sur une jambe barre",
+"ok": true
+},
+{
+"n": 914,
+"id": "gH5fRsC",
+"name": "dumbbell seated alternate front raise",
+"fr": "Élévation frontale alternée assis haltères",
+"ok": true
+},
+{
+"n": 915,
+"id": "gKozT8X",
+"name": "dumbbell single leg deadlift",
+"fr": "Soulevé de terre sur une jambe haltère",
+"ok": true
+},
+{
+"n": 916,
+"id": "gSw59a4",
+"name": "dumbbell lying one arm deltoid rear",
+"fr": "Élévation deltoïde postérieur unilatérale allongé haltère",
+"ok": true
+},
+{
+"n": 917,
+"id": "gUjqdei",
+"name": "curtsey squat",
+"fr": "Squat révérence",
+"ok": true
+},
+{
+"n": 918,
+"id": "gVlnLIJ",
+"name": "cable reverse one arm curl",
+"fr": "Curl inversé unilatéral à la poulie",
+"ok": true
+},
+{
+"n": 919,
+"id": "gf3ZjB9",
+"name": "sled closer hack squat",
+"fr": "Hack squat pieds serrés",
+"ok": true
+},
+{
+"n": 920,
+"id": "gfk9kD4",
+"name": "barbell overhead squat",
+"fr": "Squat bras tendus au-dessus de la tête barre",
+"ok": true
+},
+{
+"n": 921,
+"id": "goJ6ezq",
+"name": "cable lateral raise",
+"fr": "Élévations latérales à la poulie",
+"ok": true
+},
+{
+"n": 922,
+"id": "gscGLOU",
+"name": "bodyweight side lying biceps curl",
+"fr": "Curl biceps couché sur le côté au poids du corps",
+"ok": true
+},
+{
+"n": 923,
+"id": "gtO1ErP",
+"name": "weighted three bench dips",
+"fr": "Dips entre trois bancs lestés",
+"ok": true
+},
+{
+"n": 924,
+"id": "guT8YnS",
+"name": "biceps pull-up",
+"fr": "Traction biceps",
+"ok": true
+},
+{
+"n": 925,
+"id": "gvsWLQw",
+"name": "dumbbell concentration curl",
+"fr": "Curl concentré haltère",
+"ok": true
+},
+{
+"n": 926,
+"id": "gw9PqGk",
+"name": "full planche push-up",
+"fr": "Pompe en planche complète",
+"ok": true
+},
+{
+"n": 927,
+"id": "gx7s7uF",
+"name": "barbell incline close grip bench press",
+"fr": "Développé incliné prise serrée barre",
+"ok": true
+},
+{
+"n": 928,
+"id": "h1ezqSu",
+"name": "kneeling plank tap shoulder (male)",
+"fr": "Gainage à genoux avec touche d'épaule",
+"ok": true
+},
+{
+"n": 929,
+"id": "h8LFzo9",
+"name": "barbell lying triceps extension skull crusher",
+"fr": "Barre au front",
+"ok": true
+},
+{
+"n": 930,
+"id": "hBGWILP",
+"name": "cable hip adduction",
+"fr": "Adduction de hanche à la poulie",
+"ok": true
+},
+{
+"n": 931,
+"id": "hC6oYY5",
+"name": "assisted side lying adductor stretch",
+"fr": "Étirement des adducteurs couché sur le côté assisté",
+"ok": true
+},
+{
+"n": 932,
+"id": "hCjGsRQ",
+"name": "power point plank",
+"fr": "Gainage sur points d'appui",
+"ok": true
+},
+{
+"n": 933,
+"id": "hHy8tQG",
+"name": "cable one arm fly on exercise ball",
+"fr": "Écarté unilatéral à la poulie sur swiss ball",
+"ok": true
+},
+{
+"n": 934,
+"id": "hMEptv0",
+"name": "barbell decline bent arm pullover",
+"fr": "Pull-over bras fléchis décliné barre",
+"ok": true
+},
+{
+"n": 935,
+"id": "hacCyUv",
+"name": "ez barbell close grip preacher curl",
+"fr": "Curl pupitre prise serrée barre EZ",
+"ok": true
+},
+{
+"n": 936,
+"id": "hbY9wqG",
+"name": "front lever reps",
+"fr": "Front lever en répétitions",
+"ok": true
+},
+{
+"n": 937,
+"id": "hfmQ0Tz",
+"name": "smith standing back wrist curl",
+"fr": "Curl poignets dans le dos debout Smith machine",
+"ok": true
+},
+{
+"n": 938,
+"id": "hl8DUh8",
+"name": "barbell decline wide-grip press",
+"fr": "Développé décliné prise large barre",
+"ok": true
+},
+{
+"n": 939,
+"id": "hnOYgH3",
+"name": "ez barbell jm bench press",
+"fr": "Développé JM barre EZ",
+"ok": true
+},
+{
+"n": 940,
+"id": "hoXt6wv",
+"name": "left hook. boxing",
+"fr": "Crochet gauche, boxe",
+"ok": true
+},
+{
+"n": 941,
+"id": "hq2hyDH",
+"name": "dumbbell standing preacher curl",
+"fr": "Curl pupitre debout haltère",
+"ok": true
+},
+{
+"n": 942,
+"id": "hrVQWvE",
+"name": "barbell straight leg deadlift",
+"fr": "Soulevé de terre jambes tendues barre",
+"ok": true
+},
+{
+"n": 943,
+"id": "hrrS0Ed",
+"name": "dumbbell seated lateral raise v. 2",
+"fr": "Élévation latérale assis haltères, variante 2",
+"ok": true
+},
+{
+"n": 944,
+"id": "ht8xDrP",
+"name": "smith standing behind head military press",
+"fr": "Développé militaire nuque debout Smith machine",
+"ok": true
+},
+{
+"n": 945,
+"id": "hvHhCv8",
+"name": "cable forward raise",
+"fr": "Élévation vers l'avant à la poulie",
+"ok": true
+},
+{
+"n": 946,
+"id": "hvV79Si",
+"name": "cable low seated row",
+"fr": "Rowing assis poulie basse",
+"ok": true
+},
+{
+"n": 947,
+"id": "hwygydB",
+"name": "dumbbell preacher curl over exercise ball",
+"fr": "Curl pupitre haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 948,
+"id": "hxyTtWj",
+"name": "dumbbell seated lateral raise",
+"fr": "Élévation latérale assis haltères",
+"ok": true
+},
+{
+"n": 949,
+"id": "i11JWU7",
+"name": "cable standing reverse grip one arm overhead tricep extension",
+"fr": "Extension triceps nuque unilatérale prise inversée debout à la poulie",
+"ok": true
+},
+{
+"n": 950,
+"id": "i4JkUaL",
+"name": "barbell side bent v. 2",
+"fr": "Flexion latérale barre, variante 2",
+"ok": true
+},
+{
+"n": 951,
+"id": "i5cEhka",
+"name": "decline push-up",
+"fr": "Pompe déclinée",
+"ok": true
+},
+{
+"n": 952,
+"id": "i6LWjok",
+"name": "barbell pullover",
+"fr": "Pull-over barre",
+"ok": true
+},
+{
+"n": 953,
+"id": "i8BdLTK",
+"name": "dumbbell straight arm pullover",
+"fr": "Pull-over bras tendus haltère",
+"ok": true
+},
+{
+"n": 954,
+"id": "iK59oEA",
+"name": "dumbbell lying pullover on exercise ball",
+"fr": "Pull-over allongé haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 955,
+"id": "iPm26QU",
+"name": "box jump down with one leg stabilization",
+"fr": "Saut de box avec réception sur une jambe",
+"ok": true
+},
+{
+"n": 956,
+"id": "iQ241UP",
+"name": "half sit-up (male)",
+"fr": "Demi sit-up",
+"ok": true
+},
+{
+"n": 957,
+"id": "iYzB0Cz",
+"name": "barbell full squat (side pov)",
+"fr": "Squat complet barre, vue de profil",
+"ok": true
+},
+{
+"n": 958,
+"id": "iZop9xO",
+"name": "barbell lying triceps extension",
+"fr": "Extension triceps allongé barre",
+"ok": true
+},
+{
+"n": 959,
+"id": "ia6kIIl",
+"name": "half knee bends (male)",
+"fr": "Demi-flexions des genoux",
+"ok": true
+},
+{
+"n": 960,
+"id": "iaapw0g",
+"name": "ez barbell seated triceps extension",
+"fr": "Extension triceps assis barre EZ",
+"ok": true
+},
+{
+"n": 961,
+"id": "ila4NZS",
+"name": "barbell deadlift",
+"fr": "Soulevé de terre barre",
+"ok": true
+},
+{
+"n": 962,
+"id": "iny3m5y",
+"name": "dead bug",
+"fr": "Dead bug",
+"ok": true
+},
+{
+"n": 963,
+"id": "ioTf098",
+"name": "cable overhead curl on exercise ball",
+"fr": "Curl au-dessus de la tête à la poulie sur swiss ball",
+"ok": true
+},
+{
+"n": 964,
+"id": "ipvgBnC",
+"name": "barbell seated calf raise",
+"fr": "Mollets assis barre",
+"ok": true
+},
+{
+"n": 965,
+"id": "isAAZWA",
+"name": "side-to-side chin",
+"fr": "Traction de gauche à droite",
+"ok": true
+},
+{
+"n": 966,
+"id": "isofgzg",
+"name": "roller back stretch",
+"fr": "Étirement du dos au rouleau",
+"ok": true
+},
+{
+"n": 967,
+"id": "izMnLqz",
+"name": "dumbbell alternate side press",
+"fr": "Développé latéral alterné haltères",
+"ok": true
+},
+{
+"n": 968,
+"id": "j74M6Zn",
+"name": "exercise ball on the wall calf raise (tennis ball between knees)",
+"fr": "Mollets avec swiss ball contre le mur, balle de tennis entre les genoux",
+"ok": true
+},
+{
+"n": 969,
+"id": "j7XMAyn",
+"name": "cable upper chest crossovers",
+"fr": "Poulie vis-à-vis pour le haut des pectoraux",
+"ok": true
+},
+{
+"n": 970,
+"id": "j9Q5crt",
+"name": "walking on stepmill",
+"fr": "Marche sur stepper",
+"ok": true
+},
+{
+"n": 971,
+"id": "jCrtE9b",
+"name": "one arm slam (with medicine ball)",
+"fr": "Slam à un bras avec médecine ball",
+"ok": true
+},
+{
+"n": 972,
+"id": "jDOKRM5",
+"name": "side lying floor stretch",
+"fr": "Étirement couché sur le côté au sol",
+"ok": true
+},
+{
+"n": 973,
+"id": "jDnrkar",
+"name": "dumbbell incline one arm hammer press on exercise ball",
+"fr": "Développé incliné prise marteau unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 974,
+"id": "jFtipLl",
+"name": "smith squat",
+"fr": "Squat Smith machine",
+"ok": true
+},
+{
+"n": 975,
+"id": "jHAnWmT",
+"name": "lever incline chest press",
+"fr": "Développé incliné machine",
+"ok": true
+},
+{
+"n": 976,
+"id": "jK2hZ6n",
+"name": "dumbbell one arm seated hammer curl",
+"fr": "Curl marteau unilatéral assis haltère",
+"ok": true
+},
+{
+"n": 977,
+"id": "jNU1gFQ",
+"name": "outside leg kick push-up",
+"fr": "Pompe avec coup de pied vers l'extérieur",
+"ok": true
+},
+{
+"n": 978,
+"id": "jQGwmxN",
+"name": "trap bar deadlift",
+"fr": "Soulevé de terre trap bar",
+"ok": true
+},
+{
+"n": 979,
+"id": "jTkSc6o",
+"name": "side hip (on parallel bars)",
+"fr": "Élévation de hanche latérale aux barres parallèles",
+"ok": true
+},
+{
+"n": 980,
+"id": "jV65tKx",
+"name": "scapula push-up",
+"fr": "Pompe scapulaire",
+"ok": true
+},
+{
+"n": 981,
+"id": "jdiExfW",
+"name": "inverted row with straps",
+"fr": "Rowing inversé avec sangles",
+"ok": true
+},
+{
+"n": 982,
+"id": "jeHtrlO",
+"name": "medicine ball chest push single response",
+"fr": "Poussée poitrine médecine ball unique",
+"ok": true
+},
+{
+"n": 983,
+"id": "jgbvVJ0",
+"name": "dumbbell incline t-raise",
+"fr": "Élévation en T inclinée haltères",
+"ok": true
+},
+{
+"n": 984,
+"id": "jivWf8n",
+"name": "dumbbell preacher curl",
+"fr": "Curl pupitre haltère",
+"ok": true
+},
+{
+"n": 985,
+"id": "jjUPrze",
+"name": "smith standing military press",
+"fr": "Développé militaire debout Smith machine",
+"ok": true
+},
+{
+"n": 986,
+"id": "jl6uxZV",
+"name": "band two legs calf raise - (band under both legs) v. 2",
+"fr": "Mollets deux jambes à l'élastique, variante 2",
+"ok": true
+},
+{
+"n": 987,
+"id": "jpgqxiS",
+"name": "cable standing crunch",
+"fr": "Crunch debout à la poulie",
+"ok": true
+},
+{
+"n": 988,
+"id": "jtFKbt5",
+"name": "ez barbell seated curls",
+"fr": "Curl assis barre EZ",
+"ok": true
+},
+{
+"n": 989,
+"id": "jvp6DiD",
+"name": "elbow-to-knee",
+"fr": "Coude au genou",
+"ok": true
+},
+{
+"n": 990,
+"id": "k5IpyHg",
+"name": "dumbbell one arm concentration curl (on stability ball)",
+"fr": "Curl concentré unilatéral haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 991,
+"id": "k6tUeqS",
+"name": "band underhand pulldown",
+"fr": "Tirage vertical supination à l'élastique",
+"ok": true
+},
+{
+"n": 992,
+"id": "kMzUs9Y",
+"name": "forward lunge (male)",
+"fr": "Fente avant",
+"ok": true
+},
+{
+"n": 993,
+"id": "kTbSH9h",
+"name": "barbell seated overhead press",
+"fr": "Développé épaules assis barre",
+"ok": true
+},
+{
+"n": 994,
+"id": "kXaIn5A",
+"name": "dumbbell zottman curl",
+"fr": "Curl Zottman haltères",
+"ok": true
+},
+{
+"n": 995,
+"id": "kesXOpB",
+"name": "cable decline seated wide-grip row",
+"fr": "Rowing assis décliné prise large à la poulie",
+"ok": true
+},
+{
+"n": 996,
+"id": "khlHMqs",
+"name": "band bench press",
+"fr": "Développé couché à l'élastique",
+"ok": true
+},
+{
+"n": 997,
+"id": "kiJ4Z2K",
+"name": "assisted pull-up",
+"fr": "Traction assistée",
+"ok": true
+},
+{
+"n": 998,
+"id": "kj3hy6W",
+"name": "lever reverse grip preacher curl",
+"fr": "Curl pupitre prise inversée machine",
+"ok": true
+},
+{
+"n": 999,
+"id": "kjE55n5",
+"name": "kettlebell bent press",
+"fr": "Bent press kettlebell",
+"ok": true
+},
+{
+"n": 1000,
+"id": "kjJ3VoQ",
+"name": "crunch (hands overhead)",
+"fr": "Crunch bras au-dessus de la tête",
+"ok": true
+},
+{
+"n": 1001,
+"id": "km0sQC0",
+"name": "band one arm standing low row",
+"fr": "Rowing bas unilatéral debout à l'élastique",
+"ok": true
+},
+{
+"n": 1002,
+"id": "km2Ljzj",
+"name": "wheel run",
+"fr": "Course avec roue",
+"ok": true
+},
+{
+"n": 1003,
+"id": "kmVVAfu",
+"name": "band concentration curl",
+"fr": "Curl concentré à l'élastique",
+"ok": true
+},
+{
+"n": 1004,
+"id": "kont8Ut",
+"name": "dumbbell seated triceps extension",
+"fr": "Extension triceps nuque assis haltère",
+"ok": true
+},
+{
+"n": 1005,
+"id": "kprile3",
+"name": "exercise ball dip",
+"fr": "Dips sur swiss ball",
+"ok": true
+},
+{
+"n": 1006,
+"id": "ktf3nvW",
+"name": "kettlebell plyo push-up",
+"fr": "Pompe pliométrique kettlebell",
+"ok": true
+},
+{
+"n": 1007,
+"id": "ktsFQAZ",
+"name": "barbell seated calf raise",
+"fr": "Mollets assis barre",
+"ok": true
+},
+{
+"n": 1008,
+"id": "kuMiR2T",
+"name": "band stiff leg deadlift",
+"fr": "Soulevé de terre jambes tendues à l'élastique",
+"ok": true
+},
+{
+"n": 1009,
+"id": "kuXhl0o",
+"name": "kettlebell pirate supper legs",
+"fr": "Pirate supper legs kettlebell",
+"ok": true
+},
+{
+"n": 1010,
+"id": "ky8FLU8",
+"name": "lever reverse grip lateral pulldown",
+"fr": "Tirage vertical prise inversée machine",
+"ok": true
+},
+{
+"n": 1011,
+"id": "lBDjFxJ",
+"name": "pull-up",
+"fr": "Tractions",
+"ok": true
+},
+{
+"n": 1012,
+"id": "lCKm4Rs",
+"name": "exercise ball prone leg raise",
+"fr": "Relevé de jambes sur le ventre sur swiss ball",
+"ok": true
+},
+{
+"n": 1013,
+"id": "lFhb2Rw",
+"name": "smith front squat (clean grip)",
+"fr": "Squat avant prise épaulé Smith machine",
+"ok": true
+},
+{
+"n": 1014,
+"id": "lHeUULr",
+"name": "band straight back stiff leg deadlift",
+"fr": "Soulevé de terre jambes tendues dos droit à l'élastique",
+"ok": true
+},
+{
+"n": 1015,
+"id": "lI7easp",
+"name": "dumbbell pullover hip extension on exercise ball",
+"fr": "Pull-over haltère avec extension de hanche sur swiss ball",
+"ok": true
+},
+{
+"n": 1016,
+"id": "lJJ7Yq8",
+"name": "cable lying fly",
+"fr": "Écarté allongé à la poulie",
+"ok": true
+},
+{
+"n": 1017,
+"id": "laVRfDf",
+"name": "dumbbell standing front raise above head",
+"fr": "Élévation frontale au-dessus de la tête debout haltères",
+"ok": true
+},
+{
+"n": 1018,
+"id": "lyKCLmK",
+"name": "dumbbell seated revers grip concentration curl",
+"fr": "Curl concentré prise inversée assis haltère",
+"ok": true
+},
+{
+"n": 1019,
+"id": "m0tCHqc",
+"name": "calf stretch with hands against wall",
+"fr": "Étirement des mollets mains contre un mur",
+"ok": true
+},
+{
+"n": 1020,
+"id": "mExgrF9",
+"name": "bench pull-ups",
+"fr": "Tractions sur banc",
+"ok": true
+},
+{
+"n": 1021,
+"id": "mKwcrHn",
+"name": "lever gripper hands",
+"fr": "Pince de préhension",
+"ok": true
+},
+{
+"n": 1022,
+"id": "mQ1tBXn",
+"name": "straight leg outer hip abductor",
+"fr": "Abduction de hanche jambe tendue",
+"ok": true
+},
+{
+"n": 1023,
+"id": "mTT3KLn",
+"name": "cable front shoulder raise",
+"fr": "Élévation frontale des épaules à la poulie",
+"ok": true
+},
+{
+"n": 1024,
+"id": "mWBtgmb",
+"name": "dumbbell single arm overhead carry",
+"fr": "Marche bras tendu au-dessus de la tête haltère",
+"ok": true
+},
+{
+"n": 1025,
+"id": "mWppALS",
+"name": "groin crunch",
+"fr": "Crunch adducteurs",
+"ok": true
+},
+{
+"n": 1026,
+"id": "mbkgB44",
+"name": "jackknife sit-up",
+"fr": "Sit-up jackknife",
+"ok": true
+},
+{
+"n": 1027,
+"id": "mgejmGP",
+"name": "prisoner half sit-up (male)",
+"fr": "Demi sit-up mains derrière la tête",
+"ok": true
+},
+{
+"n": 1028,
+"id": "mnzcrIB",
+"name": "dumbbell bench squat",
+"fr": "Squat sur banc haltères",
+"ok": true
+},
+{
+"n": 1029,
+"id": "mpKZGWz",
+"name": "dumbbell lying triceps extension",
+"fr": "Extension triceps allongé haltères",
+"ok": true
+},
+{
+"n": 1030,
+"id": "mr7pkqP",
+"name": "jack burpee",
+"fr": "Burpee avec saut écarté",
+"ok": true
+},
+{
+"n": 1031,
+"id": "ms7tjSG",
+"name": "inverse leg curl (bench support)",
+"fr": "Leg curl inversé avec appui sur banc",
+"ok": true
+},
+{
+"n": 1032,
+"id": "mtXengz",
+"name": "dumbbell finger curls",
+"fr": "Curl des doigts haltères",
+"ok": true
+},
+{
+"n": 1033,
+"id": "mu5Guxt",
+"name": "dumbbell rear delt raise",
+"fr": "Élévation deltoïdes postérieurs haltères",
+"ok": true
+},
+{
+"n": 1034,
+"id": "mweqJin",
+"name": "quick feet v. 2",
+"fr": "Pas rapides, variante 2",
+"ok": true
+},
+{
+"n": 1035,
+"id": "mwpPcr1",
+"name": "dumbbell prone incline curl",
+"fr": "Curl incliné sur le ventre haltères",
+"ok": true
+},
+{
+"n": 1036,
+"id": "my33uHU",
+"name": "lever leg extension",
+"fr": "Leg extension",
+"ok": true
+},
+{
+"n": 1037,
+"id": "myfUsKf",
+"name": "lever seated reverse fly",
+"fr": "Oiseau assis machine",
+"ok": true
+},
+{
+"n": 1038,
+"id": "mym4hJo",
+"name": "dumbbell lying pronation",
+"fr": "Pronation allongé haltère",
+"ok": true
+},
+{
+"n": 1039,
+"id": "n5cWCsI",
+"name": "dumbbell one arm lateral raise",
+"fr": "Élévation latérale unilatérale haltère",
+"ok": true
+},
+{
+"n": 1040,
+"id": "nAuHPcD",
+"name": "dumbbell one arm triceps extension (on bench)",
+"fr": "Extension triceps unilatérale sur banc haltère",
+"ok": true
+},
+{
+"n": 1041,
+"id": "nCU1Ekp",
+"name": "reverse crunch",
+"fr": "Crunch inversé",
+"ok": true
+},
+{
+"n": 1042,
+"id": "nDK1HJ0",
+"name": "ez bar lying bent arms pullover",
+"fr": "Pull-over bras fléchis allongé barre EZ",
+"ok": true
+},
+{
+"n": 1043,
+"id": "nFUwqG6",
+"name": "smith rear delt row",
+"fr": "Rowing deltoïdes postérieurs Smith machine",
+"ok": true
+},
+{
+"n": 1044,
+"id": "nFc4FyV",
+"name": "dumbbell biceps curl reverse",
+"fr": "Curl biceps inversé haltères",
+"ok": true
+},
+{
+"n": 1045,
+"id": "nIR4Rwl",
+"name": "cable seated chest press",
+"fr": "Développé pectoraux assis à la poulie",
+"ok": true
+},
+{
+"n": 1046,
+"id": "nUwVh7b",
+"name": "dumbbell deadlift",
+"fr": "Soulevé de terre haltères",
+"ok": true
+},
+{
+"n": 1047,
+"id": "nZZZy9m",
+"name": "lever high row",
+"fr": "Rowing haut machine",
+"ok": true
+},
+{
+"n": 1048,
+"id": "neonEDL",
+"name": "floor fly (with barbell)",
+"fr": "Écarté au sol avec barre",
+"ok": true
+},
+{
+"n": 1049,
+"id": "ngPpyRS",
+"name": "barbell seated behind head military press",
+"fr": "Développé militaire nuque assis barre",
+"ok": true
+},
+{
+"n": 1050,
+"id": "niXESDw",
+"name": "dumbbell biceps curl squat",
+"fr": "Squat avec curl biceps haltères",
+"ok": true
+},
+{
+"n": 1051,
+"id": "nlJsbkW",
+"name": "dumbbell biceps curl (with arm blaster)",
+"fr": "Curl biceps haltères avec arm blaster",
+"ok": true
+},
+{
+"n": 1052,
+"id": "nnmCTLN",
+"name": "lever kneeling leg curl",
+"fr": "Leg curl à genoux machine",
+"ok": true
+},
+{
+"n": 1053,
+"id": "nqs5HGV",
+"name": "single leg squat (pistol) male",
+"fr": "Pistol squat",
+"ok": true
+},
+{
+"n": 1054,
+"id": "ns0SIbU",
+"name": "dumbbell incline bench press",
+"fr": "Développé incliné haltères",
+"ok": true
+},
+{
+"n": 1055,
+"id": "nuBF9MO",
+"name": "hanging pike",
+"fr": "Pike suspendu",
+"ok": true
+},
+{
+"n": 1056,
+"id": "nxW6BkN",
+"name": "dumbbell incline raise",
+"fr": "Élévation inclinée haltères",
+"ok": true
+},
+{
+"n": 1057,
+"id": "o17Jfkt",
+"name": "lever incline chest press v. 2",
+"fr": "Développé incliné machine, variante 2",
+"ok": true
+},
+{
+"n": 1058,
+"id": "o1HGDSq",
+"name": "exercise ball back extension with hands behind head",
+"fr": "Extension lombaire sur swiss ball mains derrière la tête",
+"ok": true
+},
+{
+"n": 1059,
+"id": "o1ntciW",
+"name": "olympic barbell hammer curl",
+"fr": "Curl marteau barre olympique",
+"ok": true
+},
+{
+"n": 1060,
+"id": "o5Jsk92",
+"name": "dumbbell one arm bench fly",
+"fr": "Écarté unilatéral sur banc haltère",
+"ok": true
+},
+{
+"n": 1061,
+"id": "o8aOcrz",
+"name": "smith machine incline tricep extension",
+"fr": "Extension triceps inclinée Smith machine",
+"ok": true
+},
+{
+"n": 1062,
+"id": "oHg8eop",
+"name": "medicine ball overhead slam",
+"fr": "Slam au-dessus de la tête médecine ball",
+"ok": true
+},
+{
+"n": 1063,
+"id": "oHsrypV",
+"name": "lever seated hip adduction",
+"fr": "Adduction de hanche assis machine",
+"ok": true
+},
+{
+"n": 1064,
+"id": "oLrKqDH",
+"name": "run",
+"fr": "Course",
+"ok": true
+},
+{
+"n": 1065,
+"id": "oMypNrz",
+"name": "roller hip stretch",
+"fr": "Étirement de hanche au rouleau",
+"ok": true
+},
+{
+"n": 1066,
+"id": "oQRJYkC",
+"name": "side push neck stretch",
+"fr": "Étirement latéral du cou avec la main",
+"ok": true
+},
+{
+"n": 1067,
+"id": "oR7O9LW",
+"name": "barbell squat (on knees)",
+"fr": "Squat à genoux barre",
+"ok": true
+},
+{
+"n": 1068,
+"id": "oROuvrX",
+"name": "lever unilateral row",
+"fr": "Rowing unilatéral machine",
+"ok": true
+},
+{
+"n": 1069,
+"id": "oZjMu1t",
+"name": "tire flip",
+"fr": "Retournement de pneu",
+"ok": true
+},
+{
+"n": 1070,
+"id": "obe5LMq",
+"name": "band side triceps extension",
+"fr": "Extension triceps sur le côté à l'élastique",
+"ok": true
+},
+{
+"n": 1071,
+"id": "ocYc6Db",
+"name": "dumbbell standing one arm palm in press",
+"fr": "Développé unilatéral debout paume vers l'intérieur haltère",
+"ok": true
+},
+{
+"n": 1072,
+"id": "oom75KC",
+"name": "dumbbell straight leg deadlift",
+"fr": "Soulevé de terre jambes droites haltères",
+"ok": true
+},
+{
+"n": 1073,
+"id": "osdXT3K",
+"name": "kettlebell one arm push press",
+"fr": "Push press unilatéral kettlebell",
+"ok": true
+},
+{
+"n": 1074,
+"id": "otqIxU4",
+"name": "cable lying bicep curl",
+"fr": "Curl biceps allongé à la poulie",
+"ok": true
+},
+{
+"n": 1075,
+"id": "p195zsJ",
+"name": "two toe touch (male)",
+"fr": "Toucher des deux pieds",
+"ok": true
+},
+{
+"n": 1076,
+"id": "p9cCe2r",
+"name": "spell caster",
+"fr": "Lanceur de sorts",
+"ok": true
+},
+{
+"n": 1077,
+"id": "pAIWRGu",
+"name": "hands bike",
+"fr": "Vélo à bras",
+"ok": true
+},
+{
+"n": 1078,
+"id": "pH2x2jj",
+"name": "dumbbell one leg fly on exercise ball",
+"fr": "Écarté haltères sur swiss ball sur une jambe",
+"ok": true
+},
+{
+"n": 1079,
+"id": "pM07UxU",
+"name": "kipping muscle up",
+"fr": "Muscle up avec élan",
+"ok": true
+},
+{
+"n": 1080,
+"id": "pP8wP2P",
+"name": "dumbbell neutral grip bench press",
+"fr": "Développé couché prise neutre haltères",
+"ok": true
+},
+{
+"n": 1081,
+"id": "pQ0Mx1Z",
+"name": "flag",
+"fr": "Drapeau",
+"ok": true
+},
+{
+"n": 1082,
+"id": "pX9Elbe",
+"name": "medicine ball chest push with run release",
+"fr": "Poussée poitrine médecine ball avec course",
+"ok": true
+},
+{
+"n": 1083,
+"id": "pZwUsKB",
+"name": "iron cross stretch",
+"fr": "Étirement en croix de fer",
+"ok": true
+},
+{
+"n": 1084,
+"id": "peAeMR3",
+"name": "band shoulder press",
+"fr": "Développé épaules à l'élastique",
+"ok": true
+},
+{
+"n": 1085,
+"id": "pj0X0tF",
+"name": "hanging straight leg hip raise",
+"fr": "Relevé de bassin jambes tendues suspendu",
+"ok": true
+},
+{
+"n": 1086,
+"id": "pkSoCW9",
+"name": "barbell jefferson squat",
+"fr": "Squat Jefferson barre",
+"ok": true
+},
+{
+"n": 1087,
+"id": "pmnrOp0",
+"name": "band kneeling one arm pulldown",
+"fr": "Tirage vertical unilatéral à genoux à l'élastique",
+"ok": true
+},
+{
+"n": 1088,
+"id": "prbWx1D",
+"name": "dumbbell rotation reverse fly",
+"fr": "Oiseau avec rotation haltères",
+"ok": true
+},
+{
+"n": 1089,
+"id": "pvBMLHA",
+"name": "push-up plus",
+"fr": "Pompe plus",
+"ok": true
+},
+{
+"n": 1090,
+"id": "pwt0pnM",
+"name": "cable seated high row (v-bar)",
+"fr": "Rowing haut assis à la poulie, poignée en V",
+"ok": true
+},
+{
+"n": 1091,
+"id": "py1HSzx",
+"name": "barbell lateral lunge",
+"fr": "Fente latérale barre",
+"ok": true
+},
+{
+"n": 1092,
+"id": "q2ADGqV",
+"name": "cable side crunch",
+"fr": "Crunch latéral à la poulie",
+"ok": true
+},
+{
+"n": 1093,
+"id": "q6y3OhV",
+"name": "lever bicep curl",
+"fr": "Curl biceps machine",
+"ok": true
+},
+{
+"n": 1094,
+"id": "q7qkONO",
+"name": "dumbbell seated alternate shoulder",
+"fr": "Développé épaules alterné assis haltères",
+"ok": true
+},
+{
+"n": 1095,
+"id": "q8aHNoF",
+"name": "dumbbell one arm wrist curl",
+"fr": "Curl poignet unilatéral haltère",
+"ok": true
+},
+{
+"n": 1096,
+"id": "qAmNMJY",
+"name": "dumbbell high curl",
+"fr": "Curl haut haltères",
+"ok": true
+},
+{
+"n": 1097,
+"id": "qBcKorM",
+"name": "all fours squad stretch",
+"fr": "Étirement des quadriceps à quatre pattes",
+"ok": true
+},
+{
+"n": 1098,
+"id": "qCNVnaU",
+"name": "sled 45в° calf press",
+"fr": "Mollets à la presse 45°",
+"ok": true
+},
+{
+"n": 1099,
+"id": "qDnGfDb",
+"name": "barbell revers wrist curl v. 2",
+"fr": "Curl poignets inversé barre, variante 2",
+"ok": true
+},
+{
+"n": 1100,
+"id": "qEse6fe",
+"name": "shoulder tap push-up",
+"fr": "Pompe avec touche d'épaule",
+"ok": true
+},
+{
+"n": 1101,
+"id": "qFpAkpP",
+"name": "cable standing lift",
+"fr": "Élévation diagonale debout à la poulie",
+"ok": true
+},
+{
+"n": 1102,
+"id": "qKBpF7I",
+"name": "barbell glute bridge",
+"fr": "Pont fessier barre",
+"ok": true
+},
+{
+"n": 1103,
+"id": "qLpO4vV",
+"name": "back extension on exercise ball",
+"fr": "Extension lombaire sur swiss ball",
+"ok": true
+},
+{
+"n": 1104,
+"id": "qOKcgVP",
+"name": "standing calves calf stretch",
+"fr": "Étirement des mollets debout",
+"ok": true
+},
+{
+"n": 1105,
+"id": "qOgPVf6",
+"name": "barbell preacher curl",
+"fr": "Curl pupitre barre",
+"ok": true
+},
+{
+"n": 1106,
+"id": "qPEzJjA",
+"name": "farmers walk",
+"fr": "Marche du fermier",
+"ok": true
+},
+{
+"n": 1107,
+"id": "qRZ5S1N",
+"name": "cable one arm tricep pushdown",
+"fr": "Extension triceps unilatérale à la poulie",
+"ok": true
+},
+{
+"n": 1108,
+"id": "qXTaZnJ",
+"name": "barbell full squat",
+"fr": "Squat complet barre",
+"ok": true
+},
+{
+"n": 1109,
+"id": "qaZVsGk",
+"name": "alternate heel touchers",
+"fr": "Touchers de talons alternés",
+"ok": true
+},
+{
+"n": 1110,
+"id": "qatbkEd",
+"name": "cable side bend crunch (bosu ball)",
+"fr": "Crunch latéral à la poulie sur Bosu",
+"ok": true
+},
+{
+"n": 1111,
+"id": "qcNN2FN",
+"name": "butt-ups",
+"fr": "Butt-ups",
+"ok": true
+},
+{
+"n": 1112,
+"id": "qcY50ZD",
+"name": "cable seated wide-grip row",
+"fr": "Rowing assis prise large à la poulie",
+"ok": true
+},
+{
+"n": 1113,
+"id": "qdRxqCj",
+"name": "cable pulldown (pro lat bar)",
+"fr": "Tirage vertical à la poulie, barre de tirage pro",
+"ok": true
+},
+{
+"n": 1114,
+"id": "qg2PGl6",
+"name": "barbell glute bridge two legs on bench (male)",
+"fr": "Pont fessier barre pieds sur banc",
+"ok": true
+},
+{
+"n": 1115,
+"id": "qi996YS",
+"name": "barbell clean-grip front squat",
+"fr": "Squat avant prise épaulé barre",
+"ok": true
+},
+{
+"n": 1116,
+"id": "qm9veZw",
+"name": "dumbbell lying wide curl",
+"fr": "Curl allongé prise large haltères",
+"ok": true
+},
+{
+"n": 1117,
+"id": "qx4fgX7",
+"name": "dumbbell single leg split squat",
+"fr": "Squat fendu sur une jambe haltères",
+"ok": true
+},
+{
+"n": 1118,
+"id": "r0z6xzQ",
+"name": "barbell pendlay row",
+"fr": "Rowing Pendlay barre",
+"ok": true
+},
+{
+"n": 1119,
+"id": "r1XNRYB",
+"name": "band assisted pull-up",
+"fr": "Traction assistée à l'élastique",
+"ok": true
+},
+{
+"n": 1120,
+"id": "r29jP7S",
+"name": "dumbbell seated calf raise",
+"fr": "Mollets assis haltères",
+"ok": true
+},
+{
+"n": 1121,
+"id": "r5DgrW9",
+"name": "dumbbell supported squat",
+"fr": "Squat avec appui haltère",
+"ok": true
+},
+{
+"n": 1122,
+"id": "r7cT9YD",
+"name": "assisted motion russian twist",
+"fr": "Rotations russes assistées",
+"ok": true
+},
+{
+"n": 1123,
+"id": "rDAiRf9",
+"name": "dumbbell incline one arm press",
+"fr": "Développé incliné unilatéral haltère",
+"ok": true
+},
+{
+"n": 1124,
+"id": "rEhi2o5",
+"name": "dumbbell lying supination on floor",
+"fr": "Supination allongé au sol haltère",
+"ok": true
+},
+{
+"n": 1125,
+"id": "rGwhJ5o",
+"name": "barbell standing leg calf raise",
+"fr": "Mollets debout barre, variante",
+"ok": true
+},
+{
+"n": 1126,
+"id": "rQhGcin",
+"name": "frog planche",
+"fr": "Planche grenouille",
+"ok": true
+},
+{
+"n": 1127,
+"id": "rQxwMxO",
+"name": "handstand push-up",
+"fr": "Pompe en équilibre sur les mains",
+"ok": true
+},
+{
+"n": 1128,
+"id": "rR0LJzx",
+"name": "dumbbell romanian deadlift",
+"fr": "Soulevé de terre roumain haltères",
+"ok": true
+},
+{
+"n": 1129,
+"id": "rTbyBYV",
+"name": "exercise ball lying side lat stretch",
+"fr": "Étirement latéral des dorsaux allongé sur swiss ball",
+"ok": true
+},
+{
+"n": 1130,
+"id": "rUXfn3R",
+"name": "lever back extension",
+"fr": "Extension lombaire machine",
+"ok": true
+},
+{
+"n": 1131,
+"id": "rWoBmi5",
+"name": "korean dips",
+"fr": "Dips coréens",
+"ok": true
+},
+{
+"n": 1132,
+"id": "rZ80Gbp",
+"name": "cable seated one arm concentration curl",
+"fr": "Curl concentré unilatéral assis à la poulie",
+"ok": true
+},
+{
+"n": 1133,
+"id": "rbu5UUb",
+"name": "cross body crunch",
+"fr": "Crunch croisé",
+"ok": true
+},
+{
+"n": 1134,
+"id": "reFHapa",
+"name": "dumbbell decline twist fly",
+"fr": "Écarté décliné avec rotation haltères",
+"ok": true
+},
+{
+"n": 1135,
+"id": "rg59QCH",
+"name": "kettlebell one arm floor press",
+"fr": "Floor press unilatéral kettlebell",
+"ok": true
+},
+{
+"n": 1136,
+"id": "rjiM4L3",
+"name": "walking on incline treadmill",
+"fr": "Marche sur tapis incliné",
+"ok": true
+},
+{
+"n": 1137,
+"id": "rjtuP6X",
+"name": "walk elliptical cross trainer",
+"fr": "Marche sur vélo elliptique",
+"ok": true
+},
+{
+"n": 1138,
+"id": "rkg41Fb",
+"name": "twin handle parallel grip lat pulldown",
+"fr": "Tirage vertical prise neutre double poignée",
+"ok": true
+},
+{
+"n": 1139,
+"id": "rmEukuS",
+"name": "single leg bridge with outstretched leg",
+"fr": "Pont sur une jambe, autre jambe tendue",
+"ok": true
+},
+{
+"n": 1140,
+"id": "rseLfH3",
+"name": "kettlebell extended range one arm press on floor",
+"fr": "Développé au sol unilatéral kettlebell, grande amplitude",
+"ok": true
+},
+{
+"n": 1141,
+"id": "s0HKO2I",
+"name": "bodyweight kneeling triceps extension",
+"fr": "Extension triceps à genoux au poids du corps",
+"ok": true
+},
+{
+"n": 1142,
+"id": "s34Y4LR",
+"name": "weighted seated twist (on stability ball)",
+"fr": "Rotation du buste assis lestée sur swiss ball",
+"ok": true
+},
+{
+"n": 1143,
+"id": "s5PdDyY",
+"name": "dumbbell tate press",
+"fr": "Tate press haltères",
+"ok": true
+},
+{
+"n": 1144,
+"id": "s7HX1BY",
+"name": "barbell wide squat",
+"fr": "Squat pieds écartés barre",
+"ok": true
+},
+{
+"n": 1145,
+"id": "s8nrDXF",
+"name": "weighted crunch",
+"fr": "Crunch lesté",
+"ok": true
+},
+{
+"n": 1146,
+"id": "s999Hdo",
+"name": "dumbbell one arm seated bicep curl on exercise ball",
+"fr": "Curl biceps unilatéral assis haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 1147,
+"id": "sJFIDIp",
+"name": "biceps leg concentration curl",
+"fr": "Curl concentré appuyé sur la cuisse",
+"ok": true
+},
+{
+"n": 1148,
+"id": "sM84pE4",
+"name": "exercise ball lat stretch",
+"fr": "Étirement des dorsaux sur swiss ball",
+"ok": true
+},
+{
+"n": 1149,
+"id": "sTfvVsG",
+"name": "band reverse fly",
+"fr": "Oiseau à l'élastique",
+"ok": true
+},
+{
+"n": 1150,
+"id": "sTg7iys",
+"name": "band front lateral raise",
+"fr": "Élévation frontale et latérale à l'élastique",
+"ok": true
+},
+{
+"n": 1151,
+"id": "sU5BrfP",
+"name": "leg up hamstring stretch",
+"fr": "Étirement des ischios jambe levée",
+"ok": true
+},
+{
+"n": 1152,
+"id": "sVQCCeG",
+"name": "march sit (wall)",
+"fr": "Chaise contre le mur avec marche",
+"ok": true
+},
+{
+"n": 1153,
+"id": "sVvXT5J",
+"name": "exercise ball pike push up",
+"fr": "Pompe en pike sur swiss ball",
+"ok": true
+},
+{
+"n": 1154,
+"id": "sYCcnon",
+"name": "cable standing one arm triceps extension",
+"fr": "Extension triceps unilatérale debout à la poulie",
+"ok": true
+},
+{
+"n": 1155,
+"id": "sZOR9EV",
+"name": "lever kneeling twist",
+"fr": "Rotation à genoux machine",
+"ok": true
+},
+{
+"n": 1156,
+"id": "slDvUAU",
+"name": "dumbbell hammer curl",
+"fr": "Curl marteau haltères",
+"ok": true
+},
+{
+"n": 1157,
+"id": "soIB2rj",
+"name": "diamond push-up",
+"fr": "Pompe diamant",
+"ok": true
+},
+{
+"n": 1158,
+"id": "sxY5Biu",
+"name": "dumbbell one arm zottman preacher curl",
+"fr": "Curl pupitre Zottman unilatéral haltère",
+"ok": true
+},
+{
+"n": 1159,
+"id": "szIn2UK",
+"name": "negative crunch",
+"fr": "Crunch négatif",
+"ok": true
+},
+{
+"n": 1160,
+"id": "t8iSghb",
+"name": "barbell lunge",
+"fr": "Fentes barre",
+"ok": true
+},
+{
+"n": 1161,
+"id": "tBWXbIT",
+"name": "cable incline fly",
+"fr": "Écarté incliné à la poulie",
+"ok": true
+},
+{
+"n": 1162,
+"id": "tFGKm99",
+"name": "intermediate hip flexor and quad stretch",
+"fr": "Étirement des fléchisseurs de hanche et quadriceps, niveau intermédiaire",
+"ok": true
+},
+{
+"n": 1163,
+"id": "tFToB7l",
+"name": "reverse plank with leg lift",
+"fr": "Gainage inversé avec levée de jambe",
+"ok": true
+},
+{
+"n": 1164,
+"id": "tJ5nYqo",
+"name": "ez-bar biceps curl (with arm blaster)",
+"fr": "Curl biceps barre EZ avec arm blaster",
+"ok": true
+},
+{
+"n": 1165,
+"id": "tTuZSDT",
+"name": "lever one arm lateral wide pulldown",
+"fr": "Tirage vertical latéral prise large unilatéral machine",
+"ok": true
+},
+{
+"n": 1166,
+"id": "tZkGYZ9",
+"name": "band bicycle crunch",
+"fr": "Crunch vélo à l'élastique",
+"ok": true
+},
+{
+"n": 1167,
+"id": "tc5dYrf",
+"name": "band standing rear delt row",
+"fr": "Rowing deltoïdes postérieurs debout à l'élastique",
+"ok": true
+},
+{
+"n": 1168,
+"id": "tgryw5Y",
+"name": "push-up (on stability ball)",
+"fr": "Pompe sur swiss ball",
+"ok": true
+},
+{
+"n": 1169,
+"id": "tig3PXb",
+"name": "bodyweight standing close-grip row",
+"fr": "Rowing debout prise serrée au poids du corps",
+"ok": true
+},
+{
+"n": 1170,
+"id": "tj41Nu6",
+"name": "sled 45в° leg wide press",
+"fr": "Presse à cuisses 45° pieds écartés",
+"ok": true
+},
+{
+"n": 1171,
+"id": "tnaj0mT",
+"name": "swing 360",
+"fr": "Swing 360",
+"ok": true
+},
+{
+"n": 1172,
+"id": "trmte8s",
+"name": "band shrug",
+"fr": "Shrug à l'élastique",
+"ok": true
+},
+{
+"n": 1173,
+"id": "trqKQv2",
+"name": "smith bench press",
+"fr": "Développé couché Smith machine",
+"ok": true
+},
+{
+"n": 1174,
+"id": "tznL2Ad",
+"name": "kettlebell double jerk",
+"fr": "Jerk deux kettlebells",
+"ok": true
+},
+{
+"n": 1175,
+"id": "u0cNiij",
+"name": "low glute bridge on floor",
+"fr": "Pont fessier bas au sol",
+"ok": true
+},
+{
+"n": 1176,
+"id": "u0pLNgz",
+"name": "sled one leg calf press on leg press",
+"fr": "Mollets unilatéral à la presse à cuisses",
+"ok": true
+},
+{
+"n": 1177,
+"id": "u27Kcdz",
+"name": "bench hip extension",
+"fr": "Extension de hanche sur banc",
+"ok": true
+},
+{
+"n": 1178,
+"id": "u2X71Np",
+"name": "cable front raise",
+"fr": "Élévation frontale à la poulie",
+"ok": true
+},
+{
+"n": 1179,
+"id": "u4bAmKp",
+"name": "band twisting overhead press",
+"fr": "Développé au-dessus de la tête avec rotation à l'élastique",
+"ok": true
+},
+{
+"n": 1180,
+"id": "u5ESqzH",
+"name": "donkey calf raise",
+"fr": "Mollets à l'âne",
+"ok": true
+},
+{
+"n": 1181,
+"id": "uJmK7Z1",
+"name": "dumbbell seated neutral wrist curl",
+"fr": "Curl poignets prise neutre assis haltères",
+"ok": true
+},
+{
+"n": 1182,
+"id": "uKyN64F",
+"name": "barbell one leg squat",
+"fr": "Squat sur une jambe barre",
+"ok": true
+},
+{
+"n": 1183,
+"id": "uL9CsKm",
+"name": "ankle circles",
+"fr": "Cercles de chevilles",
+"ok": true
+},
+{
+"n": 1184,
+"id": "uOV3Itw",
+"name": "triceps stretch",
+"fr": "Étirement des triceps",
+"ok": true
+},
+{
+"n": 1185,
+"id": "uSkDMYl",
+"name": "dumbbell bicep curl with stork stance",
+"fr": "Curl biceps haltères sur une jambe",
+"ok": true
+},
+{
+"n": 1186,
+"id": "uTBt1HV",
+"name": "scapular pull-up",
+"fr": "Traction scapulaire",
+"ok": true
+},
+{
+"n": 1187,
+"id": "uTv34oq",
+"name": "bodyweight standing row (with towel)",
+"fr": "Rowing debout au poids du corps avec serviette",
+"ok": true
+},
+{
+"n": 1188,
+"id": "uWpxD4v",
+"name": "arm slingers hanging bent knee legs",
+"fr": "Balancier suspendu jambes fléchies",
+"ok": true
+},
+{
+"n": 1189,
+"id": "uX3sUBz",
+"name": "inverted row v. 2",
+"fr": "Rowing inversé, variante 2",
+"ok": true
+},
+{
+"n": 1190,
+"id": "uZKq7lo",
+"name": "forward jump",
+"fr": "Saut en avant",
+"ok": true
+},
+{
+"n": 1191,
+"id": "ufaxB52",
+"name": "band close-grip push-up",
+"fr": "Pompe prise serrée à l'élastique",
+"ok": true
+},
+{
+"n": 1192,
+"id": "uxJcFUU",
+"name": "cable lying triceps extension v. 2",
+"fr": "Extension triceps allongé à la poulie, variante 2",
+"ok": true
+},
+{
+"n": 1193,
+"id": "v1qBec9",
+"name": "dumbbell rear lateral raise",
+"fr": "Oiseau haltères, variante",
+"ok": true
+},
+{
+"n": 1194,
+"id": "v2DfH14",
+"name": "bodyweight standing close-grip one arm row",
+"fr": "Rowing unilatéral debout prise serrée au poids du corps",
+"ok": true
+},
+{
+"n": 1195,
+"id": "v3vLFW0",
+"name": "close-grip push-up (on knees)",
+"fr": "Pompe prise serrée sur les genoux",
+"ok": true
+},
+{
+"n": 1196,
+"id": "v3xmPAR",
+"name": "lever seated fly",
+"fr": "Écarté assis machine",
+"ok": true
+},
+{
+"n": 1197,
+"id": "v7p5bYl",
+"name": "kick out sit",
+"fr": "Coup de pied assis",
+"ok": true
+},
+{
+"n": 1198,
+"id": "vAwm6rK",
+"name": "cable press on exercise ball",
+"fr": "Développé à la poulie sur swiss ball",
+"ok": true
+},
+{
+"n": 1199,
+"id": "vBNyir7",
+"name": "ez barbell reverse grip preacher curl",
+"fr": "Curl pupitre prise inversée barre EZ",
+"ok": true
+},
+{
+"n": 1200,
+"id": "vIICElP",
+"name": "band lying hip internal rotation",
+"fr": "Rotation interne de hanche allongé à l'élastique",
+"ok": true
+},
+{
+"n": 1201,
+"id": "vKilzz3",
+"name": "dumbbell standing inner biceps curl v. 2",
+"fr": "Curl biceps intérieur debout haltères, variante 2",
+"ok": true
+},
+{
+"n": 1202,
+"id": "vM5YS2g",
+"name": "reverse hyper extension (on stability ball)",
+"fr": "Hyperextension inversée sur swiss ball",
+"ok": true
+},
+{
+"n": 1203,
+"id": "vR1vold",
+"name": "barbell full zercher squat",
+"fr": "Squat Zercher complet barre",
+"ok": true
+},
+{
+"n": 1204,
+"id": "vUTfFHw",
+"name": "band wrist curl",
+"fr": "Curl poignets à l'élastique",
+"ok": true
+},
+{
+"n": 1205,
+"id": "vYk8lqw",
+"name": "dumbbell incline rear lateral raise",
+"fr": "Oiseau incliné haltères",
+"ok": true
+},
+{
+"n": 1206,
+"id": "veXwo0D",
+"name": "cable floor seated wide-grip row",
+"fr": "Rowing assis au sol prise large à la poulie",
+"ok": true
+},
+{
+"n": 1207,
+"id": "vi8EhoE",
+"name": "dumbbell around pullover",
+"fr": "Pull-over circulaire haltère",
+"ok": true
+},
+{
+"n": 1208,
+"id": "vmwLyCg",
+"name": "dumbbell w-press",
+"fr": "Développé en W haltères",
+"ok": true
+},
+{
+"n": 1209,
+"id": "vpQaQkH",
+"name": "ski ergometer",
+"fr": "SkiErg",
+"ok": true
+},
+{
+"n": 1210,
+"id": "vpp9Ku2",
+"name": "cable seated one arm alternate row",
+"fr": "Rowing assis unilatéral alterné à la poulie",
+"ok": true
+},
+{
+"n": 1211,
+"id": "vptOQ4N",
+"name": "deep push up",
+"fr": "Pompe profonde",
+"ok": true
+},
+{
+"n": 1212,
+"id": "vqsbmL0",
+"name": "lever shoulder press v. 2",
+"fr": "Développé épaules machine, variante 2",
+"ok": true
+},
+{
+"n": 1213,
+"id": "vrhHa6D",
+"name": "assisted parallel close grip pull-up",
+"fr": "Traction assistée prise serrée neutre",
+"ok": true
+},
+{
+"n": 1214,
+"id": "vsMcDi9",
+"name": "barbell standing concentration curl",
+"fr": "Curl concentré debout barre",
+"ok": true
+},
+{
+"n": 1215,
+"id": "vsVoPHt",
+"name": "lever decline chest press",
+"fr": "Développé décliné machine",
+"ok": true
+},
+{
+"n": 1216,
+"id": "vtusOWT",
+"name": "barbell one arm floor press",
+"fr": "Floor press unilatéral barre",
+"ok": true
+},
+{
+"n": 1217,
+"id": "vvNjDJS",
+"name": "cable two arm tricep kickback",
+"fr": "Kickback triceps deux bras à la poulie",
+"ok": true
+},
+{
+"n": 1218,
+"id": "vzAxBtt",
+"name": "kettlebell one arm clean and jerk",
+"fr": "Épaulé jeté unilatéral kettlebell",
+"ok": true
+},
+{
+"n": 1219,
+"id": "w1NOByi",
+"name": "band squat row",
+"fr": "Squat rowing à l'élastique",
+"ok": true
+},
+{
+"n": 1220,
+"id": "w2oRpuH",
+"name": "lever alternating narrow grip seated row",
+"fr": "Rowing assis alterné prise serrée machine",
+"ok": true
+},
+{
+"n": 1221,
+"id": "w4dLzSx",
+"name": "cable one arm decline chest fly",
+"fr": "Écarté décliné unilatéral à la poulie",
+"ok": true
+},
+{
+"n": 1222,
+"id": "wDN97Ca",
+"name": "machine inner chest press",
+"fr": "Développé pectoraux serré machine",
+"ok": true
+},
+{
+"n": 1223,
+"id": "wDUqY2u",
+"name": "cable overhead curl",
+"fr": "Curl au-dessus de la tête à la poulie",
+"ok": true
+},
+{
+"n": 1224,
+"id": "wEulIzp",
+"name": "cable one arm lateral raise",
+"fr": "Élévation latérale unilatérale à la poulie",
+"ok": true
+},
+{
+"n": 1225,
+"id": "wOLmCXc",
+"name": "dumbbell tricep kickback with stork stance",
+"fr": "Kickback triceps haltère en équilibre sur une jambe",
+"ok": true
+},
+{
+"n": 1226,
+"id": "wPypxFY",
+"name": "cable side bend",
+"fr": "Flexion latérale à la poulie",
+"ok": true
+},
+{
+"n": 1227,
+"id": "wQ2c4XD",
+"name": "barbell romanian deadlift",
+"fr": "Soulevé de terre roumain barre",
+"ok": true
+},
+{
+"n": 1228,
+"id": "wSScovH",
+"name": "band bent-over hip extension",
+"fr": "Extension de hanche buste penché à l'élastique",
+"ok": true
+},
+{
+"n": 1229,
+"id": "wVompEp",
+"name": "push up on bosu ball",
+"fr": "Pompe sur Bosu",
+"ok": true
+},
+{
+"n": 1230,
+"id": "wWFspEi",
+"name": "smith single leg split squat",
+"fr": "Squat fendu sur une jambe Smith machine",
+"ok": true
+},
+{
+"n": 1231,
+"id": "wXvUZC8",
+"name": "push and pull bodyweight",
+"fr": "Pousser tirer au poids du corps",
+"ok": true
+},
+{
+"n": 1232,
+"id": "wbUYILZ",
+"name": "elbow lift - reverse push-up",
+"fr": "Pompe inversée sur les coudes",
+"ok": true
+},
+{
+"n": 1233,
+"id": "wd4ds3s",
+"name": "bodyweight standing row",
+"fr": "Rowing debout au poids du corps",
+"ok": true
+},
+{
+"n": 1234,
+"id": "wdRZISl",
+"name": "barbell standing close grip military press",
+"fr": "Développé militaire debout prise serrée barre",
+"ok": true
+},
+{
+"n": 1235,
+"id": "weoDEpH",
+"name": "captains chair straight leg raise",
+"fr": "Relevé de jambes tendues à la chaise romaine",
+"ok": true
+},
+{
+"n": 1236,
+"id": "wf24o8S",
+"name": "kettlebell two arm row",
+"fr": "Rowing deux bras kettlebells",
+"ok": true
+},
+{
+"n": 1237,
+"id": "wfotm7S",
+"name": "bodyweight drop jump squat",
+"fr": "Squat sauté en contrebas au poids du corps",
+"ok": true
+},
+{
+"n": 1238,
+"id": "wi2H9QX",
+"name": "smith wide grip decline bench press",
+"fr": "Développé décliné prise large Smith machine",
+"ok": true
+},
+{
+"n": 1239,
+"id": "wigSg76",
+"name": "clap push up",
+"fr": "Pompe claquée",
+"ok": true
+},
+{
+"n": 1240,
+"id": "wkgnGfb",
+"name": "dumbbell incline hammer press on exercise ball",
+"fr": "Développé incliné prise marteau haltères sur swiss ball",
+"ok": true
+},
+{
+"n": 1241,
+"id": "wnEscH8",
+"name": "barbell press sit-up",
+"fr": "Sit-up avec développé barre",
+"ok": true
+},
+{
+"n": 1242,
+"id": "wpbD28t",
+"name": "side push-up",
+"fr": "Pompe latérale",
+"ok": true
+},
+{
+"n": 1243,
+"id": "wqNPGCg",
+"name": "cable rear delt row (with rope)",
+"fr": "Face pull à la corde",
+"ok": true
+},
+{
+"n": 1244,
+"id": "wt6rwjk",
+"name": "dumbbell palm rotational bent over row",
+"fr": "Rowing buste penché avec rotation des mains haltères",
+"ok": true
+},
+{
+"n": 1245,
+"id": "wu5LXwz",
+"name": "olympic barbell triceps extension",
+"fr": "Extension triceps barre olympique",
+"ok": true
+},
+{
+"n": 1246,
+"id": "wyaqzOS",
+"name": "dumbbell lying one arm pronated triceps extension",
+"fr": "Extension triceps unilatérale allongé en pronation haltère",
+"ok": true
+},
+{
+"n": 1247,
+"id": "x0lwvfq",
+"name": "dumbbell seated bent over alternate kickback",
+"fr": "Kickback triceps alterné assis buste penché haltères",
+"ok": true
+},
+{
+"n": 1248,
+"id": "x2chWLO",
+"name": "neck side stretch",
+"fr": "Étirement latéral du cou",
+"ok": true
+},
+{
+"n": 1249,
+"id": "x306lCW",
+"name": "dumbbell upright shoulder external rotation",
+"fr": "Rotation externe de l'épaule bras levé haltère",
+"ok": true
+},
+{
+"n": 1250,
+"id": "x69MAlq",
+"name": "cable straight arm pulldown",
+"fr": "Pull-over bras tendus à la poulie",
+"ok": true
+},
+{
+"n": 1251,
+"id": "x6KpKpq",
+"name": "close-grip push-up",
+"fr": "Pompe prise serrée",
+"ok": true
+},
+{
+"n": 1252,
+"id": "x825CZm",
+"name": "cable seated rear lateral raise",
+"fr": "Oiseau assis à la poulie",
+"ok": true
+},
+{
+"n": 1253,
+"id": "xAySMB0",
+"name": "balance board",
+"fr": "Planche d'équilibre",
+"ok": true
+},
+{
+"n": 1254,
+"id": "xBYcQHj",
+"name": "cable underhand pulldown",
+"fr": "Tirage vertical supination à la poulie",
+"ok": true
+},
+{
+"n": 1255,
+"id": "xDh0lJr",
+"name": "standing behind neck press",
+"fr": "Développé nuque debout",
+"ok": true
+},
+{
+"n": 1256,
+"id": "xGgAGPm",
+"name": "chair leg extended stretch",
+"fr": "Étirement jambe tendue sur une chaise",
+"ok": true
+},
+{
+"n": 1257,
+"id": "xHKN2s8",
+"name": "barbell one arm snatch",
+"fr": "Arraché unilatéral barre",
+"ok": true
+},
+{
+"n": 1258,
+"id": "xLYSdtg",
+"name": "cable middle fly",
+"fr": "Écarté à la poulie à mi-hauteur",
+"ok": true
+},
+{
+"n": 1259,
+"id": "xMjBKwn",
+"name": "dumbbell lateral to front raise",
+"fr": "Élévation latérale puis frontale haltères",
+"ok": true
+},
+{
+"n": 1260,
+"id": "xNrS20v",
+"name": "barbell reverse curl",
+"fr": "Curl inversé barre",
+"ok": true
+},
+{
+"n": 1261,
+"id": "xTjr103",
+"name": "standing hamstring and calf stretch with strap",
+"fr": "Étirement des ischios et mollets debout avec sangle",
+"ok": true
+},
+{
+"n": 1262,
+"id": "xUwnBMT",
+"name": "smith seated shoulder press",
+"fr": "Développé épaules assis Smith machine",
+"ok": true
+},
+{
+"n": 1263,
+"id": "xXm4nYq",
+"name": "dumbbell decline fly",
+"fr": "Écarté décliné haltères",
+"ok": true
+},
+{
+"n": 1264,
+"id": "xbkPfaw",
+"name": "bodyweight standing one arm row",
+"fr": "Rowing unilatéral debout au poids du corps",
+"ok": true
+},
+{
+"n": 1265,
+"id": "xdYPUtE",
+"name": "sissy squat",
+"fr": "Sissy squat",
+"ok": true
+},
+{
+"n": 1266,
+"id": "xgsGFVM",
+"name": "crab twist toe touch",
+"fr": "Rotation en crabe avec toucher de pied",
+"ok": true
+},
+{
+"n": 1267,
+"id": "xi0yckC",
+"name": "barbell incline shoulder raise",
+"fr": "Élévation d'épaules inclinée barre",
+"ok": true
+},
+{
+"n": 1268,
+"id": "xiA6lRr",
+"name": "dumbbell seated bicep curl",
+"fr": "Curl biceps assis haltères",
+"ok": true
+},
+{
+"n": 1269,
+"id": "xiHiJcA",
+"name": "lever seated reverse fly (parallel grip)",
+"fr": "Oiseau assis machine prise neutre",
+"ok": true
+},
+{
+"n": 1270,
+"id": "xifhB5W",
+"name": "rear deltoid stretch",
+"fr": "Étirement du deltoïde postérieur",
+"ok": true
+},
+{
+"n": 1271,
+"id": "xmM75XG",
+"name": "weighted overhead crunch (on stability ball)",
+"fr": "Crunch lesté bras au-dessus de la tête sur swiss ball",
+"ok": true
+},
+{
+"n": 1272,
+"id": "xnInPfE",
+"name": "barbell standing ab rollerout",
+"fr": "Roulette abdominale debout avec barre",
+"ok": true
+},
+{
+"n": 1273,
+"id": "xo6sENf",
+"name": "exercise ball on the wall calf raise",
+"fr": "Mollets avec swiss ball contre le mur",
+"ok": true
+},
+{
+"n": 1274,
+"id": "y5U5B9Y",
+"name": "dumbbell zottman preacher curl",
+"fr": "Curl pupitre Zottman haltère",
+"ok": true
+},
+{
+"n": 1275,
+"id": "y5p0H8a",
+"name": "run (equipment)",
+"fr": "Course sur tapis",
+"ok": true
+},
+{
+"n": 1276,
+"id": "y8bYM8w",
+"name": "band single leg split squat",
+"fr": "Squat fendu à l'élastique",
+"ok": true
+},
+{
+"n": 1277,
+"id": "yB9SvIF",
+"name": "smith machine decline close grip bench press",
+"fr": "Développé décliné prise serrée Smith machine",
+"ok": true
+},
+{
+"n": 1278,
+"id": "yCvYdi7",
+"name": "kettlebell one arm military press to the side",
+"fr": "Développé militaire unilatéral vers le côté kettlebell",
+"ok": true
+},
+{
+"n": 1279,
+"id": "yJUHKTn",
+"name": "muscle up",
+"fr": "Muscle up",
+"ok": true
+},
+{
+"n": 1280,
+"id": "yQe5HpE",
+"name": "barbell standing twist",
+"fr": "Rotation du buste debout barre",
+"ok": true
+},
+{
+"n": 1281,
+"id": "yRLPCLu",
+"name": "barbell reverse grip skullcrusher",
+"fr": "Barre au front prise inversée",
+"ok": true
+},
+{
+"n": 1282,
+"id": "yRYyfdA",
+"name": "exercise ball seated hamstring stretch",
+"fr": "Étirement des ischios assis sur swiss ball",
+"ok": true
+},
+{
+"n": 1283,
+"id": "yRpV5TC",
+"name": "shoulder tap",
+"fr": "Touche d'épaule",
+"ok": true
+},
+{
+"n": 1284,
+"id": "yT9tk17",
+"name": "twisted leg raise (female)",
+"fr": "Relevé de jambes avec rotation, version femme",
+"ok": true
+},
+{
+"n": 1285,
+"id": "yU7w7CA",
+"name": "exercise ball lower back stretch (pyramid)",
+"fr": "Étirement du bas du dos sur swiss ball, position pyramide",
+"ok": true
+},
+{
+"n": 1286,
+"id": "yUdIGNs",
+"name": "cable rear delt row (stirrups)",
+"fr": "Rowing deltoïdes postérieurs à la poulie avec étriers",
+"ok": true
+},
+{
+"n": 1287,
+"id": "yWxMvB5",
+"name": "kettlebell thruster",
+"fr": "Thruster kettlebell",
+"ok": true
+},
+{
+"n": 1288,
+"id": "yaAxcQr",
+"name": "rope climb",
+"fr": "Montée à la corde",
+"ok": true
+},
+{
+"n": 1289,
+"id": "yaMIo4D",
+"name": "cable incline bench row",
+"fr": "Rowing sur banc incliné à la poulie",
+"ok": true
+},
+{
+"n": 1290,
+"id": "ye84CTU",
+"name": "lever preacher curl v. 2",
+"fr": "Curl pupitre machine, variante 2",
+"ok": true
+},
+{
+"n": 1291,
+"id": "yg8Totb",
+"name": "barbell lying back of the head tricep extension",
+"fr": "Extension triceps derrière la tête allongé barre",
+"ok": true
+},
+{
+"n": 1292,
+"id": "ykA5tU7",
+"name": "chest stretch with exercise ball",
+"fr": "Étirement des pectoraux avec swiss ball",
+"ok": true
+},
+{
+"n": 1293,
+"id": "ykHcWme",
+"name": "sled calf press on leg press",
+"fr": "Mollets à la presse à cuisses",
+"ok": true
+},
+{
+"n": 1294,
+"id": "ykUOVze",
+"name": "lever standing calf raise",
+"fr": "Mollets debout machine",
+"ok": true
+},
+{
+"n": 1295,
+"id": "yl2IYyy",
+"name": "cable standing calf raise",
+"fr": "Mollets debout à la poulie",
+"ok": true
+},
+{
+"n": 1296,
+"id": "yn0LjwL",
+"name": "assisted lying glutes stretch",
+"fr": "Étirement des fessiers allongé assisté",
+"ok": true
+},
+{
+"n": 1297,
+"id": "yn2lLSI",
+"name": "sled 45в° leg press (back pov)",
+"fr": "Presse à cuisses 45°, vue de dos",
+"ok": true
+},
+{
+"n": 1298,
+"id": "yn8yg1r",
+"name": "dumbbell goblet squat",
+"fr": "Goblet squat haltère",
+"ok": true
+},
+{
+"n": 1299,
+"id": "yq3GAJX",
+"name": "hands reversed clasped circular toe touch (male)",
+"fr": "Touchers d'orteils en cercle mains jointes inversées",
+"ok": true
+},
+{
+"n": 1300,
+"id": "ywaNfuh",
+"name": "smith reverse calf raises",
+"fr": "Relevés de pointes de pieds Smith machine",
+"ok": true
+},
+{
+"n": 1301,
+"id": "yz9nUhF",
+"name": "dumbbell fly",
+"fr": "Écarté couché haltères",
+"ok": true
+},
+{
+"n": 1302,
+"id": "yzYH9pI",
+"name": "barbell palms down wrist curl over a bench",
+"fr": "Curl poignets pronation sur banc barre",
+"ok": true
+},
+{
+"n": 1303,
+"id": "z6TAHoT",
+"name": "dumbbell twisting bench press",
+"fr": "Développé couché avec rotation haltères",
+"ok": true
+},
+{
+"n": 1304,
+"id": "zCgxPbV",
+"name": "cable twisting pull",
+"fr": "Tirage avec rotation à la poulie",
+"ok": true
+},
+{
+"n": 1305,
+"id": "zFzbBfL",
+"name": "band push sit-up",
+"fr": "Sit-up avec poussée à l'élastique",
+"ok": true
+},
+{
+"n": 1306,
+"id": "zG0zs85",
+"name": "barbell front squat",
+"fr": "Squat avant barre",
+"ok": true
+},
+{
+"n": 1307,
+"id": "zGSIWQi",
+"name": "dumbbell lying one arm press",
+"fr": "Développé unilatéral allongé haltère",
+"ok": true
+},
+{
+"n": 1308,
+"id": "zHEpuuc",
+"name": "cable assisted inverse leg curl",
+"fr": "Leg curl inversé assisté à la poulie",
+"ok": true
+},
+{
+"n": 1309,
+"id": "zILLZ98",
+"name": "smith machine bicep curl",
+"fr": "Curl biceps Smith machine",
+"ok": true
+},
+{
+"n": 1310,
+"id": "zK8Fu1W",
+"name": "smith reverse-grip press",
+"fr": "Développé prise inversée Smith machine",
+"ok": true
+},
+{
+"n": 1311,
+"id": "zYmNaoY",
+"name": "elevator",
+"fr": "Ascenseur",
+"ok": true
+},
+{
+"n": 1312,
+"id": "zZlORz6",
+"name": "dumbbell lying one arm supinated triceps extension",
+"fr": "Extension triceps unilatérale allongé en supination haltère",
+"ok": true
+},
+{
+"n": 1313,
+"id": "za9Ni4z",
+"name": "barbell rack pull",
+"fr": "Rack pull barre",
+"ok": true
+},
+{
+"n": 1314,
+"id": "zd4P4B2",
+"name": "stalder press",
+"fr": "Stalder press",
+"ok": true
+},
+{
+"n": 1315,
+"id": "zfNHMN9",
+"name": "skater hops",
+"fr": "Sauts du patineur",
+"ok": true
+},
+{
+"n": 1316,
+"id": "zhF9lW4",
+"name": "band assisted wheel rollerout",
+"fr": "Roulette abdominale assistée à l'élastique",
+"ok": true
+},
+{
+"n": 1317,
+"id": "zhMwOwE",
+"name": "hyperextension",
+"fr": "Hyperextension",
+"ok": true
+},
+{
+"n": 1318,
+"id": "ziFKQXP",
+"name": "dumbbell one arm french press on exercise ball",
+"fr": "Extension triceps nuque unilatérale haltère sur swiss ball",
+"ok": true
+},
+{
+"n": 1319,
+"id": "zkgRrbK",
+"name": "hyperextension (on bench)",
+"fr": "Hyperextension sur banc",
+"ok": true
+},
+{
+"n": 1320,
+"id": "znLogoF",
+"name": "barbell pullover to press",
+"fr": "Pull-over et développé barre",
+"ok": true
+},
+{
+"n": 1321,
+"id": "znP9SIh",
+"name": "hug keens to chest",
+"fr": "Genoux ramenés à la poitrine",
+"ok": true
+},
+{
+"n": 1322,
+"id": "znQUdHY",
+"name": "dumbbell seated shoulder press",
+"fr": "Développé épaules assis haltères",
+"ok": true
+},
+{
+"n": 1323,
+"id": "zoOvPcx",
+"name": "smith wide grip bench press",
+"fr": "Développé couché prise large Smith machine",
+"ok": true
+},
+{
+"n": 1324,
+"id": "ztAa1RK",
+"name": "band alternating v-up",
+"fr": "V-up alterné à l'élastique",
+"ok": true
+}
+]
