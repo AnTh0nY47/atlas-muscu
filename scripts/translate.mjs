@@ -8,6 +8,8 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dataFile = join(root, 'data', 'exercises.js');
 const cacheFile = join(root, 'data', 'fr-cache.json');
+const manualFile = join(root, 'data', 'fr-manuel.json');
+const todoFile = join(root, 'data', 'a-traduire.json');
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
 // Noms courants traduits à la main, comme on les dit en salle
@@ -149,10 +151,14 @@ const src = await readFile(dataFile, 'utf8');
 const list = JSON.parse(src.slice(src.indexOf('['), src.lastIndexOf(']') + 1));
 let cache = {};
 try { cache = JSON.parse(await readFile(cacheFile, 'utf8')); } catch { }
+let manual = {};
+try { manual = JSON.parse(await readFile(manualFile, 'utf8')); } catch { }
 
-const names = list.map(e => e.name.toLowerCase()).filter(n => !NAMES[n]);
-const steps = list.flatMap(e => (e.instructions || []).map(cleanStep));
-const muscles = list.flatMap(e => [...(e.targetMuscles || []), ...(e.secondaryMuscles || [])]);
+const names = list.map(e => e.name.toLowerCase()).filter(n => !NAMES[n] && !manual[n]);
+const steps = list.flatMap(e => (e.instructions || []).map(cleanStep)).filter(t => !manual[t]);
+const muscles = list.flatMap(e => [...(e.targetMuscles || []), ...(e.secondaryMuscles || [])]).filter(t => !manual[t]);
+const uniq = a => [...new Set(a)].sort();
+await writeFile(todoFile, JSON.stringify({ noms: uniq(names), textes: uniq([...steps, ...muscles].filter(t => !cache[t])) }, null, 1));
 
 const save = () => writeFile(cacheFile, JSON.stringify(cache));
 try {
@@ -163,11 +169,11 @@ try {
 
 for (const e of list) {
   const n = e.name.toLowerCase();
-  e.nameFr = NAMES[n] || cap(fixName(cache[n] || '')) || undefined;
-  e.instructionsFr = (e.instructions || []).map(s => cache[cleanStep(s)] || '').filter(Boolean);
+  e.nameFr = NAMES[n] || manual[n] || cap(fixName(cache[n] || '')) || undefined;
+  e.instructionsFr = (e.instructions || []).map(s => manual[cleanStep(s)] || cache[cleanStep(s)] || '').filter(Boolean);
   if (e.instructionsFr.length !== (e.instructions || []).length) delete e.instructionsFr;
   const m = [...(e.targetMuscles || []), ...(e.secondaryMuscles || [])];
-  e.musclesFr = Object.fromEntries(m.filter(x => cache[x]).map(x => [x, cap(cache[x])]));
+  e.musclesFr = Object.fromEntries(m.filter(x => manual[x] || cache[x]).map(x => [x, cap(manual[x] || cache[x])]));
 }
 await writeFile(dataFile, 'window.EXERCISES = ' + JSON.stringify(list) + ';\n');
 console.log(`${list.filter(e => e.nameFr).length} exercices traduits en français`);
