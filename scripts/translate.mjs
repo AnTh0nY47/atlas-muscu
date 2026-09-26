@@ -107,33 +107,44 @@ const cap = s => s ? s.charAt(0).toUpperCase() + s.slice(1) : s;
 const cleanStep = s => s.replace(/^step\s*:?\s*\d+\s*[:.)-]?\s*/i, '').trim();
 
 async function gtx(text) {
-  const u = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=fr&dt=t&q=' + encodeURIComponent(text);
+  const url = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=fr&dt=t';
+  let last = '';
   for (let i = 1; i <= 4; i++) {
-    const r = await fetch(u);
-    if (r.ok) { const j = await r.json(); return j[0].map(x => x[0]).join(''); }
-    await sleep(2000 * i);
+    try {
+      const r = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' }, body: new URLSearchParams({ q: text }) });
+      if (r.ok) { const j = await r.json(); return j[0].map(x => x[0]).join(''); }
+      last = 'HTTP ' + r.status;
+    } catch (e) { last = e.message; }
+    await sleep(3000 * i);
   }
-  throw new Error('traduction impossible');
+  throw new Error(last);
 }
 
-// Traduit une liste de phrases par paquets, une phrase par ligne
-async function translateAll(list, cache) {
+// Traduit une liste de phrases par petits paquets, une phrase par ligne
+async function translateAll(list, cache, save) {
   const todo = [...new Set(list.filter(s => s && !(s in cache)))];
-  let done = 0;
+  console.log(`${todo.length} textes à traduire`);
+  let done = 0, errors = 0;
   for (let i = 0; i < todo.length;) {
     const batch = [];
     let len = 0;
-    while (i < todo.length && batch.length < 40 && len + todo[i].length < 3500) { batch.push(todo[i]); len += todo[i].length + 1; i++; }
-    const out = (await gtx(batch.join('\n'))).split('\n');
-    if (out.length === batch.length) batch.forEach((s, k) => cache[s] = out[k].trim());
-    else for (const s of batch) { cache[s] = (await gtx(s)).trim(); await sleep(150); }
+    while (i < todo.length && batch.length < 25 && len + todo[i].length < 1800) { batch.push(todo[i]); len += todo[i].length + 1; i++; }
+    if (!batch.length) batch.push(todo[i++]);
+    try {
+      const out = (await gtx(batch.join('\n'))).split('\n');
+      if (out.length === batch.length) batch.forEach((s, k) => cache[s] = out[k].trim());
+      else for (const s of batch) { cache[s] = (await gtx(s)).trim(); await sleep(200); }
+    } catch (e) {
+      errors++;
+      console.log(`Paquet ignoré (${e.message})`);
+      if (errors >= 8) { console.log('Trop d\'erreurs, arrêt. On reprendra au prochain passage.'); break; }
+      await sleep(5000);
+    }
     done += batch.length;
-    process.stdout.write(`\r${done} / ${todo.length} textes traduits`);
-    await sleep(400);
+    if (done % 500 < batch.length) { console.log(`${done} / ${todo.length}`); await save(); }
+    await sleep(350);
   }
-  if (todo.length) process.stdout.write('\n');
 }
-
 const src = await readFile(dataFile, 'utf8');
 const list = JSON.parse(src.slice(src.indexOf('['), src.lastIndexOf(']') + 1));
 let cache = {};
@@ -143,10 +154,11 @@ const names = list.map(e => e.name.toLowerCase()).filter(n => !NAMES[n]);
 const steps = list.flatMap(e => (e.instructions || []).map(cleanStep));
 const muscles = list.flatMap(e => [...(e.targetMuscles || []), ...(e.secondaryMuscles || [])]);
 
+const save = () => writeFile(cacheFile, JSON.stringify(cache));
 try {
-  await translateAll([...names, ...steps, ...muscles], cache);
+  await translateAll([...names, ...steps, ...muscles], cache, save);
 } finally {
-  await writeFile(cacheFile, JSON.stringify(cache, null, 0));
+  await save();
 }
 
 for (const e of list) {
