@@ -14,23 +14,75 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="top">
-  <label class="search" for="q">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
-    <input id="q" type="search" placeholder="Rechercher un exercice" autocomplete="off">
-  </label>
-  <nav class="cats" id="cats" aria-label="Groupes musculaires"></nav>
-  <div class="tools">
-    <span class="count" id="count"></span>
-    <select id="equip" aria-label="Matériel"><option value="">Tout le matériel</option></select>
-  </div>
-</header>
 
-<main>
-  <p class="status" id="status">Chargement des exercices…</p>
-  <div class="grid" id="grid"></div>
-  <div id="more" class="more"></div>
-</main>
+<div class="view" id="viewExercices">
+  <header class="top">
+    <label class="search" for="q">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="q" type="search" placeholder="Rechercher un exercice" autocomplete="off">
+    </label>
+    <nav class="cats" id="cats" aria-label="Groupes musculaires"></nav>
+    <div class="tools">
+      <span class="count" id="count"></span>
+      <select id="equip" aria-label="Matériel"><option value="">Tout le matériel</option></select>
+    </div>
+  </header>
+
+  <main>
+    <p class="status" id="status">Chargement des exercices…</p>
+    <div class="grid" id="grid"></div>
+    <div id="more" class="more"></div>
+  </main>
+
+  <div class="pick-bar" id="pickBar" hidden>
+    <span id="pickBarLabel"></span>
+    <button class="btn-primary" id="pickDone">Terminé</button>
+  </div>
+</div>
+
+<div class="view" id="viewSeances" hidden>
+  <header class="top simple"><h1>Mes séances</h1></header>
+  <main>
+    <p class="status" id="seancesEmpty" hidden>Aucune séance pour l'instant. Crée-en une, ou ajoutes-y un exercice depuis sa fiche.</p>
+    <div class="seances-list" id="seancesList"></div>
+    <button class="btn-primary btn-block" id="newSeanceBtn">+ Nouvelle séance</button>
+  </main>
+</div>
+
+<div class="view" id="viewSeanceDetail" hidden>
+  <header class="top simple">
+    <button class="icon" id="seanceBackBtn" aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+    <input id="seanceNameInput" class="seance-name" placeholder="Nom de la séance">
+    <button class="icon" id="seanceDeleteBtn" aria-label="Supprimer la séance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button>
+  </header>
+  <main>
+    <div class="seance-items" id="seanceItems"></div>
+    <p class="status" id="seanceEmptyMsg" hidden>Aucun exercice dans cette séance.</p>
+    <button class="btn-secondary btn-block" id="seanceAddExBtn">+ Ajouter un exercice</button>
+    <button class="btn-primary btn-block" id="seanceStartBtn">Démarrer la séance</button>
+  </main>
+</div>
+
+<div class="view" id="viewRun" hidden>
+  <div class="run-wrap">
+    <div class="run-head">
+      <button class="icon" id="runClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <span class="run-progress" id="runProgress"></span>
+    </div>
+    <div class="run-body" id="runBody"></div>
+  </div>
+</div>
+
+<nav class="tabbar" id="tabbar">
+  <button data-tab="exercices" aria-pressed="true">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <span>Exercices</span>
+  </button>
+  <button data-tab="seances">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+    <span>Séances</span>
+  </button>
+</nav>
 
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
   <div class="scrim" data-close></div>
@@ -42,9 +94,34 @@
     <div class="player"><img id="mGif" alt=""></div>
     <div class="actions">
       <span class="credit">Animation ExerciseDB</span>
+      <button class="act" id="mAddSeance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span>Séance</span></button>
       <button class="act" id="mFav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>Enregistrer</span></button>
       <button class="act" id="mShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Partager</span></button>
     </div>
+    <section class="timer" id="mTimerWrap">
+      <h3>Minuteur</h3>
+      <div class="timer-box">
+        <div class="timer-display" id="timerDisplay">00:45</div>
+        <div class="timer-presets">
+          <button class="chip" data-preset="20">20 s</button>
+          <button class="chip" data-preset="30">30 s</button>
+          <button class="chip" data-preset="45">45 s</button>
+          <button class="chip" data-preset="60">1 min</button>
+          <button class="chip" data-preset="90">1 min 30</button>
+          <button class="chip" data-preset="120">2 min</button>
+        </div>
+        <div class="timer-adjust">
+          <button class="tbtn" data-adj="-15">−15 s</button>
+          <button class="tbtn" data-adj="-5">−5 s</button>
+          <button class="tbtn" data-adj="5">+5 s</button>
+          <button class="tbtn" data-adj="15">+15 s</button>
+        </div>
+        <div class="timer-controls">
+          <button class="btn-secondary" id="timerReset">Réinitialiser</button>
+          <button class="btn-primary" id="timerStart">Démarrer</button>
+        </div>
+      </div>
+    </section>
     <div class="details">
       <div class="maps" id="mMaps"></div>
       <div>
@@ -60,6 +137,21 @@
       <h3>Même muscle</h3>
       <div class="rel" id="mRelated"></div>
     </section>
+  </article>
+</div>
+
+<div class="modal" id="pickModal" hidden role="dialog" aria-modal="true" aria-labelledby="pickTitle">
+  <div class="scrim" data-close-pick></div>
+  <article class="sheet small">
+    <header class="mhead">
+      <button class="icon" data-close-pick aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <h2 id="pickTitle">Ajouter à une séance</h2>
+    </header>
+    <div class="pick-list" id="pickList"></div>
+    <div class="pick-new">
+      <input id="pickNewName" placeholder="Nouvelle séance…">
+      <button class="btn-primary" id="pickNewBtn">Créer et ajouter</button>
+    </div>
   </article>
 </div>
 

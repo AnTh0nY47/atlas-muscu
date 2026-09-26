@@ -114,10 +114,12 @@
     set(k, v) { try { localStorage.setItem('atlas.' + k, JSON.stringify(v)); } catch { } },
   };
 
-  const S = { all: [], byId: new Map(), cat: store.get('cat', 'all'), equip: '', q: '', shown: PAGE, favs: new Set(store.get('favs', [])), current: null };
+  const S = { all: [], byId: new Map(), cat: store.get('cat', 'all'), equip: '', q: '', shown: PAGE, favs: new Set(store.get('favs', [])), current: null, seances: store.get('seances', []), picking: null };
   const $ = id => document.getElementById(id);
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const title = s => s.replace(/(^|[\s(-])([a-z])/g, (m, a, b) => a + b.toUpperCase());
+  const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+  const saveSeances = () => store.set('seances', S.seances);
 
   function normalize(raw) {
     return raw.map(x => {
@@ -202,7 +204,10 @@
   $('grid').addEventListener('click', e => {
     const c = e.target.closest('.card'); if (!c) return;
     if (e.target.closest('.bm')) return toggleFav(c.dataset.id);
-    if (e.target.closest('.open')) location.hash = '#/exercice/' + c.dataset.id;
+    if (e.target.closest('.open')) {
+      if (S.picking) return addExToSeance(S.picking, c.dataset.id);
+      location.hash = '#/exercice/' + c.dataset.id;
+    }
   });
 
   function toggleFav(id) {
@@ -212,6 +217,242 @@
     if (S.current && S.current.id === id) setFavBtn();
     if (S.cat === 'fav') renderGrid();
   }
+
+  /* Minuteur réutilisable (fiche exercice + mode séance) */
+  function makeTimer(displayEl, onDone) {
+    let total = 45, remaining = 45, iv = null, running = false;
+    function render() {
+      const m = Math.floor(remaining / 60), s = remaining % 60;
+      displayEl.textContent = `${m}:${String(s).padStart(2, '0')}`;
+    }
+    function beep() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+        g.gain.setValueAtTime(.16, ctx.currentTime);
+        o.start(); o.stop(ctx.currentTime + .35);
+        o.onended = () => ctx.close();
+      } catch { }
+      if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+    }
+    render();
+    return {
+      set(sec) { total = Math.max(5, sec); remaining = total; render(); },
+      adjust(d) { remaining = Math.max(0, remaining + d); if (remaining > total) total = remaining; render(); },
+      start() {
+        if (running || remaining <= 0) return; running = true;
+        iv = setInterval(() => {
+          remaining--; render();
+          if (remaining <= 0) { clearInterval(iv); running = false; beep(); onDone && onDone(); }
+        }, 1000);
+      },
+      pause() { running = false; clearInterval(iv); },
+      toggle() { this.running ? this.pause() : this.start(); },
+      reset() { this.pause(); remaining = total; render(); },
+      get running() { return running; },
+      get remaining() { return remaining; },
+    };
+  }
+  const exTimer = makeTimer($('timerDisplay'), () => { $('timerStart').textContent = 'Démarrer'; });
+  $('mTimerWrap').addEventListener('click', e => {
+    const p = e.target.closest('[data-preset]');
+    if (p) { exTimer.set(+p.dataset.preset); $('timerStart').textContent = 'Démarrer'; return; }
+    const a = e.target.closest('[data-adj]');
+    if (a) return exTimer.adjust(+a.dataset.adj);
+  });
+  $('timerStart').addEventListener('click', () => { exTimer.toggle(); $('timerStart').textContent = exTimer.running ? 'Pause' : 'Démarrer'; });
+  $('timerReset').addEventListener('click', () => { exTimer.reset(); $('timerStart').textContent = 'Démarrer'; });
+
+  /* Séances : création, édition, ajout d'exercices, mode entraînement */
+  function renderSeancesList() {
+    $('seancesEmpty').hidden = !!S.seances.length;
+    $('seancesList').innerHTML = S.seances.map(s => `
+      <button class="seance-card" data-id="${s.id}">
+        <span class="nm">${s.name || 'Séance sans nom'}</span>
+        <span class="cnt">${s.items.length} exercice${s.items.length > 1 ? 's' : ''}</span>
+      </button>`).join('');
+  }
+  $('seancesList').addEventListener('click', e => {
+    const b = e.target.closest('.seance-card'); if (!b) return;
+    location.hash = '#/seance/' + b.dataset.id;
+  });
+  $('newSeanceBtn').addEventListener('click', () => {
+    const s = { id: uid(), name: '', items: [] };
+    S.seances.push(s); saveSeances();
+    location.hash = '#/seance/' + s.id;
+  });
+
+  function addExToSeance(seanceId, exId) {
+    const s = S.seances.find(x => x.id === seanceId); if (!s) return;
+    if (s.items.some(it => it.exId === exId)) { toast('Déjà dans la séance'); return; }
+    s.items.push({ exId, sets: 3, reps: 12, rest: 60 });
+    saveSeances();
+    toast('Ajouté à la séance');
+  }
+
+  let curSeance = null;
+  function openSeance(id) {
+    curSeance = S.seances.find(s => s.id === id);
+    if (!curSeance) { location.hash = '#/seances'; return; }
+    $('seanceNameInput').value = curSeance.name || '';
+    renderSeanceItems();
+    showView('seanceDetail');
+  }
+  function renderSeanceItems() {
+    const items = curSeance.items;
+    $('seanceEmptyMsg').hidden = !!items.length;
+    $('seanceItems').innerHTML = items.map((it, i) => {
+      const ex = S.byId.get(it.exId); if (!ex) return '';
+      return `<div class="seitem" data-i="${i}">
+        <img src="${ex.gif}" alt="" loading="lazy" onerror="window.gifFail(this)">
+        <div class="seitem-info">
+          <span class="nm">${ex.name}</span>
+          <div class="seitem-fields">
+            <label>Séries<input type="number" min="1" class="f-sets" value="${it.sets}"></label>
+            <label>Répét.<input type="number" min="1" class="f-reps" value="${it.reps}"></label>
+            <label>Repos<input type="number" min="0" step="5" class="f-rest" value="${it.rest}"> s</label>
+          </div>
+        </div>
+        <div class="seitem-actions">
+          <button class="icon" data-act="up" aria-label="Monter" ${i === 0 ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+          <button class="icon" data-act="down" aria-label="Descendre" ${i === items.length - 1 ? 'disabled' : ''}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></button>
+          <button class="icon" data-act="del" aria-label="Retirer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+  $('seanceItems').addEventListener('click', e => {
+    const row = e.target.closest('.seitem'); if (!row) return;
+    const i = +row.dataset.i;
+    const act = e.target.closest('[data-act]'); if (!act) return;
+    if (act.dataset.act === 'del') curSeance.items.splice(i, 1);
+    if (act.dataset.act === 'up' && i > 0) [curSeance.items[i - 1], curSeance.items[i]] = [curSeance.items[i], curSeance.items[i - 1]];
+    if (act.dataset.act === 'down' && i < curSeance.items.length - 1) [curSeance.items[i + 1], curSeance.items[i]] = [curSeance.items[i], curSeance.items[i + 1]];
+    saveSeances(); renderSeanceItems();
+  });
+  $('seanceItems').addEventListener('change', e => {
+    const row = e.target.closest('.seitem'); if (!row) return;
+    const it = curSeance.items[+row.dataset.i];
+    if (e.target.classList.contains('f-sets')) it.sets = Math.max(1, +e.target.value || 1);
+    if (e.target.classList.contains('f-reps')) it.reps = Math.max(1, +e.target.value || 1);
+    if (e.target.classList.contains('f-rest')) it.rest = Math.max(0, +e.target.value || 0);
+    saveSeances();
+  });
+  $('seanceNameInput').addEventListener('input', e => { curSeance.name = e.target.value; saveSeances(); });
+  $('seanceDeleteBtn').addEventListener('click', () => {
+    if (!confirm('Supprimer cette séance ?')) return;
+    S.seances = S.seances.filter(s => s.id !== curSeance.id); saveSeances();
+    location.hash = '#/seances';
+  });
+  $('seanceBackBtn').addEventListener('click', () => location.hash = '#/seances');
+  $('seanceAddExBtn').addEventListener('click', () => location.hash = '#/seance/' + curSeance.id + '/ajouter');
+  $('seanceStartBtn').addEventListener('click', () => {
+    if (!curSeance.items.length) { toast('Ajoute au moins un exercice'); return; }
+    location.hash = '#/seance/' + curSeance.id + '/lancer';
+  });
+  $('pickDone').addEventListener('click', () => { location.hash = '#/seance/' + S.picking; });
+
+  /* Sélecteur de séance depuis la fiche exercice */
+  function renderPickList() {
+    $('pickList').innerHTML = S.seances.length
+      ? S.seances.map(s => `<button class="pick-row" data-id="${s.id}"><span>${s.name || 'Séance sans nom'}</span><span class="cnt">${s.items.length}</span></button>`).join('')
+      : '<p class="status">Aucune séance pour l’instant.</p>';
+  }
+  $('mAddSeance').addEventListener('click', () => { renderPickList(); $('pickModal').hidden = false; });
+  $('pickModal').addEventListener('click', e => { if (e.target.closest('[data-close-pick]')) $('pickModal').hidden = true; });
+  $('pickList').addEventListener('click', e => {
+    const b = e.target.closest('.pick-row'); if (!b || !S.current) return;
+    addExToSeance(b.dataset.id, S.current.id);
+    $('pickModal').hidden = true;
+  });
+  $('pickNewBtn').addEventListener('click', () => {
+    const name = $('pickNewName').value.trim();
+    const s = { id: uid(), name, items: [] };
+    if (S.current) s.items.push({ exId: S.current.id, sets: 3, reps: 12, rest: 60 });
+    S.seances.push(s); saveSeances();
+    $('pickNewName').value = ''; $('pickModal').hidden = true;
+    toast('Séance créée et exercice ajouté');
+  });
+
+  /* Mode entraînement : enchaîne séries et repos d'une séance */
+  let runState = null, runTimer = null;
+  function buildRunSteps(seance) {
+    const steps = [];
+    seance.items.forEach((it, ii) => {
+      for (let set = 1; set <= it.sets; set++) {
+        steps.push({ type: 'work', itemIdx: ii, set });
+        const last = ii === seance.items.length - 1 && set === it.sets;
+        if (!last) steps.push({ type: 'rest', itemIdx: ii, seconds: it.rest });
+      }
+    });
+    return steps;
+  }
+  function startRun(id) {
+    const s = S.seances.find(x => x.id === id);
+    if (!s || !s.items.length) { location.hash = '#/seance/' + id; return; }
+    runState = { seance: s, steps: buildRunSteps(s), i: 0 };
+    showView('run');
+    renderRun();
+  }
+  function renderRun() {
+    if (runTimer) runTimer.pause();
+    const { seance, steps, i } = runState;
+    const step = steps[i];
+    const it = seance.items[step.itemIdx];
+    const ex = S.byId.get(it.exId);
+    $('runProgress').textContent = `Étape ${i + 1} / ${steps.length}`;
+    if (step.type === 'work') {
+      $('runBody').innerHTML = `
+        <img src="${ex.gif}" alt="">
+        <h2>${ex.name}</h2>
+        <p class="run-meta">Série ${step.set} / ${it.sets} — ${it.reps} répétitions</p>
+        <button class="btn-primary btn-block" id="runNext">Série terminée</button>`;
+      $('runNext').addEventListener('click', advanceRun);
+    } else {
+      $('runBody').innerHTML = `
+        <h2>Repos</h2>
+        <p class="run-meta">Prochain : ${S.byId.get(seance.items[steps[i + 1] ? steps[i + 1].itemIdx : step.itemIdx].exId)?.name || ''}</p>
+        <div class="timer-display" id="runTimerDisplay">00:00</div>
+        <div class="timer-adjust">
+          <button class="tbtn" data-radj="-15">−15 s</button>
+          <button class="tbtn" data-radj="15">+15 s</button>
+        </div>
+        <button class="btn-secondary btn-block" id="runSkip">Passer le repos</button>`;
+      runTimer = makeTimer($('runTimerDisplay'), advanceRun);
+      runTimer.set(step.seconds);
+      runTimer.start();
+      $('runBody').querySelectorAll('[data-radj]').forEach(b => b.addEventListener('click', () => runTimer.adjust(+b.dataset.radj)));
+      $('runSkip').addEventListener('click', () => { runTimer.pause(); advanceRun(); });
+    }
+  }
+  function advanceRun() {
+    if (!runState) return;
+    runState.i++;
+    if (runState.i >= runState.steps.length) {
+      $('runProgress').textContent = '';
+      $('runBody').innerHTML = `<h2>Séance terminée</h2><button class="btn-primary btn-block" id="runFinish">Retour à la séance</button>`;
+      $('runFinish').addEventListener('click', () => location.hash = '#/seance/' + runState.seance.id);
+      return;
+    }
+    renderRun();
+  }
+  $('runClose').addEventListener('click', () => { if (runTimer) runTimer.pause(); location.hash = '#/seance/' + runState.seance.id; });
+
+  /* Bascule entre les grandes vues de l'appli */
+  const VIEWS = { exercices: 'viewExercices', seances: 'viewSeances', seanceDetail: 'viewSeanceDetail', run: 'viewRun' };
+  function showView(name) {
+    Object.entries(VIEWS).forEach(([k, id]) => $(id).hidden = k !== name);
+    $('tabbar').hidden = name === 'run';
+    window.scrollTo({ top: 0 });
+  }
+  function setTab(name) {
+    $('tabbar').querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b.dataset.tab === name));
+  }
+  $('tabbar').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    location.hash = b.dataset.tab === 'exercices' ? '' : '#/seances';
+  });
 
   /* Fiche exercice */
   function setFavBtn() {
@@ -224,6 +465,7 @@
     const e = S.byId.get(id); if (!e) return;
     if ($('modal').hidden) lastFocus = document.activeElement;
     S.current = e;
+    exTimer.pause(); exTimer.set(45); $('timerStart').textContent = 'Démarrer';
     $('mTitle').textContent = e.name;
     const g = $('mGif'); g.style.width = '';
     g.onload = () => { const w = g.naturalWidth; if (w) g.style.width = Math.min(420, Math.round(w * 1.5)) + 'px'; };
@@ -246,6 +488,7 @@
     $('sheet').querySelector('.icon').focus();
   }
   function closeEx() {
+    exTimer.pause();
     $('modal').hidden = true; document.body.style.overflow = ''; S.current = null; $('mGif').removeAttribute('src');
     if (lastFocus && lastFocus.focus) lastFocus.focus();
   }
@@ -263,8 +506,28 @@
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('modal').hidden) $('modal').querySelector('[data-close]').click(); });
   function route() {
-    const m = location.hash.match(/^#\/exercice\/(.+)$/);
-    if (m) openEx(decodeURIComponent(m[1])); else if (!$('modal').hidden) closeEx();
+    const h = location.hash;
+    let m;
+    if (m = h.match(/^#\/exercice\/(.+)$/)) { openEx(decodeURIComponent(m[1])); return; }
+    if (!$('modal').hidden) closeEx();
+
+    if (!/\/lancer$/.test(h) && runTimer) runTimer.pause();
+
+    if (m = h.match(/^#\/seance\/([^/]+)\/ajouter$/)) {
+      S.picking = m[1];
+      const s = S.seances.find(x => x.id === m[1]);
+      $('pickBarLabel').textContent = 'Ajout à : ' + (s && s.name ? s.name : 'la séance');
+      $('pickBar').hidden = false;
+      showView('exercices'); setTab('seances');
+      return;
+    }
+    $('pickBar').hidden = true; S.picking = null;
+
+    if (m = h.match(/^#\/seance\/([^/]+)\/lancer$/)) { startRun(m[1]); return; }
+    if (m = h.match(/^#\/seance\/([^/]+)$/)) { openSeance(m[1]); setTab('seances'); return; }
+    if (h === '#/seances') { renderSeancesList(); showView('seances'); setTab('seances'); return; }
+
+    showView('exercices'); setTab('exercices');
   }
   addEventListener('hashchange', route);
 
