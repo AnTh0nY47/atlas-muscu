@@ -6,6 +6,7 @@
   const BP = { back: 'Dos', cardio: 'Cardio', chest: 'Pectoraux', 'lower arms': 'Avant-bras', 'lower legs': 'Mollets', neck: 'Cou', shoulders: 'Épaules', 'upper arms': 'Bras', 'upper legs': 'Cuisses', waist: 'Abdos' };
   const EQ = { assisted: 'Assisté', band: 'Élastique', barbell: 'Barre', 'body weight': 'Poids du corps', 'bosu ball': 'Bosu', cable: 'Poulie', dumbbell: 'Haltère', 'elliptical machine': 'Elliptique', 'ez barbell': 'Barre EZ', hammer: 'Masse', kettlebell: 'Kettlebell', 'leverage machine': 'Machine guidée', 'medicine ball': 'Médecine ball', 'olympic barbell': 'Barre olympique', 'resistance band': 'Bande de résistance', roller: 'Rouleau', rope: 'Corde', 'skierg machine': 'SkiErg', 'sled machine': 'Traîneau', 'smith machine': 'Smith machine', 'stability ball': 'Swiss ball', 'stationary bike': 'Vélo', 'stepmill machine': 'Stepper', tire: 'Pneu', 'trap bar': 'Trap bar', 'upper body ergometer': 'Ergomètre bras', weighted: 'Lesté', 'wheel roller': 'Roue abdominale' };
   const MU = { abductors: 'Abducteurs', abs: 'Abdominaux', adductors: 'Adducteurs', biceps: 'Biceps', calves: 'Mollets', 'cardiovascular system': 'Système cardio', delts: 'Deltoïdes', deltoids: 'Deltoïdes', forearms: 'Avant-bras', glutes: 'Fessiers', hamstrings: 'Ischio-jambiers', lats: 'Grand dorsal', 'latissimus dorsi': 'Grand dorsal', 'levator scapulae': 'Élévateur de la scapula', pectorals: 'Pectoraux', chest: 'Pectoraux', 'upper chest': 'Haut des pectoraux', quads: 'Quadriceps', quadriceps: 'Quadriceps', 'serratus anterior': 'Grand dentelé', spine: 'Érecteurs du rachis', traps: 'Trapèzes', trapezius: 'Trapèzes', triceps: 'Triceps', 'upper back': 'Haut du dos', shoulders: 'Épaules', core: 'Sangle abdominale', 'lower back': 'Bas du dos', obliques: 'Obliques', 'hip flexors': 'Fléchisseurs de hanche', rhomboids: 'Rhomboïdes', 'rear deltoids': 'Deltoïdes postérieurs', wrists: 'Poignets', wrist: 'Poignets', back: 'Dos', 'inner thighs': 'Intérieur des cuisses', groin: 'Adducteurs', ankles: 'Chevilles', 'ankle stabilizers': 'Stabilisateurs de cheville', soleus: 'Soléaire', brachialis: 'Brachial', 'lower abs': 'Bas des abdos', feet: 'Pieds', shins: 'Tibias', hands: 'Mains', neck: 'Cou', sternocleidomastoid: 'Sterno-cléido-mastoïdien', 'rotator cuff': 'Coiffe des rotateurs', hips: 'Hanches', 'grip muscles': 'Muscles de la préhension', 'wrist extensors': 'Extenseurs du poignet', 'wrist flexors': 'Fléchisseurs du poignet' };
+  const mu = (e, k) => MU[k] || e.mfr[k] || fr(MU, k);
   const fr = (d, k) => d[k] || (k ? k.charAt(0).toUpperCase() + k.slice(1) : '');
 
   /* Carte musculaire : moitié gauche, recopiée en miroir */
@@ -121,12 +122,12 @@
   function normalize(raw) {
     return raw.map(x => {
       const e = {
-        id: x.exerciseId || x.id, name: title(x.name || ''), gif: x.gifUrl,
+        id: x.exerciseId || x.id, name: x.nameFr || title(x.name || ''), en: x.name || '', gif: x.gifUrl, mfr: x.musclesFr || {},
         bp: x.bodyParts || (x.bodyPart ? [x.bodyPart] : []), eq: x.equipments || (x.equipment ? [x.equipment] : []),
         tg: x.targetMuscles || (x.target ? [x.target] : []), sec: x.secondaryMuscles || [],
-        steps: (x.instructions || []).map(s => s.replace(/^step\s*:?\s*\d+\s*[:.)-]?\s*/i, '')),
+        steps: x.instructionsFr || (x.instructions || []).map(s => s.replace(/^step\s*:?\s*\d+\s*[:.)-]?\s*/i, '')),
       };
-      e.hay = norm([e.name, ...e.bp.map(v => fr(BP, v)), ...e.eq.map(v => fr(EQ, v)), ...e.tg.map(v => fr(MU, v)), ...e.bp, ...e.eq, ...e.tg].join(' '));
+      e.hay = norm([e.name, e.en, ...e.bp.map(v => fr(BP, v)), ...e.eq.map(v => fr(EQ, v)), ...e.tg.map(v => fr(MU, v)), ...e.bp, ...e.eq, ...e.tg].join(' '));
       return e;
     }).filter(e => e.id && e.gif).sort((a, b) => a.name.localeCompare(b.name));
   }
@@ -224,7 +225,9 @@
     if ($('modal').hidden) lastFocus = document.activeElement;
     S.current = e;
     $('mTitle').textContent = e.name;
-    $('mGif').src = e.gif; $('mGif').alt = 'Démonstration animée : ' + e.name;
+    const g = $('mGif'); g.style.width = '';
+    g.onload = () => { const w = g.naturalWidth; if (w) g.style.width = Math.min(420, Math.round(w * 1.5)) + 'px'; };
+    g.src = e.gif; $('mGif').alt = 'Démonstration animée : ' + e.name;
     setFavBtn();
     const prim = regions(e.tg), sec = regions(e.sec); prim.forEach(r => sec.delete(r));
     $('mMaps').innerHTML = bodySVG('f', prim, sec) + bodySVG('b', prim, sec);
@@ -232,8 +235,8 @@
     $('mFacts').innerHTML =
       row('Zone', e.bp.map(v => fr(BP, v)).join(', ')) +
       row('Matériel', e.eq.map(v => fr(EQ, v)).join(', ')) +
-      row('Muscles principaux', e.tg.map(v => fr(MU, v)).join(', ')) +
-      row('Muscles secondaires', e.sec.map(v => fr(MU, v)).join(', '));
+      row('Muscles principaux', e.tg.map(v => mu(e, v)).join(', ')) +
+      row('Muscles secondaires', e.sec.map(v => mu(e, v)).join(', '));
     $('mSteps').innerHTML = e.steps.map(s => `<li>${s}</li>`).join('');
     const rel = S.all.filter(x => x.id !== e.id && x.tg[0] === e.tg[0]).slice(0, 12);
     $('mRelatedWrap').hidden = !rel.length;

@@ -42,6 +42,7 @@ main{max-width:1200px;margin:0 auto;padding:18px 16px 60px}
 .card:hover{box-shadow:0 6px 20px rgba(20,24,30,.08)}
 .card .open{display:block;width:100%;padding:0;border:0;background:none;text-align:left}
 .card .pic{aspect-ratio:1/1;display:grid;place-items:center;background:#fff;padding:26px 14px 0}
+.card img{max-width:240px;margin:auto}
 .card img{width:100%;height:100%;object-fit:contain}
 .card .txt{display:block;padding:10px 14px 14px}
 .card .nm{display:block;font-weight:600;font-size:14.5px;line-height:1.3}
@@ -61,7 +62,7 @@ main{max-width:1200px;margin:0 auto;padding:18px 16px 60px}
 .icon:hover{background:var(--soft)}
 .icon svg{width:22px;height:22px}
 .player{display:grid;place-items:center;padding:0 18px}
-.player img{width:min(420px,100%);aspect-ratio:1/1;object-fit:contain}
+.player img{width:min(420px,100%);max-width:100%;aspect-ratio:1/1;object-fit:contain}
 .actions{display:flex;align-items:center;gap:8px;padding:10px 22px;border-bottom:1px solid var(--line)}
 .credit{margin-right:auto;font-size:12px;color:var(--muted)}
 .act{display:inline-flex;align-items:center;gap:6px;border:0;background:none;padding:8px 10px;border-radius:8px;font-size:14px;font-weight:500}
