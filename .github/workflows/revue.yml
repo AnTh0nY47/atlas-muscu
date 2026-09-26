@@ -1,0 +1,41 @@
+name: Planches de vérification
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['scripts/planches.py', '.github/workflows/revue.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  planches:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install pillow
+      - name: Télécharger les exercices
+        run: node scripts/sync.mjs
+      - name: Traduire
+        run: node scripts/translate.mjs
+        continue-on-error: true
+      - name: Générer les planches
+        run: python scripts/planches.py
+      - name: Publier sur la branche revue
+        run: |
+          mkdir /tmp/out && cp -r revue /tmp/out/
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git checkout --orphan revue
+          git rm -rf . -q
+          cp -r /tmp/out/revue .
+          git add revue
+          git commit -q -m "Planches de vérification"
+          git push -f origin revue
