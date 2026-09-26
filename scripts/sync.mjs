@@ -31,7 +31,31 @@ while (true) {
   await sleep(250);
 }
 const seen = new Set();
-const clean = all.filter(e => !seen.has(e.exerciseId) && seen.add(e.exerciseId));
+const unique = all.filter(e => !seen.has(e.exerciseId) && seen.add(e.exerciseId));
+
+// On écarte les exercices dont l'animation n'existe pas ou ne se charge pas
+async function gifOk(url) {
+  for (let i = 1; i <= 3; i++) {
+    try {
+      const r = await fetch(url, { method: 'HEAD' });
+      if (r.ok) return (r.headers.get('content-type') || '').startsWith('image');
+      if (r.status === 404 || r.status === 403) return false;
+    } catch { }
+    await sleep(1000 * i);
+  }
+  return false;
+}
+const clean = [];
+let checked = 0, dropped = 0;
+for (let i = 0; i < unique.length; i += 10) {
+  const part = unique.slice(i, i + 10);
+  const ok = await Promise.all(part.map(e => e.gifUrl ? gifOk(e.gifUrl) : false));
+  part.forEach((e, k) => ok[k] ? clean.push(e) : dropped++);
+  checked += part.length;
+  process.stdout.write(`\rAnimations vérifiées : ${checked} / ${unique.length}`);
+}
+console.log(`\n${dropped} exercices sans animation écartés`);
+if (clean.length < unique.length * 0.5) { console.log('Trop d\'animations en échec, vérification ignorée'); clean.length = 0; clean.push(...unique); }
 await mkdir(dirname(out), { recursive: true });
 await writeFile(out, 'window.EXERCISES = ' + JSON.stringify(clean) + ';\n');
 console.log(`\n${clean.length} exercices enregistrés dans data/exercises.js`);

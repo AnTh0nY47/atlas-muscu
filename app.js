@@ -178,7 +178,7 @@
   const sub = e => fr(BP, e.bp[0]);
   function card(e) {
     return `<article class="card" data-id="${e.id}">
-      <button class="open" aria-label="${e.name}"><span class="pic"><img src="${e.gif}" alt="" loading="lazy" decoding="async"></span>
+      <button class="open" aria-label="${e.name}"><span class="pic"><img src="${e.gif}" alt="" loading="lazy" decoding="async" onerror="window.gifFail(this)"></span>
       <span class="txt"><span class="nm">${e.name}</span><span class="sub">${sub(e)}</span></span></button>
       <button class="bm" aria-pressed="${S.favs.has(e.id)}" aria-label="Enregistrer">${BM}</button></article>`;
   }
@@ -240,7 +240,7 @@
     $('mSteps').innerHTML = e.steps.map(s => `<li>${s}</li>`).join('');
     const rel = S.all.filter(x => x.id !== e.id && x.tg[0] === e.tg[0]).slice(0, 12);
     $('mRelatedWrap').hidden = !rel.length;
-    $('mRelated').innerHTML = rel.map(x => `<button data-id="${x.id}"><img src="${x.gif}" alt="" loading="lazy"><span>${x.name}</span></button>`).join('');
+    $('mRelated').innerHTML = rel.map(x => `<button data-id="${x.id}"><img src="${x.gif}" alt="" loading="lazy" onerror="window.gifFail(this)"><span>${x.name}</span></button>`).join('');
     $('modal').hidden = false; document.body.style.overflow = 'hidden';
     $('sheet').scrollTop = 0;
     $('sheet').querySelector('.icon').focus();
@@ -269,6 +269,18 @@
   addEventListener('hashchange', route);
 
   let tt; function toast(t) { const el = $('toast'); el.textContent = t; el.hidden = false; clearTimeout(tt); tt = setTimeout(() => el.hidden = true, 1800); }
+
+  /* Animation qui ne se charge pas : un nouvel essai, puis on masque la carte */
+  window.gifFail = img => {
+    if (!img.dataset.retry) {
+      img.dataset.retry = '1';
+      const src = img.src.split('?')[0];
+      setTimeout(() => { img.src = src + '?r=' + Date.now(); }, 1500);
+      return;
+    }
+    const box = img.closest('.card, .rel button');
+    if (box) box.hidden = true;
+  };
 
   /* Démarrage */
   renderCats();
