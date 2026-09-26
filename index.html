@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Atlas Muscu</title>
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Atlas Muscu">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top">
+  <label class="search" for="q">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Rechercher un exercice" autocomplete="off">
+  </label>
+  <nav class="cats" id="cats" aria-label="Groupes musculaires"></nav>
+  <div class="tools">
+    <span class="count" id="count"></span>
+    <select id="equip" aria-label="Matériel"><option value="">Tout le matériel</option></select>
+  </div>
+</header>
+
+<main>
+  <p class="status" id="status">Chargement des exercices…</p>
+  <div class="grid" id="grid"></div>
+  <div id="more" class="more"></div>
+</main>
+
+<div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="scrim" data-close></div>
+  <article class="sheet" id="sheet">
+    <header class="mhead">
+      <button class="icon" data-close aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <h2 id="mTitle"></h2>
+    </header>
+    <div class="player"><img id="mGif" alt=""></div>
+    <div class="actions">
+      <span class="credit">Animation ExerciseDB</span>
+      <button class="act" id="mFav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>Enregistrer</span></button>
+      <button class="act" id="mShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Partager</span></button>
+    </div>
+    <div class="details">
+      <div class="maps" id="mMaps"></div>
+      <div>
+        <h3>Détails de l'exercice</h3>
+        <dl id="mFacts"></dl>
+      </div>
+    </div>
+    <section class="howto">
+      <h3>Exécution</h3>
+      <ol id="mSteps"></ol>
+    </section>
+    <section class="related" id="mRelatedWrap">
+      <h3>Même muscle</h3>
+      <div class="rel" id="mRelated"></div>
+    </section>
+  </article>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="data/exercises.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
