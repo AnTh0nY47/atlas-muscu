@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Atlas Muscu</title>
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#14161a" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
@@ -68,9 +69,21 @@
     <div class="run-head">
       <button class="icon" id="runClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       <span class="run-progress" id="runProgress"></span>
+      <span class="run-elapsed" id="runElapsed"></span>
     </div>
     <div class="run-body" id="runBody"></div>
   </div>
+</div>
+
+<div class="view" id="viewHistorique" hidden>
+  <header class="top simple">
+    <h1>Historique</h1>
+    <button class="icon" id="dataBtn" aria-label="Sauvegarde des données"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg></button>
+  </header>
+  <main>
+    <p class="status" id="histEmpty" hidden>Aucune séance enregistrée pour l'instant. Termine une séance depuis l'onglet Séances pour la voir apparaître ici.</p>
+    <div class="hist-list" id="histList"></div>
+  </main>
 </div>
 
 <nav class="tabbar" id="tabbar">
@@ -81,6 +94,10 @@
   <button data-tab="seances">
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
     <span>Séances</span>
+  </button>
+  <button data-tab="historique">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+    <span>Historique</span>
   </button>
 </nav>
 
@@ -122,6 +139,10 @@
         </div>
       </div>
     </section>
+    <section class="progress" id="mProgressWrap" hidden>
+      <h3>Progression</h3>
+      <div id="mProgressChart"></div>
+    </section>
     <div class="details">
       <div class="maps" id="mMaps"></div>
       <div>
@@ -151,6 +172,23 @@
     <div class="pick-new">
       <input id="pickNewName" placeholder="Nouvelle séance…">
       <button class="btn-primary" id="pickNewBtn">Créer et ajouter</button>
+    </div>
+  </article>
+</div>
+
+<div class="modal" id="dataModal" hidden role="dialog" aria-modal="true" aria-labelledby="dataTitle">
+  <div class="scrim" data-close-data></div>
+  <article class="sheet small">
+    <header class="mhead">
+      <button class="icon" data-close-data aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <h2 id="dataTitle">Sauvegarde</h2>
+    </header>
+    <div class="data-actions">
+      <p class="run-meta">Tes séances, ton historique et tes favoris sont stockés uniquement sur ce téléphone. Exporte-les régulièrement pour ne rien perdre, ou pour les retrouver sur un autre appareil.</p>
+      <button class="btn-primary btn-block" id="exportBtn">Exporter mes données (.json)</button>
+      <label class="btn-secondary btn-block" id="importLabel">Importer une sauvegarde
+        <input type="file" id="importInput" accept="application/json" hidden>
+      </label>
     </div>
   </article>
 </div>

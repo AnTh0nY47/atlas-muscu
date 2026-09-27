@@ -114,12 +114,37 @@
     set(k, v) { try { localStorage.setItem('atlas.' + k, JSON.stringify(v)); } catch { } },
   };
 
-  const S = { all: [], byId: new Map(), cat: store.get('cat', 'all'), equip: '', q: '', shown: PAGE, favs: new Set(store.get('favs', [])), current: null, seances: store.get('seances', []), picking: null };
+  const S = { all: [], byId: new Map(), cat: store.get('cat', 'all'), equip: '', q: '', shown: PAGE, favs: new Set(store.get('favs', [])), current: null, seances: store.get('seances', []), history: store.get('history', []), picking: null };
   const $ = id => document.getElementById(id);
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const title = s => s.replace(/(^|[\s(-])([a-z])/g, (m, a, b) => a + b.toUpperCase());
   const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
   const saveSeances = () => store.set('seances', S.seances);
+  const saveHistory = () => store.set('history', S.history);
+  function fmtDuration(sec) {
+    const m = Math.floor(sec / 60), s = sec % 60;
+    if (m < 60) return s ? `${m} min ${s}` : `${m} min`;
+    return `${Math.floor(m / 60)} h ${String(m % 60).padStart(2, '0')}`;
+  }
+  function fmtDate(iso) {
+    const d = new Date(iso);
+    return d.toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' }) + ' à ' + d.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
+  }
+
+  /* Hors-ligne : l'appli reste utilisable à la salle sans réseau */
+  if ('serviceWorker' in navigator) {
+    addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => { }));
+  }
+
+  /* Écran qui reste allumé pendant l'entraînement */
+  let wakeLock = null;
+  async function requestWake() {
+    try { if ('wakeLock' in navigator) wakeLock = await navigator.wakeLock.request('screen'); } catch { }
+  }
+  function releaseWake() { try { wakeLock && wakeLock.release(); } catch { } wakeLock = null; }
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible' && !$('viewRun').hidden) requestWake();
+  });
 
   function normalize(raw) {
     return raw.map(x => {
@@ -286,7 +311,8 @@
   function addExToSeance(seanceId, exId) {
     const s = S.seances.find(x => x.id === seanceId); if (!s) return;
     if (s.items.some(it => it.exId === exId)) { toast('Déjà dans la séance'); return; }
-    s.items.push({ exId, sets: 3, reps: 12, rest: 60 });
+    const last = lastPerf(exId);
+    s.items.push({ exId, sets: 3, reps: last ? last.reps : 12, rest: 60, weight: last ? last.weight : 0 });
     saveSeances();
     toast('Ajouté à la séance');
   }
@@ -311,6 +337,7 @@
           <div class="seitem-fields">
             <label>Séries<input type="number" min="1" class="f-sets" value="${it.sets}"></label>
             <label>Répét.<input type="number" min="1" class="f-reps" value="${it.reps}"></label>
+            <label>Charge<input type="number" min="0" step="0.5" class="f-weight" value="${it.weight || ''}"> kg</label>
             <label>Repos<input type="number" min="0" step="5" class="f-rest" value="${it.rest}"> s</label>
           </div>
         </div>
@@ -336,6 +363,7 @@
     const it = curSeance.items[+row.dataset.i];
     if (e.target.classList.contains('f-sets')) it.sets = Math.max(1, +e.target.value || 1);
     if (e.target.classList.contains('f-reps')) it.reps = Math.max(1, +e.target.value || 1);
+    if (e.target.classList.contains('f-weight')) it.weight = Math.max(0, +e.target.value || 0);
     if (e.target.classList.contains('f-rest')) it.rest = Math.max(0, +e.target.value || 0);
     saveSeances();
   });
@@ -369,14 +397,60 @@
   $('pickNewBtn').addEventListener('click', () => {
     const name = $('pickNewName').value.trim();
     const s = { id: uid(), name, items: [] };
-    if (S.current) s.items.push({ exId: S.current.id, sets: 3, reps: 12, rest: 60 });
+    if (S.current) {
+      const last = lastPerf(S.current.id);
+      s.items.push({ exId: S.current.id, sets: 3, reps: last ? last.reps : 12, rest: 60, weight: last ? last.weight : 0 });
+    }
     S.seances.push(s); saveSeances();
     $('pickNewName').value = ''; $('pickModal').hidden = true;
     toast('Séance créée et exercice ajouté');
   });
 
-  /* Mode entraînement : enchaîne séries et repos d'une séance */
-  let runState = null, runTimer = null;
+  /* Historique : dernières performances connues pour un exercice */
+  function lastPerf(exId) {
+    for (const h of S.history) {
+      const e = h.exercises.find(x => x.exId === exId);
+      if (e && e.sets.length) return e.sets[e.sets.length - 1];
+    }
+    return null;
+  }
+  function exHistoryPoints(exId) {
+    const pts = [];
+    [...S.history].reverse().forEach(h => {
+      const e = h.exercises.find(x => x.exId === exId);
+      if (e && e.sets.length) {
+        const best = e.sets.reduce((a, b) => (b.weight * (1 + b.reps / 30)) > (a.weight * (1 + a.reps / 30)) ? b : a);
+        pts.push({ date: h.date, value: Math.round(best.weight * (1 + best.reps / 30) * 10) / 10, weight: best.weight, reps: best.reps });
+      }
+    });
+    return pts;
+  }
+  function renderProgress(ex) {
+    const pts = exHistoryPoints(ex.id);
+    $('mProgressWrap').hidden = !pts.length;
+    if (!pts.length) { $('mProgressChart').innerHTML = ''; return; }
+    const last = pts[pts.length - 1];
+    if (pts.length === 1) {
+      $('mProgressChart').innerHTML = `<p class="run-meta">Dernière fois : ${last.weight} kg × ${last.reps}. Termine une deuxième séance avec cet exercice pour voir ta progression.</p>`;
+      return;
+    }
+    const W = 560, H = 130, pad = 20;
+    const vmax = Math.max(...pts.map(p => p.value)), vmin = Math.min(...pts.map(p => p.value));
+    const span = Math.max(1, vmax - vmin);
+    const xs = pts.map((_, i) => pad + i * (W - 2 * pad) / (pts.length - 1));
+    const ys = pts.map(p => H - pad - (p.value - vmin) / span * (H - 2 * pad));
+    const d = xs.map((x, i) => (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + ys[i].toFixed(1)).join(' ');
+    const dots = xs.map((x, i) => `<circle cx="${x.toFixed(1)}" cy="${ys[i].toFixed(1)}" r="3.5"></circle>`).join('');
+    $('mProgressChart').innerHTML = `
+      <svg viewBox="0 0 ${W} ${H}" class="progress-chart" role="img" aria-label="Évolution de la charge estimée au fil des séances">
+        <path d="${d}" fill="none" class="line"/>
+        ${dots}
+      </svg>
+      <p class="run-meta">Dernière fois : ${last.weight} kg × ${last.reps} (${fmtDate(last.date).split(' à ')[0]}) — 1RM estimé ${last.value} kg</p>`;
+  }
+
+  /* Mode entraînement : enchaîne séries et repos d'une séance, en notant le poids et les répétitions réels */
+  let runState = null, runTimer = null, runClockIv = null;
   function buildRunSteps(seance) {
     const steps = [];
     seance.items.forEach((it, ii) => {
@@ -391,9 +465,19 @@
   function startRun(id) {
     const s = S.seances.find(x => x.id === id);
     if (!s || !s.items.length) { location.hash = '#/seance/' + id; return; }
-    runState = { seance: s, steps: buildRunSteps(s), i: 0 };
+    runState = { seance: s, steps: buildRunSteps(s), i: 0, startedAt: Date.now(), perf: new Map() };
     showView('run');
+    requestWake();
+    clearInterval(runClockIv);
+    runClockIv = setInterval(() => {
+      if (runState) $('runElapsed').textContent = fmtDuration(Math.round((Date.now() - runState.startedAt) / 1000));
+    }, 1000);
+    $('runElapsed').textContent = '0 min';
     renderRun();
+  }
+  function endRun() {
+    releaseWake();
+    clearInterval(runClockIv);
   }
   function renderRun() {
     if (runTimer) runTimer.pause();
@@ -403,16 +487,31 @@
     const ex = S.byId.get(it.exId);
     $('runProgress').textContent = `Étape ${i + 1} / ${steps.length}`;
     if (step.type === 'work') {
+      const prev = lastPerf(it.exId);
+      const w = it.weight || (prev ? prev.weight : 0);
+      const r = it.reps || (prev ? prev.reps : '');
       $('runBody').innerHTML = `
         <img src="${ex.gif}" alt="">
         <h2>${ex.name}</h2>
-        <p class="run-meta">Série ${step.set} / ${it.sets} — ${it.reps} répétitions</p>
-        <button class="btn-primary btn-block" id="runNext">Série terminée</button>`;
-      $('runNext').addEventListener('click', advanceRun);
+        <p class="run-meta">Série ${step.set} / ${it.sets}</p>
+        <div class="run-fields">
+          <label>Poids (kg)<input type="number" inputmode="decimal" min="0" step="0.5" id="runWeight" value="${w || ''}"></label>
+          <label>Répétitions<input type="number" inputmode="numeric" min="0" id="runReps" value="${r}"></label>
+        </div>
+        <button class="btn-primary btn-block" id="runNext">Valider la série</button>`;
+      $('runNext').addEventListener('click', () => {
+        const w2 = parseFloat($('runWeight').value) || 0;
+        const r2 = parseInt($('runReps').value, 10) || 0;
+        if (!runState.perf.has(it.exId)) runState.perf.set(it.exId, []);
+        runState.perf.get(it.exId).push({ weight: w2, reps: r2 });
+        advanceRun();
+      });
     } else {
+      const nextIt = seance.items[steps[i + 1] ? steps[i + 1].itemIdx : step.itemIdx];
+      const nextEx = S.byId.get(nextIt.exId);
       $('runBody').innerHTML = `
         <h2>Repos</h2>
-        <p class="run-meta">Prochain : ${S.byId.get(seance.items[steps[i + 1] ? steps[i + 1].itemIdx : step.itemIdx].exId)?.name || ''}</p>
+        <p class="run-meta">Prochain : ${nextEx ? nextEx.name : ''}</p>
         <div class="timer-display" id="runTimerDisplay">00:00</div>
         <div class="timer-adjust">
           <button class="tbtn" data-radj="-15">−15 s</button>
@@ -430,17 +529,65 @@
     if (!runState) return;
     runState.i++;
     if (runState.i >= runState.steps.length) {
-      $('runProgress').textContent = '';
-      $('runBody').innerHTML = `<h2>Séance terminée</h2><button class="btn-primary btn-block" id="runFinish">Retour à la séance</button>`;
+      const durationSec = Math.round((Date.now() - runState.startedAt) / 1000);
+      const exercises = runState.seance.items.map(it => {
+        const ex = S.byId.get(it.exId);
+        const sets = runState.perf.get(it.exId) || [];
+        if (sets.length) { it.weight = sets[sets.length - 1].weight; it.reps = sets[sets.length - 1].reps; }
+        return { exId: it.exId, name: ex ? ex.name : it.exId, sets };
+      }).filter(x => x.sets.length);
+      if (exercises.length) {
+        S.history.unshift({ id: uid(), seanceId: runState.seance.id, seanceName: runState.seance.name || 'Séance sans nom', date: new Date().toISOString(), durationSec, exercises });
+        saveHistory();
+      }
+      saveSeances();
+      endRun();
+      $('runProgress').textContent = ''; $('runElapsed').textContent = '';
+      $('runBody').innerHTML = `<h2>Séance terminée</h2><p class="run-meta">Durée : ${fmtDuration(durationSec)}</p><button class="btn-primary btn-block" id="runFinish">Retour à la séance</button>`;
       $('runFinish').addEventListener('click', () => location.hash = '#/seance/' + runState.seance.id);
       return;
     }
     renderRun();
   }
-  $('runClose').addEventListener('click', () => { if (runTimer) runTimer.pause(); location.hash = '#/seance/' + runState.seance.id; });
+  $('runClose').addEventListener('click', () => { if (runTimer) runTimer.pause(); endRun(); location.hash = '#/seance/' + runState.seance.id; });
+
+  /* Historique des séances effectuées + sauvegarde/restauration des données */
+  function renderHistList() {
+    $('histEmpty').hidden = !!S.history.length;
+    $('histList').innerHTML = S.history.map(h => `
+      <div class="hist-card">
+        <div class="hist-head"><span class="nm">${h.seanceName}</span><span class="date">${fmtDate(h.date)}</span></div>
+        <div class="hist-meta">${fmtDuration(h.durationSec)} · ${h.exercises.length} exercice${h.exercises.length > 1 ? 's' : ''}</div>
+        <div class="hist-ex">${h.exercises.map(x => `<div>${x.name} <span class="muted">— ${x.sets.map(s => `${s.weight}kg×${s.reps}`).join(', ')}</span></div>`).join('')}</div>
+      </div>`).join('');
+  }
+  $('dataBtn').addEventListener('click', () => $('dataModal').hidden = false);
+  $('dataModal').addEventListener('click', e => { if (e.target.closest('[data-close-data]')) $('dataModal').hidden = true; });
+  $('exportBtn').addEventListener('click', () => {
+    const payload = { app: 'atlas-muscu', version: 1, exportedAt: new Date().toISOString(), seances: S.seances, history: S.history, favs: [...S.favs] };
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'atlas-muscu-sauvegarde-' + new Date().toISOString().slice(0, 10) + '.json';
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+  });
+  $('importInput').addEventListener('change', async e => {
+    const file = e.target.files[0]; e.target.value = ''; if (!file) return;
+    try {
+      const data = JSON.parse(await file.text());
+      if (!confirm('Remplacer tes séances, ton historique et tes favoris actuels par ceux de ce fichier ?')) return;
+      if (Array.isArray(data.seances)) { S.seances = data.seances; saveSeances(); }
+      if (Array.isArray(data.history)) { S.history = data.history; saveHistory(); }
+      if (Array.isArray(data.favs)) { S.favs = new Set(data.favs); store.set('favs', [...S.favs]); }
+      $('dataModal').hidden = true;
+      toast('Données importées');
+      renderSeancesList(); renderHistList(); renderGrid();
+    } catch { toast('Fichier de sauvegarde invalide'); }
+  });
 
   /* Bascule entre les grandes vues de l'appli */
-  const VIEWS = { exercices: 'viewExercices', seances: 'viewSeances', seanceDetail: 'viewSeanceDetail', run: 'viewRun' };
+  const VIEWS = { exercices: 'viewExercices', seances: 'viewSeances', seanceDetail: 'viewSeanceDetail', run: 'viewRun', historique: 'viewHistorique' };
   function showView(name) {
     Object.entries(VIEWS).forEach(([k, id]) => $(id).hidden = k !== name);
     $('tabbar').hidden = name === 'run';
@@ -451,7 +598,7 @@
   }
   $('tabbar').addEventListener('click', e => {
     const b = e.target.closest('button'); if (!b) return;
-    location.hash = b.dataset.tab === 'exercices' ? '' : '#/seances';
+    location.hash = b.dataset.tab === 'exercices' ? '' : '#/' + b.dataset.tab;
   });
 
   /* Fiche exercice */
@@ -479,6 +626,7 @@
       row('Matériel', e.eq.map(v => fr(EQ, v)).join(', ')) +
       row('Muscles principaux', e.tg.map(v => mu(e, v)).join(', ')) +
       row('Muscles secondaires', e.sec.map(v => mu(e, v)).join(', '));
+    renderProgress(e);
     $('mSteps').innerHTML = e.steps.map(s => `<li>${s}</li>`).join('');
     const rel = S.all.filter(x => x.id !== e.id && x.tg[0] === e.tg[0]).slice(0, 12);
     $('mRelatedWrap').hidden = !rel.length;
@@ -526,6 +674,7 @@
     if (m = h.match(/^#\/seance\/([^/]+)\/lancer$/)) { startRun(m[1]); return; }
     if (m = h.match(/^#\/seance\/([^/]+)$/)) { openSeance(m[1]); setTab('seances'); return; }
     if (h === '#/seances') { renderSeancesList(); showView('seances'); setTab('seances'); return; }
+    if (h === '#/historique') { renderHistList(); showView('historique'); setTab('historique'); return; }
 
     showView('exercices'); setTab('exercices');
   }
