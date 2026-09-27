@@ -114,13 +114,16 @@
     set(k, v) { try { localStorage.setItem('atlas.' + k, JSON.stringify(v)); } catch { } },
   };
 
-  const S = { all: [], byId: new Map(), cat: store.get('cat', 'all'), equip: '', q: '', shown: PAGE, favs: new Set(store.get('favs', [])), current: null, seances: store.get('seances', []), history: store.get('history', []), picking: null };
+  const S = { all: [], byId: new Map(), cat: store.get('cat', 'all'), equip: '', q: '', shown: PAGE, favs: new Set(store.get('favs', [])), current: null, seances: store.get('seances', []), history: store.get('history', []), picking: null, custom: store.get('custom', []), notes: store.get('notes', {}), settings: Object.assign({ sound: true, vibrate: true }, store.get('settings', {})) };
   const $ = id => document.getElementById(id);
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const title = s => s.replace(/(^|[\s(-])([a-z])/g, (m, a, b) => a + b.toUpperCase());
   const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
   const saveSeances = () => store.set('seances', S.seances);
   const saveHistory = () => store.set('history', S.history);
+  const saveCustom = () => store.set('custom', S.custom);
+  const saveNotes = () => store.set('notes', S.notes);
+  const saveSettings = () => store.set('settings', S.settings);
   function fmtDuration(sec) {
     const m = Math.floor(sec / 60), s = sec % 60;
     if (m < 60) return s ? `${m} min ${s}` : `${m} min`;
@@ -157,6 +160,31 @@
       e.hay = norm([e.name, e.en, ...e.bp.map(v => fr(BP, v)), ...e.eq.map(v => fr(EQ, v)), ...e.tg.map(v => fr(MU, v)), ...e.bp, ...e.eq, ...e.tg].join(' '));
       return e;
     }).filter(e => e.id && e.gif).sort((a, b) => a.name.localeCompare(b.name));
+  }
+
+  /* Exercices personnalisés, créés directement dans l'appli */
+  const CUSTOM_ICON = '<svg viewBox="0 0 24 24" width="34%" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h2m12 0h2M8 12h8M6 8v8m12-8v8"/></svg>';
+  function thumbHTML(e) {
+    return e.gif
+      ? `<img src="${e.gif}" alt="" loading="lazy" decoding="async" onerror="window.gifFail(this)">`
+      : `<span class="custom-thumb">${CUSTOM_ICON}</span>`;
+  }
+  function makeCustomExercise(data) {
+    const id = data.id || ('custom-' + uid());
+    const e = {
+      id, name: data.name, en: data.name, gif: null, custom: true, mfr: {},
+      bp: data.bp ? [data.bp] : [], eq: data.eq ? [data.eq] : [], tg: data.tg ? [data.tg] : [], sec: [],
+      steps: data.note ? [data.note] : [],
+    };
+    e.hay = norm([e.name, ...e.bp.map(v => fr(BP, v)), ...e.eq.map(v => fr(EQ, v)), ...e.tg.map(v => fr(MU, v))].join(' '));
+    return e;
+  }
+  function mergeCustom() {
+    const customNormalized = S.custom.map(makeCustomExercise);
+    const base = S.all.filter(e => !e.custom);
+    S.all = [...base, ...customNormalized].sort((a, b) => a.name.localeCompare(b.name));
+    S.byId.clear();
+    S.all.forEach(e => S.byId.set(e.id, e));
   }
 
   async function load() {
@@ -205,7 +233,7 @@
   const sub = e => fr(BP, e.bp[0]);
   function card(e) {
     return `<article class="card" data-id="${e.id}">
-      <button class="open" aria-label="${e.name}"><span class="pic"><img src="${e.gif}" alt="" loading="lazy" decoding="async" onerror="window.gifFail(this)"></span>
+      <button class="open" aria-label="${e.name}"><span class="pic">${thumbHTML(e)}</span>
       <span class="txt"><span class="nm">${e.name}</span><span class="sub">${sub(e)}</span></span></button>
       <button class="bm" aria-pressed="${S.favs.has(e.id)}" aria-label="Enregistrer">${BM}</button></article>`;
   }
@@ -251,15 +279,17 @@
       displayEl.textContent = `${m}:${String(s).padStart(2, '0')}`;
     }
     function beep() {
-      try {
-        const ctx = new (window.AudioContext || window.webkitAudioContext)();
-        const o = ctx.createOscillator(), g = ctx.createGain();
-        o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
-        g.gain.setValueAtTime(.16, ctx.currentTime);
-        o.start(); o.stop(ctx.currentTime + .35);
-        o.onended = () => ctx.close();
-      } catch { }
-      if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+      if (S.settings.sound) {
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const o = ctx.createOscillator(), g = ctx.createGain();
+          o.frequency.value = 880; o.connect(g); g.connect(ctx.destination);
+          g.gain.setValueAtTime(.16, ctx.currentTime);
+          o.start(); o.stop(ctx.currentTime + .35);
+          o.onended = () => ctx.close();
+        } catch { }
+      }
+      if (S.settings.vibrate && navigator.vibrate) navigator.vibrate([200, 100, 200]);
     }
     render();
     return {
@@ -331,7 +361,7 @@
     $('seanceItems').innerHTML = items.map((it, i) => {
       const ex = S.byId.get(it.exId); if (!ex) return '';
       return `<div class="seitem" data-i="${i}">
-        <img src="${ex.gif}" alt="" loading="lazy" onerror="window.gifFail(this)">
+        <span class="seitem-pic">${thumbHTML(ex)}</span>
         <div class="seitem-info">
           <span class="nm">${ex.name}</span>
           <div class="seitem-fields">
@@ -368,6 +398,12 @@
     saveSeances();
   });
   $('seanceNameInput').addEventListener('input', e => { curSeance.name = e.target.value; saveSeances(); });
+  $('seanceDupBtn').addEventListener('click', () => {
+    const copy = { id: uid(), name: (curSeance.name || 'Séance sans nom') + ' (copie)', items: curSeance.items.map(it => Object.assign({}, it)) };
+    S.seances.push(copy); saveSeances();
+    toast('Séance dupliquée');
+    location.hash = '#/seance/' + copy.id;
+  });
   $('seanceDeleteBtn').addEventListener('click', () => {
     if (!confirm('Supprimer cette séance ?')) return;
     S.seances = S.seances.filter(s => s.id !== curSeance.id); saveSeances();
@@ -404,6 +440,44 @@
     S.seances.push(s); saveSeances();
     $('pickNewName').value = ''; $('pickModal').hidden = true;
     toast('Séance créée et exercice ajouté');
+  });
+
+  /* Création d'un exercice personnalisé */
+  const BP_OPTS = Object.entries(BP).sort((a, b) => a[1].localeCompare(b[1]));
+  const MU_OPTS = (() => {
+    const seen = new Set(); const out = [];
+    for (const [k, v] of Object.entries(MU)) { if (!seen.has(v)) { seen.add(v); out.push([k, v]); } }
+    return out.sort((a, b) => a[1].localeCompare(b[1]));
+  })();
+  $('cBp').innerHTML = BP_OPTS.map(([k, v]) => `<option value="${k}">${v}</option>`).join('');
+  $('cTg').insertAdjacentHTML('beforeend', MU_OPTS.map(([k, v]) => `<option value="${k}">${v}</option>`).join(''));
+  $('addCustomBtn').addEventListener('click', () => { $('customModal').hidden = false; $('cName').focus(); });
+  $('customModal').addEventListener('click', e => { if (e.target.closest('[data-close-custom]')) $('customModal').hidden = true; });
+  $('cCreateBtn').addEventListener('click', () => {
+    const name = $('cName').value.trim();
+    if (!name) { toast('Donne un nom à l’exercice'); return; }
+    const data = { id: 'custom-' + uid(), name, bp: $('cBp').value, tg: $('cTg').value, eq: $('cEq').value.trim(), note: $('cNote').value.trim() };
+    S.custom.push(data); saveCustom(); mergeCustom();
+    $('customModal').hidden = true;
+    $('cName').value = ''; $('cEq').value = ''; $('cNote').value = ''; $('cTg').value = '';
+    toast('Exercice créé');
+    renderGrid();
+  });
+  $('mDeleteCustom').addEventListener('click', () => {
+    if (!S.current || !S.current.custom) return;
+    if (!confirm('Supprimer cet exercice personnalisé ?')) return;
+    const id = S.current.id;
+    S.custom = S.custom.filter(c => c.id !== id); saveCustom(); mergeCustom();
+    delete S.notes[id]; saveNotes();
+    location.hash = '';
+    renderGrid();
+    toast('Exercice supprimé');
+  });
+  $('mNotes').addEventListener('input', () => {
+    if (!S.current) return;
+    if ($('mNotes').value.trim()) S.notes[S.current.id] = $('mNotes').value;
+    else delete S.notes[S.current.id];
+    saveNotes();
   });
 
   /* Historique : dernières performances connues pour un exercice */
@@ -491,7 +565,7 @@
       const w = it.weight || (prev ? prev.weight : 0);
       const r = it.reps || (prev ? prev.reps : '');
       $('runBody').innerHTML = `
-        <img src="${ex.gif}" alt="">
+        <div class="run-pic">${thumbHTML(ex)}</div>
         <h2>${ex.name}</h2>
         <p class="run-meta">Série ${step.set} / ${it.sets}</p>
         <div class="run-fields">
@@ -504,6 +578,11 @@
         const r2 = parseInt($('runReps').value, 10) || 0;
         if (!runState.perf.has(it.exId)) runState.perf.set(it.exId, []);
         runState.perf.get(it.exId).push({ weight: w2, reps: r2 });
+        if (w2 > 0 && r2 > 0) {
+          const prevPts = exHistoryPoints(it.exId);
+          const est = w2 * (1 + r2 / 30);
+          if (prevPts.length && est > Math.max(...prevPts.map(p => p.value))) toast('Nouveau record sur ' + ex.name + ' !');
+        }
         advanceRun();
       });
     } else {
@@ -551,9 +630,42 @@
   }
   $('runClose').addEventListener('click', () => { if (runTimer) runTimer.pause(); endRun(); location.hash = '#/seance/' + runState.seance.id; });
 
-  /* Historique des séances effectuées + sauvegarde/restauration des données */
+  /* Historique des séances effectuées, avec un petit bilan de la semaine */
+  function weekStart(d = new Date()) {
+    const day = (d.getDay() + 6) % 7;
+    const start = new Date(d); start.setHours(0, 0, 0, 0); start.setDate(d.getDate() - day);
+    return start;
+  }
+  function computeStats() {
+    const start = weekStart();
+    let weekSessions = 0, weekVolume = 0;
+    const days = new Set();
+    S.history.forEach(h => {
+      const d = new Date(h.date);
+      days.add(d.toDateString());
+      if (d >= start) {
+        weekSessions++;
+        h.exercises.forEach(x => x.sets.forEach(s => weekVolume += (s.weight || 0) * (s.reps || 0)));
+      }
+    });
+    let streak = 0;
+    const cursor = new Date(); cursor.setHours(0, 0, 0, 0);
+    if (!days.has(cursor.toDateString())) cursor.setDate(cursor.getDate() - 1);
+    while (days.has(cursor.toDateString())) { streak++; cursor.setDate(cursor.getDate() - 1); }
+    return { weekSessions, weekVolume: Math.round(weekVolume), streak };
+  }
+  function renderHistStats() {
+    $('histStats').hidden = !S.history.length;
+    if (!S.history.length) return;
+    const st = computeStats();
+    $('histStats').innerHTML = `
+      <div class="stat"><span class="num">${st.weekSessions}</span><span class="lbl">Séance${st.weekSessions > 1 ? 's' : ''} cette semaine</span></div>
+      <div class="stat"><span class="num">${st.weekVolume.toLocaleString('fr-FR')}</span><span class="lbl">kg soulevés cette semaine</span></div>
+      <div class="stat"><span class="num">${st.streak}</span><span class="lbl">Jour${st.streak > 1 ? 's' : ''} d'affilée</span></div>`;
+  }
   function renderHistList() {
     $('histEmpty').hidden = !!S.history.length;
+    renderHistStats();
     $('histList').innerHTML = S.history.map(h => `
       <div class="hist-card">
         <div class="hist-head"><span class="nm">${h.seanceName}</span><span class="date">${fmtDate(h.date)}</span></div>
@@ -561,10 +673,16 @@
         <div class="hist-ex">${h.exercises.map(x => `<div>${x.name} <span class="muted">— ${x.sets.map(s => `${s.weight}kg×${s.reps}`).join(', ')}</span></div>`).join('')}</div>
       </div>`).join('');
   }
-  $('dataBtn').addEventListener('click', () => $('dataModal').hidden = false);
-  $('dataModal').addEventListener('click', e => { if (e.target.closest('[data-close-data]')) $('dataModal').hidden = true; });
+
+  /* Réglages : minuteur, sauvegarde/restauration, réinitialisation */
+  function renderReglages() {
+    $('setSound').checked = !!S.settings.sound;
+    $('setVibrate').checked = !!S.settings.vibrate;
+  }
+  $('setSound').addEventListener('change', e => { S.settings.sound = e.target.checked; saveSettings(); });
+  $('setVibrate').addEventListener('change', e => { S.settings.vibrate = e.target.checked; saveSettings(); });
   $('exportBtn').addEventListener('click', () => {
-    const payload = { app: 'atlas-muscu', version: 1, exportedAt: new Date().toISOString(), seances: S.seances, history: S.history, favs: [...S.favs] };
+    const payload = { app: 'atlas-muscu', version: 1, exportedAt: new Date().toISOString(), seances: S.seances, history: S.history, favs: [...S.favs], custom: S.custom, notes: S.notes };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -576,18 +694,26 @@
     const file = e.target.files[0]; e.target.value = ''; if (!file) return;
     try {
       const data = JSON.parse(await file.text());
-      if (!confirm('Remplacer tes séances, ton historique et tes favoris actuels par ceux de ce fichier ?')) return;
+      if (!confirm('Remplacer tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes actuels par ceux de ce fichier ?')) return;
       if (Array.isArray(data.seances)) { S.seances = data.seances; saveSeances(); }
       if (Array.isArray(data.history)) { S.history = data.history; saveHistory(); }
       if (Array.isArray(data.favs)) { S.favs = new Set(data.favs); store.set('favs', [...S.favs]); }
-      $('dataModal').hidden = true;
+      if (Array.isArray(data.custom)) { S.custom = data.custom; saveCustom(); mergeCustom(); }
+      if (data.notes && typeof data.notes === 'object') { S.notes = data.notes; saveNotes(); }
       toast('Données importées');
       renderSeancesList(); renderHistList(); renderGrid();
     } catch { toast('Fichier de sauvegarde invalide'); }
   });
+  $('resetBtn').addEventListener('click', () => {
+    if (!confirm('Supprimer définitivement toutes tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes ? Cette action est irréversible.')) return;
+    S.seances = []; S.history = []; S.favs = new Set(); S.custom = []; S.notes = {};
+    saveSeances(); saveHistory(); store.set('favs', []); saveCustom(); saveNotes(); mergeCustom();
+    toast('Données réinitialisées');
+    renderSeancesList(); renderHistList(); renderGrid();
+  });
 
   /* Bascule entre les grandes vues de l'appli */
-  const VIEWS = { exercices: 'viewExercices', seances: 'viewSeances', seanceDetail: 'viewSeanceDetail', run: 'viewRun', historique: 'viewHistorique' };
+  const VIEWS = { exercices: 'viewExercices', seances: 'viewSeances', seanceDetail: 'viewSeanceDetail', run: 'viewRun', historique: 'viewHistorique', reglages: 'viewReglages' };
   function showView(name) {
     Object.entries(VIEWS).forEach(([k, id]) => $(id).hidden = k !== name);
     $('tabbar').hidden = name === 'run';
@@ -615,8 +741,17 @@
     exTimer.pause(); exTimer.set(45); $('timerStart').textContent = 'Démarrer';
     $('mTitle').textContent = e.name;
     const g = $('mGif'); g.style.width = '';
-    g.onload = () => { const w = g.naturalWidth; if (w) g.style.width = Math.min(420, Math.round(w * 1.5)) + 'px'; };
-    g.src = e.gif; $('mGif').alt = 'Démonstration animée : ' + e.name;
+    if (e.gif) {
+      $('mGifPlaceholder').hidden = true; g.hidden = false;
+      g.onload = () => { const w = g.naturalWidth; if (w) g.style.width = Math.min(420, Math.round(w * 1.5)) + 'px'; };
+      g.src = e.gif; g.alt = 'Démonstration animée : ' + e.name;
+    } else {
+      g.hidden = true; g.removeAttribute('src');
+      $('mGifPlaceholder').hidden = false;
+    }
+    $('mCredit').textContent = e.custom ? 'Exercice personnalisé' : 'Animation ExerciseDB';
+    $('mDeleteCustom').hidden = !e.custom;
+    $('mNotes').value = S.notes[e.id] || '';
     setFavBtn();
     const prim = regions(e.tg), sec = regions(e.sec); prim.forEach(r => sec.delete(r));
     $('mMaps').innerHTML = bodySVG('f', prim, sec) + bodySVG('b', prim, sec);
@@ -627,10 +762,10 @@
       row('Muscles principaux', e.tg.map(v => mu(e, v)).join(', ')) +
       row('Muscles secondaires', e.sec.map(v => mu(e, v)).join(', '));
     renderProgress(e);
-    $('mSteps').innerHTML = e.steps.map(s => `<li>${s}</li>`).join('');
+    $('mSteps').innerHTML = e.steps.length ? e.steps.map(s => `<li>${s}</li>`).join('') : (e.custom ? '<li class="muted">Aucune consigne ajoutée.</li>' : '');
     const rel = S.all.filter(x => x.id !== e.id && x.tg[0] === e.tg[0]).slice(0, 12);
     $('mRelatedWrap').hidden = !rel.length;
-    $('mRelated').innerHTML = rel.map(x => `<button data-id="${x.id}"><img src="${x.gif}" alt="" loading="lazy" onerror="window.gifFail(this)"><span>${x.name}</span></button>`).join('');
+    $('mRelated').innerHTML = rel.map(x => `<button data-id="${x.id}">${thumbHTML(x)}<span>${x.name}</span></button>`).join('');
     $('modal').hidden = false; document.body.style.overflow = 'hidden';
     $('sheet').scrollTop = 0;
     $('sheet').querySelector('.icon').focus();
@@ -666,15 +801,17 @@
       const s = S.seances.find(x => x.id === m[1]);
       $('pickBarLabel').textContent = 'Ajout à : ' + (s && s.name ? s.name : 'la séance');
       $('pickBar').hidden = false;
+      $('addCustomBtn').hidden = true;
       showView('exercices'); setTab('seances');
       return;
     }
-    $('pickBar').hidden = true; S.picking = null;
+    $('pickBar').hidden = true; S.picking = null; $('addCustomBtn').hidden = false;
 
     if (m = h.match(/^#\/seance\/([^/]+)\/lancer$/)) { startRun(m[1]); return; }
     if (m = h.match(/^#\/seance\/([^/]+)$/)) { openSeance(m[1]); setTab('seances'); return; }
     if (h === '#/seances') { renderSeancesList(); showView('seances'); setTab('seances'); return; }
     if (h === '#/historique') { renderHistList(); showView('historique'); setTab('historique'); return; }
+    if (h === '#/reglages') { renderReglages(); showView('reglages'); setTab('reglages'); return; }
 
     showView('exercices'); setTab('exercices');
   }
@@ -698,7 +835,7 @@
   renderCats();
   load().then(raw => {
     S.all = normalize(raw);
-    S.all.forEach(e => S.byId.set(e.id, e));
+    mergeCustom();
     const eqs = [...new Set(S.all.flatMap(e => e.eq))].sort((a, b) => fr(EQ, a).localeCompare(fr(EQ, b)));
     $('equip').insertAdjacentHTML('beforeend', eqs.map(q => `<option value="${q}">${fr(EQ, q)}</option>`).join(''));
     $('status').hidden = true;

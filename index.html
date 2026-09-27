@@ -39,6 +39,10 @@
     <span id="pickBarLabel"></span>
     <button class="btn-primary" id="pickDone">Terminé</button>
   </div>
+
+  <button class="fab" id="addCustomBtn" aria-label="Créer un exercice personnalisé">
+    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+  </button>
 </div>
 
 <div class="view" id="viewSeances" hidden>
@@ -54,6 +58,7 @@
   <header class="top simple">
     <button class="icon" id="seanceBackBtn" aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
     <input id="seanceNameInput" class="seance-name" placeholder="Nom de la séance">
+    <button class="icon" id="seanceDupBtn" aria-label="Dupliquer la séance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M4 16V6a2 2 0 0 1 2-2h10"/></svg></button>
     <button class="icon" id="seanceDeleteBtn" aria-label="Supprimer la séance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg></button>
   </header>
   <main>
@@ -78,11 +83,35 @@
 <div class="view" id="viewHistorique" hidden>
   <header class="top simple">
     <h1>Historique</h1>
-    <button class="icon" id="dataBtn" aria-label="Sauvegarde des données"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16"/></svg></button>
   </header>
   <main>
+    <div class="hist-stats" id="histStats" hidden></div>
     <p class="status" id="histEmpty" hidden>Aucune séance enregistrée pour l'instant. Termine une séance depuis l'onglet Séances pour la voir apparaître ici.</p>
     <div class="hist-list" id="histList"></div>
+  </main>
+</div>
+
+<div class="view" id="viewReglages" hidden>
+  <header class="top simple"><h1>Réglages</h1></header>
+  <main>
+    <section class="settings-group">
+      <h3>Minuteur</h3>
+      <label class="switch-row"><span>Bip sonore en fin de repos</span><input type="checkbox" id="setSound"></label>
+      <label class="switch-row"><span>Vibration</span><input type="checkbox" id="setVibrate"></label>
+    </section>
+    <section class="settings-group">
+      <h3>Données</h3>
+      <p class="run-meta">Tes séances, ton historique, tes favoris et tes notes sont stockés uniquement sur ce téléphone. Exporte-les régulièrement pour ne rien perdre, ou pour les retrouver sur un autre appareil.</p>
+      <button class="btn-primary btn-block" id="exportBtn">Exporter mes données (.json)</button>
+      <label class="btn-secondary btn-block" id="importLabel">Importer une sauvegarde
+        <input type="file" id="importInput" accept="application/json" hidden>
+      </label>
+      <button class="btn-secondary btn-block danger" id="resetBtn">Réinitialiser toutes les données</button>
+    </section>
+    <section class="settings-group">
+      <h3>À propos</h3>
+      <p class="run-meta">Atlas Muscu est une appli gratuite. Les fiches et animations d'exercices viennent d'ExerciseDB. Une fois ouverte, l'appli fonctionne aussi sans connexion.</p>
+    </section>
   </main>
 </div>
 
@@ -99,6 +128,10 @@
     <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
     <span>Historique</span>
   </button>
+  <button data-tab="reglages">
+    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1.04 1.56V21a2 2 0 0 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.56-1.04H3a2 2 0 0 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1.04-1.56V3a2 2 0 0 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9a1.7 1.7 0 0 0 1.56 1.04H21a2 2 0 0 1 0 4h-.09A1.7 1.7 0 0 0 19.4 15z"/></svg>
+    <span>Réglages</span>
+  </button>
 </nav>
 
 <div class="modal" id="modal" hidden role="dialog" aria-modal="true" aria-labelledby="mTitle">
@@ -108,12 +141,16 @@
       <button class="icon" data-close aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
       <h2 id="mTitle"></h2>
     </header>
-    <div class="player"><img id="mGif" alt=""></div>
+    <div class="player">
+      <img id="mGif" alt="">
+      <div class="player-placeholder" id="mGifPlaceholder" hidden><svg viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h2m12 0h2M8 12h8M6 8v8m12-8v8"/></svg></div>
+    </div>
     <div class="actions">
-      <span class="credit">Animation ExerciseDB</span>
+      <span class="credit" id="mCredit">Animation ExerciseDB</span>
       <button class="act" id="mAddSeance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg><span>Séance</span></button>
       <button class="act" id="mFav"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span>Enregistrer</span></button>
       <button class="act" id="mShare"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></svg><span>Partager</span></button>
+      <button class="act" id="mDeleteCustom" hidden><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></svg><span>Supprimer</span></button>
     </div>
     <section class="timer" id="mTimerWrap">
       <h3>Minuteur</h3>
@@ -154,10 +191,32 @@
       <h3>Exécution</h3>
       <ol id="mSteps"></ol>
     </section>
+    <section class="notes">
+      <h3>Notes personnelles</h3>
+      <textarea id="mNotes" placeholder="Tes repères : charge, ressenti, ajustements à faire la prochaine fois…"></textarea>
+    </section>
     <section class="related" id="mRelatedWrap">
       <h3>Même muscle</h3>
       <div class="rel" id="mRelated"></div>
     </section>
+  </article>
+</div>
+
+<div class="modal" id="customModal" hidden role="dialog" aria-modal="true" aria-labelledby="customTitle">
+  <div class="scrim" data-close-custom></div>
+  <article class="sheet small">
+    <header class="mhead">
+      <button class="icon" data-close-custom aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <h2 id="customTitle">Exercice personnalisé</h2>
+    </header>
+    <div class="custom-form">
+      <label>Nom de l'exercice<input id="cName" placeholder="Ex. Développé landmine"></label>
+      <label>Zone du corps<select id="cBp"></select></label>
+      <label>Muscle principal (optionnel)<select id="cTg"><option value="">—</option></select></label>
+      <label>Matériel (optionnel)<input id="cEq" placeholder="Ex. Barre landmine"></label>
+      <label>Note / consigne (optionnel)<textarea id="cNote" placeholder="Comment tu l'exécutes, tes repères…"></textarea></label>
+      <button class="btn-primary btn-block" id="cCreateBtn">Créer l'exercice</button>
+    </div>
   </article>
 </div>
 
@@ -176,22 +235,6 @@
   </article>
 </div>
 
-<div class="modal" id="dataModal" hidden role="dialog" aria-modal="true" aria-labelledby="dataTitle">
-  <div class="scrim" data-close-data></div>
-  <article class="sheet small">
-    <header class="mhead">
-      <button class="icon" data-close-data aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-      <h2 id="dataTitle">Sauvegarde</h2>
-    </header>
-    <div class="data-actions">
-      <p class="run-meta">Tes séances, ton historique et tes favoris sont stockés uniquement sur ce téléphone. Exporte-les régulièrement pour ne rien perdre, ou pour les retrouver sur un autre appareil.</p>
-      <button class="btn-primary btn-block" id="exportBtn">Exporter mes données (.json)</button>
-      <label class="btn-secondary btn-block" id="importLabel">Importer une sauvegarde
-        <input type="file" id="importInput" accept="application/json" hidden>
-      </label>
-    </div>
-  </article>
-</div>
 
 <div class="toast" id="toast" hidden></div>
 
