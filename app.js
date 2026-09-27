@@ -266,6 +266,7 @@
   function toggleFav(id) {
     S.favs.has(id) ? S.favs.delete(id) : S.favs.add(id);
     store.set('favs', [...S.favs]);
+    if (S.settings.vibrate && navigator.vibrate) navigator.vibrate(10);
     document.querySelectorAll(`.card[data-id="${CSS.escape(id)}"] .bm`).forEach(b => b.setAttribute('aria-pressed', S.favs.has(id)));
     if (S.current && S.current.id === id) setFavBtn();
     if (S.cat === 'fav') renderGrid();
@@ -663,9 +664,30 @@
       <div class="stat"><span class="num">${st.weekVolume.toLocaleString('fr-FR')}</span><span class="lbl">kg soulevés cette semaine</span></div>
       <div class="stat"><span class="num">${st.streak}</span><span class="lbl">Jour${st.streak > 1 ? 's' : ''} d'affilée</span></div>`;
   }
+  function computeRecords() {
+    const best = new Map();
+    S.history.forEach(h => {
+      h.exercises.forEach(x => {
+        if (!x.sets.length) return;
+        const top = x.sets.reduce((a, b) => (b.weight * (1 + b.reps / 30)) > (a.weight * (1 + a.reps / 30)) ? b : a);
+        const value = Math.round(top.weight * (1 + top.reps / 30) * 10) / 10;
+        const cur = best.get(x.exId);
+        if (!cur || value > cur.value) best.set(x.exId, { name: x.name, value, weight: top.weight, reps: top.reps });
+      });
+    });
+    return [...best.values()].sort((a, b) => b.value - a.value);
+  }
+  function renderRecords() {
+    const recs = computeRecords();
+    $('recordsWrap').hidden = !recs.length;
+    if (!recs.length) return;
+    $('recordsList').innerHTML = recs.slice(0, 8).map(r => `
+      <div class="record-row"><span class="nm">${r.name}</span><span class="val">${r.weight} kg × ${r.reps}</span></div>`).join('');
+  }
   function renderHistList() {
     $('histEmpty').hidden = !!S.history.length;
     renderHistStats();
+    renderRecords();
     $('histList').innerHTML = S.history.map(h => `
       <div class="hist-card">
         <div class="hist-head"><span class="nm">${h.seanceName}</span><span class="date">${fmtDate(h.date)}</span></div>
@@ -817,7 +839,29 @@
   }
   addEventListener('hashchange', route);
 
-  let tt; function toast(t) { const el = $('toast'); el.textContent = t; el.hidden = false; clearTimeout(tt); tt = setTimeout(() => el.hidden = true, 1800); }
+  let tt; function toast(t) {
+    const el = $('toast'); el.textContent = t; el.hidden = false; clearTimeout(tt); tt = setTimeout(() => el.hidden = true, 1800);
+    if (S.settings.vibrate && navigator.vibrate) navigator.vibrate(10);
+  }
+
+  /* Écran de chargement : cartes fantômes en attendant les vraies données */
+  function renderSkeleton() {
+    $('grid').innerHTML = Array.from({ length: 8 }).map(() =>
+      '<div class="card skeleton"><div class="pic"></div><div class="txt"><div class="sk-line"></div><div class="sk-line short"></div></div></div>'
+    ).join('');
+  }
+
+  /* Piège de focus : le Tab reste à l'intérieur de la fenêtre ouverte */
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Tab') return;
+    const open = ['modal', 'customModal', 'pickModal'].map($).find(m => m && !m.hidden);
+    if (!open) return;
+    const items = [...open.querySelectorAll('button:not([disabled]), input, select, textarea, [href]')].filter(el => el.offsetParent !== null);
+    if (!items.length) return;
+    const first = items[0], last = items[items.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
 
   /* Animation qui ne se charge pas : un nouvel essai, puis on masque la carte */
   window.gifFail = img => {
@@ -833,6 +877,7 @@
 
   /* Démarrage */
   renderCats();
+  renderSkeleton();
   load().then(raw => {
     S.all = normalize(raw);
     mergeCustom();
