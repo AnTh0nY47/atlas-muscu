@@ -24,7 +24,7 @@ export default {
     try { body = await request.json(); } catch { return json({ error: 'bad_json' }, 400); }
 
     const prompt = body && body.prompt;
-    if (!prompt || typeof prompt !== 'string' || prompt.length > 6000) {
+    if (!prompt || typeof prompt !== 'string' || prompt.length > 12000) {
       return json({ error: 'bad_prompt' }, 400);
     }
 
