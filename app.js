@@ -1,4 +1,5 @@
 (() => {
+  const API = 'https://oss.exercisedb.dev/api/v1/exercises';
   const PAGE = 48;
 
   /* Traductions */
@@ -157,7 +158,6 @@
         bp: x.bodyParts || (x.bodyPart ? [x.bodyPart] : []), eq: x.equipments || (x.equipment ? [x.equipment] : []),
         tg: x.targetMuscles || (x.target ? [x.target] : []), sec: x.secondaryMuscles || [],
         steps: x.instructionsFr || (x.instructions || []).map(s => s.replace(/^step\s*:?\s*\d+\s*[:.)-]?\s*/i, '')),
-        source: x.source || null, sourceLicense: x.sourceLicense || null, sourceAuthor: x.sourceAuthor || null,
       };
       e.hay = norm([e.name, e.en, ...e.bp.map(v => fr(BP, v)), ...e.eq.map(v => fr(EQ, v)), ...e.tg.map(v => fr(MU, v)), ...e.bp, ...e.eq, ...e.tg].join(' '));
       return e;
@@ -189,18 +189,36 @@
     S.all.forEach(e => S.byId.set(e.id, e));
   }
 
-  // Bibliothèque d'exercices intégrée en dur à l'appli (base wger.de, licence
-  // CC BY-SA, voir data/wger-exercises.js et À propos) : aucune requête
-  // réseau, aucune dépendance à un service tiers à l'usage.
+  // Noyau d'exercices intégré en dur à l'appli (base wger.de, licence CC BY-SA,
+  // voir data/wger-exercises.js et À propos) : aucune requête réseau, aucune
+  // dépendance à un service tiers pour ces fiches, elles restent disponibles
+  // même si ExerciseDB change un jour ses conditions d'usage.
   const wgerSet = () => Array.isArray(window.WGER_EXERCISES) ? window.WGER_EXERCISES : [];
 
-  async function load() {
-    // Test local uniquement (data/exercises.js, non suivi par git) : permet de
-    // rejouer un jeu de données de test sans toucher au noyau réel.
+  async function loadExerciseDb() {
     if (Array.isArray(window.EXERCISES) && window.EXERCISES.length) return window.EXERCISES;
-    // Uniquement le noyau possédé, intégré en dur : plus aucun appel réseau
-    // à l'usage, plus aucune dépendance à ExerciseDB.
-    return wgerSet();
+    const cached = store.get('cache', null);
+    if (cached && cached.length) return cached;
+    const out = []; let after = null;
+    for (let i = 0; i < 200; i++) {
+      const u = new URL(API); u.searchParams.set('limit', '100'); if (after) u.searchParams.set('after', after);
+      const r = await fetch(u);
+      if (!r.ok) throw new Error('HTTP ' + r.status);
+      const j = await r.json();
+      out.push(...j.data);
+      $('status').textContent = `Chargement des exercices : ${out.length} sur ${j.meta.total}`;
+      if (!j.meta.hasNextPage || !j.meta.nextCursor) break;
+      after = j.meta.nextCursor;
+    }
+    store.set('cache', out);
+    return out;
+  }
+
+  async function load() {
+    let db = [];
+    try { db = await loadExerciseDb(); }
+    catch (err) { if (!wgerSet().length) throw err; }
+    return [...wgerSet(), ...db];
   }
 
   /* Filtres */
@@ -1415,14 +1433,12 @@ Les identifiants doivent venir exactement de la liste fournie. Adapte séries/r�
       $('mGifPlaceholder').hidden = true; g.hidden = false;
       g.onload = () => { const w = g.naturalWidth; if (w) g.style.width = Math.min(420, Math.round(w * 1.5)) + 'px'; };
       g.onerror = () => { g.hidden = true; $('mGifPlaceholder').hidden = false; };
-      g.src = e.gif; g.alt = 'Photo de démonstration : ' + e.name;
+      g.src = e.gif; g.alt = 'Démonstration animée : ' + e.name;
     } else {
       g.hidden = true; g.removeAttribute('src');
       $('mGifPlaceholder').hidden = false;
     }
-    $('mCredit').textContent = e.custom ? 'Exercice personnalisé'
-      : e.source === 'wger' ? `Photo wger.de (${e.sourceLicense || 'CC BY-SA'}${e.sourceAuthor ? ', ' + e.sourceAuthor : ''})`
-      : 'Photo';
+    $('mCredit').textContent = e.custom ? 'Exercice personnalisé' : 'Animation ExerciseDB';
     $('mDeleteCustom').hidden = !e.custom;
     $('mNotes').value = S.notes[e.id] || '';
     setFavBtn();
