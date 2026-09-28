@@ -703,8 +703,19 @@
     $('setVibrate').checked = !!S.settings.vibrate;
     $('resetConfirm').hidden = true;
     $('resetBtn').hidden = false;
+    openReglagesScreen('rHome');
     updateStorageUsage();
   }
+  /* Navigation entre l'écran d'accueil des réglages et ses sous-écrans (façon Réglages iOS) */
+  function openReglagesScreen(id) {
+    $('viewReglages').querySelectorAll('.rscreen').forEach(s => { s.hidden = s.id !== id; });
+    window.scrollTo({ top: 0 });
+  }
+  $('viewReglages').addEventListener('click', e => {
+    const open = e.target.closest('[data-open]');
+    if (open) { openReglagesScreen(open.dataset.open); return; }
+    if (e.target.closest('[data-rback]')) openReglagesScreen('rHome');
+  });
   /* Poids réel occupé par l'appli (illustrations comprises), lu directement depuis le
      stockage du navigateur : sur iPhone, une appli ajoutée à l'écran d'accueil a son
      propre espace de stockage qui n'apparaît nulle part dans les réglages du téléphone,
@@ -718,6 +729,7 @@
       const mo = usage / (1024 * 1024);
       const texte = mo >= 1024 ? `${(mo / 1024).toFixed(2)} Go` : `${mo.toFixed(1)} Mo`;
       el.textContent = `Espace utilisé par l'appli sur ce téléphone : ${texte}`;
+      $('rowStorageSub').textContent = texte + ' utilisés';
     } catch { el.textContent = ''; }
   }
   $('setSound').addEventListener('change', e => { S.settings.sound = e.target.checked; saveSettings(); });
@@ -839,6 +851,7 @@
     $('accountLoggedOut').hidden = on;
     $('accountLoggedIn').hidden = !on;
     if (on) $('acEmailShown').textContent = cloudUser.email;
+    $('rowCompteSub').textContent = on ? cloudUser.email : 'Non connecté';
   }
   function cloudErrorMessage(e) {
     const map = {

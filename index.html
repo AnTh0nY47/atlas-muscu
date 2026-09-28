@@ -96,71 +96,138 @@
 </div>
 
 <div class="view" id="viewReglages" hidden>
-  <header class="top simple"><h1>Réglages</h1></header>
-  <main class="settings-main">
-    <section class="settings-group">
-      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>Minuteur</h3>
-      <label class="switch-row"><span>Bip sonore en fin de repos</span><input type="checkbox" id="setSound"></label>
-      <label class="switch-row"><span>Vibration</span><input type="checkbox" id="setVibrate"></label>
-    </section>
 
-    <section class="settings-group">
-      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h2m12 0h2M8 12h8M6 8v8m12-8v8"/></svg>Hors-ligne</h3>
-      <p class="run-meta">Télécharge à l'avance toutes les illustrations des exercices pour les avoir même sans réseau, par exemple à la salle. Fais-le une fois chez toi en wifi. Sans ce téléchargement, une illustration jamais vue en ligne ne pourra pas s'afficher hors-ligne, mais l'exercice reste consultable et utilisable quand même.</p>
-      <button class="btn-primary btn-block" id="downloadGifsBtn">Télécharger les illustrations</button>
-      <p class="sync-status" id="downloadStatus"></p>
-      <p class="run-meta" id="storageUsage"></p>
-    </section>
+  <div class="rscreen" id="rHome">
+    <header class="top simple"><h1>Réglages</h1></header>
+    <main class="settings-main">
+      <div class="rows-group">
+        <button class="settings-row" data-open="rCompte">
+          <span class="row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.6-3.6 4.8-5.5 8-5.5S18.4 16.4 20 20"/></svg></span>
+          <span class="row-body"><span class="row-label">Compte</span><span class="row-sub" id="rowCompteSub">Non connecté</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="settings-row" data-open="rMinuteur">
+          <span class="row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg></span>
+          <span class="row-body"><span class="row-label">Minuteur</span><span class="row-sub">Bip, vibration</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="settings-row" data-open="rHorsLigne">
+          <span class="row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h2m12 0h2M8 12h8M6 8v8m12-8v8"/></svg></span>
+          <span class="row-body"><span class="row-label">Hors-ligne</span><span class="row-sub" id="rowStorageSub">Illustrations pour la salle</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+        <button class="settings-row" data-open="rDonnees">
+          <span class="row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg></span>
+          <span class="row-body"><span class="row-label">Données</span><span class="row-sub">Export, import</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
 
-    <section class="settings-group" id="accountSection">
-      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.6-3.6 4.8-5.5 8-5.5S18.4 16.4 20 20"/></svg>Compte</h3>
-      <div id="accountLoggedOut">
-        <p class="run-meta">Crée un compte gratuit pour retrouver tes séances et ton historique sur plusieurs appareils, ou pour que des amis aient chacun leur espace personnel. Sans compte, tout reste comme avant, stocké uniquement sur ce téléphone.</p>
-        <div id="gsiButton" class="gsi-button"></div>
-        <p class="divider"><span>ou avec un e-mail</span></p>
-        <label>E-mail<input id="acEmail" type="email" autocomplete="email" inputmode="email"></label>
-        <label>Mot de passe<input id="acPassword" type="password" autocomplete="current-password"></label>
-        <div class="account-actions">
-          <button class="btn-primary" id="acSignIn">Se connecter</button>
-          <button class="btn-secondary" id="acSignUp">Créer un compte</button>
+      <div class="rows-group">
+        <button class="settings-row danger" data-open="rDanger">
+          <span class="row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"/><path d="M12 10v4m0 3h.01"/></svg></span>
+          <span class="row-body"><span class="row-label">Zone de danger</span><span class="row-sub">Réinitialiser les données</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+
+      <div class="rows-group">
+        <button class="settings-row" data-open="rApropos">
+          <span class="row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg></span>
+          <span class="row-body"><span class="row-label">À propos</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+      </div>
+    </main>
+  </div>
+
+  <div class="rscreen" id="rCompte" hidden>
+    <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>Compte</h1></header>
+    <main class="settings-main">
+      <section class="settings-group" id="accountSection">
+        <div id="accountLoggedOut">
+          <p class="run-meta">Crée un compte gratuit pour retrouver tes séances et ton historique sur plusieurs appareils, ou pour que des amis aient chacun leur espace personnel. Sans compte, tout reste comme avant, stocké uniquement sur ce téléphone.</p>
+          <div id="gsiButton" class="gsi-button"></div>
+          <p class="divider"><span>ou avec un e-mail</span></p>
+          <label>E-mail<input id="acEmail" type="email" autocomplete="email" inputmode="email"></label>
+          <label>Mot de passe<input id="acPassword" type="password" autocomplete="current-password"></label>
+          <div class="account-actions">
+            <button class="btn-primary" id="acSignIn">Se connecter</button>
+            <button class="btn-secondary" id="acSignUp">Créer un compte</button>
+          </div>
+          <button class="link-btn" id="acForgot" type="button">Mot de passe oublié ?</button>
+          <p class="status" id="acError" hidden></p>
         </div>
-        <button class="link-btn" id="acForgot" type="button">Mot de passe oublié ?</button>
-        <p class="status" id="acError" hidden></p>
-      </div>
-      <div id="accountLoggedIn" hidden>
-        <p class="run-meta">Connecté en tant que <strong id="acEmailShown"></strong></p>
-        <p class="sync-status" id="syncStatus"></p>
-        <button class="btn-secondary btn-block" id="acSignOut">Se déconnecter</button>
-      </div>
-    </section>
-
-    <section class="settings-group">
-      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13m0 0l-4-4m4 4l4-4"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></svg>Données</h3>
-      <p class="run-meta">Tes séances, ton historique, tes favoris et tes notes sont stockés uniquement sur ce téléphone si tu n'as pas de compte. Exporte-les régulièrement pour ne rien perdre.</p>
-      <button class="btn-primary btn-block" id="exportBtn">Exporter mes données (.json)</button>
-      <label class="btn-secondary btn-block" id="importLabel">Importer une sauvegarde
-        <input type="file" id="importInput" accept="application/json" hidden>
-      </label>
-    </section>
-
-    <section class="settings-group danger-zone">
-      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"/><path d="M12 10v4m0 3h.01"/></svg>Zone de danger</h3>
-      <p class="run-meta">Supprime définitivement tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes de ce téléphone.</p>
-      <button class="btn-secondary btn-block danger" id="resetBtn">Réinitialiser toutes les données</button>
-      <div class="danger-confirm" id="resetConfirm" hidden>
-        <p>Cette action est irréversible. Tout ce que tu as enregistré sur cet appareil sera perdu, sauf si tu as un compte synchronisé ou une sauvegarde exportée.</p>
-        <div class="danger-actions">
-          <button class="btn-secondary" id="resetCancel">Annuler</button>
-          <button class="btn-danger" id="resetConfirmBtn">Oui, tout supprimer</button>
+        <div id="accountLoggedIn" hidden>
+          <p class="run-meta">Connecté en tant que <strong id="acEmailShown"></strong></p>
+          <p class="sync-status" id="syncStatus"></p>
+          <button class="btn-secondary btn-block" id="acSignOut">Se déconnecter</button>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
+  </div>
 
-    <section class="settings-group">
-      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg>À propos</h3>
-      <p class="run-meta">Atlas Muscu est une appli gratuite. Les fiches et animations d'exercices viennent d'ExerciseDB. Une fois ouverte, l'appli fonctionne aussi sans connexion.</p>
-    </section>
-  </main>
+  <div class="rscreen" id="rMinuteur" hidden>
+    <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>Minuteur</h1></header>
+    <main class="settings-main">
+      <section class="settings-group">
+        <label class="switch-row"><span>Bip sonore en fin de repos</span><input type="checkbox" id="setSound"></label>
+        <label class="switch-row"><span>Vibration</span><input type="checkbox" id="setVibrate"></label>
+      </section>
+    </main>
+  </div>
+
+  <div class="rscreen" id="rHorsLigne" hidden>
+    <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>Hors-ligne</h1></header>
+    <main class="settings-main">
+      <section class="settings-group">
+        <p class="run-meta">Télécharge à l'avance toutes les illustrations des exercices pour les avoir même sans réseau, par exemple à la salle. Fais-le une fois chez toi en wifi. Sans ce téléchargement, une illustration jamais vue en ligne ne pourra pas s'afficher hors-ligne, mais l'exercice reste consultable et utilisable quand même.</p>
+        <button class="btn-primary btn-block" id="downloadGifsBtn">Télécharger les illustrations</button>
+        <p class="sync-status" id="downloadStatus"></p>
+        <p class="run-meta" id="storageUsage"></p>
+      </section>
+    </main>
+  </div>
+
+  <div class="rscreen" id="rDonnees" hidden>
+    <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>Données</h1></header>
+    <main class="settings-main">
+      <section class="settings-group">
+        <p class="run-meta">Tes séances, ton historique, tes favoris et tes notes sont stockés uniquement sur ce téléphone si tu n'as pas de compte. Exporte-les régulièrement pour ne rien perdre.</p>
+        <button class="btn-primary btn-block" id="exportBtn">Exporter mes données (.json)</button>
+        <label class="btn-secondary btn-block" id="importLabel">Importer une sauvegarde
+          <input type="file" id="importInput" accept="application/json" hidden>
+        </label>
+      </section>
+    </main>
+  </div>
+
+  <div class="rscreen" id="rDanger" hidden>
+    <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>Zone de danger</h1></header>
+    <main class="settings-main">
+      <section class="settings-group danger-zone">
+        <p class="run-meta">Supprime définitivement tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes de ce téléphone.</p>
+        <button class="btn-secondary btn-block danger" id="resetBtn">Réinitialiser toutes les données</button>
+        <div class="danger-confirm" id="resetConfirm" hidden>
+          <p>Cette action est irréversible. Tout ce que tu as enregistré sur cet appareil sera perdu, sauf si tu as un compte synchronisé ou une sauvegarde exportée.</p>
+          <div class="danger-actions">
+            <button class="btn-secondary" id="resetCancel">Annuler</button>
+            <button class="btn-danger" id="resetConfirmBtn">Oui, tout supprimer</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="rscreen" id="rApropos" hidden>
+    <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>À propos</h1></header>
+    <main class="settings-main">
+      <section class="settings-group">
+        <p class="run-meta">Atlas Muscu est une appli gratuite. Les fiches et animations d'exercices viennent d'ExerciseDB. Une fois ouverte, l'appli fonctionne aussi sans connexion.</p>
+      </section>
+    </main>
+  </div>
+
 </div>
 
 <nav class="tabbar" id="tabbar">
