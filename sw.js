@@ -1,6 +1,6 @@
 // Cache de l'appli pour un usage hors-ligne (salle de sport sans réseau).
 // Changer VERSION force le renouvellement du cache de l'application au prochain déploiement.
-const VERSION = 'atlas-muscu-v11';
+const VERSION = 'atlas-muscu-v12';
 const RUNTIME = 'atlas-muscu-runtime';
 
 const SHELL = [

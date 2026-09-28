@@ -356,8 +356,18 @@
     if (!curSeance) { location.hash = '#/seances'; return; }
     $('seanceNameInput').value = curSeance.name || '';
     renderSeanceItems();
+    renderGenNote();
     showView('seanceDetail');
   }
+  function renderGenNote() {
+    const note = curSeance && curSeance.genNote;
+    $('seanceGenNote').hidden = !note;
+    $('seanceGenNoteText').textContent = note || '';
+  }
+  $('seanceGenNoteClose').addEventListener('click', () => {
+    if (curSeance) { delete curSeance.genNote; saveSeances(); }
+    $('seanceGenNote').hidden = true;
+  });
   function renderSeanceItems() {
     const items = curSeance.items;
     $('seanceEmptyMsg').hidden = !!items.length;
@@ -519,22 +529,39 @@
     // Toute poussée (pectoraux inclus, quasi toujours en jeu avec l'épaule) et tout ce qui
     // cible directement l'épaule/la coiffe des rotateurs.
     shoulder: e => zoneHits(e, 'shoulders', 'chest', 'delts', 'deltoids', 'rotator cuff', 'rear deltoids', 'pectorals', 'upper chest'),
+    chest: e => zoneHits(e, 'chest', 'pectorals', 'upper chest', 'shoulders', 'delts', 'deltoids'),
     knee: e => zoneHits(e, 'upper legs', 'lower legs', 'quads', 'quadriceps', 'hamstrings'),
+    thigh: e => zoneHits(e, 'upper legs', 'quads', 'quadriceps', 'hamstrings'),
+    hamstring: e => zoneHits(e, 'hamstrings', 'upper legs'),
+    quad: e => zoneHits(e, 'quads', 'quadriceps', 'upper legs'),
+    calf: e => zoneHits(e, 'lower legs', 'calves'),
     back: e => zoneHits(e, 'back', 'lats', 'latissimus dorsi', 'lower back', 'spine', 'traps', 'trapezius', 'rhomboids'),
-    wrist: e => zoneHits(e, 'wrists', 'wrist', 'wrist extensors', 'wrist flexors'),
+    wrist: e => zoneHits(e, 'wrists', 'wrist', 'wrist extensors', 'wrist flexors', 'forearms'),
+    forearm: e => zoneHits(e, 'forearms', 'wrists', 'wrist', 'wrist extensors', 'wrist flexors'),
     elbow: e => zoneHits(e, 'triceps', 'biceps', 'forearms'),
     hip: e => zoneHits(e, 'hip flexors', 'glutes', 'hips', 'upper legs'),
+    groin: e => zoneHits(e, 'adductors', 'groin', 'hip flexors'),
     ankle: e => zoneHits(e, 'ankles', 'ankle stabilizers', 'lower legs'),
+    foot: e => zoneHits(e, 'feet', 'ankles', 'lower legs'),
     neck: e => zoneHits(e, 'neck', 'sternocleidomastoid'),
+    abs: e => zoneHits(e, 'abs', 'obliques', 'core', 'waist', 'lower abs', 'hip flexors'),
+  };
+  const GEN_ZONE_LABELS = {
+    shoulder: 'épaule', chest: 'pectoraux', knee: 'genou', thigh: 'cuisse', hamstring: 'ischio-jambiers',
+    quad: 'quadriceps', calf: 'mollet', back: 'dos', wrist: 'poignet', forearm: 'avant-bras', elbow: 'coude',
+    hip: 'hanche', groin: 'aine', ankle: 'cheville', foot: 'pied', neck: 'cou/cervicales', abs: 'abdominaux',
   };
   // Certains exercices sollicitent une zone par la position qu'ils imposent (poser son poids
-  // sur le genou, s'appuyer sur les poignets...) sans que cette zone soit le muscle travaillé.
-  // Un étirement du dos "à genoux" doit être exclu pour une blessure au genou, même si le
-  // muscle ciblé est le dos.
+  // sur le genou, s'appuyer sur les poignets, sauter...) sans que cette zone soit forcément le
+  // muscle travaillé. Un étirement du dos "à genoux" doit être exclu pour une blessure au genou,
+  // même si le muscle ciblé est le dos.
   const GEN_POSTURE_HAZARDS = {
     knee: /à\s*genou|genoux?\s+au\s+sol|\bkneeling\b/i,
-    wrist: /\b(pompe|planche|appui\s*facial|push-?up|plank|handstand)\b/i,
-    ankle: /\bsaut|jump|bond\b/i,
+    wrist: /\b(pompe|planche|appui\s*facial|push-?up|plank|handstand|farmer|suspendu|dead\s*hang)\b/i,
+    forearm: /\b(pompe|planche|appui\s*facial|push-?up|plank|handstand|farmer|suspendu|dead\s*hang)\b/i,
+    ankle: /\bsaut|jump|bond|burpee/i,
+    foot: /\bsaut|jump|bond|burpee/i,
+    back: /deadlift|soulev[ée] de terre|good\s*morning/i,
   };
   function hasPostureHazard(e, zone) {
     const rx = GEN_POSTURE_HAZARDS[zone];
@@ -542,16 +569,25 @@
   }
   function detectInjuryZones(freeText) {
     const txt = (freeText || '').toLowerCase();
-    if (!/(blessur|blesse|blessé|douleur|douloureux|luxat|luxur|entors|tendinit|fractur|op[ée]r|fragil|sensib|instabil|chirurgi|r[ée][ée]duc)/.test(txt)) return [];
+    if (!/(\bmal\b|blessur|blesse|blessé|douleur|douloureux|luxat|luxur|entors|tendinit|fractur|op[ée]r|fragil|sensib|instabil|chirurgi|r[ée][ée]duc|courbatur|raideur|g[êe]n|tiraill|inflammat|bursit|arthros|hernie|claquage|[ée]longation|contractur|crampe|abîm[ée]|us[ée]e?\b)/.test(txt)) return [];
     const zones = [];
     if (/[ée]paule/.test(txt)) zones.push('shoulder');
+    if (/pectora|\bpecs?\b/.test(txt)) zones.push('chest');
     if (/genou/.test(txt)) zones.push('knee');
-    if (/\bdos\b|lombaire/.test(txt)) zones.push('back');
+    if (/ischio/.test(txt)) zones.push('hamstring');
+    else if (/quadriceps/.test(txt)) zones.push('quad');
+    else if (/cuisse/.test(txt)) zones.push('thigh');
+    if (/mollet/.test(txt)) zones.push('calf');
+    if (/\bdos\b|lombaire|sciatique/.test(txt)) zones.push('back');
     if (/poignet/.test(txt)) zones.push('wrist');
+    if (/avant-?bras/.test(txt)) zones.push('forearm');
     if (/coude/.test(txt)) zones.push('elbow');
-    if (/hanche/.test(txt)) zones.push('hip');
+    if (/hanche|bassin/.test(txt)) zones.push('hip');
+    if (/\baines?\b|adducteur/.test(txt)) zones.push('groin');
     if (/cheville/.test(txt)) zones.push('ankle');
+    if (/\bpieds?\b|orteil/.test(txt)) zones.push('foot');
     if (/cervical|nuque|\bcou\b/.test(txt)) zones.push('neck');
+    if (/\babdo|\bventres?\b|grand droit/.test(txt)) zones.push('abs');
     return zones;
   }
   function genExcludeInjured(freeText) {
@@ -560,13 +596,37 @@
     const muscleTests = zones.map(z => GEN_INJURY_ZONES[z]).filter(Boolean);
     return e => muscleTests.some(t => t(e)) || zones.some(z => hasPostureHazard(e, z));
   }
+  /* Matériel décrit en texte libre : si la personne dit qu'elle n'a que des haltères ou
+     aucun matériel, même si le menu déroulant est resté sur "Salle complète", on resserre la
+     sélection d'équipement en conséquence. */
+  function detectEquipOverride(freeText) {
+    const txt = (freeText || '').toLowerCase();
+    if (/poids du corps (uniquement|seulement)|sans (aucun )?mat[ée]riel|aucun mat[ée]riel|que mon corps|rien (comme|niveau) mat[ée]riel/.test(txt)) return 'pdc';
+    if (/(que des|seulement des|uniquement des|juste des) halt[èe]res?|pas de barre|pas d'acc[èe]s.{0,12}(barre|machine)|halt[èe]res? (seulement|uniquement)/.test(txt)) return 'haltere';
+    return null;
+  }
+  /* Résumé affiché après génération : rend visible ce que le générateur a réellement compris
+     et adapté à partir du texte libre, plutôt qu'une simple promesse marketing. */
+  function genDetectSummary(freeText) {
+    const parts = [];
+    const durMin = detectDurationMinutes(freeText);
+    if (durMin) {
+      const h = Math.floor(durMin / 60), m = durMin % 60;
+      parts.push('durée visée ' + (h ? h + 'h' + (m ? String(m).padStart(2, '0') : '') : durMin + ' min'));
+    }
+    const zones = detectInjuryZones(freeText);
+    if (zones.length) parts.push('zones évitées : ' + zones.map(z => GEN_ZONE_LABELS[z] || z).join(', '));
+    const equipOverride = detectEquipOverride(freeText);
+    if (equipOverride) parts.push('matériel ajusté : ' + (equipOverride === 'pdc' ? 'poids du corps uniquement' : 'haltères uniquement'));
+    return parts.length ? 'D’après ce que tu as décrit : ' + parts.join(' · ') + '.' : null;
+  }
   function shuffled(arr) {
     const a = [...arr];
     for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
     return a;
   }
   function genBuildExercises(focus, materiel, cap, freeText) {
-    const equipList = GEN_EQUIP_OK[materiel];
+    const equipList = GEN_EQUIP_OK[detectEquipOverride(freeText) || materiel];
     const matOk = e => !equipList || e.eq.some(v => equipList.includes(v));
     const excluded = genExcludeInjured(freeText);
     const plan = GEN_FOCUS_PLANS[focus] || GEN_FOCUS_PLANS.full;
@@ -624,7 +684,7 @@
     return url ? { url, secret } : null;
   }
   function genAiCandidatePool(focus, materiel, perGroup, freeText) {
-    const equipList = GEN_EQUIP_OK[materiel];
+    const equipList = GEN_EQUIP_OK[detectEquipOverride(freeText) || materiel];
     const matOk = e => !equipList || e.eq.some(v => equipList.includes(v));
     const excluded = genExcludeInjured(freeText);
     const plan = GEN_FOCUS_PLANS[focus] || GEN_FOCUS_PLANS.full;
@@ -715,7 +775,7 @@ Les identifiants doivent venir exactement de la liste fournie. Adapte séries/r�
       $('genError').hidden = false;
       return;
     }
-    const s = { id: uid(), name: result.name, items: result.items };
+    const s = { id: uid(), name: result.name, items: result.items, genNote: genDetectSummary(freeText) };
     S.seances.push(s); saveSeances();
     $('genModal').hidden = true;
     $('genFreeText').value = '';
