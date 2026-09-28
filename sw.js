@@ -1,6 +1,6 @@
 // Cache de l'appli pour un usage hors-ligne (salle de sport sans réseau).
 // Changer VERSION force le renouvellement du cache de l'application au prochain déploiement.
-const VERSION = 'atlas-muscu-v13';
+const VERSION = 'atlas-muscu-v12';
 const RUNTIME = 'atlas-muscu-runtime';
 
 const SHELL = [
@@ -10,7 +10,6 @@ const SHELL = [
   'styles.css',
   'manifest.json',
   'data/exercises.js',
-  'data/wger-exercises.js',
   'apple-touch-icon.png',
   'icon-192.png',
   'icon-512.png',
