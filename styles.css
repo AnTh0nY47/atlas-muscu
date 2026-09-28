@@ -218,7 +218,22 @@ dd{margin:0}
 .progress-chart circle{fill:var(--red)}
 
 /* Historique des séances effectuées */
-.hist-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.hist-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cal-head span{font-weight:600;font-size:14px;text-transform:capitalize}
+.cal-dow{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;margin-bottom:4px}
+.cal-dow span{text-align:center;font-size:11px;color:var(--muted)}
+.cal-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.cal-cell{height:38px;display:grid;place-items:center;font-size:12.5px;border-radius:8px;color:var(--muted)}
+.cal-cell.trained{background:var(--select);color:#fff;font-weight:600}
+.cal-cell.today:not(.trained){border:1.5px solid var(--select);color:var(--ink)}
+.weight-add{display:flex;gap:10px;margin:12px 0}
+.weight-add input{flex:1;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14.5px;color:var(--ink);background:var(--surface);font:inherit}
+.weight-add .btn-primary{flex:none}
+#exProgressSelect{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14.5px;color:var(--ink);background:var(--surface);font:inherit;margin-bottom:12px}
+.record-row .val{display:flex;align-items:center;gap:4px}
+.record-row .icon{width:26px;height:26px}
+.record-row .icon svg{width:14px;height:14px}
 .stat{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:12px 8px;text-align:center}
 .stat .num{display:block;font-size:20px;font-weight:700;font-variant-numeric:tabular-nums}
 .stat .lbl{display:block;font-size:10.5px;color:var(--muted);margin-top:2px;line-height:1.25}

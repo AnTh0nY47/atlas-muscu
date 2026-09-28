@@ -114,7 +114,7 @@
     set(k, v) { try { localStorage.setItem('atlas.' + k, JSON.stringify(v)); } catch { } },
   };
 
-  const S = { all: [], byId: new Map(), cat: store.get('cat', 'all'), equip: '', q: '', shown: PAGE, favs: new Set(store.get('favs', [])), current: null, seances: store.get('seances', []), history: store.get('history', []), picking: null, custom: store.get('custom', []), notes: store.get('notes', {}), settings: Object.assign({ sound: true, vibrate: true }, store.get('settings', {})) };
+  const S = { all: [], byId: new Map(), cat: store.get('cat', 'all'), equip: '', q: '', shown: PAGE, favs: new Set(store.get('favs', [])), current: null, seances: store.get('seances', []), history: store.get('history', []), picking: null, custom: store.get('custom', []), notes: store.get('notes', {}), weightLog: store.get('weightLog', []), settings: Object.assign({ sound: true, vibrate: true }, store.get('settings', {})) };
   const $ = id => document.getElementById(id);
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const title = s => s.replace(/(^|[\s(-])([a-z])/g, (m, a, b) => a + b.toUpperCase());
@@ -124,6 +124,7 @@
   const saveCustom = () => { store.set('custom', S.custom); queueCloudPush(); };
   const saveNotes = () => { store.set('notes', S.notes); queueCloudPush(); };
   const saveFavs = () => { store.set('favs', [...S.favs]); queueCloudPush(); };
+  const saveWeightLog = () => { store.set('weightLog', S.weightLog); queueCloudPush(); };
   const saveSettings = () => store.set('settings', S.settings);
   function fmtDuration(sec) {
     const m = Math.floor(sec / 60), s = sec % 60;
@@ -501,6 +502,17 @@
     });
     return pts;
   }
+  /* Petit graphique en ligne réutilisé pour la progression d'un exercice et le suivi du poids */
+  function lineChartSvg(values, aria) {
+    const W = 560, H = 130, pad = 20;
+    const vmax = Math.max(...values), vmin = Math.min(...values);
+    const span = Math.max(1, vmax - vmin);
+    const xs = values.map((_, i) => pad + i * (W - 2 * pad) / (values.length - 1));
+    const ys = values.map(v => H - pad - (v - vmin) / span * (H - 2 * pad));
+    const d = xs.map((x, i) => (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + ys[i].toFixed(1)).join(' ');
+    const dots = xs.map((x, i) => `<circle cx="${x.toFixed(1)}" cy="${ys[i].toFixed(1)}" r="3.5"></circle>`).join('');
+    return `<svg viewBox="0 0 ${W} ${H}" class="progress-chart" role="img" aria-label="${aria}"><path d="${d}" fill="none" class="line"/>${dots}</svg>`;
+  }
   function renderProgress(ex) {
     const pts = exHistoryPoints(ex.id);
     $('mProgressWrap').hidden = !pts.length;
@@ -510,19 +522,8 @@
       $('mProgressChart').innerHTML = `<p class="run-meta">Dernière fois : ${last.weight} kg × ${last.reps}. Termine une deuxième séance avec cet exercice pour voir ta progression.</p>`;
       return;
     }
-    const W = 560, H = 130, pad = 20;
-    const vmax = Math.max(...pts.map(p => p.value)), vmin = Math.min(...pts.map(p => p.value));
-    const span = Math.max(1, vmax - vmin);
-    const xs = pts.map((_, i) => pad + i * (W - 2 * pad) / (pts.length - 1));
-    const ys = pts.map(p => H - pad - (p.value - vmin) / span * (H - 2 * pad));
-    const d = xs.map((x, i) => (i === 0 ? 'M' : 'L') + x.toFixed(1) + ',' + ys[i].toFixed(1)).join(' ');
-    const dots = xs.map((x, i) => `<circle cx="${x.toFixed(1)}" cy="${ys[i].toFixed(1)}" r="3.5"></circle>`).join('');
-    $('mProgressChart').innerHTML = `
-      <svg viewBox="0 0 ${W} ${H}" class="progress-chart" role="img" aria-label="Évolution de la charge estimée au fil des séances">
-        <path d="${d}" fill="none" class="line"/>
-        ${dots}
-      </svg>
-      <p class="run-meta">Dernière fois : ${last.weight} kg × ${last.reps} (${fmtDate(last.date).split(' à ')[0]}) — 1RM estimé ${last.value} kg</p>`;
+    const svg = lineChartSvg(pts.map(p => p.value), 'Évolution de la charge estimée au fil des séances');
+    $('mProgressChart').innerHTML = `${svg}<p class="run-meta">Dernière fois : ${last.weight} kg × ${last.reps} (${fmtDate(last.date).split(' à ')[0]}) — 1RM estimé ${last.value} kg</p>`;
   }
 
   /* Mode entraînement : enchaîne séries et repos d'une séance, en notant le poids et les répétitions réels */
@@ -640,21 +641,26 @@
   }
   function computeStats() {
     const start = weekStart();
-    let weekSessions = 0, weekVolume = 0;
+    const monthStart = new Date(); monthStart.setDate(1); monthStart.setHours(0, 0, 0, 0);
+    let weekSessions = 0, weekVolume = 0, monthSessions = 0, monthVolume = 0, totalSeconds = 0;
     const days = new Set();
     S.history.forEach(h => {
       const d = new Date(h.date);
       days.add(d.toDateString());
-      if (d >= start) {
-        weekSessions++;
-        h.exercises.forEach(x => x.sets.forEach(s => weekVolume += (s.weight || 0) * (s.reps || 0)));
-      }
+      totalSeconds += h.durationSec || 0;
+      const vol = h.exercises.reduce((sum, x) => sum + x.sets.reduce((s2, s) => s2 + (s.weight || 0) * (s.reps || 0), 0), 0);
+      if (d >= start) { weekSessions++; weekVolume += vol; }
+      if (d >= monthStart) { monthSessions++; monthVolume += vol; }
     });
     let streak = 0;
     const cursor = new Date(); cursor.setHours(0, 0, 0, 0);
     if (!days.has(cursor.toDateString())) cursor.setDate(cursor.getDate() - 1);
     while (days.has(cursor.toDateString())) { streak++; cursor.setDate(cursor.getDate() - 1); }
-    return { weekSessions, weekVolume: Math.round(weekVolume), streak };
+    return {
+      weekSessions, weekVolume: Math.round(weekVolume), streak,
+      monthSessions, monthVolume: Math.round(monthVolume),
+      totalSessions: S.history.length, totalSeconds,
+    };
   }
   function renderHistStats() {
     $('histStats').hidden = !S.history.length;
@@ -662,9 +668,106 @@
     const st = computeStats();
     $('histStats').innerHTML = `
       <div class="stat"><span class="num">${st.weekSessions}</span><span class="lbl">Séance${st.weekSessions > 1 ? 's' : ''} cette semaine</span></div>
-      <div class="stat"><span class="num">${st.weekVolume.toLocaleString('fr-FR')}</span><span class="lbl">kg soulevés cette semaine</span></div>
-      <div class="stat"><span class="num">${st.streak}</span><span class="lbl">Jour${st.streak > 1 ? 's' : ''} d'affilée</span></div>`;
+      <div class="stat"><span class="num">${st.weekVolume.toLocaleString('fr-FR')}</span><span class="lbl">kg cette semaine</span></div>
+      <div class="stat"><span class="num">${st.streak}</span><span class="lbl">Jour${st.streak > 1 ? 's' : ''} d'affilée</span></div>
+      <div class="stat"><span class="num">${st.monthSessions}</span><span class="lbl">Séance${st.monthSessions > 1 ? 's' : ''} ce mois</span></div>
+      <div class="stat"><span class="num">${st.monthVolume.toLocaleString('fr-FR')}</span><span class="lbl">kg ce mois</span></div>
+      <div class="stat"><span class="num">${st.totalSessions}</span><span class="lbl">Séance${st.totalSessions > 1 ? 's' : ''} au total</span></div>`;
   }
+
+  /* Calendrier d'assiduité : mois affiché avec un point sur les jours où une séance a été faite */
+  let calMonth = (() => { const d = new Date(); d.setDate(1); d.setHours(0, 0, 0, 0); return d; })();
+  function renderCalendar() {
+    $('calWrap').hidden = !S.history.length;
+    if (!S.history.length) return;
+    const trained = new Set(S.history.map(h => new Date(h.date).toDateString()));
+    $('calLabel').textContent = calMonth.toLocaleDateString('fr-FR', { month: 'long', year: 'numeric' });
+    const first = new Date(calMonth);
+    const startOffset = (first.getDay() + 6) % 7; // semaine commence le lundi
+    const daysInMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + 1, 0).getDate();
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    let cells = '';
+    for (let i = 0; i < startOffset; i++) cells += '<span class="cal-cell cal-blank"></span>';
+    for (let day = 1; day <= daysInMonth; day++) {
+      const d = new Date(calMonth.getFullYear(), calMonth.getMonth(), day);
+      const cls = ['cal-cell'];
+      if (trained.has(d.toDateString())) cls.push('trained');
+      if (d.getTime() === today.getTime()) cls.push('today');
+      cells += `<span class="${cls.join(' ')}">${day}</span>`;
+    }
+    $('calGrid').innerHTML = `
+      <div class="cal-dow"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+      <div class="cal-days">${cells}</div>`;
+    $('calNext').disabled = calMonth.getFullYear() === today.getFullYear() && calMonth.getMonth() === today.getMonth();
+  }
+  $('calPrev').addEventListener('click', () => { calMonth.setMonth(calMonth.getMonth() - 1); renderCalendar(); });
+  $('calNext').addEventListener('click', () => { calMonth.setMonth(calMonth.getMonth() + 1); renderCalendar(); });
+
+  /* Suivi du poids du corps */
+  function todayISODate() {
+    const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
+    return d.toISOString().slice(0, 10);
+  }
+  function renderWeightSection() {
+    const log = [...S.weightLog].sort((a, b) => a.date.localeCompare(b.date));
+    const chartEl = $('weightChart');
+    if (!log.length) {
+      chartEl.innerHTML = `<p class="run-meta">Ajoute ton poids pour suivre son évolution dans le temps.</p>`;
+    } else if (log.length === 1) {
+      chartEl.innerHTML = `<p class="run-meta">Dernier poids enregistré : ${log[0].weight} kg. Ajoute une autre pesée pour voir la courbe.</p>`;
+    } else {
+      const last = log[log.length - 1];
+      const svg = lineChartSvg(log.map(l => l.weight), 'Évolution du poids du corps');
+      chartEl.innerHTML = `${svg}<p class="run-meta">Dernier poids : ${last.weight} kg (${fmtDate(last.date + 'T12:00:00').split(' à ')[0]})</p>`;
+    }
+    $('weightList').innerHTML = [...S.weightLog].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8).map(w => `
+      <div class="record-row"><span class="nm">${fmtDate(w.date + 'T12:00:00').split(' à ')[0]}</span><span class="val">${w.weight} kg <button class="icon" data-del-weight="${w.id}" aria-label="Supprimer cette pesée"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></div>`).join('');
+  }
+  $('weightAddBtn').addEventListener('click', () => {
+    const val = parseFloat(($('weightInput').value || '').replace(',', '.'));
+    if (!val || val <= 0) { toast('Entre un poids valide'); return; }
+    const today = todayISODate();
+    const existing = S.weightLog.find(w => w.date === today);
+    if (existing) existing.weight = val; else S.weightLog.push({ id: uid(), date: today, weight: val });
+    saveWeightLog();
+    $('weightInput').value = '';
+    renderWeightSection();
+    toast('Poids enregistré');
+  });
+  $('weightList').addEventListener('click', e => {
+    const btn = e.target.closest('[data-del-weight]'); if (!btn) return;
+    S.weightLog = S.weightLog.filter(w => w.id !== btn.dataset.delWeight);
+    saveWeightLog();
+    renderWeightSection();
+  });
+
+  /* Progression par exercice, choisi dans une liste déroulante */
+  let selectedProgressEx = null;
+  function exerciseListFromHistory() {
+    const map = new Map();
+    S.history.forEach(h => h.exercises.forEach(x => { if (!map.has(x.exId)) map.set(x.exId, x.name); }));
+    return [...map.entries()].map(([id, name]) => ({ id, name })).sort((a, b) => a.name.localeCompare(b.name, 'fr'));
+  }
+  function renderExProgressSection() {
+    const list = exerciseListFromHistory();
+    $('exProgressWrap').hidden = !list.length;
+    if (!list.length) return;
+    if (!selectedProgressEx || !list.find(e => e.id === selectedProgressEx)) selectedProgressEx = list[0].id;
+    $('exProgressSelect').innerHTML = list.map(e => `<option value="${e.id}" ${e.id === selectedProgressEx ? 'selected' : ''}>${e.name}</option>`).join('');
+    renderExProgressChart();
+  }
+  function renderExProgressChart() {
+    const pts = exHistoryPoints(selectedProgressEx);
+    const el = $('exProgressChart');
+    if (pts.length < 2) {
+      el.innerHTML = `<p class="run-meta">Pas encore assez de séances avec cet exercice pour voir une courbe.</p>`;
+      return;
+    }
+    const last = pts[pts.length - 1];
+    const svg = lineChartSvg(pts.map(p => p.value), 'Évolution de la charge estimée');
+    el.innerHTML = `${svg}<p class="run-meta">Dernière fois : ${last.weight} kg × ${last.reps} — 1RM estimé ${last.value} kg</p>`;
+  }
+  $('exProgressSelect').addEventListener('change', e => { selectedProgressEx = e.target.value; renderExProgressChart(); });
   function computeRecords() {
     const best = new Map();
     S.history.forEach(h => {
@@ -688,6 +791,9 @@
   function renderHistList() {
     $('histEmpty').hidden = !!S.history.length;
     renderHistStats();
+    renderCalendar();
+    renderWeightSection();
+    renderExProgressSection();
     renderRecords();
     $('histList').innerHTML = S.history.map(h => `
       <div class="hist-card">
@@ -759,7 +865,7 @@
   });
 
   $('exportBtn').addEventListener('click', () => {
-    const payload = { app: 'atlas-muscu', version: 1, exportedAt: new Date().toISOString(), seances: S.seances, history: S.history, favs: [...S.favs], custom: S.custom, notes: S.notes };
+    const payload = { app: 'atlas-muscu', version: 1, exportedAt: new Date().toISOString(), seances: S.seances, history: S.history, favs: [...S.favs], custom: S.custom, notes: S.notes, weightLog: S.weightLog };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
     const a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
@@ -771,12 +877,13 @@
     const file = e.target.files[0]; e.target.value = ''; if (!file) return;
     try {
       const data = JSON.parse(await file.text());
-      if (!confirm('Remplacer tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes actuels par ceux de ce fichier ?')) return;
+      if (!confirm('Remplacer tes séances, ton historique, tes favoris, tes exercices personnalisés, tes notes et ton suivi de poids actuels par ceux de ce fichier ?')) return;
       if (Array.isArray(data.seances)) { S.seances = data.seances; saveSeances(); }
       if (Array.isArray(data.history)) { S.history = data.history; saveHistory(); }
       if (Array.isArray(data.favs)) { S.favs = new Set(data.favs); saveFavs(); }
       if (Array.isArray(data.custom)) { S.custom = data.custom; saveCustom(); mergeCustom(); }
       if (data.notes && typeof data.notes === 'object') { S.notes = data.notes; saveNotes(); }
+      if (Array.isArray(data.weightLog)) { S.weightLog = data.weightLog; saveWeightLog(); }
       toast('Données importées');
       renderSeancesList(); renderHistList(); renderGrid();
     } catch { toast('Fichier de sauvegarde invalide'); }
@@ -792,8 +899,8 @@
     $('resetBtn').hidden = false;
   });
   $('resetConfirmBtn').addEventListener('click', () => {
-    S.seances = []; S.history = []; S.favs = new Set(); S.custom = []; S.notes = {};
-    saveSeances(); saveHistory(); saveFavs(); saveCustom(); saveNotes(); mergeCustom();
+    S.seances = []; S.history = []; S.favs = new Set(); S.custom = []; S.notes = {}; S.weightLog = [];
+    saveSeances(); saveHistory(); saveFavs(); saveCustom(); saveNotes(); saveWeightLog(); mergeCustom();
     $('resetConfirm').hidden = true;
     $('resetBtn').hidden = false;
     toast('Données réinitialisées');
@@ -803,7 +910,7 @@
   /* Compte et synchronisation cloud (facultatif, activé quand window.cloud existe) */
   let cloudUser = null, cloudUnsub = null, cloudSyncTimer = null, cloudApplyingRemote = false;
   function cloudBlob() {
-    return { seances: S.seances, history: S.history, favs: [...S.favs], custom: S.custom, notes: S.notes, updatedAt: Date.now() };
+    return { seances: S.seances, history: S.history, favs: [...S.favs], custom: S.custom, notes: S.notes, weightLog: S.weightLog, updatedAt: Date.now() };
   }
   function applyCloudBlob(data) {
     cloudApplyingRemote = true;
@@ -812,6 +919,7 @@
     if (Array.isArray(data.favs)) { S.favs = new Set(data.favs); store.set('favs', data.favs); }
     if (Array.isArray(data.custom)) { S.custom = data.custom; store.set('custom', S.custom); mergeCustom(); }
     if (data.notes && typeof data.notes === 'object') { S.notes = data.notes; store.set('notes', S.notes); }
+    if (Array.isArray(data.weightLog)) { S.weightLog = data.weightLog; store.set('weightLog', S.weightLog); }
     cloudApplyingRemote = false;
     renderSeancesList(); renderHistList(); renderGrid();
     if (S.current) $('mNotes').value = S.notes[S.current.id] || '';

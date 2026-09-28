@@ -84,12 +84,40 @@
   <header class="top simple">
     <h1>Historique</h1>
   </header>
-  <main>
+  <main class="settings-main">
     <div class="hist-stats" id="histStats" hidden></div>
+
+    <section class="settings-group" id="calWrap" hidden>
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg>Assiduité</h3>
+      <div class="cal-head">
+        <button class="icon" id="calPrev" aria-label="Mois précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <span id="calLabel"></span>
+        <button class="icon" id="calNext" aria-label="Mois suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+      <div id="calGrid"></div>
+    </section>
+
+    <section class="settings-group" id="weightWrap">
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l2.5 2.5"/></svg>Poids du corps</h3>
+      <div id="weightChart"></div>
+      <div class="weight-add">
+        <input type="number" id="weightInput" inputmode="decimal" step="0.1" placeholder="Ton poids en kg">
+        <button class="btn-primary" id="weightAddBtn">Ajouter</button>
+      </div>
+      <div class="record-list" id="weightList"></div>
+    </section>
+
+    <section class="settings-group" id="exProgressWrap" hidden>
+      <h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Progression par exercice</h3>
+      <select id="exProgressSelect"></select>
+      <div id="exProgressChart"></div>
+    </section>
+
     <section class="records" id="recordsWrap" hidden>
       <h3>Tes records</h3>
       <div class="record-list" id="recordsList"></div>
     </section>
+
     <p class="status" id="histEmpty" hidden>Aucune séance enregistrée pour l'instant. Termine une séance depuis l'onglet Séances pour la voir apparaître ici.</p>
     <div class="hist-list" id="histList"></div>
   </main>
@@ -206,7 +234,7 @@
     <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>Zone de danger</h1></header>
     <main class="settings-main">
       <section class="settings-group danger-zone">
-        <p class="run-meta">Supprime définitivement tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes de ce téléphone.</p>
+        <p class="run-meta">Supprime définitivement tes séances, ton historique, tes favoris, tes exercices personnalisés, tes notes et ton suivi de poids de ce téléphone.</p>
         <button class="btn-secondary btn-block danger" id="resetBtn">Réinitialiser toutes les données</button>
         <div class="danger-confirm" id="resetConfirm" hidden>
           <p>Cette action est irréversible. Tout ce que tu as enregistré sur cet appareil sera perdu, sauf si tu as un compte synchronisé ou une sauvegarde exportée.</p>
