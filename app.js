@@ -449,10 +449,14 @@
      répétitions selon quelques réponses simples, en réutilisant les mêmes catégories que
      les filtres de la page Exercices. La séance générée reste ensuite modifiable comme
      n'importe quelle autre. */
+  // Le deltoïde postérieur est classé "Épaules" dans la base de données au même titre que le
+  // développé militaire, alors que c'est un mouvement de tirage (dos), pas de poussée. On le
+  // sort du groupe "épaules" (poussée) et on le rattache au groupe "dos" (tirage).
+  const isRearDelt = e => has(e.tg, 'rear deltoids') || has(e.sec, 'rear deltoids');
   const GEN_GROUPS = {
     chest: e => has(e.bp, 'chest'),
-    back: e => has(e.bp, 'back'),
-    shoulders: e => has(e.bp, 'shoulders'),
+    back: e => has(e.bp, 'back') || isRearDelt(e),
+    shoulders: e => has(e.bp, 'shoulders') && !isRearDelt(e),
     biceps: e => has(e.tg, 'biceps'),
     triceps: e => has(e.tg, 'triceps'),
     quads: e => has(e.tg, 'quads') || has(e.tg, 'quadriceps'),
