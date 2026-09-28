@@ -5,6 +5,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/fireba
 import {
   getAuth, onAuthStateChanged, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, signOut, sendPasswordResetEmail,
+  GoogleAuthProvider, signInWithRedirect, getRedirectResult,
 } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
 import {
   getFirestore, doc, getDoc, setDoc, onSnapshot,
@@ -29,6 +30,8 @@ window.cloud = {
   signIn(email, pw) { return signInWithEmailAndPassword(auth, email, pw).then(c => c.user); },
   signOutUser() { return signOut(auth); },
   resetPassword(email) { return sendPasswordResetEmail(auth, email); },
+  signInWithGoogle() { return signInWithRedirect(auth, new GoogleAuthProvider()); },
+  checkRedirect() { return getRedirectResult(auth).then(r => (r ? r.user : null)); },
   fetchData(uid) { return getDoc(doc(db, 'users', uid)).then(s => (s.exists() ? s.data() : null)); },
   pushData(uid, data) { return setDoc(doc(db, 'users', uid), data); },
   watch(uid, cb) { return onSnapshot(doc(db, 'users', uid), s => cb(s.data(), s.metadata.hasPendingWrites)); },
