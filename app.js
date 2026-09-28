@@ -701,6 +701,8 @@
   function renderReglages() {
     $('setSound').checked = !!S.settings.sound;
     $('setVibrate').checked = !!S.settings.vibrate;
+    $('resetConfirm').hidden = true;
+    $('resetBtn').hidden = false;
     updateStorageUsage();
   }
   /* Poids réel occupé par l'appli (illustrations comprises), lu directement depuis le
@@ -767,10 +769,21 @@
       renderSeancesList(); renderHistList(); renderGrid();
     } catch { toast('Fichier de sauvegarde invalide'); }
   });
+  /* Suppression des données : confirmation en deux temps affichée dans la page plutôt
+     qu'une simple boîte de dialogue système, pour éviter un appui accidentel. */
   $('resetBtn').addEventListener('click', () => {
-    if (!confirm('Supprimer définitivement toutes tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes ? Cette action est irréversible.')) return;
+    $('resetBtn').hidden = true;
+    $('resetConfirm').hidden = false;
+  });
+  $('resetCancel').addEventListener('click', () => {
+    $('resetConfirm').hidden = true;
+    $('resetBtn').hidden = false;
+  });
+  $('resetConfirmBtn').addEventListener('click', () => {
     S.seances = []; S.history = []; S.favs = new Set(); S.custom = []; S.notes = {};
     saveSeances(); saveHistory(); saveFavs(); saveCustom(); saveNotes(); mergeCustom();
+    $('resetConfirm').hidden = true;
+    $('resetBtn').hidden = false;
     toast('Données réinitialisées');
     renderSeancesList(); renderHistList(); renderGrid();
   });
