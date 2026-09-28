@@ -717,7 +717,7 @@
     async function worker() {
       while (idx < gifs.length) {
         const url = gifs[idx++];
-        try { await fetch(url); done++; } catch { failed++; }
+        try { await fetch(url, { mode: 'no-cors' }); done++; } catch { failed++; }
         update();
       }
     }
