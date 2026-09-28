@@ -150,6 +150,11 @@
           <span class="row-body"><span class="row-label">Données</span><span class="row-sub">Export, import</span></span>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
         </button>
+        <button class="settings-row" data-open="rIA">
+          <span class="row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/><circle cx="12" cy="12" r="3"/></svg></span>
+          <span class="row-body"><span class="row-label">IA du générateur</span><span class="row-sub" id="rowIASub">Non configurée</span></span>
+          <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
       </div>
 
       <div class="rows-group">
@@ -227,6 +232,22 @@
         <label class="btn-secondary btn-block" id="importLabel">Importer une sauvegarde
           <input type="file" id="importInput" accept="application/json" hidden>
         </label>
+      </section>
+    </main>
+  </div>
+
+  <div class="rscreen" id="rIA" hidden>
+    <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>IA du générateur</h1></header>
+    <main class="settings-main">
+      <section class="settings-group">
+        <p class="run-meta">Le générateur de séance fonctionne déjà sans ça, avec un algorithme classique. Pour qu'il utilise une vraie IA en plus (qui tient compte de ce que tu décris en texte libre), il faut un petit relais gratuit qui garde ta clé secrète. Colle ici son adresse et le mot de passe que tu as choisis en le créant. Si tu ne l'as pas encore mis en place, demande-moi comment faire.</p>
+        <label>Adresse du relais<input id="aiWorkerUrl" type="url" placeholder="https://....workers.dev" autocapitalize="off" autocorrect="off"></label>
+        <label>Mot de passe du relais<input id="aiSecret" type="password" autocapitalize="off" autocorrect="off"></label>
+        <div class="account-actions">
+          <button class="btn-primary" id="aiSaveBtn">Enregistrer</button>
+          <button class="btn-secondary" id="aiClearBtn">Retirer</button>
+        </div>
+        <p class="status" id="aiSaveMsg" hidden></p>
       </section>
     </main>
   </div>
@@ -413,6 +434,8 @@
         <option value="haltere">Chez moi, avec haltères</option>
         <option value="pdc">Poids du corps uniquement</option>
       </select></label>
+      <label>Ta situation, en quelques mots (optionnel)<textarea id="genFreeText" placeholder="Ex. je reprends après une blessure au genou, je veux surtout le haut du corps, j'ai 40 minutes devant moi…"></textarea></label>
+      <label class="switch-row" id="genAiRow" hidden><span>Utiliser l'IA (si disponible)</span><input type="checkbox" id="genUseAi" checked></label>
       <p class="status" id="genError" hidden></p>
       <button class="btn-primary btn-block" id="genCreateBtn">Générer la séance</button>
     </div>

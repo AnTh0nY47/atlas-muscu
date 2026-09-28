@@ -503,25 +503,144 @@
     }
     return chosen;
   }
-  $('genOpenBtn').addEventListener('click', () => { $('genError').hidden = true; $('genModal').hidden = false; });
-  $('genModal').addEventListener('click', e => { if (e.target.closest('[data-close-gen]')) $('genModal').hidden = true; });
-  $('genCreateBtn').addEventListener('click', () => {
-    const objectif = $('genObjectif').value, focus = $('genFocus').value, niveau = $('genNiveau').value, materiel = $('genMateriel').value;
+  function genRuleBasedSeance(objectif, focus, niveau, materiel) {
     const cap = GEN_LEVEL_CAP[niveau];
     const exs = genBuildExercises(focus, materiel, cap);
-    if (!exs.length) {
+    if (!exs.length) return null;
+    const obj = GEN_OBJ[objectif];
+    const sets = GEN_LEVEL_SETS[niveau] + (obj.setsBonus || 0);
+    const items = exs.map(e => ({ exId: e.id, sets, reps: obj.reps, rest: obj.rest, weight: 0 }));
+    return { name: `${GEN_FOCUS_LABELS[focus]} — ${obj.label}`, items };
+  }
+
+  /* Génération par IA (optionnelle) : passe par un petit relais que l'utilisateur héberge
+     lui-même (voir Réglages > IA du générateur), qui garde la clé de l'API Gemini secrète.
+     On lui envoie un lot d'exercices candidats (déjà filtrés par matériel/partie du corps,
+     comme pour le générateur classique) et l'IA choisit parmi ces identifiants réels, en
+     tenant compte du texte libre. Si ça échoue pour n'importe quelle raison (pas de relais
+     configuré, pas de réseau, réponse invalide), on retombe silencieusement sur l'algorithme
+     classique : c'est ce qui permet au générateur de continuer à marcher à la salle sans
+     signal.
+     ATTENTION à toute personne qui modifierait ce code : le mot de passe du relais est saisi
+     par l'utilisateur lui-même dans Réglages, jamais codé en dur ici. */
+  function aiConfig() {
+    const url = (store.get('aiWorkerUrl', '') || '').trim();
+    const secret = (store.get('aiSecret', '') || '').trim();
+    return url ? { url, secret } : null;
+  }
+  function genAiCandidatePool(focus, materiel, perGroup) {
+    const equipList = GEN_EQUIP_OK[materiel];
+    const matOk = e => !equipList || e.eq.some(v => equipList.includes(v));
+    const plan = GEN_FOCUS_PLANS[focus] || GEN_FOCUS_PLANS.full;
+    const seen = new Set(); const out = [];
+    for (const [group] of plan) {
+      const test = GEN_GROUPS[group];
+      const pool = shuffled(S.all.filter(e => test(e) && matOk(e) && !seen.has(e.id)));
+      pool.slice(0, perGroup).forEach(e => { seen.add(e.id); out.push(e); });
+    }
+    return out;
+  }
+  async function genCallAi(objectif, focus, niveau, materiel, freeText) {
+    const cfg = aiConfig();
+    if (!cfg) throw new Error('no-config');
+    const candidates = genAiCandidatePool(focus, materiel, 12);
+    if (!candidates.length) throw new Error('no-candidates');
+    const list = candidates.map(e => `${e.id} | ${e.name} | ${e.bp.map(v => fr(BP, v)).join('/')} | ${e.tg.map(v => fr(MU, v)).join('/')} | ${e.eq.map(v => fr(EQ, v)).join('/')}`).join('\n');
+    const obj = GEN_OBJ[objectif];
+    const prompt = `Tu es coach sportif. Choisis entre 4 et 8 exercices dans cette liste (format : identifiant | nom | zone | muscles | matériel), pour composer une séance de musculation.
+Liste d'exercices disponibles :
+${list}
+
+Objectif : ${obj.label}. Partie du corps ciblée : ${GEN_FOCUS_LABELS[focus]}. Niveau : ${niveau}.
+Situation décrite par la personne (peut être vide) : ${freeText || '(aucune précision)'}
+
+Réponds UNIQUEMENT avec un JSON de cette forme, sans texte autour, sans balises markdown :
+{"name":"nom court de la séance","items":[{"id":"identifiant exact pris dans la liste ci-dessus","sets":nombre entier,"reps":nombre entier,"rest":secondes de repos entier}]}
+Les identifiants doivent venir exactement de la liste fournie. Adapte séries/répétitions/repos à l'objectif et au niveau, et tiens compte de la situation décrite (par exemple éviter une zone blessée si mentionnée).`;
+    const ctrl = new AbortController();
+    const timeout = setTimeout(() => ctrl.abort(), 20000);
+    let res;
+    try {
+      res = await fetch(cfg.url, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', 'x-app-secret': cfg.secret },
+        body: JSON.stringify({ prompt }),
+        signal: ctrl.signal,
+      });
+    } finally { clearTimeout(timeout); }
+    if (!res.ok) throw new Error('http-' + res.status);
+    const data = await res.json();
+    let parsed;
+    try { parsed = JSON.parse(data.text); } catch { throw new Error('bad-json'); }
+    const validIds = new Set(candidates.map(e => e.id));
+    const items = (parsed.items || [])
+      .filter(it => validIds.has(it.id))
+      .slice(0, 10)
+      .map(it => ({
+        exId: it.id,
+        sets: Math.min(6, Math.max(1, Math.round(it.sets) || GEN_LEVEL_SETS[niveau])),
+        reps: Math.min(30, Math.max(1, Math.round(it.reps) || 12)),
+        rest: Math.min(240, Math.max(15, Math.round(it.rest) || 60)),
+        weight: 0,
+      }));
+    if (!items.length) throw new Error('no-valid-items');
+    return { name: (parsed.name || `${GEN_FOCUS_LABELS[focus]} — IA`).slice(0, 60), items };
+  }
+
+  $('genOpenBtn').addEventListener('click', () => {
+    $('genError').hidden = true;
+    $('genAiRow').hidden = !aiConfig();
+    $('genModal').hidden = false;
+  });
+  $('genModal').addEventListener('click', e => { if (e.target.closest('[data-close-gen]')) $('genModal').hidden = true; });
+  $('genCreateBtn').addEventListener('click', async () => {
+    const objectif = $('genObjectif').value, focus = $('genFocus').value, niveau = $('genNiveau').value, materiel = $('genMateriel').value;
+    const freeText = $('genFreeText').value.trim();
+    const useAi = !$('genAiRow').hidden && $('genUseAi').checked;
+    $('genError').hidden = true;
+    const btn = $('genCreateBtn');
+    let result = null, viaAi = false;
+    if (useAi) {
+      btn.disabled = true; btn.textContent = 'L’IA réfléchit…';
+      try { result = await genCallAi(objectif, focus, niveau, materiel, freeText); viaAi = true; }
+      catch { result = null; }
+      btn.disabled = false; btn.textContent = 'Générer la séance';
+    }
+    if (!result) result = genRuleBasedSeance(objectif, focus, niveau, materiel);
+    if (!result) {
       $('genError').textContent = 'Pas assez d’exercices disponibles avec ce matériel pour cette combinaison. Essaie « Salle de sport complète » ou une autre partie du corps.';
       $('genError').hidden = false;
       return;
     }
-    const obj = GEN_OBJ[objectif];
-    const sets = GEN_LEVEL_SETS[niveau] + (obj.setsBonus || 0);
-    const items = exs.map(e => ({ exId: e.id, sets, reps: obj.reps, rest: obj.rest, weight: 0 }));
-    const s = { id: uid(), name: `${GEN_FOCUS_LABELS[focus]} — ${obj.label}`, items };
+    const s = { id: uid(), name: result.name, items: result.items };
     S.seances.push(s); saveSeances();
     $('genModal').hidden = true;
-    toast('Séance générée, tu peux tout ajuster');
+    $('genFreeText').value = '';
+    toast(useAi && viaAi ? 'Séance générée par l’IA' : (useAi ? 'IA indisponible, séance générée avec l’algorithme classique' : 'Séance générée, tu peux tout ajuster'));
     location.hash = '#/seance/' + s.id;
+  });
+
+  /* Réglages de l'IA du générateur */
+  function renderAiSettings() {
+    const cfg = aiConfig();
+    $('rowIASub').textContent = cfg ? 'Configurée' : 'Non configurée';
+    $('aiWorkerUrl').value = cfg ? cfg.url : '';
+    $('aiSecret').value = cfg ? cfg.secret : '';
+    $('aiSaveMsg').hidden = true;
+  }
+  $('aiSaveBtn').addEventListener('click', () => {
+    const url = $('aiWorkerUrl').value.trim(), secret = $('aiSecret').value.trim();
+    if (!url) { toast('Indique l’adresse du relais'); return; }
+    store.set('aiWorkerUrl', url); store.set('aiSecret', secret);
+    renderAiSettings();
+    $('aiSaveMsg').textContent = 'Enregistré.';
+    $('aiSaveMsg').hidden = false;
+  });
+  $('aiClearBtn').addEventListener('click', () => {
+    store.set('aiWorkerUrl', ''); store.set('aiSecret', '');
+    renderAiSettings();
+    $('aiSaveMsg').textContent = 'IA retirée, le générateur reste utilisable normalement.';
+    $('aiSaveMsg').hidden = false;
   });
 
   /* Création d'un exercice personnalisé */
@@ -891,6 +1010,7 @@
     $('resetBtn').hidden = false;
     openReglagesScreen('rHome');
     updateStorageUsage();
+    renderAiSettings();
   }
   /* Navigation entre l'écran d'accueil des réglages et ses sous-écrans (façon Réglages iOS) */
   function openReglagesScreen(id) {
