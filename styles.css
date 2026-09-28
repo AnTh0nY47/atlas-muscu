@@ -243,6 +243,9 @@ dd{margin:0}
 .link-btn{display:block;margin:12px auto 0;background:none;border:0;color:var(--select);font-size:13px;padding:6px}
 .sync-status{font-size:12.5px;color:var(--muted);margin:2px 0 12px}
 #acError{color:var(--red);margin:10px 0 0;font-size:13px}
+.gsi-button{display:flex;justify-content:center;margin-bottom:4px;min-height:40px}
+.divider{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin:14px 0}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
 #importLabel{text-align:center}
 #importLabel input{display:none}
 

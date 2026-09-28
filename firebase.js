@@ -5,6 +5,7 @@ import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.19.0/fireba
 import {
   getAuth, onAuthStateChanged, createUserWithEmailAndPassword,
   signInWithEmailAndPassword, signOut, sendPasswordResetEmail,
+  GoogleAuthProvider, signInWithCredential,
 } from 'https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js';
 import {
   getFirestore, doc, getDoc, setDoc, onSnapshot,
@@ -29,6 +30,12 @@ window.cloud = {
   signIn(email, pw) { return signInWithEmailAndPassword(auth, email, pw).then(c => c.user); },
   signOutUser() { return signOut(auth); },
   resetPassword(email) { return sendPasswordResetEmail(auth, email); },
+  // Connexion Google via le jeton envoyé par la bibliothèque Google Identity Services
+  // (bouton rendu par Google lui-même), plutôt que par la redirection de Firebase :
+  // cette méthode ne quitte jamais la page, donc elle évite le blocage de Safari.
+  signInWithGoogleIdToken(idToken) {
+    return signInWithCredential(auth, GoogleAuthProvider.credential(idToken)).then(c => c.user);
+  },
   fetchData(uid) { return getDoc(doc(db, 'users', uid)).then(s => (s.exists() ? s.data() : null)); },
   pushData(uid, data) { return setDoc(doc(db, 'users', uid), data); },
   watch(uid, cb) { return onSnapshot(doc(db, 'users', uid), s => cb(s.data(), s.metadata.hasPendingWrites)); },

@@ -797,10 +797,32 @@
       'auth/user-not-found': 'Aucun compte avec cet e-mail.',
       'auth/too-many-requests': 'Trop de tentatives, réessaie plus tard.',
       'auth/missing-password': 'Indique un mot de passe.',
+      'auth/account-exists-with-different-credential': 'Cette adresse est déjà utilisée avec un autre mode de connexion.',
     };
     return (e && map[e.code]) || 'Une erreur est survenue, réessaie.';
   }
   function acError(msg) { $('acError').textContent = msg; $('acError').hidden = false; }
+
+  /* Bouton Google, fourni directement par la bibliothèque Google (pas par la redirection
+     de Firebase) : reste sur la page, donc pas de blocage par Safari sur cette appli
+     ajoutée à l'écran d'accueil. */
+  function handleGoogleCredential(response) {
+    $('acError').hidden = true;
+    if (!window.cloud) return acError('Service de compte injoignable pour le moment.');
+    window.cloud.signInWithGoogleIdToken(response.credential).catch(e => acError(cloudErrorMessage(e)));
+  }
+  function initGoogleButton(tries = 0) {
+    if (window.google && window.google.accounts && window.google.accounts.id) {
+      google.accounts.id.initialize({
+        client_id: '755145867902-lmcbu57k992i78r7cjfcuh73h79o49p1.apps.googleusercontent.com',
+        callback: handleGoogleCredential,
+      });
+      google.accounts.id.renderButton($('gsiButton'), { theme: 'outline', size: 'large', width: 320, text: 'continue_with', locale: 'fr' });
+    } else if (tries < 25) {
+      setTimeout(() => initGoogleButton(tries + 1), 200);
+    }
+  }
+  initGoogleButton();
   $('acSignIn').addEventListener('click', () => {
     $('acError').hidden = true;
     if (!window.cloud) return acError('Service de compte injoignable pour le moment.');

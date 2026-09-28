@@ -102,6 +102,8 @@
       <h3>Compte</h3>
       <div id="accountLoggedOut">
         <p class="run-meta">Crée un compte gratuit pour retrouver tes séances et ton historique sur plusieurs appareils, ou pour que des amis aient chacun leur espace personnel. Sans compte, tout reste comme avant, stocké uniquement sur ce téléphone.</p>
+        <div id="gsiButton" class="gsi-button"></div>
+        <p class="divider"><span>ou avec un e-mail</span></p>
         <label>E-mail<input id="acEmail" type="email" autocomplete="email" inputmode="email"></label>
         <label>Mot de passe<input id="acPassword" type="password" autocomplete="current-password"></label>
         <div class="account-actions">
@@ -262,6 +264,7 @@
 <div class="toast" id="toast" hidden></div>
 
 <script src="data/exercises.js"></script>
+<script src="https://accounts.google.com/gsi/client" async defer></script>
 <script type="module" src="firebase.js"></script>
 <script type="module" src="app.js"></script>
 </body>
