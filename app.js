@@ -487,6 +487,26 @@
     haltere: ['dumbbell', 'body weight', 'band', 'resistance band', 'kettlebell'],
     pdc: ['body weight', 'wheel roller'],
   };
+  /* Durée : si le texte libre mentionne une durée ("1h30", "45 min"...), on en déduit un
+     nombre d'exercices visé plutôt que de s'en tenir uniquement au niveau, pour que la séance
+     remplisse vraiment le temps disponible. Estimation grossière : temps de travail par série
+     (~35s) + repos, plus ~90s de transition entre deux exercices. */
+  function detectDurationMinutes(freeText) {
+    const txt = (freeText || '').toLowerCase();
+    let m = txt.match(/(\d{1,2})\s*h\s*(\d{1,2})?/);
+    if (m) return parseInt(m[1], 10) * 60 + (m[2] ? parseInt(m[2], 10) : 0);
+    m = txt.match(/(\d{1,3})\s*(minutes?|mins?|mn)\b/);
+    if (m) return parseInt(m[1], 10);
+    return null;
+  }
+  function genCapFromDuration(minutes, objectif, niveau) {
+    if (!minutes || minutes < 10) return null;
+    const obj = GEN_OBJ[objectif] || GEN_OBJ.general;
+    const sets = GEN_LEVEL_SETS[niveau] + (obj.setsBonus || 0);
+    const perExerciseSeconds = sets * (obj.rest + 35) + 90;
+    const n = Math.round((minutes * 60) / perExerciseSeconds);
+    return Math.min(14, Math.max(3, n));
+  }
   /* Sécurité blessures : si le texte libre mentionne une zone douloureuse/blessée, on retire
      purement et simplement de la liste des candidats tout exercice qui sollicite cette zone,
      avant même de la proposer à l'algorithme classique ou à l'IA. On ne compte pas sur l'IA
@@ -552,17 +572,31 @@
     const plan = GEN_FOCUS_PLANS[focus] || GEN_FOCUS_PLANS.full;
     const chosen = [];
     const usedIds = new Set();
+    const poolFor = group => shuffled(S.all.filter(e => GEN_GROUPS[group](e) && matOk(e) && !excluded(e) && !usedIds.has(e.id)));
     for (const [group, count] of plan) {
       if (chosen.length >= cap) break;
-      const test = GEN_GROUPS[group];
-      const pool = shuffled(S.all.filter(e => test(e) && matOk(e) && !excluded(e) && !usedIds.has(e.id)));
+      const pool = poolFor(group);
       const take = Math.min(count, cap - chosen.length, pool.length);
       for (let i = 0; i < take; i++) { chosen.push(pool[i]); usedIds.add(pool[i].id); }
+    }
+    // Séance longue (durée détectée dans le texte libre) : les quotas de base du focus ne
+    // suffisent pas toujours à remplir le temps visé, donc on repioche en tournant sur les
+    // groupes tant qu'il reste des exercices disponibles et que le nombre visé n'est pas atteint.
+    let guard = 0;
+    while (chosen.length < cap && guard < 20) {
+      guard++;
+      let added = false;
+      for (const [group] of plan) {
+        if (chosen.length >= cap) break;
+        const pool = poolFor(group);
+        if (pool.length) { chosen.push(pool[0]); usedIds.add(pool[0].id); added = true; }
+      }
+      if (!added) break;
     }
     return chosen;
   }
   function genRuleBasedSeance(objectif, focus, niveau, materiel, freeText) {
-    const cap = GEN_LEVEL_CAP[niveau];
+    const cap = genCapFromDuration(detectDurationMinutes(freeText), objectif, niveau) || GEN_LEVEL_CAP[niveau];
     const exs = genBuildExercises(focus, materiel, cap, freeText);
     if (!exs.length) return null;
     const obj = GEN_OBJ[objectif];
@@ -611,7 +645,12 @@
     if (!candidates.length) throw new Error('no-candidates');
     const list = candidates.map(e => `${e.id} | ${e.name} | ${e.bp.map(v => fr(BP, v)).join('/')} | ${e.tg.map(v => fr(MU, v)).join('/')} | ${e.eq.map(v => fr(EQ, v)).join('/')}`).join('\n');
     const obj = GEN_OBJ[objectif];
-    const prompt = `Tu es coach sportif. Choisis entre 4 et 8 exercices dans cette liste (format : identifiant | nom | zone | muscles | matériel), pour composer une séance de musculation.
+    const durMin = detectDurationMinutes(freeText);
+    const targetCount = genCapFromDuration(durMin, objectif, niveau);
+    const countInstruction = targetCount
+      ? `Choisis exactement ${targetCount} exercices (la personne a demandé une séance d'environ ${durMin >= 60 ? Math.floor(durMin / 60) + 'h' + (durMin % 60 ? String(durMin % 60).padStart(2, '0') : '') : durMin + ' minutes'}, ce nombre d'exercices est calculé pour remplir ce temps avec les séries/repos habituels)`
+      : `Choisis entre 4 et 8 exercices`;
+    const prompt = `Tu es coach sportif. ${countInstruction} dans cette liste (format : identifiant | nom | zone | muscles | matériel), pour composer une séance de musculation.
 Liste d'exercices disponibles :
 ${list}
 
