@@ -483,29 +483,68 @@
     haltere: ['dumbbell', 'body weight', 'band', 'resistance band', 'kettlebell'],
     pdc: ['body weight', 'wheel roller'],
   };
+  /* Sécurité blessures : si le texte libre mentionne une zone douloureuse/blessée, on retire
+     purement et simplement de la liste des candidats tout exercice qui sollicite cette zone,
+     avant même de la proposer à l'algorithme classique ou à l'IA. On ne compte pas sur l'IA
+     seule pour éviter une zone : elle ne peut choisir que parmi ce qu'on lui donne. */
+  // Un exercice sollicite une zone si celle-ci apparaît en bp, en muscle principal (tg) OU en
+  // muscle secondaire (sec) : un développé couché est classé "Pectoraux" dans la base, mais
+  // sollicite bien l'épaule en secondaire, donc il doit être exclu pour une blessure d'épaule.
+  const zoneHits = (e, ...keys) => keys.some(k => has(e.bp, k) || has(e.tg, k) || has(e.sec, k));
+  const GEN_INJURY_ZONES = {
+    // Toute poussée (pectoraux inclus, quasi toujours en jeu avec l'épaule) et tout ce qui
+    // cible directement l'épaule/la coiffe des rotateurs.
+    shoulder: e => zoneHits(e, 'shoulders', 'chest', 'delts', 'deltoids', 'rotator cuff', 'rear deltoids', 'pectorals', 'upper chest'),
+    knee: e => zoneHits(e, 'upper legs', 'lower legs', 'quads', 'quadriceps', 'hamstrings'),
+    back: e => zoneHits(e, 'back', 'lats', 'latissimus dorsi', 'lower back', 'spine', 'traps', 'trapezius', 'rhomboids'),
+    wrist: e => zoneHits(e, 'wrists', 'wrist', 'wrist extensors', 'wrist flexors'),
+    elbow: e => zoneHits(e, 'triceps', 'biceps', 'forearms'),
+    hip: e => zoneHits(e, 'hip flexors', 'glutes', 'hips', 'upper legs'),
+    ankle: e => zoneHits(e, 'ankles', 'ankle stabilizers', 'lower legs'),
+    neck: e => zoneHits(e, 'neck', 'sternocleidomastoid'),
+  };
+  function detectInjuryZones(freeText) {
+    const txt = (freeText || '').toLowerCase();
+    if (!/(blessur|blesse|blessé|douleur|douloureux|luxat|luxur|entors|tendinit|fractur|op[ée]r|fragil|sensib|instabil|chirurgi|r[ée][ée]duc)/.test(txt)) return [];
+    const zones = [];
+    if (/[ée]paule/.test(txt)) zones.push('shoulder');
+    if (/genou/.test(txt)) zones.push('knee');
+    if (/\bdos\b|lombaire/.test(txt)) zones.push('back');
+    if (/poignet/.test(txt)) zones.push('wrist');
+    if (/coude/.test(txt)) zones.push('elbow');
+    if (/hanche/.test(txt)) zones.push('hip');
+    if (/cheville/.test(txt)) zones.push('ankle');
+    if (/cervical|nuque|\bcou\b/.test(txt)) zones.push('neck');
+    return zones;
+  }
+  function genExcludeInjured(freeText) {
+    const tests = detectInjuryZones(freeText).map(z => GEN_INJURY_ZONES[z]).filter(Boolean);
+    return tests.length ? (e => tests.some(t => t(e))) : (() => false);
+  }
   function shuffled(arr) {
     const a = [...arr];
     for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
     return a;
   }
-  function genBuildExercises(focus, materiel, cap) {
+  function genBuildExercises(focus, materiel, cap, freeText) {
     const equipList = GEN_EQUIP_OK[materiel];
     const matOk = e => !equipList || e.eq.some(v => equipList.includes(v));
+    const excluded = genExcludeInjured(freeText);
     const plan = GEN_FOCUS_PLANS[focus] || GEN_FOCUS_PLANS.full;
     const chosen = [];
     const usedIds = new Set();
     for (const [group, count] of plan) {
       if (chosen.length >= cap) break;
       const test = GEN_GROUPS[group];
-      const pool = shuffled(S.all.filter(e => test(e) && matOk(e) && !usedIds.has(e.id)));
+      const pool = shuffled(S.all.filter(e => test(e) && matOk(e) && !excluded(e) && !usedIds.has(e.id)));
       const take = Math.min(count, cap - chosen.length, pool.length);
       for (let i = 0; i < take; i++) { chosen.push(pool[i]); usedIds.add(pool[i].id); }
     }
     return chosen;
   }
-  function genRuleBasedSeance(objectif, focus, niveau, materiel) {
+  function genRuleBasedSeance(objectif, focus, niveau, materiel, freeText) {
     const cap = GEN_LEVEL_CAP[niveau];
-    const exs = genBuildExercises(focus, materiel, cap);
+    const exs = genBuildExercises(focus, materiel, cap, freeText);
     if (!exs.length) return null;
     const obj = GEN_OBJ[objectif];
     const sets = GEN_LEVEL_SETS[niveau] + (obj.setsBonus || 0);
@@ -531,14 +570,15 @@
     const secret = (store.get('aiSecret', '') || '').trim() || AI_DEFAULT_SECRET;
     return url ? { url, secret } : null;
   }
-  function genAiCandidatePool(focus, materiel, perGroup) {
+  function genAiCandidatePool(focus, materiel, perGroup, freeText) {
     const equipList = GEN_EQUIP_OK[materiel];
     const matOk = e => !equipList || e.eq.some(v => equipList.includes(v));
+    const excluded = genExcludeInjured(freeText);
     const plan = GEN_FOCUS_PLANS[focus] || GEN_FOCUS_PLANS.full;
     const seen = new Set(); const out = [];
     for (const [group] of plan) {
       const test = GEN_GROUPS[group];
-      const pool = shuffled(S.all.filter(e => test(e) && matOk(e) && !seen.has(e.id)));
+      const pool = shuffled(S.all.filter(e => test(e) && matOk(e) && !excluded(e) && !seen.has(e.id)));
       pool.slice(0, perGroup).forEach(e => { seen.add(e.id); out.push(e); });
     }
     return out;
@@ -546,7 +586,9 @@
   async function genCallAi(objectif, focus, niveau, materiel, freeText) {
     const cfg = aiConfig();
     if (!cfg) throw new Error('no-config');
-    const candidates = genAiCandidatePool(focus, materiel, 12);
+    // La liste envoyée à l'IA exclut déjà toute zone signalée comme blessée : elle ne peut
+    // donc pas choisir ces exercices, même si elle ignorait la consigne du prompt.
+    const candidates = genAiCandidatePool(focus, materiel, 12, freeText);
     if (!candidates.length) throw new Error('no-candidates');
     const list = candidates.map(e => `${e.id} | ${e.name} | ${e.bp.map(v => fr(BP, v)).join('/')} | ${e.tg.map(v => fr(MU, v)).join('/')} | ${e.eq.map(v => fr(EQ, v)).join('/')}`).join('\n');
     const obj = GEN_OBJ[objectif];
@@ -609,9 +651,9 @@ Les identifiants doivent venir exactement de la liste fournie. Adapte séries/r�
       catch { result = null; }
       btn.disabled = false; btn.textContent = 'Générer la séance';
     }
-    if (!result) result = genRuleBasedSeance(objectif, focus, niveau, materiel);
+    if (!result) result = genRuleBasedSeance(objectif, focus, niveau, materiel, freeText);
     if (!result) {
-      $('genError').textContent = 'Pas assez d’exercices disponibles avec ce matériel pour cette combinaison. Essaie « Salle de sport complète » ou une autre partie du corps.';
+      $('genError').textContent = 'Pas assez d’exercices disponibles pour cette combinaison (matériel, partie du corps, ou zone à préserver d’après ce que tu as décrit). Essaie « Salle de sport complète » ou une autre partie du corps.';
       $('genError').hidden = false;
       return;
     }
