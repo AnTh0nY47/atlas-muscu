@@ -701,6 +701,22 @@
   function renderReglages() {
     $('setSound').checked = !!S.settings.sound;
     $('setVibrate').checked = !!S.settings.vibrate;
+    updateStorageUsage();
+  }
+  /* Poids réel occupé par l'appli (illustrations comprises), lu directement depuis le
+     stockage du navigateur : sur iPhone, une appli ajoutée à l'écran d'accueil a son
+     propre espace de stockage qui n'apparaît nulle part dans les réglages du téléphone,
+     donc c'est la seule façon fiable de connaître ce chiffre. */
+  async function updateStorageUsage() {
+    const el = $('storageUsage');
+    if (!el || !navigator.storage || !navigator.storage.estimate) { if (el) el.textContent = ''; return; }
+    try {
+      const { usage } = await navigator.storage.estimate();
+      if (!usage) { el.textContent = ''; return; }
+      const mo = usage / (1024 * 1024);
+      const texte = mo >= 1024 ? `${(mo / 1024).toFixed(2)} Go` : `${mo.toFixed(1)} Mo`;
+      el.textContent = `Espace utilisé par l'appli sur ce téléphone : ${texte}`;
+    } catch { el.textContent = ''; }
   }
   $('setSound').addEventListener('change', e => { S.settings.sound = e.target.checked; saveSettings(); });
   $('setVibrate').addEventListener('change', e => { S.settings.vibrate = e.target.checked; saveSettings(); });
@@ -724,6 +740,7 @@
     await Promise.all(Array.from({ length: 6 }, worker));
     btn.disabled = false;
     $('downloadStatus').textContent = `Terminé : ${done} illustrations enregistrées pour l'usage hors-ligne${failed ? `, ${failed} indisponibles pour le moment` : ''}.`;
+    updateStorageUsage();
     toast('Téléchargement terminé');
   });
 
