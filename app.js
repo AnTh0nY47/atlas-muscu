@@ -797,19 +797,10 @@
       'auth/user-not-found': 'Aucun compte avec cet e-mail.',
       'auth/too-many-requests': 'Trop de tentatives, réessaie plus tard.',
       'auth/missing-password': 'Indique un mot de passe.',
-      'auth/account-exists-with-different-credential': 'Cette adresse est déjà utilisée avec un autre mode de connexion.',
-      'auth/unauthorized-domain': 'Ce site n’est pas encore autorisé pour la connexion Google dans Firebase.',
-      'auth/popup-closed-by-user': '',
     };
-    const msg = e && map[e.code];
-    return msg === '' ? '' : (msg || 'Une erreur est survenue, réessaie.');
+    return (e && map[e.code]) || 'Une erreur est survenue, réessaie.';
   }
-  $('acGoogle').addEventListener('click', () => {
-    $('acError').hidden = true;
-    if (!window.cloud) return acError('Service de compte injoignable pour le moment.');
-    window.cloud.signInWithGoogle().catch(e => acError(cloudErrorMessage(e)));
-  });
-  function acError(msg) { if (!msg) return; $('acError').textContent = msg; $('acError').hidden = false; }
+  function acError(msg) { $('acError').textContent = msg; $('acError').hidden = false; }
   $('acSignIn').addEventListener('click', () => {
     $('acError').hidden = true;
     if (!window.cloud) return acError('Service de compte injoignable pour le moment.');
@@ -830,7 +821,6 @@
   });
   function initCloudAuth() {
     if (!window.cloud) return;
-    window.cloud.checkRedirect().catch(e => acError(cloudErrorMessage(e)));
     window.cloud.onAuth(user => {
       if (user) startCloudSync(user); else stopCloudSync();
       renderAccount();
