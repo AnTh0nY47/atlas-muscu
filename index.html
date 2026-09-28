@@ -51,6 +51,7 @@
     <p class="status" id="seancesEmpty" hidden>Aucune séance pour l'instant. Crée-en une, ou ajoutes-y un exercice depuis sa fiche.</p>
     <div class="seances-list" id="seancesList"></div>
     <button class="btn-primary btn-block" id="newSeanceBtn">+ Nouvelle séance</button>
+    <button class="btn-secondary btn-block" id="genOpenBtn">✨ Générer une séance</button>
   </main>
 </div>
 
@@ -374,6 +375,46 @@
     <div class="pick-new">
       <input id="pickNewName" placeholder="Nouvelle séance…">
       <button class="btn-primary" id="pickNewBtn">Créer et ajouter</button>
+    </div>
+  </article>
+</div>
+
+<div class="modal" id="genModal" hidden role="dialog" aria-modal="true" aria-labelledby="genTitle">
+  <div class="scrim" data-close-gen></div>
+  <article class="sheet small">
+    <header class="mhead">
+      <button class="icon" data-close-gen aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+      <h2 id="genTitle">Générer une séance</h2>
+    </header>
+    <div class="custom-form">
+      <p class="run-meta">Réponds à quelques questions, un algorithme choisit les exercices, les séries et les répétitions pour toi. Tu pourras tout modifier ensuite.</p>
+      <label>Objectif<select id="genObjectif">
+        <option value="muscle">Prise de muscle</option>
+        <option value="secher">Perte de poids / sèche</option>
+        <option value="force">Force</option>
+        <option value="general">Forme générale</option>
+      </select></label>
+      <label>Partie du corps ciblée<select id="genFocus">
+        <option value="full">Corps entier</option>
+        <option value="haut">Haut du corps</option>
+        <option value="bas">Bas du corps</option>
+        <option value="push">Push (pecs, épaules, triceps)</option>
+        <option value="pull">Pull (dos, biceps)</option>
+        <option value="jambes">Jambes</option>
+        <option value="abdos">Abdos</option>
+      </select></label>
+      <label>Niveau<select id="genNiveau">
+        <option value="debutant">Débutant</option>
+        <option value="intermediaire" selected>Intermédiaire</option>
+        <option value="avance">Avancé</option>
+      </select></label>
+      <label>Matériel disponible<select id="genMateriel">
+        <option value="salle">Salle de sport complète</option>
+        <option value="haltere">Chez moi, avec haltères</option>
+        <option value="pdc">Poids du corps uniquement</option>
+      </select></label>
+      <p class="status" id="genError" hidden></p>
+      <button class="btn-primary btn-block" id="genCreateBtn">Générer la séance</button>
     </div>
   </article>
 </div>

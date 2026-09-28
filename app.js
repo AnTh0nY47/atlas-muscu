@@ -445,6 +445,85 @@
     toast('Séance créée et exercice ajouté');
   });
 
+  /* Générateur de séance : un algorithme (pas une IA) choisit les exercices, séries et
+     répétitions selon quelques réponses simples, en réutilisant les mêmes catégories que
+     les filtres de la page Exercices. La séance générée reste ensuite modifiable comme
+     n'importe quelle autre. */
+  const GEN_GROUPS = {
+    chest: e => has(e.bp, 'chest'),
+    back: e => has(e.bp, 'back'),
+    shoulders: e => has(e.bp, 'shoulders'),
+    biceps: e => has(e.tg, 'biceps'),
+    triceps: e => has(e.tg, 'triceps'),
+    quads: e => has(e.tg, 'quads') || has(e.tg, 'quadriceps'),
+    legsPost: e => has(e.tg, 'hamstrings') || has(e.tg, 'glutes') || has(e.tg, 'abductors') || has(e.tg, 'adductors'),
+    calves: e => has(e.bp, 'lower legs'),
+    abs: e => has(e.bp, 'waist'),
+  };
+  const GEN_FOCUS_PLANS = {
+    full: [['chest', 1], ['back', 1], ['shoulders', 1], ['quads', 1], ['legsPost', 1], ['abs', 1]],
+    haut: [['chest', 2], ['back', 2], ['shoulders', 1], ['biceps', 1], ['triceps', 1]],
+    bas: [['quads', 2], ['legsPost', 2], ['calves', 1], ['abs', 1]],
+    push: [['chest', 2], ['shoulders', 2], ['triceps', 1]],
+    pull: [['back', 3], ['biceps', 2]],
+    jambes: [['quads', 2], ['legsPost', 2], ['calves', 2]],
+    abdos: [['abs', 4]],
+  };
+  const GEN_FOCUS_LABELS = { full: 'Corps entier', haut: 'Haut du corps', bas: 'Bas du corps', push: 'Push', pull: 'Pull', jambes: 'Jambes', abdos: 'Abdos' };
+  const GEN_LEVEL_CAP = { debutant: 4, intermediaire: 6, avance: 8 };
+  const GEN_LEVEL_SETS = { debutant: 3, intermediaire: 3, avance: 4 };
+  const GEN_OBJ = {
+    muscle: { reps: 10, rest: 75, label: 'prise de muscle' },
+    secher: { reps: 15, rest: 40, label: 'perte de poids' },
+    force: { reps: 5, rest: 120, label: 'force', setsBonus: 1 },
+    general: { reps: 12, rest: 60, label: 'forme générale' },
+  };
+  const GEN_EQUIP_OK = {
+    salle: null,
+    haltere: ['dumbbell', 'body weight', 'band', 'resistance band', 'kettlebell'],
+    pdc: ['body weight', 'wheel roller'],
+  };
+  function shuffled(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1));[a[i], a[j]] = [a[j], a[i]]; }
+    return a;
+  }
+  function genBuildExercises(focus, materiel, cap) {
+    const equipList = GEN_EQUIP_OK[materiel];
+    const matOk = e => !equipList || e.eq.some(v => equipList.includes(v));
+    const plan = GEN_FOCUS_PLANS[focus] || GEN_FOCUS_PLANS.full;
+    const chosen = [];
+    const usedIds = new Set();
+    for (const [group, count] of plan) {
+      if (chosen.length >= cap) break;
+      const test = GEN_GROUPS[group];
+      const pool = shuffled(S.all.filter(e => test(e) && matOk(e) && !usedIds.has(e.id)));
+      const take = Math.min(count, cap - chosen.length, pool.length);
+      for (let i = 0; i < take; i++) { chosen.push(pool[i]); usedIds.add(pool[i].id); }
+    }
+    return chosen;
+  }
+  $('genOpenBtn').addEventListener('click', () => { $('genError').hidden = true; $('genModal').hidden = false; });
+  $('genModal').addEventListener('click', e => { if (e.target.closest('[data-close-gen]')) $('genModal').hidden = true; });
+  $('genCreateBtn').addEventListener('click', () => {
+    const objectif = $('genObjectif').value, focus = $('genFocus').value, niveau = $('genNiveau').value, materiel = $('genMateriel').value;
+    const cap = GEN_LEVEL_CAP[niveau];
+    const exs = genBuildExercises(focus, materiel, cap);
+    if (!exs.length) {
+      $('genError').textContent = 'Pas assez d’exercices disponibles avec ce matériel pour cette combinaison. Essaie « Salle de sport complète » ou une autre partie du corps.';
+      $('genError').hidden = false;
+      return;
+    }
+    const obj = GEN_OBJ[objectif];
+    const sets = GEN_LEVEL_SETS[niveau] + (obj.setsBonus || 0);
+    const items = exs.map(e => ({ exId: e.id, sets, reps: obj.reps, rest: obj.rest, weight: 0 }));
+    const s = { id: uid(), name: `${GEN_FOCUS_LABELS[focus]} — ${obj.label}`, items };
+    S.seances.push(s); saveSeances();
+    $('genModal').hidden = true;
+    toast('Séance générée, tu peux tout ajuster');
+    location.hash = '#/seance/' + s.id;
+  });
+
   /* Création d'un exercice personnalisé */
   const BP_OPTS = Object.entries(BP).sort((a, b) => a[1].localeCompare(b[1]));
   const MU_OPTS = (() => {
@@ -1146,7 +1225,7 @@
   /* Piège de focus : le Tab reste à l'intérieur de la fenêtre ouverte */
   document.addEventListener('keydown', e => {
     if (e.key !== 'Tab') return;
-    const open = ['modal', 'customModal', 'pickModal'].map($).find(m => m && !m.hidden);
+    const open = ['modal', 'customModal', 'pickModal', 'genModal'].map($).find(m => m && !m.hidden);
     if (!open) return;
     const items = [...open.querySelectorAll('button:not([disabled]), input, select, textarea, [href]')].filter(el => el.offsetParent !== null);
     if (!items.length) return;
