@@ -521,11 +521,14 @@
      configuré, pas de réseau, réponse invalide), on retombe silencieusement sur l'algorithme
      classique : c'est ce qui permet au générateur de continuer à marcher à la salle sans
      signal.
-     ATTENTION à toute personne qui modifierait ce code : le mot de passe du relais est saisi
-     par l'utilisateur lui-même dans Réglages, jamais codé en dur ici. */
+     Le relais est fourni par défaut avec l'appli (même adresse pour tout le monde) afin que
+     personne n'ait à créer son propre compte Cloudflare. Réglages > IA du générateur permet
+     quand même de le remplacer par un relais perso si besoin. */
+  const AI_DEFAULT_URL = 'https://atlas-muscu-ai.anth-boudet.workers.dev/';
+  const AI_DEFAULT_SECRET = 'Tonydu47!';
   function aiConfig() {
-    const url = (store.get('aiWorkerUrl', '') || '').trim();
-    const secret = (store.get('aiSecret', '') || '').trim();
+    const url = (store.get('aiWorkerUrl', '') || '').trim() || AI_DEFAULT_URL;
+    const secret = (store.get('aiSecret', '') || '').trim() || AI_DEFAULT_SECRET;
     return url ? { url, secret } : null;
   }
   function genAiCandidatePool(focus, materiel, perGroup) {
@@ -622,10 +625,10 @@ Les identifiants doivent venir exactement de la liste fournie. Adapte séries/r�
 
   /* Réglages de l'IA du générateur */
   function renderAiSettings() {
-    const cfg = aiConfig();
-    $('rowIASub').textContent = cfg ? 'Configurée' : 'Non configurée';
-    $('aiWorkerUrl').value = cfg ? cfg.url : '';
-    $('aiSecret').value = cfg ? cfg.secret : '';
+    const custom = (store.get('aiWorkerUrl', '') || '').trim();
+    $('rowIASub').textContent = custom ? 'Relais personnalisé' : 'Activée (relais par défaut)';
+    $('aiWorkerUrl').value = custom;
+    $('aiSecret').value = custom ? (store.get('aiSecret', '') || '').trim() : '';
     $('aiSaveMsg').hidden = true;
   }
   $('aiSaveBtn').addEventListener('click', () => {

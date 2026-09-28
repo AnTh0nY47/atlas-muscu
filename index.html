@@ -152,7 +152,7 @@
         </button>
         <button class="settings-row" data-open="rIA">
           <span class="row-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/><circle cx="12" cy="12" r="3"/></svg></span>
-          <span class="row-body"><span class="row-label">IA du générateur</span><span class="row-sub" id="rowIASub">Non configurée</span></span>
+          <span class="row-body"><span class="row-label">IA du générateur</span><span class="row-sub" id="rowIASub">Activée</span></span>
           <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
         </button>
       </div>
@@ -240,12 +240,12 @@
     <header class="top simple"><button class="icon" data-rback aria-label="Retour"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><h1>IA du générateur</h1></header>
     <main class="settings-main">
       <section class="settings-group">
-        <p class="run-meta">Le générateur de séance fonctionne déjà sans ça, avec un algorithme classique. Pour qu'il utilise une vraie IA en plus (qui tient compte de ce que tu décris en texte libre), il faut un petit relais gratuit qui garde ta clé secrète. Colle ici son adresse et le mot de passe que tu as choisis en le créant. Si tu ne l'as pas encore mis en place, demande-moi comment faire.</p>
+        <p class="run-meta">L'IA est activée par défaut pour tout le monde, via un relais déjà configuré : rien à faire. Si tu veux la faire pointer vers ton propre relais à la place, remplace l'adresse et le mot de passe ci-dessous.</p>
         <label>Adresse du relais<input id="aiWorkerUrl" type="url" placeholder="https://....workers.dev" autocapitalize="off" autocorrect="off"></label>
         <label>Mot de passe du relais<input id="aiSecret" type="password" autocapitalize="off" autocorrect="off"></label>
         <div class="account-actions">
           <button class="btn-primary" id="aiSaveBtn">Enregistrer</button>
-          <button class="btn-secondary" id="aiClearBtn">Retirer</button>
+          <button class="btn-secondary" id="aiClearBtn">Revenir au relais par défaut</button>
         </div>
         <p class="status" id="aiSaveMsg" hidden></p>
       </section>
