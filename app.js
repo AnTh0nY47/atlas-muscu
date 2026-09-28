@@ -4,7 +4,7 @@
 
   /* Traductions */
   const BP = { back: 'Dos', cardio: 'Cardio', chest: 'Pectoraux', 'lower arms': 'Avant-bras', 'lower legs': 'Mollets', neck: 'Cou', shoulders: 'Épaules', 'upper arms': 'Bras', 'upper legs': 'Cuisses', waist: 'Abdos' };
-  const EQ = { assisted: 'Assisté', band: 'Élastique', barbell: 'Barre', 'body weight': 'Poids du corps', 'bosu ball': 'Bosu', cable: 'Poulie', dumbbell: 'Haltère', 'elliptical machine': 'Elliptique', 'ez barbell': 'Barre EZ', hammer: 'Masse', kettlebell: 'Kettlebell', 'leverage machine': 'Machine guidée', 'medicine ball': 'Médecine ball', 'olympic barbell': 'Barre olympique', 'resistance band': 'Bande de résistance', roller: 'Rouleau', rope: 'Corde', 'skierg machine': 'SkiErg', 'sled machine': 'Traîneau', 'smith machine': 'Smith machine', 'stability ball': 'Swiss ball', 'stationary bike': 'Vélo', 'stepmill machine': 'Stepper', tire: 'Pneu', 'trap bar': 'Trap bar', 'upper body ergometer': 'Ergomètre bras', weighted: 'Lesté', 'wheel roller': 'Roue abdominale' };
+  const EQ = { assisted: 'Assisté', band: 'Élastique', barbell: 'Barre', 'body weight': 'Poids du corps', 'bosu ball': 'Bosu', cable: 'Poulie', dumbbell: 'Haltère', 'elliptical machine': 'Elliptique', 'ez barbell': 'Barre EZ', hammer: 'Masse', kettlebell: 'Kettlebell', 'leverage machine': 'Machine guidée', 'medicine ball': 'Médecine ball', 'olympic barbell': 'Barre olympique', 'resistance band': 'Bande de résistance', roller: 'Rouleau', rope: 'Corde', 'skierg machine': 'SkiErg', 'sled machine': 'Traîneau', 'smith machine': 'Smith machine', 'stability ball': 'Swiss ball', 'stationary bike': 'Vélo', 'stepmill machine': 'Stepper', tire: 'Pneu', 'trap bar': 'Trap bar', 'upper body ergometer': 'Ergomètre bras', weighted: 'Lesté', 'wheel roller': 'Roue abdominale', 'pull-up bar': 'Barre de traction', bench: 'Banc', 'incline bench': 'Banc incliné' };
   const MU = { abductors: 'Abducteurs', abs: 'Abdominaux', adductors: 'Adducteurs', biceps: 'Biceps', calves: 'Mollets', 'cardiovascular system': 'Système cardio', delts: 'Deltoïdes', deltoids: 'Deltoïdes', forearms: 'Avant-bras', glutes: 'Fessiers', hamstrings: 'Ischio-jambiers', lats: 'Grand dorsal', 'latissimus dorsi': 'Grand dorsal', 'levator scapulae': 'Élévateur de la scapula', pectorals: 'Pectoraux', chest: 'Pectoraux', 'upper chest': 'Haut des pectoraux', quads: 'Quadriceps', quadriceps: 'Quadriceps', 'serratus anterior': 'Grand dentelé', spine: 'Érecteurs du rachis', traps: 'Trapèzes', trapezius: 'Trapèzes', triceps: 'Triceps', 'upper back': 'Haut du dos', shoulders: 'Épaules', core: 'Sangle abdominale', 'lower back': 'Bas du dos', obliques: 'Obliques', 'hip flexors': 'Fléchisseurs de hanche', rhomboids: 'Rhomboïdes', 'rear deltoids': 'Deltoïdes postérieurs', wrists: 'Poignets', wrist: 'Poignets', back: 'Dos', 'inner thighs': 'Intérieur des cuisses', groin: 'Adducteurs', ankles: 'Chevilles', 'ankle stabilizers': 'Stabilisateurs de cheville', soleus: 'Soléaire', brachialis: 'Brachial', 'lower abs': 'Bas des abdos', feet: 'Pieds', shins: 'Tibias', hands: 'Mains', neck: 'Cou', sternocleidomastoid: 'Sterno-cléido-mastoïdien', 'rotator cuff': 'Coiffe des rotateurs', hips: 'Hanches', 'grip muscles': 'Muscles de la préhension', 'wrist extensors': 'Extenseurs du poignet', 'wrist flexors': 'Fléchisseurs du poignet' };
   const mu = (e, k) => MU[k] || e.mfr[k] || fr(MU, k);
   const fr = (d, k) => d[k] || (k ? k.charAt(0).toUpperCase() + k.slice(1) : '');
@@ -189,7 +189,13 @@
     S.all.forEach(e => S.byId.set(e.id, e));
   }
 
-  async function load() {
+  // Noyau d'exercices intégré en dur à l'appli (base wger.de, licence CC BY-SA,
+  // voir data/wger-exercises.js et À propos) : aucune requête réseau, aucune
+  // dépendance à un service tiers pour ces fiches, elles restent disponibles
+  // même si ExerciseDB change un jour ses conditions d'usage.
+  const wgerSet = () => Array.isArray(window.WGER_EXERCISES) ? window.WGER_EXERCISES : [];
+
+  async function loadExerciseDb() {
     if (Array.isArray(window.EXERCISES) && window.EXERCISES.length) return window.EXERCISES;
     const cached = store.get('cache', null);
     if (cached && cached.length) return cached;
@@ -206,6 +212,13 @@
     }
     store.set('cache', out);
     return out;
+  }
+
+  async function load() {
+    let db = [];
+    try { db = await loadExerciseDb(); }
+    catch (err) { if (!wgerSet().length) throw err; }
+    return [...wgerSet(), ...db];
   }
 
   /* Filtres */
