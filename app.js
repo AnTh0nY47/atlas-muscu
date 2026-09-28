@@ -704,6 +704,29 @@
   }
   $('setSound').addEventListener('change', e => { S.settings.sound = e.target.checked; saveSettings(); });
   $('setVibrate').addEventListener('change', e => { S.settings.vibrate = e.target.checked; saveSettings(); });
+  /* Téléchargement à l'avance de toutes les illustrations, pour un usage hors-ligne complet */
+  $('downloadGifsBtn').addEventListener('click', async () => {
+    const gifs = [...new Set(S.all.filter(e => e.gif).map(e => e.gif))];
+    if (!gifs.length) { toast('Les exercices ne sont pas encore chargés'); return; }
+    if (!confirm(`Télécharger ${gifs.length} illustrations maintenant ? Ça représente plusieurs centaines de mégaoctets, mieux vaut être en wifi.`)) return;
+    const btn = $('downloadGifsBtn'); btn.disabled = true;
+    let done = 0, failed = 0;
+    const update = () => { $('downloadStatus').textContent = `Téléchargement… ${done + failed} / ${gifs.length}${failed ? ` (${failed} échec${failed > 1 ? 's' : ''})` : ''}`; };
+    update();
+    let idx = 0;
+    async function worker() {
+      while (idx < gifs.length) {
+        const url = gifs[idx++];
+        try { await fetch(url); done++; } catch { failed++; }
+        update();
+      }
+    }
+    await Promise.all(Array.from({ length: 6 }, worker));
+    btn.disabled = false;
+    $('downloadStatus').textContent = `Terminé : ${done} illustrations enregistrées pour l'usage hors-ligne${failed ? `, ${failed} indisponibles pour le moment` : ''}.`;
+    toast('Téléchargement terminé');
+  });
+
   $('exportBtn').addEventListener('click', () => {
     const payload = { app: 'atlas-muscu', version: 1, exportedAt: new Date().toISOString(), seances: S.seances, history: S.history, favs: [...S.favs], custom: S.custom, notes: S.notes };
     const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
@@ -882,6 +905,7 @@
     if (e.gif) {
       $('mGifPlaceholder').hidden = true; g.hidden = false;
       g.onload = () => { const w = g.naturalWidth; if (w) g.style.width = Math.min(420, Math.round(w * 1.5)) + 'px'; };
+      g.onerror = () => { g.hidden = true; $('mGifPlaceholder').hidden = false; };
       g.src = e.gif; g.alt = 'Démonstration animée : ' + e.name;
     } else {
       g.hidden = true; g.removeAttribute('src');
@@ -979,7 +1003,8 @@
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 
-  /* Animation qui ne se charge pas : un nouvel essai, puis on masque la carte */
+  /* Animation qui ne se charge pas (pas de réseau...) : un nouvel essai, puis une icône de
+     remplacement à la place de l'image plutôt que de masquer l'exercice entier. */
   window.gifFail = img => {
     if (!img.dataset.retry) {
       img.dataset.retry = '1';
@@ -987,8 +1012,10 @@
       setTimeout(() => { img.src = src + '?r=' + Date.now(); }, 1500);
       return;
     }
-    const box = img.closest('.card, .rel button');
-    if (box) box.hidden = true;
+    const span = document.createElement('span');
+    span.className = 'custom-thumb';
+    span.innerHTML = CUSTOM_ICON;
+    img.replaceWith(span);
   };
 
   /* Démarrage */
