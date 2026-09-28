@@ -119,10 +119,11 @@
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const title = s => s.replace(/(^|[\s(-])([a-z])/g, (m, a, b) => a + b.toUpperCase());
   const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
-  const saveSeances = () => store.set('seances', S.seances);
-  const saveHistory = () => store.set('history', S.history);
-  const saveCustom = () => store.set('custom', S.custom);
-  const saveNotes = () => store.set('notes', S.notes);
+  const saveSeances = () => { store.set('seances', S.seances); queueCloudPush(); };
+  const saveHistory = () => { store.set('history', S.history); queueCloudPush(); };
+  const saveCustom = () => { store.set('custom', S.custom); queueCloudPush(); };
+  const saveNotes = () => { store.set('notes', S.notes); queueCloudPush(); };
+  const saveFavs = () => { store.set('favs', [...S.favs]); queueCloudPush(); };
   const saveSettings = () => store.set('settings', S.settings);
   function fmtDuration(sec) {
     const m = Math.floor(sec / 60), s = sec % 60;
@@ -265,7 +266,7 @@
 
   function toggleFav(id) {
     S.favs.has(id) ? S.favs.delete(id) : S.favs.add(id);
-    store.set('favs', [...S.favs]);
+    saveFavs();
     if (S.settings.vibrate && navigator.vibrate) navigator.vibrate(10);
     document.querySelectorAll(`.card[data-id="${CSS.escape(id)}"] .bm`).forEach(b => b.setAttribute('aria-pressed', S.favs.has(id)));
     if (S.current && S.current.id === id) setFavBtn();
@@ -719,7 +720,7 @@
       if (!confirm('Remplacer tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes actuels par ceux de ce fichier ?')) return;
       if (Array.isArray(data.seances)) { S.seances = data.seances; saveSeances(); }
       if (Array.isArray(data.history)) { S.history = data.history; saveHistory(); }
-      if (Array.isArray(data.favs)) { S.favs = new Set(data.favs); store.set('favs', [...S.favs]); }
+      if (Array.isArray(data.favs)) { S.favs = new Set(data.favs); saveFavs(); }
       if (Array.isArray(data.custom)) { S.custom = data.custom; saveCustom(); mergeCustom(); }
       if (data.notes && typeof data.notes === 'object') { S.notes = data.notes; saveNotes(); }
       toast('Données importées');
@@ -729,10 +730,103 @@
   $('resetBtn').addEventListener('click', () => {
     if (!confirm('Supprimer définitivement toutes tes séances, ton historique, tes favoris, tes exercices personnalisés et tes notes ? Cette action est irréversible.')) return;
     S.seances = []; S.history = []; S.favs = new Set(); S.custom = []; S.notes = {};
-    saveSeances(); saveHistory(); store.set('favs', []); saveCustom(); saveNotes(); mergeCustom();
+    saveSeances(); saveHistory(); saveFavs(); saveCustom(); saveNotes(); mergeCustom();
     toast('Données réinitialisées');
     renderSeancesList(); renderHistList(); renderGrid();
   });
+
+  /* Compte et synchronisation cloud (facultatif, activé quand window.cloud existe) */
+  let cloudUser = null, cloudUnsub = null, cloudSyncTimer = null, cloudApplyingRemote = false;
+  function cloudBlob() {
+    return { seances: S.seances, history: S.history, favs: [...S.favs], custom: S.custom, notes: S.notes, updatedAt: Date.now() };
+  }
+  function applyCloudBlob(data) {
+    cloudApplyingRemote = true;
+    if (Array.isArray(data.seances)) { S.seances = data.seances; store.set('seances', S.seances); }
+    if (Array.isArray(data.history)) { S.history = data.history; store.set('history', S.history); }
+    if (Array.isArray(data.favs)) { S.favs = new Set(data.favs); store.set('favs', data.favs); }
+    if (Array.isArray(data.custom)) { S.custom = data.custom; store.set('custom', S.custom); mergeCustom(); }
+    if (data.notes && typeof data.notes === 'object') { S.notes = data.notes; store.set('notes', S.notes); }
+    cloudApplyingRemote = false;
+    renderSeancesList(); renderHistList(); renderGrid();
+    if (S.current) $('mNotes').value = S.notes[S.current.id] || '';
+  }
+  function queueCloudPush() {
+    if (!cloudUser || cloudApplyingRemote || !window.cloud) return;
+    setSyncStatus('sync');
+    clearTimeout(cloudSyncTimer);
+    cloudSyncTimer = setTimeout(() => {
+      window.cloud.pushData(cloudUser.uid, cloudBlob()).then(() => setSyncStatus('ok')).catch(() => setSyncStatus('erreur'));
+    }, 900);
+  }
+  function setSyncStatus(state) {
+    const el = $('syncStatus'); if (!el) return;
+    el.textContent = { sync: 'Synchronisation…', ok: 'Synchronisé', erreur: 'Erreur de synchronisation, nouvelle tentative au prochain changement' }[state] || '';
+  }
+  function startCloudSync(user) {
+    cloudUser = user;
+    setSyncStatus('sync');
+    if (cloudUnsub) cloudUnsub();
+    window.cloud.fetchData(user.uid).then(remote => {
+      if (remote) { applyCloudBlob(remote); toast('Données synchronisées depuis ton compte'); }
+      else queueCloudPush();
+      cloudUnsub = window.cloud.watch(user.uid, (data, pending) => {
+        if (!pending && data) applyCloudBlob(data);
+        setSyncStatus('ok');
+      });
+    }).catch(() => setSyncStatus('erreur'));
+  }
+  function stopCloudSync() {
+    if (cloudUnsub) cloudUnsub();
+    cloudUnsub = null; cloudUser = null;
+    setSyncStatus('off');
+  }
+  function renderAccount() {
+    const on = !!cloudUser;
+    $('accountLoggedOut').hidden = on;
+    $('accountLoggedIn').hidden = !on;
+    if (on) $('acEmailShown').textContent = cloudUser.email;
+  }
+  function cloudErrorMessage(e) {
+    const map = {
+      'auth/invalid-email': 'Adresse e-mail invalide.',
+      'auth/email-already-in-use': 'Un compte existe déjà avec cet e-mail.',
+      'auth/weak-password': 'Le mot de passe doit faire au moins 6 caractères.',
+      'auth/invalid-credential': 'E-mail ou mot de passe incorrect.',
+      'auth/wrong-password': 'E-mail ou mot de passe incorrect.',
+      'auth/user-not-found': 'Aucun compte avec cet e-mail.',
+      'auth/too-many-requests': 'Trop de tentatives, réessaie plus tard.',
+      'auth/missing-password': 'Indique un mot de passe.',
+    };
+    return (e && map[e.code]) || 'Une erreur est survenue, réessaie.';
+  }
+  function acError(msg) { $('acError').textContent = msg; $('acError').hidden = false; }
+  $('acSignIn').addEventListener('click', () => {
+    $('acError').hidden = true;
+    if (!window.cloud) return acError('Service de compte injoignable pour le moment.');
+    window.cloud.signIn($('acEmail').value.trim(), $('acPassword').value).catch(e => acError(cloudErrorMessage(e)));
+  });
+  $('acSignUp').addEventListener('click', () => {
+    $('acError').hidden = true;
+    if (!window.cloud) return acError('Service de compte injoignable pour le moment.');
+    window.cloud.signUp($('acEmail').value.trim(), $('acPassword').value).catch(e => acError(cloudErrorMessage(e)));
+  });
+  $('acSignOut').addEventListener('click', () => window.cloud && window.cloud.signOutUser());
+  $('acForgot').addEventListener('click', () => {
+    $('acError').hidden = true;
+    const email = $('acEmail').value.trim();
+    if (!email) return acError('Indique ton e-mail d’abord.');
+    if (!window.cloud) return acError('Service de compte injoignable pour le moment.');
+    window.cloud.resetPassword(email).then(() => toast('E-mail de réinitialisation envoyé')).catch(e => acError(cloudErrorMessage(e)));
+  });
+  function initCloudAuth() {
+    if (!window.cloud) return;
+    window.cloud.onAuth(user => {
+      if (user) startCloudSync(user); else stopCloudSync();
+      renderAccount();
+    });
+  }
+  if (window.cloud) initCloudAuth(); else addEventListener('cloud-ready', initCloudAuth, { once: true });
 
   /* Bascule entre les grandes vues de l'appli */
   const VIEWS = { exercices: 'viewExercices', seances: 'viewSeances', seanceDetail: 'viewSeanceDetail', run: 'viewRun', historique: 'viewHistorique', reglages: 'viewReglages' };

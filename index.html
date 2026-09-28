@@ -98,6 +98,25 @@
 <div class="view" id="viewReglages" hidden>
   <header class="top simple"><h1>Réglages</h1></header>
   <main>
+    <section class="settings-group" id="accountSection">
+      <h3>Compte</h3>
+      <div id="accountLoggedOut">
+        <p class="run-meta">Crée un compte gratuit pour retrouver tes séances et ton historique sur plusieurs appareils, ou pour que des amis aient chacun leur espace personnel. Sans compte, tout reste comme avant, stocké uniquement sur ce téléphone.</p>
+        <label>E-mail<input id="acEmail" type="email" autocomplete="email" inputmode="email"></label>
+        <label>Mot de passe<input id="acPassword" type="password" autocomplete="current-password"></label>
+        <div class="account-actions">
+          <button class="btn-primary" id="acSignIn">Se connecter</button>
+          <button class="btn-secondary" id="acSignUp">Créer un compte</button>
+        </div>
+        <button class="link-btn" id="acForgot" type="button">Mot de passe oublié ?</button>
+        <p class="status" id="acError" hidden></p>
+      </div>
+      <div id="accountLoggedIn" hidden>
+        <p class="run-meta">Connecté en tant que <strong id="acEmailShown"></strong></p>
+        <p class="sync-status" id="syncStatus"></p>
+        <button class="btn-secondary btn-block" id="acSignOut">Se déconnecter</button>
+      </div>
+    </section>
     <section class="settings-group">
       <h3>Minuteur</h3>
       <label class="switch-row"><span>Bip sonore en fin de repos</span><input type="checkbox" id="setSound"></label>
@@ -243,6 +262,7 @@
 <div class="toast" id="toast" hidden></div>
 
 <script src="data/exercises.js"></script>
-<script src="app.js"></script>
+<script type="module" src="firebase.js"></script>
+<script type="module" src="app.js"></script>
 </body>
 </html>

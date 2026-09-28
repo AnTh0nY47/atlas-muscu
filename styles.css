@@ -236,6 +236,13 @@ dd{margin:0}
 .switch-row input[type="checkbox"]:checked{background:var(--select);border-color:var(--select)}
 .switch-row input[type="checkbox"]:checked::before{left:19px}
 .btn-secondary.danger{color:var(--red)}
+#accountSection label{display:grid;gap:6px;font-size:13px;color:var(--muted);margin-bottom:12px}
+#accountSection input{width:100%;border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14.5px;color:var(--ink);background:var(--surface);font:inherit}
+.account-actions{display:flex;gap:10px}
+.account-actions button{flex:1}
+.link-btn{display:block;margin:12px auto 0;background:none;border:0;color:var(--select);font-size:13px;padding:6px}
+.sync-status{font-size:12.5px;color:var(--muted);margin:2px 0 12px}
+#acError{color:var(--red);margin:10px 0 0;font-size:13px}
 #importLabel{text-align:center}
 #importLabel input{display:none}
 
