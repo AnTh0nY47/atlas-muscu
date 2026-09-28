@@ -507,6 +507,19 @@
     ankle: e => zoneHits(e, 'ankles', 'ankle stabilizers', 'lower legs'),
     neck: e => zoneHits(e, 'neck', 'sternocleidomastoid'),
   };
+  // Certains exercices sollicitent une zone par la position qu'ils imposent (poser son poids
+  // sur le genou, s'appuyer sur les poignets...) sans que cette zone soit le muscle travaillé.
+  // Un étirement du dos "à genoux" doit être exclu pour une blessure au genou, même si le
+  // muscle ciblé est le dos.
+  const GEN_POSTURE_HAZARDS = {
+    knee: /à\s*genou|genoux?\s+au\s+sol|\bkneeling\b/i,
+    wrist: /\b(pompe|planche|appui\s*facial|push-?up|plank|handstand)\b/i,
+    ankle: /\bsaut|jump|bond\b/i,
+  };
+  function hasPostureHazard(e, zone) {
+    const rx = GEN_POSTURE_HAZARDS[zone];
+    return !!rx && (rx.test(e.name || '') || rx.test(e.en || ''));
+  }
   function detectInjuryZones(freeText) {
     const txt = (freeText || '').toLowerCase();
     if (!/(blessur|blesse|blessé|douleur|douloureux|luxat|luxur|entors|tendinit|fractur|op[ée]r|fragil|sensib|instabil|chirurgi|r[ée][ée]duc)/.test(txt)) return [];
@@ -522,8 +535,10 @@
     return zones;
   }
   function genExcludeInjured(freeText) {
-    const tests = detectInjuryZones(freeText).map(z => GEN_INJURY_ZONES[z]).filter(Boolean);
-    return tests.length ? (e => tests.some(t => t(e))) : (() => false);
+    const zones = detectInjuryZones(freeText);
+    if (!zones.length) return () => false;
+    const muscleTests = zones.map(z => GEN_INJURY_ZONES[z]).filter(Boolean);
+    return e => muscleTests.some(t => t(e)) || zones.some(z => hasPostureHazard(e, z));
   }
   function shuffled(arr) {
     const a = [...arr];
