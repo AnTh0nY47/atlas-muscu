@@ -703,10 +703,11 @@
   $('calPrev').addEventListener('click', () => { calMonth.setMonth(calMonth.getMonth() - 1); renderCalendar(); });
   $('calNext').addEventListener('click', () => { calMonth.setMonth(calMonth.getMonth() + 1); renderCalendar(); });
 
-  /* Suivi du poids du corps */
-  function todayISODate() {
-    const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-    return d.toISOString().slice(0, 10);
+  /* Suivi du poids du corps. Le champ date contient un horodatage complet, pour pouvoir
+     enregistrer plusieurs pesées le même jour sans qu'elles s'écrasent entre elles.
+     (Les entrées créées avant cette version n'ont qu'une date sans heure : on gère les deux.) */
+  function weightDateForDisplay(dateStr) {
+    return dateStr.length <= 10 ? dateStr + 'T12:00:00' : dateStr;
   }
   function renderWeightSection() {
     const log = [...S.weightLog].sort((a, b) => a.date.localeCompare(b.date));
@@ -718,17 +719,17 @@
     } else {
       const last = log[log.length - 1];
       const svg = lineChartSvg(log.map(l => l.weight), 'Évolution du poids du corps');
-      chartEl.innerHTML = `${svg}<p class="run-meta">Dernier poids : ${last.weight} kg (${fmtDate(last.date + 'T12:00:00').split(' à ')[0]})</p>`;
+      chartEl.innerHTML = `${svg}<p class="run-meta">Dernier poids : ${last.weight} kg (${fmtDate(weightDateForDisplay(last.date)).split(' à ')[0]})</p>`;
     }
-    $('weightList').innerHTML = [...S.weightLog].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 8).map(w => `
-      <div class="record-row"><span class="nm">${fmtDate(w.date + 'T12:00:00').split(' à ')[0]}</span><span class="val">${w.weight} kg <button class="icon" data-del-weight="${w.id}" aria-label="Supprimer cette pesée"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></div>`).join('');
+    $('weightList').innerHTML = [...S.weightLog].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 12).map(w => `
+      <div class="record-row"><span class="nm">${fmtDate(weightDateForDisplay(w.date))}</span><span class="val">${w.weight} kg <button class="icon" data-del-weight="${w.id}" aria-label="Supprimer cette pesée"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></span></div>`).join('');
   }
   $('weightAddBtn').addEventListener('click', () => {
     const val = parseFloat(($('weightInput').value || '').replace(',', '.'));
     if (!val || val <= 0) { toast('Entre un poids valide'); return; }
-    const today = todayISODate();
-    const existing = S.weightLog.find(w => w.date === today);
-    if (existing) existing.weight = val; else S.weightLog.push({ id: uid(), date: today, weight: val });
+    /* Chaque ajout crée une nouvelle pesée, même si une existe déjà aujourd'hui : utile
+       pour se peser plusieurs fois dans la journée sans perdre les valeurs précédentes. */
+    S.weightLog.push({ id: uid(), date: new Date().toISOString(), weight: val });
     saveWeightLog();
     $('weightInput').value = '';
     renderWeightSection();
