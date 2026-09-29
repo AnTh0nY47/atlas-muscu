@@ -1,35 +1,35 @@
 :root{
-  --bg:#f6efe0;
-  --surface:#fffdf8;
-  --ink:#241b34;
-  --muted:#8a8073;
-  --line:#e9dfc9;
-  --soft:#f1e9d8;
-  --select:#7c3aed;
-  --red:#e8452c;
-  --red-soft:#f7ab9b;
-  --solid:#7c3aed;
+  --bg:#f2f0ea;
+  --surface:#ffffff;
+  --ink:#0e0e0e;
+  --muted:#5a5a5a;
+  --line:#0e0e0e;
+  --soft:#ececec;
+  --select:#ff2d1f;
+  --red:#ff2d1f;
+  --red-soft:#ffb3ac;
+  --solid:#ff2d1f;
   --on-solid:#ffffff;
-  --grad-a:#ffb25e;
-  --grad-b:#ff6a3d;
-  --radius:12px;
-  --font-display:'Bebas Neue', 'Arial Narrow', sans-serif;
+  --grad-a:#ff2d1f;
+  --grad-b:#0e0e0e;
+  --radius:2px;
+  --font-display:'Anton', 'Archivo Black', 'Arial Narrow', sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root{
-    --bg:#171220;
-    --surface:#211a30;
-    --ink:#f2eee6;
-    --muted:#a89fc2;
-    --line:#352b48;
-    --soft:#2a2238;
-    --select:#a78bfa;
-    --red:#ff6b4d;
-    --red-soft:#7a3c30;
-    --solid:#a78bfa;
-    --on-solid:#201530;
-    --grad-a:#e08a3e;
-    --grad-b:#d1502e;
+    --bg:#0b0b0b;
+    --surface:#141414;
+    --ink:#f7f5f0;
+    --muted:#9a9a9a;
+    --line:#f7f5f0;
+    --soft:#1e1e1e;
+    --select:#ff5347;
+    --red:#ff5347;
+    --red-soft:#5a1d17;
+    --solid:#ff5347;
+    --on-solid:#0b0b0b;
+    --grad-a:#ff5347;
+    --grad-b:#f7f5f0;
   }
 }
 *{box-sizing:border-box}
@@ -41,12 +41,12 @@ input,select,textarea{background:var(--surface);color:var(--ink)}
 button{cursor:pointer}
 :focus-visible{outline:2px solid var(--select);outline-offset:2px}
 
-.top{position:sticky;top:0;z-index:10;background:var(--bg);padding:calc(18px + env(safe-area-inset-top,0px)) 16px 8px;border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;justify-content:center;gap:6px;max-width:720px;margin:0 auto 12px;color:var(--ink)}
+.top{position:sticky;top:0;z-index:10;background:var(--bg);padding:0 16px 8px;border-bottom:3px solid var(--line)}
+.brand{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 -16px 14px;padding:calc(14px + env(safe-area-inset-top,0px)) 16px 14px;background:var(--ink);color:var(--bg)}
 .brand-mark{color:var(--solid);flex:none}
-.brand-name{font-family:var(--font-display);font-size:26px;line-height:1;letter-spacing:.04em;text-transform:uppercase}
+.brand-name{font-family:var(--font-display);font-size:32px;line-height:1;letter-spacing:.02em;text-transform:uppercase}
 .brand-accent{color:var(--solid)}
-.search{display:flex;align-items:center;gap:10px;max-width:720px;margin:0 auto;height:50px;padding:0 20px;border:1px solid var(--line);border-radius:999px;background:var(--surface);box-shadow:0 2px 10px rgba(20,24,30,.06);color:var(--muted)}
+.search{display:flex;align-items:center;gap:10px;max-width:720px;margin:0 auto;height:48px;padding:0 18px 0 16px;border:2px solid var(--line);border-radius:var(--radius);background:var(--surface);color:var(--muted)}
 .search input{flex:1;border:0;outline:0;background:transparent;color:var(--ink);height:100%}
 .search input::placeholder{color:var(--muted)}
 
@@ -56,8 +56,8 @@ button{cursor:pointer}
 .cat .ico svg{height:46px;width:auto}
 .cat span{font-size:12px;color:#5b616a;white-space:nowrap}
 .cat:hover .ico{background:var(--soft)}
-.cat[aria-pressed="true"] .ico{outline:1.5px solid var(--select);background:color-mix(in srgb, var(--select) 14%, var(--surface))}
-.cat[aria-pressed="true"] span{color:var(--ink);font-weight:600}
+.cat[aria-pressed="true"] .ico{outline:2px solid var(--line);background:var(--solid)}
+.cat[aria-pressed="true"] span{color:var(--ink);font-weight:700;text-transform:uppercase}
 
 .tools{display:flex;align-items:center;justify-content:space-between;gap:12px;max-width:1200px;margin:4px auto 0}
 .count{font-size:13px;color:var(--muted)}
@@ -66,15 +66,15 @@ button{cursor:pointer}
 main{max-width:1200px;margin:0 auto;padding:18px 16px 60px}
 .status{color:var(--muted);margin:24px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
-.card{position:relative;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;transition:box-shadow .15s}
-.card:hover{box-shadow:0 6px 20px rgba(20,24,30,.08)}
+.card{position:relative;border:2px solid var(--line);border-radius:var(--radius);background:var(--surface);overflow:hidden;transition:transform .12s,box-shadow .12s;box-shadow:4px 4px 0 var(--line)}
+.card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--line)}
 .card .open{display:block;width:100%;padding:0;border:0;background:none;text-align:left}
 .card .pic{aspect-ratio:1/1;display:grid;place-items:center;background:var(--surface);padding:26px 14px 0}
 .card img{max-width:240px;margin:auto}
 .card img{width:100%;height:100%;object-fit:contain}
 .custom-thumb{display:grid;place-items:center;width:100%;height:100%;color:var(--muted)}
 .card .txt{display:block;padding:10px 14px 14px}
-.card .nm{display:block;font-weight:600;font-size:14.5px;line-height:1.3}
+.card .nm{display:block;font-family:var(--font-display);font-weight:400;letter-spacing:.01em;text-transform:uppercase;font-size:16.5px;line-height:1.15}
 .card .sub{display:block;font-size:13px;color:var(--muted);margin-top:2px}
 .bm{position:absolute;top:10px;left:10px;width:32px;height:32px;display:grid;place-items:center;border:0;border-radius:8px;background:color-mix(in srgb, var(--surface) 90%, transparent);color:var(--ink)}
 .bm svg{width:17px;height:17px}
@@ -148,8 +148,8 @@ dd{margin:0}
 
 /* Onglets bas de page */
 .view main{padding-bottom:90px}
-.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;background:var(--surface);border-top:1px solid var(--line);padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px))}
-.tabbar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;padding:6px;color:var(--muted);font-size:11.5px}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;background:var(--surface);border-top:3px solid var(--line);padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px))}
+.tabbar button{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;background:none;border:0;padding:6px;color:var(--muted);font-size:11px;font-family:var(--font-display);letter-spacing:.02em;text-transform:uppercase}
 .tabbar button[aria-pressed="true"]{color:var(--select)}
 
 .top.simple{display:flex;align-items:center;gap:10px;padding:calc(16px + env(safe-area-inset-top,0px)) 16px 20px;background:linear-gradient(135deg, var(--grad-a), var(--grad-b));color:#fff;border-bottom:0}
@@ -159,7 +159,7 @@ dd{margin:0}
 .top.simple .seance-name{flex:1;border:0;border-bottom:1px solid rgba(255,255,255,.5);padding:6px 0;font-size:18px;font-weight:600;background:none;color:#fff}
 .top.simple .seance-name::placeholder{color:rgba(255,255,255,.75)}
 
-.btn-primary,.btn-secondary{border-radius:10px;padding:12px 18px;font-size:14.5px;font-weight:600;border:0}
+.btn-primary,.btn-secondary{border-radius:var(--radius);padding:12px 18px;font-size:14px;font-family:var(--font-display);letter-spacing:.03em;text-transform:uppercase;border:2px solid var(--line)}
 .btn-primary{background:var(--solid);color:var(--on-solid)}
 .btn-secondary{background:var(--soft);color:var(--ink)}
 .btn-block{display:block;width:100%;margin-top:10px}
@@ -306,7 +306,7 @@ dd{margin:0}
 #importLabel input{display:none}
 
 /* Bouton flottant : créer un exercice personnalisé */
-.fab{position:fixed;right:16px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:15;width:52px;height:52px;border-radius:50%;background:var(--solid);color:var(--on-solid);display:grid;place-items:center;box-shadow:0 6px 18px rgba(0,0,0,.28);border:0}
+.fab{position:fixed;right:16px;bottom:calc(76px + env(safe-area-inset-bottom,0px));z-index:15;width:54px;height:54px;border-radius:var(--radius);background:var(--solid);color:var(--on-solid);display:grid;place-items:center;box-shadow:4px 4px 0 var(--line);border:2px solid var(--line)}
 .custom-form{padding:6px 22px 24px;display:grid;gap:14px}
 .custom-form label{display:grid;gap:6px;font-size:13px;color:var(--muted)}
 .custom-form input,.custom-form select,.custom-form textarea{border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14.5px;color:var(--ink);background:var(--surface);font:inherit}
