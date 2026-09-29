@@ -13,6 +13,7 @@
   --grad-a:#ffb25e;
   --grad-b:#ff6a3d;
   --radius:12px;
+  --font-display:'Bebas Neue', 'Arial Narrow', sans-serif;
 }
 @media (prefers-color-scheme: dark){
   :root{
@@ -41,6 +42,10 @@ button{cursor:pointer}
 :focus-visible{outline:2px solid var(--select);outline-offset:2px}
 
 .top{position:sticky;top:0;z-index:10;background:var(--bg);padding:calc(18px + env(safe-area-inset-top,0px)) 16px 8px;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;justify-content:center;gap:6px;max-width:720px;margin:0 auto 12px;color:var(--ink)}
+.brand-mark{color:var(--solid);flex:none}
+.brand-name{font-family:var(--font-display);font-size:26px;line-height:1;letter-spacing:.04em;text-transform:uppercase}
+.brand-accent{color:var(--solid)}
 .search{display:flex;align-items:center;gap:10px;max-width:720px;margin:0 auto;height:50px;padding:0 20px;border:1px solid var(--line);border-radius:999px;background:var(--surface);box-shadow:0 2px 10px rgba(20,24,30,.06);color:var(--muted)}
 .search input{flex:1;border:0;outline:0;background:transparent;color:var(--ink);height:100%}
 .search input::placeholder{color:var(--muted)}
